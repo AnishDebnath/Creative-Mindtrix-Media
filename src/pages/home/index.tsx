@@ -9,48 +9,61 @@ import { CtaSection } from './CtaSection';
 
 const noop = () => {};
 
-export function HomePage() {
+interface HomePageProps {
+  onNavigateToImages: () => void;
+  onNavigateToReels: () => void;
+}
+
+export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProps) {
   return (
     <main className="flex-1 w-full">
       {/* Hero Section */}
       <HeroSection
         onSelectProfile={noop}
         onSendReaction={noop}
-        onOpenVideoChat={noop}
+        onOpenVideoChat={onNavigateToReels}
+        onNavigateToImages={onNavigateToImages}
+        onNavigateToReels={onNavigateToReels}
       />
 
       {/* What We Stand For Section */}
       <WhatWeStandForSection
-        onDiscoverMore={() => scrollToId('community')}
+        onDiscoverMore={() => scrollToId('stand-for')}
+        onNavigateToImages={onNavigateToImages}
+        onNavigateToReels={onNavigateToReels}
       />
 
       {/* Meet The World Section */}
       <MeetTheWorldSection
         onSelectProfile={noop}
         onSendReaction={noop}
-        onDiscoverMore={noop}
+        onDiscoverMore={onNavigateToImages}
+        onNavigateToImages={onNavigateToImages}
       />
 
-      {/* The Mindtrix Community Section */}
+      {/* The Mindtrix AI Reel Stage */}
       <CommunitySection
-        onOpenVideoChat={noop}
+        onOpenVideoChat={onNavigateToReels}
         onMeetCommunity={() => scrollToId('testimonials')}
+        onNavigateToReels={onNavigateToReels}
       />
 
-      {/* What Our Users Love Section */}
+      {/* Testimonials */}
       <TestimonialsSection />
 
       {/* Bottom Profile Floating Showcase */}
       <BottomShowcaseSection
         onSelectProfile={noop}
         onSendReaction={noop}
+        onNavigateToImages={onNavigateToImages}
       />
 
-      {/* CTA & Waitlist Section */}
+      {/* CTA Section */}
       <CtaSection
         onJoinWaitlist={noop}
         onSubscribe={noop}
         onScrollToAbout={() => scrollToId('stand-for')}
+        onNavigateToImages={onNavigateToImages}
       />
     </main>
   );

@@ -1,4 +1,11 @@
-import { Profile, Testimonial, StandForCard, MarqueeProduct } from '@/types';
+import {
+  Profile,
+  Testimonial,
+  StandForCard,
+  MarqueeProduct,
+  ImageProject,
+  VideoProject
+} from '@/types';
 
 import matthiasCardImg from '@/assets/images/card_matthias_1790977103900.jpg';
 import johannaCardImg from '@/assets/images/card_johanna_1790977118147.jpg';
@@ -8,219 +15,14 @@ import sarahCardImg from '@/assets/images/card_sarah_1790977156627.jpg';
 
 import yasminImg from '@/assets/images/yasmin_clean_916_1790980492922.jpg';
 import uweImg from '@/assets/images/profile_uwe_1790976747637.jpg';
-
-export const HERO_PROFILES: Profile[] = [
-  {
-    id: 'matthias',
-    name: 'MATTHIAS FINKEL',
-    age: 25,
-    country: 'Germany',
-    flag: '🇩🇪',
-    city: 'Berlin',
-    isOnline: true,
-    avatar: matthiasCardImg,
-    bio: 'Photographer & urban explorer. Love candid film shots, techno music and late night coffee conversations.',
-    interests: ['Photography', 'Music', 'Travel', 'Art'],
-    likesCount: '14.2k',
-    commentsCount: '620',
-    sharesCount: '1.8k'
-  },
-  {
-    id: 'johanna',
-    name: 'JOHANNA KUEFER',
-    age: 26,
-    country: 'Chile',
-    flag: '🇨🇱',
-    city: 'Santiago',
-    isOnline: true,
-    avatar: johannaCardImg,
-    bio: 'Architecture student & thrift hunter. Always up to chat about Scandinavian design, indie cinema, and hiking trails.',
-    interests: ['Design', 'Cinema', 'Hiking', 'Books'],
-    likesCount: '18.9k',
-    commentsCount: '840',
-    sharesCount: '2.1k'
-  },
-  {
-    id: 'simone',
-    name: 'SIMONE LANGE',
-    age: 24,
-    country: 'Liberia',
-    flag: '🇱🇷',
-    city: 'Monrovia',
-    isOnline: true,
-    avatar: simoneCardImg,
-    bio: 'Creative director & vintage fashion enthusiast. Laughing 90% of the time, making moodboards the other 10%.',
-    interests: ['Fashion', 'Creative', 'Festivals', 'Surfing'],
-    likesCount: '24.5k',
-    commentsCount: '1.2k',
-    sharesCount: '3.4k'
-  },
-  {
-    id: 'paul',
-    name: 'PAUL KASTNER',
-    age: 23,
-    country: 'Congo',
-    flag: '🇨🇩',
-    city: 'Kinshasa',
-    isOnline: true,
-    avatar: paulCardImg,
-    bio: 'Music producer & sound designer. Looking for genuine creative souls to exchange music tastes and stories.',
-    interests: ['Audio', 'Synthwave', 'Coffee', 'Skateboarding'],
-    likesCount: '9.8k',
-    commentsCount: '410',
-    sharesCount: '950'
-  },
-  {
-    id: 'sarah',
-    name: 'SARAH URNER',
-    age: 22,
-    country: 'Canada',
-    flag: '🇨🇦',
-    city: 'Montreal',
-    isOnline: true,
-    avatar: sarahCardImg,
-    bio: 'Illustrator & botanist. Plant mom with 40+ species. Let’s share cozy playlists and talk about creative hobbies!',
-    interests: ['Plants', 'Illustration', 'Nature', 'Baking'],
-    likesCount: '11.3k',
-    commentsCount: '520',
-    sharesCount: '1.2k'
-  }
-];
-
-export const PHONE_PROFILE: Profile = {
-  id: 'yasmin',
-  name: 'Yasmin Cardoso',
-  age: 23,
-  country: 'United States',
-  flag: '🇺🇸',
-  city: 'New York City',
-  isOnline: true,
-  avatar: yasminImg,
-  bio: 'Living in NYC! Passionate about street photography, foodie adventures, and meeting inspiring people around the world.',
-  interests: ['Photography', 'City Life', 'Dance', 'Foodie'],
-  likesCount: '12k',
-  commentsCount: '500',
-  sharesCount: '1.5k'
-};
-
 import girlWithSunglassesImg from '@/assets/images/card_girl_sunglasses_1790978472551.jpg';
 
-export const PHONE_FRIEND_CARD = {
-  name: 'Elena Vance',
-  avatar: girlWithSunglassesImg,
-  likes: '12k',
-  comments: '500',
-  shares: '1.5k'
-};
-
-export const UWE_PROFILE: Profile = {
-  id: 'uwe',
-  name: 'UWE SANGER',
-  age: 22,
-  country: 'Canada',
-  flag: '🇨🇦',
-  city: 'Vancouver',
-  isOnline: true,
-  avatar: uweImg,
-  bio: 'Software engineer & digital artist. Always curious about futuristic design, late night deep chats, and film cameras.',
-  interests: ['Tech', 'Coding', 'Digital Art', 'Anime'],
-  likesCount: '15.6k',
-  commentsCount: '780',
-  sharesCount: '2.0k'
-};
-
-export const STAND_FOR_CARDS: StandForCard[] = [
-  {
-    id: '1',
-    title: 'BRINGING PEOPLE CLOSER',
-    description: 'Shaping meaningful connections and growth for the next generation.',
-    bgClass: 'bg-white/95 border border-white/60 shadow-sm',
-    textClass: 'text-neutral-900'
-  },
-  {
-    id: '2',
-    title: 'SELF-WORTH AND CONFIDENCE',
-    description: 'Creating a space where new friendships grow and confidence builds.',
-    bgClass: 'bg-[#f7edf7]/90 border border-[#edd7ee]/60 shadow-sm',
-    textClass: 'text-neutral-900'
-  },
-  {
-    id: '3',
-    title: 'THE JOY OF REAL CONVERSATIONS',
-    description: 'Offering a vibrant space where social interaction feels free and natural.',
-    bgClass: 'bg-[#faf6ea]/90 border border-[#f2e7cc]/60 shadow-sm',
-    textClass: 'text-neutral-900'
-  },
-  {
-    id: '4',
-    title: 'MEET REAL PEOPLE YOUR AGE',
-    description: 'At Mindtrix Media, we’re building content where real, genuine stories come first.',
-    bgClass: 'bg-[#eaf4fa]/90 border border-[#d6e9f5]/60 shadow-sm',
-    textClass: 'text-neutral-900'
-  }
-];
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: 't1',
-    name: 'PAUL KASTNER',
-    country: 'Canada',
-    flag: '🇨🇦',
-    rating: 5,
-    text: 'Genuinely love using Wiss Chat. It feels safe, welcoming, and easy to connect with new people without pressure. The conversations feel real, and the community is surprisingly kind and respectful. It\'s one of the few chat platforms where I actually feel comfortable being myself.',
-    avatar: paulCardImg,
-    role: 'Active Creator'
-  },
-  {
-    id: 't2',
-    name: 'STEFFEN ACHEN',
-    country: 'USA',
-    flag: '🇺🇸',
-    rating: 5,
-    text: 'Wiss Chat is honestly one of my favorite apps right now. The design is clean, the features are simple, and meeting new people feels fun instead of awkward Every chat.',
-    avatar: matthiasCardImg,
-    role: 'Community Member'
-  }
-];
-
-export const COMMUNITY_TILES = [
-  {
-    id: 'c1',
-    name: 'Milo Ren',
-    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80',
-    isOnline: true
-  },
-  {
-    id: 'c2',
-    name: 'Zoe Klein',
-    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80',
-    isOnline: true
-  },
-  {
-    id: 'c3',
-    name: 'Kian Miller',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-    isOnline: true
-  },
-  {
-    id: 'c4',
-    name: 'Luna Zhang',
-    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80',
-    isOnline: false
-  },
-  {
-    id: 'c5',
-    name: 'Damon Brooks',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
-    isOnline: true
-  },
-  {
-    id: 'c6',
-    name: 'Maya Cruz',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80',
-    isOnline: true
-  }
-];
+import brunetteImg from '@/assets/images/brunette_shirt_left_1790982842053.jpg';
+import communityFriendsImg from '@/assets/images/community_wide_friends_1790982804862.jpg';
+import tousledGuyImg from '@/assets/images/tousled_guy_sky_1790982870552.jpg';
+import windblownImg from '@/assets/images/windblown_hair_woman_1790982857578.jpg';
+import pixieImg from '@/assets/images/woman_bandana_pixie_1790982884567.jpg';
+import sunlightManImg from '@/assets/images/community_man_sunlight_1790982822414.jpg';
 
 import lipstickFlatLayImg from '@/assets/UGC product image/lipstick/Create_cosmetics_flat_lay_photog.jpg';
 import lipstickMarbleImg from '@/assets/UGC product image/lipstick/Lipstick_advertisement_on_marble.jpg';
@@ -243,25 +45,500 @@ import womenPerfumeFlatLayImg from '@/assets/UGC product image/women-perfume/Per
 import womenPerfumePedestalImg from '@/assets/UGC product image/women-perfume/Perfume_bottle_on_stone_pedestal.jpg';
 import womenPerfumePlaceImg from '@/assets/UGC product image/women-perfume/Perfume_product_photograph_place.jpg';
 
+export const HERO_PROFILES: Profile[] = [
+  {
+    id: 'matthias',
+    name: 'MATTHIAS FINKEL',
+    age: 28,
+    country: 'Germany',
+    flag: '🇩🇪',
+    city: 'Berlin',
+    isOnline: true,
+    avatar: matthiasCardImg,
+    bio: 'Lead AI Video Producer at Mindtrix. Directing viral UGC ads and 3D product motion campaigns for European direct-to-consumer brands.',
+    role: 'AI Video Director',
+    interests: ['AI Commercials', 'Viral Ads', '3D Motion', 'E-commerce'],
+    likesCount: '24.8k',
+    commentsCount: '1.2k',
+    sharesCount: '3.6k'
+  },
+  {
+    id: 'johanna',
+    name: 'JOHANNA KUEFER',
+    age: 26,
+    country: 'Chile',
+    flag: '🇨🇱',
+    city: 'Santiago',
+    isOnline: true,
+    avatar: johannaCardImg,
+    bio: 'Creative Strategist crafting high-converting AI product campaigns and multi-platform advertising funnels.',
+    role: 'Campaign Strategist',
+    interests: ['Ad Conversion', 'TikTok Strategy', 'Product Launches'],
+    likesCount: '18.9k',
+    commentsCount: '840',
+    sharesCount: '2.1k'
+  },
+  {
+    id: 'simone',
+    name: 'SIMONE LANGE',
+    age: 27,
+    country: 'Liberia',
+    flag: '🇱🇷',
+    city: 'Monrovia',
+    isOnline: true,
+    avatar: simoneCardImg,
+    bio: 'Head of AI Creative Advertising. Overseeing luxury cosmetics, fragrance renders, and high-impact commercial production.',
+    role: 'Creative Director',
+    interests: ['Luxury Beauty', 'Commercial AI', 'Editorial Ads'],
+    likesCount: '31.5k',
+    commentsCount: '2.1k',
+    sharesCount: '4.8k'
+  },
+  {
+    id: 'paul',
+    name: 'PAUL KASTNER',
+    age: 25,
+    country: 'Canada',
+    flag: '🇨🇦',
+    city: 'Montreal',
+    isOnline: true,
+    avatar: paulCardImg,
+    bio: 'AI Sound & Motion Specialist. Producing studio sound design and commercial voiceovers for viral product reels.',
+    role: 'Audio & Motion Lead',
+    interests: ['Sound Design', 'Reel Editing', 'Product Ads'],
+    likesCount: '14.2k',
+    commentsCount: '710',
+    sharesCount: '1.9k'
+  },
+  {
+    id: 'sarah',
+    name: 'SARAH URNER',
+    age: 24,
+    country: 'Canada',
+    flag: '🇨🇦',
+    city: 'Vancouver',
+    isOnline: true,
+    avatar: sarahCardImg,
+    bio: 'AI Product Photographer & Stylist specializing in 3D studio lighting, skincare flat lays, and cosmetics commercial sets.',
+    role: 'AI Product Photographer',
+    interests: ['Skincare Stills', 'Studio Lighting', 'Packaging Art'],
+    likesCount: '22.3k',
+    commentsCount: '950',
+    sharesCount: '2.7k'
+  }
+];
+
+export const PHONE_PROFILE: Profile = {
+  id: 'yasmin',
+  name: 'Yasmin Cardoso',
+  age: 24,
+  country: 'United States',
+  flag: '🇺🇸',
+  city: 'New York City',
+  isOnline: true,
+  avatar: yasminImg,
+  bio: 'Mindtrix AI UGC Creator. Featured in 40+ viral fragrance and skincare social campaigns with 3.8x average ROAS.',
+  role: 'Featured AI Creator',
+  interests: ['Viral UGC', 'Fragrance Ads', 'Product Testing'],
+  likesCount: '48k',
+  commentsCount: '2.8k',
+  sharesCount: '8.4k'
+};
+
+export const PHONE_FRIEND_CARD = {
+  name: 'Elena Vance',
+  avatar: girlWithSunglassesImg,
+  likes: '34k',
+  comments: '1.2k',
+  shares: '5.6k'
+};
+
+export const UWE_PROFILE: Profile = {
+  id: 'uwe',
+  name: 'UWE SANGER',
+  age: 29,
+  country: 'Canada',
+  flag: '🇨🇦',
+  city: 'Vancouver',
+  isOnline: true,
+  avatar: uweImg,
+  bio: 'Senior Systems Architect at Mindtrix Media. Engineering scalable software and automated AI content pipelines for global enterprise clients.',
+  role: 'AI Systems Architect',
+  interests: ['Business Software', 'AI Automation', 'Campaign Tech'],
+  likesCount: '28.4k',
+  commentsCount: '1.4k',
+  sharesCount: '4.2k'
+};
+
+export const STAND_FOR_CARDS: StandForCard[] = [
+  {
+    id: '1',
+    title: 'AI PRODUCT ADVERTISING',
+    description: 'Simple, clear, and high-converting product ads built to turn casual viewers into loyal buyers.',
+    serviceKey: 'advertising',
+    bgClass: 'bg-[#f0f7fc] border border-[#d8eaf6] shadow-sm',
+    textClass: 'text-neutral-900'
+  },
+  {
+    id: '2',
+    title: 'AI PRODUCT VIDEO CREATION',
+    description: 'Fast-paced, scroll-stopping video reels and UGC-style ads crafted for TikTok, Instagram, and YouTube Shorts.',
+    serviceKey: 'video',
+    bgClass: 'bg-[#f9f0fb] border border-[#edd7ee] shadow-sm',
+    textClass: 'text-neutral-900'
+  },
+  {
+    id: '3',
+    title: 'COMMERCIAL PRODUCTION',
+    description: 'Agency-grade cinematic product commercials with studio lighting, realistic textures, and premium finish.',
+    serviceKey: 'commercial',
+    bgClass: 'bg-[#f4faea] border border-[#e2f2cc] shadow-sm',
+    textClass: 'text-neutral-900'
+  },
+  {
+    id: '4',
+    title: 'AI-GENERATED CAMPAIGNS',
+    description: 'End-to-end multi-asset campaigns including high-res photos, video variations, and copy designed to scale your business.',
+    serviceKey: 'campaigns',
+    bgClass: 'bg-[#edf7f9] border border-[#d2ecf2] shadow-sm',
+    textClass: 'text-neutral-900'
+  }
+];
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: 't1',
+    name: 'MARCUS VANCE',
+    country: 'United States',
+    flag: '🇺🇸',
+    rating: 5,
+    text: 'Mindtrix Media completely revolutionized our e-commerce advertising. Their AI product video creation delivered 15 high-converting reels in under 48 hours. Our ROAS increased from 1.8x to 4.2x within two weeks. The quality matches top creative agencies at a fraction of the cost.',
+    avatar: paulCardImg,
+    role: 'Founder & CEO',
+    company: 'Veloce Luxury Goods'
+  },
+  {
+    id: 't2',
+    name: 'SARAH LINDQUIST',
+    country: 'Sweden',
+    flag: '🇸🇪',
+    rating: 5,
+    text: 'We used Mindtrix Media software for business automation, and when they launched their AI Product Advertising service, we signed up immediately. The AI-generated product photography and commercials look like a $60,000 studio shoot. Highly recommend their team.',
+    avatar: matthiasCardImg,
+    role: 'Head of Growth',
+    company: 'Nordic Skincare Co.'
+  }
+];
+
 export const MARQUEE_PRODUCTS: MarqueeProduct[] = [
-  { id: 'lip-1', src: lipstickFlatLayImg, label: 'Lipstick' },
-  { id: 'lip-2', src: lipstickMarbleImg, label: 'Lipstick' },
-  { id: 'lip-3', src: lipstickEditorialImg, label: 'Lipstick' },
-  { id: 'lip-4', src: lipstickLuxuryImg, label: 'Lipstick' },
-  { id: 'mp-1', src: menPerfumeCreatingAdvImg, label: "Men's Perfume" },
-  { id: 'mp-2', src: menPerfumeCreatingAdvertisImg, label: "Men's Perfume" },
-  { id: 'mp-3', src: menPerfumePosterImg, label: "Men's Perfume" },
-  { id: 'mp-4', src: menPerfumeEditorialImg, label: "Men's Perfume" },
-  { id: 'mp-5', src: menPerfumeLibraryImg, label: "Men's Perfume" },
-  { id: 'mp-6', src: menPerfumeMindtrixImg, label: "Men's Perfume" },
-  { id: 'skin-1', src: skincareStoneImg, label: 'Skincare' },
-  { id: 'skin-2', src: skincarePhotographImg, label: 'Skincare' },
-  { id: 'skin-3', src: skincareAdvertisemenImg, label: 'Skincare' },
-  { id: 'skin-4', src: skincareAdvertisementImg, label: 'Skincare' },
-  { id: 'skin-5', src: skincareCommercialImg, label: 'Skincare' },
-  { id: 'wp-1', src: womenPerfumeCreatingImg, label: "Women's Perfume" },
-  { id: 'wp-2', src: womenPerfumeCommercialImg, label: "Women's Perfume" },
-  { id: 'wp-3', src: womenPerfumeFlatLayImg, label: "Women's Perfume" },
-  { id: 'wp-4', src: womenPerfumePedestalImg, label: "Women's Perfume" },
-  { id: 'wp-5', src: womenPerfumePlaceImg, label: "Women's Perfume" }
+  { id: 'lip-1', src: lipstickFlatLayImg, label: 'Lipstick Studio Flat Lay', category: 'Lipstick' },
+  { id: 'lip-2', src: lipstickMarbleImg, label: 'Lipstick on Carrara Marble', category: 'Lipstick' },
+  { id: 'lip-3', src: lipstickEditorialImg, label: 'Editorial Velvet Lipstick', category: 'Lipstick' },
+  { id: 'lip-4', src: lipstickLuxuryImg, label: 'Luxury Gold Trim Lipstick', category: 'Lipstick' },
+  { id: 'mp-1', src: menPerfumeCreatingAdvImg, label: "Men's Noir Fragrance Ad", category: "Men's Perfume" },
+  { id: 'mp-2', src: menPerfumeCreatingAdvertisImg, label: "Men's Cologne Splash Shot", category: "Men's Perfume" },
+  { id: 'mp-3', src: menPerfumePosterImg, label: "Men's Eau De Parfum Poster", category: "Men's Perfume" },
+  { id: 'mp-4', src: menPerfumeEditorialImg, label: 'Editorial Perfume Lighting', category: "Men's Perfume" },
+  { id: 'mp-5', src: menPerfumeLibraryImg, label: 'Luxury Library Cologne Staging', category: "Men's Perfume" },
+  { id: 'mp-6', src: menPerfumeMindtrixImg, label: 'Mindtrix Signature Perfume Shot', category: "Men's Perfume" },
+  { id: 'skin-1', src: skincareStoneImg, label: 'Organic Skincare on Stone', category: 'Skincare' },
+  { id: 'skin-2', src: skincarePhotographImg, label: 'Pure Serum Dropper Staging', category: 'Skincare' },
+  { id: 'skin-3', src: skincareAdvertisemenImg, label: 'Botanical Skincare Clean Ad', category: 'Skincare' },
+  { id: 'skin-4', src: skincareAdvertisementImg, label: 'Hydra Glow Cream Campaign', category: 'Skincare' },
+  { id: 'skin-5', src: skincareCommercialImg, label: 'Luxury Skincare Trio Commercial', category: 'Skincare' },
+  { id: 'wp-1', src: womenPerfumeCreatingImg, label: "Women's Floral Perfume Ad", category: "Women's Perfume" },
+  { id: 'wp-2', src: womenPerfumeCommercialImg, label: 'Commercial Glass Reflection', category: "Women's Perfume" },
+  { id: 'wp-3', src: womenPerfumeFlatLayImg, label: 'Crystal Bottle Studio Flat Lay', category: "Women's Perfume" },
+  { id: 'wp-4', src: womenPerfumePedestalImg, label: 'Rose Gold Flacon on Pedestal', category: "Women's Perfume" },
+  { id: 'wp-5', src: womenPerfumePlaceImg, label: 'Premium Perfume Editorial Spread', category: "Women's Perfume" }
+];
+
+export const ALL_IMAGE_PROJECTS: ImageProject[] = [
+  {
+    id: 'img-1',
+    title: 'LUXURY VELVET LIPSTICK EDITORIAL',
+    category: 'Lipstick',
+    image: lipstickEditorialImg,
+    serviceType: 'AI Product Advertising',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Studio macro product photography with dramatic lighting and velvety texture highlights.',
+    tags: ['Cosmetics', 'Studio Macro', 'Ultra HD'],
+    likes: '14.2k'
+  },
+  {
+    id: 'img-2',
+    title: 'ORGANIC HYDRATION SERUM ON STONE',
+    category: 'Skincare',
+    image: skincareStoneImg,
+    serviceType: 'AI Product Content Creation',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Natural stone pedestal composition highlighting organic ingredients and clean skincare aesthetics.',
+    tags: ['Skincare', 'Clean Beauty', 'Pedestal'],
+    likes: '19.8k'
+  },
+  {
+    id: 'img-3',
+    title: 'NOIR EAU DE PARFUM CAMPAIGN',
+    category: "Men's Perfume",
+    image: menPerfumeCreatingAdvImg,
+    serviceType: 'AI Product Commercial Production',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Deep moody cinematic lighting capturing masculine bottle geometry and amber reflections.',
+    tags: ['Fragrance', 'Moody Cinema', 'Luxury'],
+    likes: '22.1k'
+  },
+  {
+    id: 'img-4',
+    title: 'ROSE GOLD FLACON ON PEDESTAL',
+    category: "Women's Perfume",
+    image: womenPerfumePedestalImg,
+    serviceType: 'AI Creative Advertising',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Elegant crystal flacon set on a textured architectural pedestal with soft morning daylight.',
+    tags: ['Perfume', 'Soft Daylight', 'Minimalist'],
+    likes: '27.4k'
+  },
+  {
+    id: 'img-5',
+    title: 'COSMETICS COMPOSITION FLAT LAY',
+    category: 'Cosmetics',
+    image: lipstickFlatLayImg,
+    serviceType: 'AI Product Content Creation',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Geometric overhead flat lay showcasing multi-shade lipstick pigments and modern packaging.',
+    tags: ['Flat Lay', 'Pigments', 'Packaging'],
+    likes: '16.5k'
+  },
+  {
+    id: 'img-6',
+    title: 'MEN COLOGNE IN LUXURY LIBRARY',
+    category: "Men's Perfume",
+    image: menPerfumeLibraryImg,
+    serviceType: 'AI-Generated Product Campaigns',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Editorial lifestyle staging in a rich mahogany library with warm ambient glow.',
+    tags: ['Lifestyle', 'Editorial', 'Heritage'],
+    likes: '18.3k'
+  },
+  {
+    id: 'img-7',
+    title: 'PURE BOTANICAL SKINCARE AD',
+    category: 'Skincare',
+    image: skincarePhotographImg,
+    serviceType: 'AI Product Advertising',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Clean glass dropper with liquid splash detail designed for high-conversion social feeds.',
+    tags: ['Dropper', 'Clean Beauty', 'High ROAS'],
+    likes: '25.9k'
+  },
+  {
+    id: 'img-8',
+    title: 'CRYSTAL PERFUME REFLECTION STAGE',
+    category: "Women's Perfume",
+    image: womenPerfumeCommercialImg,
+    serviceType: 'AI Product Video & Visuals',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Specular glass reflections with subtle gold dust particles for premium beauty brands.',
+    tags: ['Glass Flacon', 'Gold Particles', 'Luxury'],
+    likes: '31.2k'
+  },
+  {
+    id: 'img-9',
+    title: 'LIPSTICK CAMPAIGN ON CARRARA MARBLE',
+    category: 'Lipstick',
+    image: lipstickMarbleImg,
+    serviceType: 'AI Creative Advertising',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'White Italian marble surface contrasting with vibrant crimson and nude lipstick shades.',
+    tags: ['Marble', 'Color Contrast', 'Studio'],
+    likes: '21.0k'
+  },
+  {
+    id: 'img-10',
+    title: 'LUXURY SKINCARE TRIO COMMERCIAL SET',
+    category: 'Skincare',
+    image: skincareCommercialImg,
+    serviceType: 'AI Product Commercial Production',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Full 3-piece product line staging with harmonious lighting and architectural accents.',
+    tags: ['Product Line', 'Studio Staging', 'Commercial'],
+    likes: '28.7k'
+  },
+  {
+    id: 'img-11',
+    title: 'MINDTRIX SIGNATURE MEN COLOGNE',
+    category: "Men's Perfume",
+    image: menPerfumeMindtrixImg,
+    serviceType: 'AI-Powered Product Ads',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Bold center framing with brushed metal cap details and crisp brand typography backdrop.',
+    tags: ['Branded Shot', 'Metal Texture', 'Ad Creative'],
+    likes: '19.4k'
+  },
+  {
+    id: 'img-12',
+    title: 'FLORAL ESSENCE PERFUME STYLING',
+    category: "Women's Perfume",
+    image: womenPerfumeCreatingImg,
+    serviceType: 'AI Product Advertising',
+    aspectRatio: '1:1',
+    resolution: '4K Ultra HD',
+    description: 'Spring blooming floral accents framing a luminous transparent flacon for seasonal launches.',
+    tags: ['Seasonal Ad', 'Floral', 'Fresh'],
+    likes: '23.6k'
+  }
+];
+
+export const ALL_VIDEO_PROJECTS: VideoProject[] = [
+  {
+    id: 'vid-1',
+    title: 'LUXURY FRAGRANCE COMMERCIAL PRODUCTION',
+    category: 'Commercials',
+    format: 'wide',
+    thumbnail: womenPerfumeCommercialImg,
+    duration: '0:30',
+    serviceType: 'AI Product Commercial Production',
+    clientIndustry: 'Luxury Perfume & Beauty',
+    views: '2.4M',
+    roas: '4.5x',
+    description: 'Cinema-grade lighting, fluid camera sweeps, and ultra-crisp flacon renders crafted for high-end digital broadcast.',
+    tags: ['Broadcast Ad', '4K Cinema', 'Luxury Beauty']
+  },
+  {
+    id: 'vid-2',
+    title: 'ORGANIC SKINCARE REVOLUTION AD',
+    category: 'Product Ads',
+    format: 'wide',
+    thumbnail: skincareStoneImg,
+    duration: '0:20',
+    serviceType: 'AI-Powered Product Ads',
+    clientIndustry: 'Clean Cosmetics & Skincare',
+    views: '1.8M',
+    roas: '3.9x',
+    description: 'High-impact product benefit callouts, clean textures, and fast visual pacing designed to drive direct sales.',
+    tags: ['Direct Response', 'Meta & TikTok', 'Conversion']
+  },
+  {
+    id: 'vid-3',
+    title: 'VIRAL FASHION RUNWAY & BEAUTY REEL',
+    category: 'Viral Reels',
+    format: 'tall',
+    thumbnail: brunetteImg,
+    duration: '0:15',
+    serviceType: 'AI Product Video Creation',
+    clientIndustry: 'Apparel & Accessories',
+    views: '3.2M',
+    roas: '5.1x',
+    description: 'Dynamic 9:16 vertical reel with quick cuts, trending sound design, and instant visual hook in first 2 seconds.',
+    tags: ['Instagram Reel', 'TikTok Viral', '9:16 Vertical']
+  },
+  {
+    id: 'vid-4',
+    title: 'COSMETICS LAUNCH UGC SPOTLIGHT',
+    category: 'E-Commerce',
+    format: 'tall',
+    thumbnail: communityFriendsImg,
+    duration: '0:18',
+    serviceType: 'AI Creative Advertising',
+    clientIndustry: 'D2C E-Commerce Brand',
+    views: '1.5M',
+    roas: '4.2x',
+    description: 'Authentic creator-style testimonial vibe with product unboxing and real-time application glow.',
+    tags: ['UGC Format', 'Unboxing', 'E-Commerce']
+  },
+  {
+    id: 'vid-5',
+    title: 'MEN NOIR COLOGNE STATEMENT FILM',
+    category: 'Brand Films',
+    format: 'tall',
+    thumbnail: tousledGuyImg,
+    duration: '0:25',
+    serviceType: 'AI Product Content Creation',
+    clientIndustry: 'Men Grooming & Fragrance',
+    views: '2.1M',
+    roas: '3.8x',
+    description: 'Moody, high-contrast visual storytelling that establishes brand authority and aspirational identity.',
+    tags: ['Brand Story', 'High Contrast', 'Lifestyle']
+  },
+  {
+    id: 'vid-6',
+    title: 'ENTERPRISE SAAS & HARDWARE 3D SHOWCASE',
+    category: 'Commercials',
+    format: 'wide',
+    thumbnail: menPerfumeLibraryImg,
+    duration: '0:45',
+    serviceType: 'AI-Generated Product Campaigns',
+    clientIndustry: 'Tech & Modern Hardware',
+    views: '980K',
+    roas: '4.8x',
+    description: 'Exploded-view product anatomy, feature highlights, and sleek 3D perspective animations for B2B & retail buyers.',
+    tags: ['3D Anatomy', 'Enterprise', 'Product Launch']
+  },
+  {
+    id: 'vid-7',
+    title: 'HYDRATION GLOW SERUM HERO COMMERCIAL',
+    category: 'Product Ads',
+    format: 'wide',
+    thumbnail: skincareCommercialImg,
+    duration: '0:30',
+    serviceType: 'AI Product Advertising',
+    clientIndustry: 'Health & Derma Care',
+    views: '2.7M',
+    roas: '4.4x',
+    description: 'Microscopic texture zoom, moisture barrier animation, and dermatologist-tested validation overlay.',
+    tags: ['Derma Care', 'Micro Texture', 'Proven ROAS']
+  },
+  {
+    id: 'vid-8',
+    title: 'CRIMSON VELVET LIPSTICK MACRO TEASER',
+    category: 'Viral Reels',
+    format: 'tall',
+    thumbnail: windblownImg,
+    duration: '0:12',
+    serviceType: 'AI Product Video Creation',
+    clientIndustry: 'Beauty & Glamour',
+    views: '4.1M',
+    roas: '5.4x',
+    description: 'Mesmerizing pigment glide, water-resistant test, and bold typography flash in a 12-second hyper-retention format.',
+    tags: ['Hyper Retention', 'Macro Glide', 'TikTok Hit']
+  },
+  {
+    id: 'vid-9',
+    title: 'SUMMER VIBES BOTANICAL MIST SHORT',
+    category: 'Explainers',
+    format: 'tall',
+    thumbnail: pixieImg,
+    duration: '0:20',
+    serviceType: 'AI Creative Advertising',
+    clientIndustry: 'Wellness & Daily Care',
+    views: '1.9M',
+    roas: '3.7x',
+    description: 'Step-by-step routine explainer demonstrating how to refresh throughout the day with natural spray mist.',
+    tags: ['How-To Explainer', 'Step by Step', 'Shorts']
+  },
+  {
+    id: 'vid-10',
+    title: 'SUNLIGHT GOLD FLACON BRAND SPOTLIGHT',
+    category: 'Brand Films',
+    format: 'tall',
+    thumbnail: sunlightManImg,
+    duration: '0:22',
+    serviceType: 'AI Product Commercial Production',
+    clientIndustry: 'Artisanal Perfumery',
+    views: '2.3M',
+    roas: '4.0x',
+    description: 'Golden hour ambient light reflecting through crystal perfume flacon with inspirational brand narration.',
+    tags: ['Golden Hour', 'Crystal Optics', 'Brand Anthem']
+  }
 ];

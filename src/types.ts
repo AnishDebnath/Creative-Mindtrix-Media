@@ -1,13 +1,14 @@
 export interface Profile {
   id: string;
   name: string;
-  age: number;
+  age?: number;
   country: string;
   flag: string;
   city?: string;
   isOnline: boolean;
   avatar: string;
   bio: string;
+  role?: string;
   likesCount?: string;
   commentsCount?: string;
   sharesCount?: string;
@@ -24,12 +25,14 @@ export interface Testimonial {
   text: string;
   avatar: string;
   role?: string;
+  company?: string;
 }
 
 export interface StandForCard {
   id: string;
   title: string;
   description: string;
+  serviceKey?: string;
   bgClass: string;
   textClass: string;
 }
@@ -38,4 +41,33 @@ export interface MarqueeProduct {
   id: string;
   src: string;
   label: string;
+  category?: string;
+}
+
+export interface ImageProject {
+  id: string;
+  title: string;
+  category: 'Skincare' | 'Lipstick' | "Men's Perfume" | "Women's Perfume" | 'Cosmetics' | 'Editorial';
+  image: string;
+  serviceType: string;
+  aspectRatio: string;
+  resolution: string;
+  description: string;
+  tags: string[];
+  likes: string;
+}
+
+export interface VideoProject {
+  id: string;
+  title: string;
+  category: 'Product Ads' | 'Commercials' | 'Viral Reels' | 'Brand Films' | 'E-Commerce' | 'Explainers';
+  format: 'wide' | 'tall';
+  thumbnail: string;
+  duration: string;
+  serviceType: string;
+  clientIndustry: string;
+  views: string;
+  roas: string;
+  description: string;
+  tags: string[];
 }

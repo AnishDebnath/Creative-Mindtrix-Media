@@ -1,6 +1,6 @@
 {
-  "name": "Mindtrix Media — Creative UGC Ads, Reels & Product Showcases",
-  "description": "Mindtrix Media showcases creative UGC ads, reels, and product showcases — bold content that turns viewers into customers.",
+  "name": "Mindtrix Media — AI Product Advertising & Creative Content Studio",
+  "description": "Mindtrix Media develops software and AI systems for business growth. Explore AI Product Advertising, AI Video Creation, and Commercial Production.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -6,13 +6,14 @@ import uweSangerTealImg from '@/assets/images/uwe_sanger_teal_1790985575257.jpg'
 import asianGuyGreencapImg from '@/assets/images/asian_guy_greencap_1790985591686.jpg';
 
 interface BottomShowcaseSectionProps {
-  onSelectProfile: (profile: Profile) => void;
-  onSendReaction: (emoji: string, profile: Profile) => void;
+  onSelectProfile?: (profile: Profile) => void;
+  onSendReaction?: (emoji: string, profile: Profile) => void;
+  onNavigateToImages?: () => void;
 }
 
 export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
-  onSelectProfile,
-  onSendReaction
+  onSendReaction,
+  onNavigateToImages
 }) => {
   const [fireClicked, setFireClicked] = useState(false);
 
@@ -47,35 +48,35 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
         {/* Relative Anchor Frame */}
         <div className="relative flex items-center justify-center">
 
-          {/* 1. Top-Left Floating Chat Bubble: "Then my job here is done 💛" */}
+          {/* 1. Top-Left Floating Chat Bubble */}
           <div className="absolute -top-2 sm:-top-4 -left-40 sm:-left-56 md:-left-72 lg:-left-80 z-20 bg-white px-5 sm:px-6 py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-white text-neutral-800 text-sm sm:text-[15px] font-semibold whitespace-nowrap transform -rotate-[7deg] hover:rotate-0 transition-transform duration-300">
-            Then my job here is done 💛
+            Scale your business with AI 🚀
           </div>
 
           {/* 2. Center Profile Card: Uwe Sanger (Tilted +5deg) */}
           <div
-            onClick={() => onSelectProfile({ ...UWE_PROFILE, avatar: uweSangerTealImg })}
+            onClick={onNavigateToImages}
             className="relative w-[300px] sm:w-[350px] md:w-[370px] aspect-square bg-white rounded-[40px] sm:rounded-[46px] p-1.5 sm:p-2 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.22)] border border-white cursor-pointer transform rotate-[5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300 group"
           >
             {/* Inner Photo Container */}
             <div className="relative w-full h-full rounded-[32px] sm:rounded-[38px] overflow-hidden bg-neutral-900 shadow-inner">
               <img
                 src={uweSangerTealImg}
-                alt="UWE SANGER"
+                alt="Mindtrix Systems Lead"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
 
               {/* Top-Right Online Badge */}
               <div className="absolute top-3.5 right-3.5 z-20 px-2.5 py-0.5 bg-white/95 backdrop-blur-md text-neutral-900 text-[10px] sm:text-[11px] font-bold rounded-full shadow-sm flex items-center gap-1.5 border border-white">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
-                <span>Online</span>
+                <span>AI Systems Online</span>
               </div>
 
               {/* Bottom Scrim & Name Label */}
               <div className="absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
                 <div className="flex items-center gap-2 text-white font-display text-base sm:text-lg font-black uppercase tracking-wider drop-shadow-md">
                   <span className="text-lg sm:text-xl">🇨🇦</span>
-                  <span>UWE SANGER , 22</span>
+                  <span>MINDTRIX MEDIA LEAD</span>
                 </div>
               </div>
             </div>
@@ -85,20 +86,21 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
               onClick={(e) => {
                 e.stopPropagation();
                 setFireClicked(true);
-                onSendReaction('🔥', { ...UWE_PROFILE, avatar: uweSangerTealImg });
+                onSendReaction?.('🔥', { ...UWE_PROFILE, avatar: uweSangerTealImg });
                 setTimeout(() => setFireClicked(false), 700);
               }}
-              className={`absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 z-30 w-14 sm:w-18 h-14 sm:h-18 bg-white rounded-full shadow-[0_12px_28px_-5px_rgba(0,0,0,0.22)] border-[2.5px] border-white flex items-center justify-center text-3xl sm:text-4xl transition-transform active:scale-95 cursor-pointer ${fireClicked ? 'scale-125' : 'hover:scale-110'
-                }`}
-              title="Send Fire Reaction"
+              className={`absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 z-30 w-14 sm:w-18 h-14 sm:h-18 bg-white rounded-full shadow-[0_12px_28px_-5px_rgba(0,0,0,0.22)] border-[2.5px] border-white flex items-center justify-center text-3xl sm:text-4xl transition-transform active:scale-95 cursor-pointer ${
+                fireClicked ? 'scale-125' : 'hover:scale-110'
+              }`}
+              title="Launch Campaign"
             >
               🔥
             </button>
           </div>
 
-          {/* 3. Top-Right Floating Chat Bubble: "Hi 👋 Ready to chat?" */}
+          {/* 3. Top-Right Floating Chat Bubble */}
           <div className="absolute -top-2 sm:-top-4 -right-40 sm:-right-56 md:-right-72 lg:-right-80 z-20 bg-white px-5 sm:px-6 py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-white text-neutral-800 text-sm sm:text-[15px] font-semibold whitespace-nowrap transform rotate-[7deg] hover:rotate-0 transition-transform duration-300">
-            Hi 👋 Ready to chat?
+            Ready for your next campaign? ✨
           </div>
 
           {/* 4. Right Floating Round Avatar with Attached Online Green Dot */}
@@ -110,7 +112,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             <div className="w-18 sm:w-22 h-18 sm:h-22 rounded-full ring-3 ring-white shadow-xl overflow-hidden bg-neutral-200">
               <img
                 src={asianGuyGreencapImg}
-                alt="Online User"
+                alt="Online Campaign Specialist"
                 className="w-full h-full object-cover"
               />
             </div>

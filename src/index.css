@@ -11,7 +11,20 @@
 }
 
 .bg-landing-gradient {
-  background: linear-gradient(180deg, #d2e4ee 0%, #ebf4f8 22%, #f8fafc 40%, #ffffff 60%, #e2eff6 85%, #b9dbe9 100%);
+  background: linear-gradient(
+    180deg,
+    #ebdce7 0%,
+    #faede5 8%,
+    #eae3fb 16%,
+    #e5e1fc 24%,
+    #f8f6fd 30%,
+    #ffffff 36%,
+    #ffffff 65%,
+    #e5e1fc 74%,
+    #eae3fb 82%,
+    #faede5 90%,
+    #ebdce7 100%
+  );
 }
 
 .text-stroke {

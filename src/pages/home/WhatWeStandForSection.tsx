@@ -2,6 +2,8 @@ import React from 'react';
 
 interface WhatWeStandForSectionProps {
   onDiscoverMore: () => void;
+  onNavigateToImages?: () => void;
+  onNavigateToReels?: () => void;
 }
 
 // Exact Swirl Icon from the design
@@ -22,20 +24,20 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
           {/* Left Big Stacked Headline */}
           <div>
             <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3]">
-              WHAT WE<br />STAND FOR
+              WHAT WE<br />DELIVER
             </h2>
           </div>
 
           {/* Right Description & Action */}
           <div className="max-w-md flex flex-col items-start gap-4">
             <p className="text-neutral-800 text-base sm:text-lg leading-relaxed font-normal">
-              Mindtrix Media is a creative studio crafting UGC ads, reels, and product showcases that turn viewers into customers.
+              Mindtrix Media develops software and AI systems that help businesses scale their advertising, increase conversions, and launch viral product campaigns.
             </p>
             <button
               onClick={onDiscoverMore}
-              className="px-7 py-3 bg-[#ded9ff] hover:bg-[#d0c9ff] text-neutral-900 font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
+              className="px-7 py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-neutral-900 font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
             >
-              DISCOVER MORE
+              EXPLORE AI CREATIVES
             </button>
           </div>
         </div>
@@ -43,28 +45,28 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
         {/* 3-Column Staggered Layout with 1:1 Square Ratio Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           
-          {/* ROW 1 - COL 1: BRINGING PEOPLE CLOSER (Soft Sky Blue) */}
-          <div className="w-full aspect-square bg-[#f0f7fc] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+          {/* ROW 1 - COL 1: AI PRODUCT ADVERTISING (4-Color Soft Gradient) */}
+          <div className="w-full aspect-square bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#dcc6d5]">
             <SwirlIcon />
             <div>
               <h3 className="font-display text-3xl sm:text-[32px] lg:text-[36px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-6">
-                BRINGING PEOPLE<br />CLOSER
+                AI PRODUCT<br />ADVERTISING
               </h3>
               <p className="text-neutral-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Shaping meaningful connections and growth for the next generation.
+                Simple, clear, and high-converting product ads built to turn casual viewers into loyal customers.
               </p>
             </div>
           </div>
 
-          {/* ROW 1 - COL 2: SELF-WORTH AND CONFIDENCE (Soft Lavender / Blush) */}
-          <div className="w-full aspect-square bg-[#f9f0fb] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+          {/* ROW 1 - COL 2: AI-POWERED PRODUCT ADS (4-Color Soft Gradient) */}
+          <div className="w-full aspect-square bg-gradient-to-br from-[#f0f0fd] via-[#f7f0fb] to-[#faedf4] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#6566ee]/30">
             <SwirlIcon />
             <div>
               <h3 className="font-display text-3xl sm:text-[32px] lg:text-[36px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-6">
-                SELF-WORTH AND<br />CONFIDENCE
+                AI-POWERED<br />PRODUCT ADS
               </h3>
               <p className="text-neutral-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Creating a space where new friendships grow and confidence builds.
+                Modern, marketing-friendly ad variations tailored for Instagram, TikTok, and Meta feeds.
               </p>
             </div>
           </div>
@@ -75,28 +77,28 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
           {/* ROW 2 - COL 1: Empty spacer on desktop */}
           <div className="hidden lg:block pointer-events-none" />
 
-          {/* ROW 2 - COL 2: THE JOY OF REAL CONVERSATIONS (Soft Lime Green) */}
-          <div className="w-full aspect-square bg-[#f4faea] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+          {/* ROW 2 - COL 2: AI PRODUCT VIDEO CREATION (4-Color Soft Gradient) */}
+          <div className="w-full aspect-square bg-gradient-to-br from-[#fdf4ed] via-[#f8edf5] to-[#f1ecfc] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#eda970]/40">
             <SwirlIcon />
             <div>
               <h3 className="font-display text-3xl sm:text-[32px] lg:text-[36px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-6">
-                THE JOY OF REAL<br />CONVERSATIONS
+                AI PRODUCT<br />VIDEO CREATION
               </h3>
               <p className="text-neutral-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Offering a vibrant space where social interaction feels free and natural.
+                Scroll-stopping video reels, 3D product animations, and viral UGC style videos made to convert.
               </p>
             </div>
           </div>
 
-          {/* ROW 2 - COL 3: MEET REAL PEOPLE YOUR AGE (Soft Icy Cyan Blue) */}
-          <div className="w-full aspect-square bg-[#edf7f9] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+          {/* ROW 2 - COL 3: COMMERCIAL PRODUCTION (4-Color Soft Gradient) */}
+          <div className="w-full aspect-square bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#8f73cc]/40">
             <SwirlIcon />
             <div>
               <h3 className="font-display text-3xl sm:text-[32px] lg:text-[36px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-6">
-                MEET REAL PEOPLE<br />YOUR AGE
+                COMMERCIAL<br />PRODUCTION
               </h3>
               <p className="text-neutral-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                At Mindtrix Media, we're building content where real, genuine stories come first.
+                Agency-grade cinematic product commercials built with cutting-edge AI systems at scale.
               </p>
             </div>
           </div>
