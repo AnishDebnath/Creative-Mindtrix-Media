@@ -2,12 +2,12 @@ import React from 'react';
 import { HERO_PROFILES } from '@/data/mockData';
 import { Play } from 'lucide-react';
 
-import runwayImg from '@/assets/images/brunette_shirt_left_1790982842053.jpg';
-import lipstickFriendsImg from '@/assets/images/community_wide_friends_1790982804862.jpg';
-import tousledGuyImg from '@/assets/images/tousled_guy_sky_1790982870552.jpg';
-import windblownWomanImg from '@/assets/images/windblown_hair_woman_1790982857578.jpg';
-import pixieWomanImg from '@/assets/images/woman_bandana_pixie_1790982884567.jpg';
-import sunlightManImg from '@/assets/images/community_man_sunlight_1790982822414.jpg';
+import runwayImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
+import lipstickFriendsImg from '@/assets/img/community_wide_friends_1790982804862.jpg';
+import tousledGuyImg from '@/assets/img/tousled_guy_sky_1790982870552.jpg';
+import windblownWomanImg from '@/assets/img/windblown_hair_woman_1790982857578.jpg';
+import pixieWomanImg from '@/assets/img/woman_bandana_pixie_1790982884567.jpg';
+import sunlightManImg from '@/assets/img/community_man_sunlight_1790982822414.jpg';
 
 interface CommunitySectionProps {
   onOpenVideoChat?: () => void;

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { UWE_PROFILE } from '@/data/mockData';
 import { Profile } from '@/types';
 
-import uweSangerTealImg from '@/assets/images/uwe_sanger_teal_1790985575257.jpg';
-import asianGuyGreencapImg from '@/assets/images/asian_guy_greencap_1790985591686.jpg';
+import uweSangerTealImg from '@/assets/img/uwe_sanger_teal_1790985575257.jpg';
+import asianGuyGreencapImg from '@/assets/img/asian_guy_greencap_1790985591686.jpg';
 
 interface BottomShowcaseSectionProps {
   onSelectProfile?: (profile: Profile) => void;

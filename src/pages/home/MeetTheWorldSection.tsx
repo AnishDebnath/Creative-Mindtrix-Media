@@ -2,8 +2,8 @@ import React from 'react';
 import { Profile } from '@/types';
 import { HERO_PROFILES } from '@/data/mockData';
 
-import skincareImg from '@/assets/UGC product image/skincare/Skincare_advertisement_on_stone.jpg';
-import lipstickImg from '@/assets/UGC product image/lipstick/Lipstick_advertisement_on_marble.jpg';
+import skincareImg from '@/assets/images/facewash/Skincare_advertisement_on_stone.jpg';
+import lipstickImg from '@/assets/images/lipstick/Lipstick_advertisement_on_marble.jpg';
 
 interface MeetTheWorldSectionProps {
   onSelectProfile?: (profile: Profile) => void;

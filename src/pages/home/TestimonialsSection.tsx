@@ -1,6 +1,6 @@
 import React from 'react';
 import { Star } from 'lucide-react';
-import avatarGreenCapImg from '@/assets/images/avatar_green_cap_1790979403136.jpg';
+import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
 import { HERO_PROFILES } from '@/data/mockData';
 
 export const TestimonialsSection: React.FC = () => {

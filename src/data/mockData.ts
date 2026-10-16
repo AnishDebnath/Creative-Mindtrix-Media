@@ -7,43 +7,43 @@ import {
   VideoProject
 } from '@/types';
 
-import matthiasCardImg from '@/assets/images/card_matthias_1790977103900.jpg';
-import johannaCardImg from '@/assets/images/card_johanna_1790977118147.jpg';
-import simoneCardImg from '@/assets/images/card_simone_1790977134116.jpg';
-import paulCardImg from '@/assets/images/card_paul_1790977146486.jpg';
-import sarahCardImg from '@/assets/images/card_sarah_1790977156627.jpg';
+import matthiasCardImg from '@/assets/img/card_matthias_1790977103900.jpg';
+import johannaCardImg from '@/assets/img/card_johanna_1790977118147.jpg';
+import simoneCardImg from '@/assets/img/card_simone_1790977134116.jpg';
+import paulCardImg from '@/assets/img/card_paul_1790977146486.jpg';
+import sarahCardImg from '@/assets/img/card_sarah_1790977156627.jpg';
 
-import yasminImg from '@/assets/images/yasmin_clean_916_1790980492922.jpg';
-import uweImg from '@/assets/images/profile_uwe_1790976747637.jpg';
-import girlWithSunglassesImg from '@/assets/images/card_girl_sunglasses_1790978472551.jpg';
+import yasminImg from '@/assets/img/yasmin_clean_916_1790980492922.jpg';
+import uweImg from '@/assets/img/profile_uwe_1790976747637.jpg';
+import girlWithSunglassesImg from '@/assets/img/card_girl_sunglasses_1790978472551.jpg';
 
-import brunetteImg from '@/assets/images/brunette_shirt_left_1790982842053.jpg';
-import communityFriendsImg from '@/assets/images/community_wide_friends_1790982804862.jpg';
-import tousledGuyImg from '@/assets/images/tousled_guy_sky_1790982870552.jpg';
-import windblownImg from '@/assets/images/windblown_hair_woman_1790982857578.jpg';
-import pixieImg from '@/assets/images/woman_bandana_pixie_1790982884567.jpg';
-import sunlightManImg from '@/assets/images/community_man_sunlight_1790982822414.jpg';
+import brunetteImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
+import communityFriendsImg from '@/assets/img/community_wide_friends_1790982804862.jpg';
+import tousledGuyImg from '@/assets/img/tousled_guy_sky_1790982870552.jpg';
+import windblownImg from '@/assets/img/windblown_hair_woman_1790982857578.jpg';
+import pixieImg from '@/assets/img/woman_bandana_pixie_1790982884567.jpg';
+import sunlightManImg from '@/assets/img/community_man_sunlight_1790982822414.jpg';
 
-import lipstickFlatLayImg from '@/assets/UGC product image/lipstick/Create_cosmetics_flat_lay_photog.jpg';
-import lipstickMarbleImg from '@/assets/UGC product image/lipstick/Lipstick_advertisement_on_marble.jpg';
-import lipstickEditorialImg from '@/assets/UGC product image/lipstick/Lipstick_product_editorial_photo.jpg';
-import lipstickLuxuryImg from '@/assets/UGC product image/lipstick/Luxury_lipstick_advertising_phot.jpg';
-import menPerfumeCreatingAdvImg from '@/assets/UGC product image/men-perfume/Creating_perfume_bottle_adv.jpg';
-import menPerfumeCreatingAdvertisImg from '@/assets/UGC product image/men-perfume/Creating_perfume_bottle_advertis.jpg';
-import menPerfumePosterImg from '@/assets/UGC product image/men-perfume/Perfume_bottle_advertising_poster.jpg';
-import menPerfumeEditorialImg from '@/assets/UGC product image/men-perfume/Perfume_bottle_editorial_photogr.jpg';
-import menPerfumeLibraryImg from '@/assets/UGC product image/men-perfume/Perfume_bottle_in_luxury_library.jpg';
-import menPerfumeMindtrixImg from '@/assets/UGC product image/men-perfume/Photographing_Mindtrix_Media_per.jpg';
-import skincareStoneImg from '@/assets/UGC product image/skincare/Skincare_advertisement_on_stone.jpg';
-import skincarePhotographImg from '@/assets/UGC product image/skincare/Skincare_advertising_photograph.jpg';
-import skincareAdvertisemenImg from '@/assets/UGC product image/skincare/Skincare_product_advertisemen.jpg';
-import skincareAdvertisementImg from '@/assets/UGC product image/skincare/Skincare_product_advertisement.jpg';
-import skincareCommercialImg from '@/assets/UGC product image/skincare/Skincare_product_commercial_photo.jpg';
-import womenPerfumeCreatingImg from '@/assets/UGC product image/women-perfume/Creating_perfume_advertising_pho.jpg';
-import womenPerfumeCommercialImg from '@/assets/UGC product image/women-perfume/Perfume_bottle_commercial_photog.jpg';
-import womenPerfumeFlatLayImg from '@/assets/UGC product image/women-perfume/Perfume_bottle_flat-lay_photograph.jpg';
-import womenPerfumePedestalImg from '@/assets/UGC product image/women-perfume/Perfume_bottle_on_stone_pedestal.jpg';
-import womenPerfumePlaceImg from '@/assets/UGC product image/women-perfume/Perfume_product_photograph_place.jpg';
+import lipstickFlatLayImg from '@/assets/images/lipstick/Create_cosmetics_flat_lay_photog.jpg';
+import lipstickMarbleImg from '@/assets/images/lipstick/Lipstick_advertisement_on_marble.jpg';
+import lipstickEditorialImg from '@/assets/images/lipstick/Lipstick_product_editorial_photo.jpg';
+import lipstickLuxuryImg from '@/assets/images/lipstick/Luxury_lipstick_advertising_phot.jpg';
+import menPerfumeCreatingAdvImg from '@/assets/images/men perfume/Creating_perfume_bottle_adv.jpg';
+import menPerfumeCreatingAdvertisImg from '@/assets/images/men perfume/Creating_perfume_bottle_advertis.jpg';
+import menPerfumePosterImg from '@/assets/images/men perfume/Perfume_bottle_advertising_poster.jpg';
+import menPerfumeEditorialImg from '@/assets/images/men perfume/Perfume_bottle_editorial_photogr.jpg';
+import menPerfumeLibraryImg from '@/assets/images/men perfume/Perfume_bottle_in_luxury_library.jpg';
+import menPerfumeMindtrixImg from '@/assets/images/men perfume/Photographing_Mindtrix_Media_per.jpg';
+import skincareStoneImg from '@/assets/images/facewash/Skincare_advertisement_on_stone.jpg';
+import skincarePhotographImg from '@/assets/images/facewash/Skincare_advertising_photograph.jpg';
+import skincareAdvertisemenImg from '@/assets/images/facewash/Skincare_product_advertisemen.jpg';
+import skincareAdvertisementImg from '@/assets/images/facewash/Skincare_product_advertisement.jpg';
+import skincareCommercialImg from '@/assets/images/facewash/Skincare_product_commercial_photo.jpg';
+import womenPerfumeCreatingImg from '@/assets/images/women perfume/Creating_perfume_advertising_pho.jpg';
+import womenPerfumeCommercialImg from '@/assets/images/women perfume/Perfume_bottle_commercial_photog.jpg';
+import womenPerfumeFlatLayImg from '@/assets/images/women perfume/Perfume_bottle_flat-lay_photograph.jpg';
+import womenPerfumePedestalImg from '@/assets/images/women perfume/Perfume_bottle_on_stone_pedestal.jpg';
+import womenPerfumePlaceImg from '@/assets/images/women perfume/Perfume_product_photograph_place.jpg';
 
 export const HERO_PROFILES: Profile[] = [
   {
