@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, X, Volume2 } from 'lucide-react';
+import { Play, X, Volume2, ArrowUpRight } from 'lucide-react';
 
 import brunetteImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
 import communityFriendsImg from '@/assets/img/community_wide_friends_1790982804862.jpg';
@@ -16,6 +16,13 @@ import menPerfumeLibraryImg from '@/assets/images/men perfume/Perfume_bottle_in_
 import skincareCommercialImg from '@/assets/images/facewash/Skincare_product_commercial_photo.jpg';
 import lipstickMarbleImg from '@/assets/images/lipstick/Lipstick_advertisement_on_marble.jpg';
 import womenPerfumePedestalImg from '@/assets/images/women perfume/Perfume_bottle_on_stone_pedestal.jpg';
+
+// Video assets for the header card showcase
+import video1 from '@/assets/videos/lipstick.mp4';
+import video2 from '@/assets/videos/rampwalk.mp4';
+import video3 from '@/assets/videos/men-perfume.mp4';
+import video4 from '@/assets/videos/women-perfume.mp4';
+import video5 from '@/assets/videos/facewash.mp4';
 
 interface VideoItem {
   id: string;
@@ -183,23 +190,138 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
         </svg>
       </div>
 
-      {/* Header Section matching Home Page Section Header Design */}
-      <div className="relative z-10 pt-6 mb-12 sm:mb-16">
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-8">
+      {/* Header Section matching website brand theme */}
+      <div className="relative z-10 pt-4 mb-10 sm:mb-12">
+        <div className="bg-gradient-to-b from-[#f6eee7] via-[#f1e5df] to-[#ebdbe7] rounded-[24px] sm:rounded-[32px] pt-7 sm:pt-9 px-6 sm:px-10 pb-0 shadow-[0_20px_50px_-20px_rgba(220,198,213,0.45)] border border-[#e8d5df]/70 overflow-hidden flex flex-col justify-between">
           
-          {/* Left: Giant Stacked Headline */}
-          <div>
-            <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3]">
-              AI VIDEO<br />
-              PROJECTS
-            </h2>
+          {/* Top Header Row: 2-column balanced layout (Headline on left, description & CTA on right) */}
+          <div className="relative z-20 flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-12 pb-7 border-b border-[#ddcad6]/60">
+            {/* Left Column: Tag + Headline */}
+            <div className="max-w-xl flex flex-col items-start gap-3.5">
+              <div className="flex items-center gap-2 px-3 py-1 bg-[#dcc6d5]/30 text-[#3d2035] text-xs font-bold rounded-full border border-[#dcc6d5]/50">
+                <span className="w-2 h-2 rounded-full bg-[#eda970] animate-pulse" />
+                <span>Viral Video Reels →</span>
+              </div>
+
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-normal text-neutral-900 uppercase leading-[1.05]">
+                AI Video Ads<br />
+                Made to Convert
+              </h2>
+            </div>
+
+            {/* Right Column: Clean description + Action Button filling the space naturally */}
+            <div className="max-w-md flex flex-col items-start md:items-end gap-4 shrink-0">
+              <p className="text-neutral-800 text-sm sm:text-base leading-relaxed font-normal md:text-right">
+                Fast-paced 9:16 video reels, 3D product animations, and UGC campaigns crafted to drive high retention and scale your brand.
+              </p>
+
+              <a
+                href="https://cal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-7 py-3 bg-[#eda970] hover:bg-[#e59c60] text-neutral-900 font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+              >
+                <span>Book a call</span>
+                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+              </a>
+            </div>
           </div>
 
-          {/* Right: Description & Action matching Home Page Header */}
-          <div className="max-w-md flex flex-col items-start gap-4">
-            <p className="text-neutral-800 text-base sm:text-lg leading-relaxed font-normal">
-              For brands that demand more than just quick cuts and captions. We edit high-impact videos that engage and convert using AI-powered systems.
-            </p>
+          {/* Bottom Side: Fanned-out Cards emerging from bottom edge in 9:16 vertical reels ratio */}
+          <div className="relative z-10 w-full h-[230px] sm:h-[280px] md:h-[330px] lg:h-[360px] flex justify-center items-end pointer-events-none select-none px-2 sm:px-4">
+            <div className="relative flex items-end justify-center w-full max-w-[1040px] h-full">
+              
+              {/* Card 1: Far Left (-16deg, 9:16 aspect ratio) */}
+              <div
+                className="absolute pointer-events-auto w-[115px] sm:w-[150px] md:w-[180px] lg:w-[200px] aspect-[9/16] rounded-[16px] sm:rounded-[22px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
+                style={{
+                  transform: 'translateX(-155%) translateY(32%) rotate(-16deg)',
+                  zIndex: 1
+                }}
+              >
+                <video
+                  src={video1}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Card 2: Mid Left (-8deg, 9:16 aspect ratio) */}
+              <div
+                className="absolute pointer-events-auto w-[125px] sm:w-[165px] md:w-[195px] lg:w-[215px] aspect-[9/16] rounded-[18px] sm:rounded-[24px] overflow-hidden shadow-[0_18px_40px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
+                style={{
+                  transform: 'translateX(-78%) translateY(24%) rotate(-8deg)',
+                  zIndex: 2
+                }}
+              >
+                <video
+                  src={video2}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Card 3: Center Dominant Card (0deg, 9:16 aspect ratio) */}
+              <div
+                className="absolute pointer-events-auto w-[135px] sm:w-[175px] md:w-[210px] lg:w-[230px] aspect-[9/16] rounded-[20px] sm:rounded-[26px] overflow-hidden shadow-[0_25px_50px_rgba(0,0,0,0.4)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
+                style={{
+                  transform: 'translateX(0%) translateY(16%) rotate(0deg)',
+                  zIndex: 5
+                }}
+              >
+                <video
+                  src={video3}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Card 4: Mid Right (+8deg, 9:16 aspect ratio) */}
+              <div
+                className="absolute pointer-events-auto w-[125px] sm:w-[165px] md:w-[195px] lg:w-[215px] aspect-[9/16] rounded-[18px] sm:rounded-[24px] overflow-hidden shadow-[0_18px_40px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
+                style={{
+                  transform: 'translateX(78%) translateY(24%) rotate(8deg)',
+                  zIndex: 2
+                }}
+              >
+                <video
+                  src={video4}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Card 5: Far Right (+16deg, 9:16 aspect ratio) */}
+              <div
+                className="absolute pointer-events-auto w-[115px] sm:w-[150px] md:w-[180px] lg:w-[200px] aspect-[9/16] rounded-[16px] sm:rounded-[22px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
+                style={{
+                  transform: 'translateX(155%) translateY(32%) rotate(16deg)',
+                  zIndex: 1
+                }}
+              >
+                <video
+                  src={video5}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+            </div>
           </div>
 
         </div>
