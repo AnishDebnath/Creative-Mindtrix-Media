@@ -45,20 +45,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         backgroundPosition: 'bottom'
       }}
     >
-      {/* Top Banner Section: Centered "MINDTRIX" Background Text with Right-to-Left Marquee Cards */}
+      {/* Top Banner Section: Centered "MINDTRIX" Background Text with Staggered 3:4 Cards */}
       <motion.div
         id="images-preview"
         onClick={onNavigateToImages}
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="relative w-full overflow-hidden py-4 sm:py-6 my-2 min-h-[260px] sm:min-h-[320px] md:min-h-[360px] flex items-center justify-center cursor-pointer"
+        className="relative w-full overflow-hidden py-2 sm:py-3 my-0 flex items-center justify-center cursor-pointer"
         title="Click to view full AI Images Gallery"
       >
-        {/* Giant Black Typography Background: MINDTRIX */}
-        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        {/* Giant Typography Background: MINDTRIX watermark */}
+        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-35">
           <svg
-            viewBox="0 0 1400 320"
+            viewBox="0 0 1550 320"
             className="w-full h-full object-fill scale-y-110"
             preserveAspectRatio="none"
           >
@@ -71,38 +71,41 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               fontFamily="'Anton', 'Oswald', 'Impact', sans-serif"
               fontWeight="900"
               fontSize="340"
-              letterSpacing="-6"
+              letterSpacing="10"
             >
               MINDTRIX
             </text>
           </svg>
         </div>
 
-        {/* Edge-to-Edge Marquee Track: Moving from Right to Left */}
-        <div className="relative z-10 w-full overflow-hidden flex items-center">
-          <div className="animate-marquee flex gap-3 sm:gap-4 lg:gap-5 py-3 items-center">
-            {marqueeProducts.map((product, index) => (
-              <div
-                key={`${product.id}-${index}`}
-                className="group relative w-[180px] sm:w-[220px] md:w-[250px] aspect-square rounded-[22px] sm:rounded-[28px] shrink-0 transform transition-all duration-300 hover:-translate-y-1.5"
-              >
-                {/* Outer Card with Crisp White Border and Rounded Photo */}
-                <div className="relative w-full h-full rounded-[22px] sm:rounded-[28px] overflow-hidden border-[2.5px] border-white bg-neutral-900">
-                  <img
-                    src={product.src}
-                    alt={product.label}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-
-                  {/* Bottom Dark Gradient Scrim Overlay with Product Label */}
-                  <div className="absolute inset-x-0 bottom-0 pt-10 sm:pt-14 pb-2.5 sm:pb-3.5 px-2.5 sm:px-3.5 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end">
-                    <div className="flex items-center gap-1 sm:gap-1.5 text-white font-display text-[11px] sm:text-[13px] lg:text-[14px] font-bold uppercase tracking-wider truncate drop-shadow-md">
-                      <span className="truncate">{product.label}</span>
-                    </div>
+        {/* Edge-to-Edge Marquee Track with 3:4 Ratio & Enhanced Upper/Lower Staggering */}
+        <div className="relative z-10 w-full overflow-hidden flex items-center py-4 sm:py-6">
+          <div className="animate-marquee flex gap-3 sm:gap-4 md:gap-5 py-4 sm:py-6 items-center">
+            {marqueeProducts.map((product, index) => {
+              // Alternating upper/bottom placement with clear difference:
+              // Even cards shift down, odd cards shift up
+              const isEven = index % 2 === 0;
+              return (
+                <div
+                  key={`${product.id}-${index}`}
+                  className={`group relative shrink-0 transition-transform duration-300 hover:scale-[1.03] ${
+                    isEven
+                      ? 'w-[145px] sm:w-[185px] md:w-[210px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] translate-y-5 sm:translate-y-7'
+                      : 'w-[145px] sm:w-[185px] md:w-[210px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] -translate-y-5 sm:-translate-y-7'
+                  }`}
+                >
+                  {/* Clean 3/4 card with rounded corners and no overlays */}
+                  <div className="relative w-full h-full rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-md group-hover:shadow-xl bg-neutral-900 border border-white/60 transition-shadow">
+                    <img
+                      src={product.src}
+                      alt={product.label}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </motion.div>
