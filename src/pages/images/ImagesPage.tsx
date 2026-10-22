@@ -7,12 +7,12 @@ import lipstickMarbleImg from '@/assets/images/lipstick/Lipstick_advertisement_o
 import lipstickEditorialImg from '@/assets/images/lipstick/Lipstick_product_editorial_photo.jpg';
 import lipstickLuxuryImg from '@/assets/images/lipstick/Luxury_lipstick_advertising_phot.jpg';
 
-import menPerfumeCreatingAdvImg from '@/assets/images/men perfume/Creating_perfume_bottle_adv.jpg';
-import menPerfumeCreatingAdvertisImg from '@/assets/images/men perfume/Creating_perfume_bottle_advertis.jpg';
-import menPerfumePosterImg from '@/assets/images/men perfume/Perfume_bottle_advertising_poster.jpg';
-import menPerfumeEditorialImg from '@/assets/images/men perfume/Perfume_bottle_editorial_photogr.jpg';
-import menPerfumeLibraryImg from '@/assets/images/men perfume/Perfume_bottle_in_luxury_library.jpg';
-import menPerfumeMindtrixImg from '@/assets/images/men perfume/Photographing_Mindtrix_Media_per.jpg';
+import menPerfumeCreatingAdvImg from '@/assets/images/men-perfume/Creating_perfume_bottle_adv.jpg';
+import menPerfumeCreatingAdvertisImg from '@/assets/images/men-perfume/Creating_perfume_bottle_advertis.jpg';
+import menPerfumePosterImg from '@/assets/images/men-perfume/Perfume_bottle_advertising_poster.jpg';
+import menPerfumeEditorialImg from '@/assets/images/men-perfume/Perfume_bottle_editorial_photogr.jpg';
+import menPerfumeLibraryImg from '@/assets/images/men-perfume/Perfume_bottle_in_luxury_library.jpg';
+import menPerfumeMindtrixImg from '@/assets/images/men-perfume/Photographing_Mindtrix_Media_per.jpg';
 
 import skincareStoneImg from '@/assets/images/facewash/Skincare_advertisement_on_stone.jpg';
 import skincarePhotographImg from '@/assets/images/facewash/Skincare_advertising_photograph.jpg';
@@ -20,11 +20,11 @@ import skincareAdvertisemenImg from '@/assets/images/facewash/Skincare_product_a
 import skincareAdvertisementImg from '@/assets/images/facewash/Skincare_product_advertisement.jpg';
 import skincareCommercialImg from '@/assets/images/facewash/Skincare_product_commercial_photo.jpg';
 
-import womenPerfumeCreatingImg from '@/assets/images/women perfume/Creating_perfume_advertising_pho.jpg';
-import womenPerfumeCommercialImg from '@/assets/images/women perfume/Perfume_bottle_commercial_photog.jpg';
-import womenPerfumeFlatLayImg from '@/assets/images/women perfume/Perfume_bottle_flat-lay_photograph.jpg';
-import womenPerfumePedestalImg from '@/assets/images/women perfume/Perfume_bottle_on_stone_pedestal.jpg';
-import womenPerfumePlaceImg from '@/assets/images/women perfume/Perfume_product_photograph_place.jpg';
+import womenPerfumeCreatingImg from '@/assets/images/women-perfume/Creating_perfume_advertising_pho.jpg';
+import womenPerfumeCommercialImg from '@/assets/images/women-perfume/Perfume_bottle_commercial_photog.jpg';
+import womenPerfumeFlatLayImg from '@/assets/images/women-perfume/Perfume_bottle_flat-lay_photograph.jpg';
+import womenPerfumePedestalImg from '@/assets/images/women-perfume/Perfume_bottle_on_stone_pedestal.jpg';
+import womenPerfumePlaceImg from '@/assets/images/women-perfume/Perfume_product_photograph_place.jpg';
 
 interface ImagesPageProps {
   onBackToHome?: () => void;

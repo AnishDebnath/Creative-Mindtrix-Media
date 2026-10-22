@@ -3,7 +3,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { HomePage } from '@/pages/home';
 import { ImagesPage } from '@/pages/images/ImagesPage';
-import { ReelsPage } from '@/pages/reels/ReelsPage';
+import { ReelsPage } from '@/pages/videos/ReelsPage';
 import { scrollToId } from '@/utils/scroll';
 
 const noop = () => {};

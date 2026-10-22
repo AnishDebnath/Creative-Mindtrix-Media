@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Play, X, Volume2, ArrowUpRight } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Play, X, Volume2, ArrowUpRight, Eye, Check } from 'lucide-react';
 
 import brunetteImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
 import communityFriendsImg from '@/assets/img/community_wide_friends_1790982804862.jpg';
@@ -9,146 +9,300 @@ import pixieImg from '@/assets/img/woman_bandana_pixie_1790982884567.jpg';
 import sunlightManImg from '@/assets/img/community_man_sunlight_1790982822414.jpg';
 import yasminImg from '@/assets/img/yasmin_clean_916_1790980492922.jpg';
 import simoneImg from '@/assets/img/card_simone_1790977134116.jpg';
+import johannaImg from '@/assets/img/card_johanna_1790977118147.jpg';
+import matthiasImg from '@/assets/img/card_matthias_1790977103900.jpg';
+import sarahImg from '@/assets/img/card_sarah_1790977156627.jpg';
 
-import womenPerfumeCommercialImg from '@/assets/images/women perfume/Perfume_bottle_commercial_photog.jpg';
+import womenPerfumeCommercialImg from '@/assets/images/women-perfume/Perfume_bottle_commercial_photog.jpg';
 import skincareStoneImg from '@/assets/images/facewash/Skincare_advertisement_on_stone.jpg';
-import menPerfumeLibraryImg from '@/assets/images/men perfume/Perfume_bottle_in_luxury_library.jpg';
+import menPerfumeLibraryImg from '@/assets/images/men-perfume/Perfume_bottle_in_luxury_library.jpg';
 import skincareCommercialImg from '@/assets/images/facewash/Skincare_product_commercial_photo.jpg';
 import lipstickMarbleImg from '@/assets/images/lipstick/Lipstick_advertisement_on_marble.jpg';
-import womenPerfumePedestalImg from '@/assets/images/women perfume/Perfume_bottle_on_stone_pedestal.jpg';
 
-// Video assets for the header card showcase
-import video1 from '@/assets/videos/lipstick.mp4';
-import video2 from '@/assets/videos/rampwalk.mp4';
-import video3 from '@/assets/videos/men-perfume.mp4';
-import video4 from '@/assets/videos/women-perfume.mp4';
-import video5 from '@/assets/videos/facewash.mp4';
+// Video assets from src/assets/videos/
+import cocaineVid from '@/assets/videos/cocaine.mp4';
+import facewashVid from '@/assets/videos/facewash.mp4';
+import lipstickProductVid from '@/assets/videos/lipstick-product.mp4';
+import lipstickVid from '@/assets/videos/lipstick.mp4';
+import menPerfumeVid from '@/assets/videos/men-perfume.mp4';
+import nailArtVid from '@/assets/videos/nail-art.mp4';
+import nailVid from '@/assets/videos/nail.mp4';
+import rampwalkVid from '@/assets/videos/rampwalk.mp4';
+import sukoonVid from '@/assets/videos/sukoon.mp4';
+import tshirtFerreriVid from '@/assets/videos/tshirt-ferreri.mp4';
+import womenPerfumeVid from '@/assets/videos/women-perfume.mp4';
 
 interface VideoItem {
   id: string;
   title: string;
   category: 'Corporate' | 'E-commerce' | 'Ads' | 'Viral Reels';
   image: string;
+  videoSrc: string;
   duration?: string;
   description?: string;
+  views?: string;
+  quote?: string;
+  creator?: string;
+  avatar?: string;
 }
 
 const VIDEO_ITEMS: VideoItem[] = [
   {
-    id: 'vid-1',
-    title: 'MEDICAL SERVICES CORPORATE VIDEO',
-    category: 'Corporate',
-    image: womenPerfumeCommercialImg,
-    duration: '0:30',
-    description: 'Cinematic commercial highlighting corporate medical innovation and patient care excellence.'
-  },
-  {
-    id: 'vid-2',
-    title: 'HEALTHCARE COMMERCIAL VIDEO',
-    category: 'Corporate',
-    image: skincareStoneImg,
-    duration: '0:25',
-    description: 'High-impact corporate storytelling and modern healthcare service presentation.'
-  },
-  {
-    id: 'vid-3',
-    title: 'MANUFACTURING PROCESS VIDEO',
-    category: 'Corporate',
-    image: brunetteImg,
-    duration: '0:18',
-    description: 'Step-by-step manufacturing and assembly showcase with clean motion graphics.'
-  },
-  {
-    id: 'vid-4',
-    title: 'CORPORATE TRAINING VIDEO',
-    category: 'Corporate',
-    image: tousledGuyImg,
-    duration: '0:20',
-    description: 'Engaging onboarding and employee development video modules.'
-  },
-  {
-    id: 'vid-5',
-    title: 'E-COMMERCE BRAND OVERVIEW',
-    category: 'E-commerce',
-    image: communityFriendsImg,
-    duration: '0:15',
-    description: 'Dynamic direct-to-consumer product showcase built for high social conversion.'
-  },
-  {
-    id: 'vid-6',
-    title: 'REAL ESTATE CORPORATE PRESENTATION',
-    category: 'Corporate',
-    image: menPerfumeLibraryImg,
-    duration: '0:45',
-    description: 'Architectural walkthrough and luxury commercial real estate investment video.'
-  },
-  {
-    id: 'vid-7',
-    title: 'ENTERPRISE BRAND PRESENTATION',
-    category: 'Corporate',
-    image: skincareCommercialImg,
-    duration: '0:35',
-    description: 'Global corporate anthem demonstrating brand legacy and modern vision.'
-  },
-  {
-    id: 'vid-8',
-    title: 'CORPORATE CULTURE VIDEO',
-    category: 'Corporate',
-    image: sunlightManImg,
-    duration: '0:22',
-    description: 'Authentic workplace culture, team values, and recruitment film.'
-  },
-  {
-    id: 'vid-9',
-    title: 'CORPORATE BRAND FILM',
-    category: 'Corporate',
-    image: windblownImg,
-    duration: '0:30',
-    description: 'Inspiring cinematic narrative crafted for enterprise keynotes and campaigns.'
-  },
-  {
-    id: 'vid-10',
-    title: 'CORPORATE EXPLAINER VIDEO',
-    category: 'Corporate',
-    image: pixieImg,
-    duration: '0:20',
-    description: 'Concise, visually clear system breakdown explaining complex workflows.'
-  },
-  {
-    id: 'vid-11',
-    title: 'AI PRODUCT ADVERTISING REEL',
+    id: 'vid-women-perfume',
+    title: 'WOMEN PERFUME COMMERCIAL',
     category: 'Ads',
-    image: yasminImg,
-    duration: '0:16',
-    description: 'Viral UGC ad formatted for TikTok and Instagram reels to maximize ROAS.'
+    image: womenPerfumeCommercialImg,
+    videoSrc: womenPerfumeVid,
+    duration: '0:30',
+    description: 'Cinematic fragrance commercial highlighting delicate floral notes, golden mist, and sculptural bottle design.',
+    views: '15.4M Views',
+    quote: 'floral elegance captured in every drop,',
+    creator: 'elena_fragrance',
+    avatar: yasminImg,
   },
   {
-    id: 'vid-12',
-    title: 'LUXURY COSMETICS BRAND REEL',
+    id: 'vid-facewash',
+    title: 'NATURAL FACEWASH ROUTINE',
+    category: 'E-commerce',
+    image: skincareStoneImg,
+    videoSrc: facewashVid,
+    duration: '0:25',
+    description: 'High-impact organic skincare routine demonstrating deep foaming cleanse and instant skin hydration.',
+    views: '8.4M Views',
+    quote: 'glow naturally every morning with pure botanical foam,',
+    creator: 'chloe_wellness',
+    avatar: brunetteImg,
+  },
+  {
+    id: 'vid-lipstick-product',
+    title: 'LUXURY LIPSTICK PRODUCT REEL',
     category: 'Viral Reels',
     image: lipstickMarbleImg,
+    videoSrc: lipstickProductVid,
+    duration: '0:18',
+    description: 'Ultra-HD macro texture shot showcasing creamy velvet pigment glide and metallic gold casing.',
+    views: '19.4M Views',
+    quote: 'silky matte finish that stays flawless for 24 hours,',
+    creator: 'beauty_unboxed',
+    avatar: johannaImg,
+  },
+  {
+    id: 'vid-men-perfume',
+    title: 'MEN PERFUME NOCTURNE',
+    category: 'Ads',
+    image: menPerfumeLibraryImg,
+    videoSrc: menPerfumeVid,
+    duration: '0:20',
+    description: 'Moody luxury commercial presenting a deep woody fragrance against warm cedarwood library tones.',
+    views: '12.2M Views',
+    quote: 'an intoxicating blend of smoky amber & cedarwood,',
+    creator: 'crafted_gent',
+    avatar: matthiasImg,
+  },
+  {
+    id: 'vid-rampwalk',
+    title: 'PARIS RUNWAY RAMPWALK',
+    category: 'Viral Reels',
+    image: communityFriendsImg,
+    videoSrc: rampwalkVid,
+    duration: '0:22',
+    description: 'Fast-paced fashion runway showcase with dynamic pacing, dramatic lighting, and avant-garde silhouettes.',
+    views: '24.6M Views',
+    quote: 'bold runway energy that steals the entire fashion week,',
+    creator: 'couture_pulse',
+    avatar: simoneImg,
+  },
+  {
+    id: 'vid-lipstick',
+    title: 'MATTE LIPSTICK APPLICATION',
+    category: 'Viral Reels',
+    image: lipstickMarbleImg,
+    videoSrc: lipstickVid,
     duration: '0:24',
-    description: 'Hyper-retention cosmetic showcase highlighting texture, glide, and packaging.'
+    description: 'Step-by-step beauty tutorial swatching rich burgundy lipstick with precision contouring.',
+    views: '9.8M Views',
+    quote: 'velvet glide formula with zero feathering or transfer,',
+    creator: 'maya_makeuplab',
+    avatar: sarahImg,
   },
   {
-    id: 'vid-13',
-    title: 'PERFUME LAUNCH DOCUMENTARY',
+    id: 'vid-nail-art',
+    title: 'CHROME NAIL ART ATELIER',
     category: 'Viral Reels',
-    image: womenPerfumePedestalImg,
-    duration: '1:10',
-    description: 'Behind the scenes fragrance formulation and bottle design journey.'
+    image: skincareCommercialImg,
+    videoSrc: nailArtVid,
+    duration: '0:20',
+    description: 'Mesmerizing studio nail art process demonstrating holographic chrome powder and precise line work.',
+    views: '11.5M Views',
+    quote: 'mirror chrome effects crafted completely in-studio,',
+    creator: 'nail_atelier',
+    avatar: windblownImg,
   },
   {
-    id: 'vid-14',
-    title: 'KEYNOTE PRODUCT EVENT REEL',
+    id: 'vid-tshirt-ferreri',
+    title: 'STREETWEAR T-SHIRT DROP',
+    category: 'E-commerce',
+    image: sunlightManImg,
+    videoSrc: tshirtFerreriVid,
+    duration: '0:28',
+    description: 'Modern urban streetwear apparel launch film capturing oversized heavyweight cotton textures.',
+    views: '18.2M Views',
+    quote: 'where luxury tailoring meets raw streetwear culture,',
+    creator: 'ferreri_studios',
+    avatar: sunlightManImg,
+  },
+  {
+    id: 'vid-sukoon',
+    title: 'SUKOON WELLNESS ESSENTIALS',
+    category: 'Corporate',
+    image: windblownImg,
+    videoSrc: sukoonVid,
+    duration: '0:35',
+    description: 'Tranquil Ayurvedic wellness film showcasing mindful holistic lifestyle and botanical elixirs.',
+    views: '14.1M Views',
+    quote: 'finding inner calm through pure mindful botanicals,',
+    creator: 'sukoon_living',
+    avatar: tousledGuyImg,
+  },
+  {
+    id: 'vid-nail',
+    title: 'MINIMALIST NAIL DESIGN',
     category: 'Viral Reels',
-    image: simoneImg,
-    duration: '0:40',
-    description: 'Fast-paced event recap capturing live demonstrations, reactions, and excitement.'
+    image: pixieImg,
+    videoSrc: nailVid,
+    duration: '0:18',
+    description: 'Clean aesthetic nail routine detailing glass shine top coat and modern nude aesthetics.',
+    views: '7.1M Views',
+    quote: 'clean, sharp lines for the effortless everyday manicure,',
+    creator: 'claire_nails',
+    avatar: pixieImg,
+  },
+  {
+    id: 'vid-cocaine',
+    title: 'COCAINE NOIR COLOGNE',
+    category: 'Corporate',
+    image: yasminImg,
+    videoSrc: cocaineVid,
+    duration: '0:30',
+    description: 'High-concept niche perfume visualizer playing with dark shadows, glass refractions, and smoky haze.',
+    views: '31.3M Views',
+    quote: 'provocative notes engineered to leave a lingering statement,',
+    creator: 'atelier_noir',
+    avatar: brunetteImg,
   }
 ];
 
 const CATEGORIES = ['All', 'Corporate', 'E-commerce', 'Ads', 'Viral Reels'] as const;
+
+interface ReelCardProps {
+  vid: VideoItem;
+  onSelect: (vid: VideoItem) => void;
+}
+
+const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    // Use IntersectionObserver so only cards visible in viewport play in a loop smoothly
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = videoRef.current;
+          if (!video) return;
+
+          if (entry.isIntersecting) {
+            video.play().then(() => setIsPlaying(true)).catch(() => {
+              // Browser autoplay policy handler
+            });
+          } else {
+            video.pause();
+            setIsPlaying(false);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      onClick={() => onSelect(vid)}
+      className="group relative aspect-[9/16] w-full rounded-[28px] sm:rounded-[32px] overflow-hidden bg-neutral-950 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.25)] cursor-pointer transform hover:-translate-y-1.5 hover:shadow-[0_25px_50px_-10px_rgba(0,0,0,0.4)] transition-all duration-300"
+    >
+      {/* Seamless looping video playing automatically in the viewport */}
+      <video
+        ref={videoRef}
+        src={vid.videoSrc}
+        poster={vid.image}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+
+      {/* Poster image that smoothly fades out when video playback starts */}
+      <img
+        src={vid.image}
+        alt={vid.title}
+        loading="lazy"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 pointer-events-none group-hover:scale-105 ${
+          isPlaying ? 'opacity-0' : 'opacity-100'
+        }`}
+      />
+
+      {/* Bottom Vignette Gradient matching reference image */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 via-45% to-transparent pointer-events-none" />
+
+      {/* Subtle Hover Play Indicator */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+        <div className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-md border border-white/80 flex items-center justify-center text-white shadow-xl scale-90 group-hover:scale-100 transition-transform">
+          <Play className="w-5 h-5 fill-white ml-0.5 text-white drop-shadow" />
+        </div>
+      </div>
+
+      {/* Bottom Content Stack matching reference image */}
+      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 flex flex-col items-start gap-2.5 z-10 select-none text-left">
+        {/* 1. View Count with Eye icon */}
+        <div className="flex items-center gap-1.5 text-white/95 font-bold text-xs sm:text-sm drop-shadow">
+          <Eye className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-white/90" strokeWidth={2.4} />
+          <span>{vid.views || '15M Views'}</span>
+        </div>
+
+        {/* 2. Quote / Catchy Reel Caption */}
+        <p className="text-white text-xs sm:text-[13px] font-medium leading-snug drop-shadow-md line-clamp-2">
+          “{vid.quote || vid.description || vid.title}”
+        </p>
+
+        {/* 3. Creator Profile: Avatar + @handle + Verified Badge */}
+        <div className="flex items-center gap-2 pt-0.5 max-w-full">
+          <img
+            src={vid.avatar || yasminImg}
+            alt={vid.creator || 'creator'}
+            className="w-6 h-6 rounded-full object-cover shrink-0 ring-1 ring-white/60 shadow-sm"
+          />
+          <span className="text-white font-bold text-xs sm:text-[13px] tracking-tight drop-shadow truncate">
+            @{vid.creator || 'mindtrix_media'}
+          </span>
+          {/* Verified Check Badge matching TikTok/Instagram */}
+          <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-white text-neutral-900 shrink-0 shadow-sm">
+            <Check className="w-2.5 h-2.5 text-neutral-900 stroke-[3.5]" />
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 interface ReelsPageProps {
   onBackToHome?: () => void;
@@ -158,7 +312,6 @@ interface ReelsPageProps {
 export const ReelsPage: React.FC<ReelsPageProps> = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
 
   const filteredList = selectedCategory === 'All'
     ? VIDEO_ITEMS
@@ -240,11 +393,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 }}
               >
                 <video
-                  src={video1}
+                  src={lipstickVid}
+                  poster={lipstickMarbleImg}
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -258,11 +413,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 }}
               >
                 <video
-                  src={video2}
+                  src={rampwalkVid}
+                  poster={communityFriendsImg}
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -276,11 +433,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 }}
               >
                 <video
-                  src={video3}
+                  src={menPerfumeVid}
+                  poster={menPerfumeLibraryImg}
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -294,11 +453,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 }}
               >
                 <video
-                  src={video4}
+                  src={womenPerfumeVid}
+                  poster={womenPerfumeCommercialImg}
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -312,11 +473,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 }}
               >
                 <video
-                  src={video5}
+                  src={facewashVid}
+                  poster={skincareStoneImg}
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -347,55 +510,18 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
         })}
       </div>
 
-      {/* ALL VIDEOS IN UNIFORM 9:16 RATIO FORMAT (Just like Images page) */}
+      {/* ALL VIDEOS IN UNIFORM 9:16 RATIO FORMAT (Matching reference reel card) */}
       <div className="relative z-10 mb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {filteredList.map((vid) => (
-            <div
-              key={vid.id}
-              onClick={() => setActiveVideo(vid)}
-              className="group relative aspect-[9/16] w-full rounded-[24px] sm:rounded-[32px] overflow-hidden bg-neutral-950 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.22)] cursor-pointer transform hover:-translate-y-1.5 hover:shadow-[0_25px_50px_-10px_rgba(0,0,0,0.35)] transition-all duration-300"
-            >
-              {/* Video Thumbnail */}
-              <img
-                src={vid.image}
-                alt={vid.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-
-              {/* Dark Vignette Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/15 group-hover:via-black/40 transition-colors" />
-
-              {/* Center Frosted Circular Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-13 sm:w-15 h-13 sm:h-15 rounded-full bg-white/25 backdrop-blur-md border-[1.5px] border-white/80 flex items-center justify-center text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] group-hover:scale-115 group-hover:bg-white/40 transition-all duration-300">
-                  <Play className="w-5 sm:w-6 h-5 sm:h-6 fill-white ml-0.5 text-white drop-shadow" />
-                </div>
-              </div>
-
-              {/* Bottom Centered Display Title matching Home Page typography */}
-              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 text-center z-10">
-                <h3 className="font-display text-white text-xs sm:text-sm md:text-base font-black uppercase tracking-wider drop-shadow-md leading-tight max-w-[92%] mx-auto">
-                  {vid.title}
-                </h3>
-              </div>
-            </div>
+            <ReelCard key={vid.id} vid={vid} onSelect={setActiveVideo} />
           ))}
         </div>
       </div>
 
-      {/* Bottom Button matching Home Page Button Design */}
-      <div className="relative z-10 mt-16 flex justify-center">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="px-8 sm:px-9 py-3.5 bg-[#dcc6d5] hover:bg-[#d2b8cb] text-neutral-900 font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
-        >
-          VIEW MORE
-        </button>
-      </div>
 
-      {/* Clean Interactive Video Modal */}
+
+      {/* Clean Interactive Video Modal with real video playback */}
       {activeVideo && (
         <div
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
@@ -414,24 +540,17 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
             </button>
 
             <div className="relative aspect-[9/16] w-full rounded-[26px] overflow-hidden bg-neutral-950 flex items-center justify-center shadow-inner">
-              <img
-                src={activeVideo.image}
-                alt={activeVideo.title}
+              <video
+                src={activeVideo.videoSrc}
+                poster={activeVideo.image}
+                autoPlay
+                controls
+                playsInline
                 className="w-full h-full object-cover"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
-
-              {/* Center Play Button */}
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="w-16 sm:w-18 h-16 sm:h-18 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center text-neutral-900 shadow-2xl transition-transform hover:scale-110 cursor-pointer z-10 border border-white"
-              >
-                <Play className="w-6 sm:w-7 h-6 sm:h-7 fill-neutral-900 ml-1" />
-              </button>
-
               {/* Bottom Scrim Bar */}
-              <div className="absolute bottom-4 inset-x-5 flex items-center justify-between text-white text-xs sm:text-sm font-display font-black uppercase tracking-wider">
+              <div className="absolute top-4 inset-x-5 flex items-center justify-between text-white text-xs sm:text-sm font-display font-black uppercase tracking-wider pointer-events-none drop-shadow">
                 <span className="truncate mr-2">{activeVideo.title}</span>
                 <div className="flex items-center gap-1.5 shrink-0">
                   <Volume2 className="w-4 h-4 text-white/80" />
