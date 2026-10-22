@@ -6,10 +6,10 @@ import { Profile } from '@/types';
 
 import avatarHipsterBeardImg from '@/assets/img/avatar_hipster_beard_1790979384816.jpg';
 import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
-import yasminImg from '@/assets/img/yasmin_clean_916_1790980492922.jpg';
-import { getCloudinaryImage } from '@/utils/cloudinary';
+import { getCloudinaryImage, getCloudinaryVideo } from '@/utils/cloudinary';
 
 const womenPerfumeImg = getCloudinaryImage('women-perfume/Perfume_bottle_flat-lay_photograph.jpg');
+const heroReelVideo = getCloudinaryVideo('women-perfume.mp4', { optimize: true, quality: 'good', width: 720 });
 
 interface HeroSectionProps {
   onSelectProfile?: (profile: Profile) => void;
@@ -88,11 +88,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               return (
                 <div
                   key={`${product.id}-${index}`}
-                  className={`group relative shrink-0 transition-transform duration-300 hover:scale-[1.03] ${
-                    isEven
-                      ? 'w-[145px] sm:w-[185px] md:w-[210px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] translate-y-5 sm:translate-y-7'
-                      : 'w-[145px] sm:w-[185px] md:w-[210px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] -translate-y-5 sm:-translate-y-7'
-                  }`}
+                  className={`group relative shrink-0 transition-transform duration-300 hover:scale-[1.03] ${isEven
+                    ? 'w-[145px] sm:w-[185px] md:w-[210px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] translate-y-5 sm:translate-y-7'
+                    : 'w-[145px] sm:w-[185px] md:w-[210px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] -translate-y-5 sm:-translate-y-7'
+                    }`}
                 >
                   {/* Clean 3/4 card with rounded corners and no overlays */}
                   <div className="relative w-full h-full rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-md group-hover:shadow-xl bg-neutral-900 border border-white/60 transition-shadow">
@@ -123,9 +122,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-black tracking-normal text-[#111111] uppercase leading-[1.3]">
             AI PRODUCT ADVERTISING. VIRAL REELS. COMMERCIAL PRODUCTION.
           </h2>
-          <p className="text-neutral-700 text-sm sm:text-base max-w-2xl mx-auto mt-2 font-medium">
-            Mindtrix Media develops intelligent systems and high-impact AI creatives that help businesses scale faster.
-          </p>
         </motion.div>
 
         {/* Edge-to-Edge Visual Composition Area */}
@@ -260,24 +256,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     </div>
                   </div>
 
-                  {/* ZONE 2: CENTER IMAGE PART */}
+                  {/* ZONE 2: CENTER VIDEO PART (CLEAN WITH NO OVERLAYS) */}
                   <div className="flex items-center justify-center my-auto py-1 z-10 w-full">
                     <div
-                      onClick={onNavigateToImages}
-                      className="relative w-[92%] max-w-[250px] aspect-[9/16] rounded-[24px] overflow-hidden shadow-xl border-[1.5px] border-white/90 bg-neutral-900 cursor-pointer group"
+                      onClick={onNavigateToReels}
+                      className="relative w-[92%] max-w-[250px] aspect-[9/16] rounded-[24px] overflow-hidden shadow-xl border-[1.5px] border-white/90 bg-black cursor-pointer group"
                     >
-                      <img
-                        src={yasminImg}
-                        alt="Mindtrix UGC Showcase"
+                      <video
+                        src={heroReelVideo}
+                        poster={womenPerfumeImg}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
-                      <div className="absolute bottom-3 inset-x-3 text-white">
-                        <span className="px-2 py-0.5 bg-gradient-to-r from-[#6566ee] to-[#8f73cc] rounded text-[9px] font-bold uppercase tracking-wider">
-                          AI Product Reel
-                        </span>
-                        <p className="text-[11px] font-bold mt-1 line-clamp-1">Viral Beauty & Skincare UGC Ad</p>
-                      </div>
                     </div>
                   </div>
 
@@ -316,7 +309,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-[11px] sm:text-xs font-bold text-neutral-900">3.8x Higher ROAS 🚀</div>
+                  <div className="text-[11px] sm:text-xs font-bold text-neutral-900">3.8x Higher ROAS</div>
                   <div className="text-[9px] text-neutral-500 font-medium">Delivered in 48 hours</div>
                 </div>
               </motion.div>
@@ -337,8 +330,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-[11px] sm:text-xs font-bold text-neutral-900">100% AI Generated ✨</div>
-                  <div className="text-[9px] text-neutral-500 font-medium">Ready for Meta & TikTok</div>
+                  <div className="text-[11px] sm:text-xs font-bold text-neutral-900">100% AI Generated</div>
+                  <div className="text-[9px] text-neutral-500 font-medium">Ready for Meta & Instagram</div>
                 </div>
               </motion.div>
             </div>
