@@ -83,6 +83,17 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
     };
   }, []);
 
+  // Lock background scroll when image lightbox is open
+  React.useEffect(() => {
+    if (selectedImage) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [selectedImage]);
+
   const maxScroll = 500; // Distance to fully transition to flat grid
   const scrollFactor = Math.min(1, Math.max(0, scrollY / maxScroll));
   const headerOverlap = Math.min(20, (scrollY / maxScroll) * 20); // From 20 to 0

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, X, Volume2, ArrowUpRight, Eye, Check } from 'lucide-react';
+import { Play, X, ArrowUpRight, Eye, Check } from 'lucide-react';
 
 import brunetteImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
 import tousledGuyImg from '@/assets/img/tousled_guy_sky_1790982870552.jpg';
@@ -409,6 +409,17 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
 
+  // Lock background scroll when video modal is open
+  useEffect(() => {
+    if (activeVideo) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [activeVideo]);
+
   const filteredList = selectedCategory === 'All'
     ? VIDEO_ITEMS
     : VIDEO_ITEMS.filter(v => v.category === selectedCategory);
@@ -660,32 +671,35 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
             onClick={() => setActiveVideo(null)}
           >
+            {/* Close Button top-right */}
+            <button
+              onClick={() => setActiveVideo(null)}
+              className="absolute top-5 right-5 sm:top-6 sm:right-6 z-50 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-sm"
+              title="Close"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
             <motion.div
               key="video-modal-container"
               initial={{ opacity: 0, scale: 0.92, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 15 }}
               transition={{ type: 'spring', damping: 28, stiffness: 350 }}
-              className="relative bg-white rounded-[36px] max-w-sm sm:max-w-md w-full overflow-hidden shadow-2xl border-[3px] border-white my-auto p-3 sm:p-4"
+              className="relative max-w-sm sm:max-w-md w-full max-h-[90vh] my-auto overflow-hidden rounded-[28px] sm:rounded-[32px] shadow-2xl bg-black border border-white/10 flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setActiveVideo(null)}
-                className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="relative aspect-[9/16] w-full rounded-[26px] overflow-hidden bg-neutral-950 flex items-center justify-center shadow-inner">
+              <div className="relative aspect-[9/16] w-full rounded-[28px] sm:rounded-[32px] overflow-hidden bg-black flex items-center justify-center">
                 <video
                   src={activeVideo.videoSrc}
                   poster={activeVideo.image}
                   autoPlay
                   controls
+                  controlsList="nofullscreen nodownload noremoteplayback"
+                  disablePictureInPicture
                   playsInline
                   onError={(e) => {
                     const fallback = getLocalVideoFallback(activeVideo.videoSrc);
@@ -696,15 +710,6 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                   }}
                   className="w-full h-full object-cover"
                 />
-
-                {/* Bottom Scrim Bar */}
-                <div className="absolute top-4 inset-x-5 flex items-center justify-between text-white text-xs sm:text-sm font-display font-black uppercase tracking-wider pointer-events-none drop-shadow">
-                  <span className="truncate mr-2">{activeVideo.title}</span>
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    <Volume2 className="w-4 h-4 text-white/80" />
-                    <span>{activeVideo.duration}</span>
-                  </div>
-                </div>
               </div>
             </motion.div>
           </motion.div>
