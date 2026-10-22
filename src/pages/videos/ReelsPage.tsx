@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Play, X, Volume2, ArrowUpRight, Eye, Check } from 'lucide-react';
 
 import brunetteImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
-import communityFriendsImg from '@/assets/img/community_wide_friends_1790982804862.jpg';
 import tousledGuyImg from '@/assets/img/tousled_guy_sky_1790982870552.jpg';
 import windblownImg from '@/assets/img/windblown_hair_woman_1790982857578.jpg';
 import pixieImg from '@/assets/img/woman_bandana_pixie_1790982884567.jpg';
@@ -13,24 +12,72 @@ import johannaImg from '@/assets/img/card_johanna_1790977118147.jpg';
 import matthiasImg from '@/assets/img/card_matthias_1790977103900.jpg';
 import sarahImg from '@/assets/img/card_sarah_1790977156627.jpg';
 
-import womenPerfumeCommercialImg from '@/assets/images/women-perfume/Perfume_bottle_commercial_photog.jpg';
-import skincareStoneImg from '@/assets/images/facewash/Skincare_advertisement_on_stone.jpg';
-import menPerfumeLibraryImg from '@/assets/images/men-perfume/Perfume_bottle_in_luxury_library.jpg';
-import skincareCommercialImg from '@/assets/images/facewash/Skincare_product_commercial_photo.jpg';
-import lipstickMarbleImg from '@/assets/images/lipstick/Lipstick_advertisement_on_marble.jpg';
+import {
+  getCloudinaryVideo,
+  getCloudinaryVideoThumbnail,
+  getLocalVideoFallback,
+} from '@/utils/cloudinary';
 
-// Video assets from src/assets/videos/
-import cocaineVid from '@/assets/videos/cocaine.mp4';
-import facewashVid from '@/assets/videos/facewash.mp4';
-import lipstickProductVid from '@/assets/videos/lipstick-product.mp4';
-import lipstickVid from '@/assets/videos/lipstick.mp4';
-import menPerfumeVid from '@/assets/videos/men-perfume.mp4';
-import nailArtVid from '@/assets/videos/nail-art.mp4';
-import nailVid from '@/assets/videos/nail.mp4';
-import rampwalkVid from '@/assets/videos/rampwalk.mp4';
-import sukoonVid from '@/assets/videos/sukoon.mp4';
-import tshirtFerreriVid from '@/assets/videos/tshirt-ferreri.mp4';
-import womenPerfumeVid from '@/assets/videos/women-perfume.mp4';
+// Dynamic video thumbnails extracted from the exact middle position frame (50% timestamp) of each video
+const womenPerfumeThumb = getCloudinaryVideoThumbnail('women-perfume.mp4');
+const facewashThumb = getCloudinaryVideoThumbnail('facewash.mp4');
+const lipstickProductThumb = getCloudinaryVideoThumbnail('lipstick-product.mp4');
+const menPerfumeThumb = getCloudinaryVideoThumbnail('men-perfume.mp4');
+const rampwalkThumb = getCloudinaryVideoThumbnail('rampwalk.mp4');
+const lipstickThumb = getCloudinaryVideoThumbnail('lipstick.mp4');
+const nailArtThumb = getCloudinaryVideoThumbnail('nail-art.mp4');
+const tshirtFerreriThumb = getCloudinaryVideoThumbnail('tshirt-ferreri.mp4');
+const sukoonThumb = getCloudinaryVideoThumbnail('sukoon.mp4');
+const nailThumb = getCloudinaryVideoThumbnail('nail.mp4');
+const cocaineThumb = getCloudinaryVideoThumbnail('cocaine.mp4');
+
+// Cloudinary video assets (cardStreamSrc is lightweight ~800KB eco-streamed for instant play without lag)
+// Cloudinary video assets:
+// 1. streamSrc: ultra-fast low-bitrate stream (w_360, q_auto:low) ~400-500KB for immediate 0ms startup
+// 2. highResSrc: rich crisp HD stream (w_720, q_auto:good) upgraded smoothly in the background
+const cocaineVid = getCloudinaryVideo('cocaine.mp4');
+const cocaineFastVid = getCloudinaryVideo('cocaine.mp4', { optimize: true, quality: 'low', width: 360 });
+const cocaineHighVid = getCloudinaryVideo('cocaine.mp4', { optimize: true, quality: 'good', width: 720 });
+
+const facewashVid = getCloudinaryVideo('facewash.mp4');
+const facewashFastVid = getCloudinaryVideo('facewash.mp4', { optimize: true, quality: 'low', width: 360 });
+const facewashHighVid = getCloudinaryVideo('facewash.mp4', { optimize: true, quality: 'good', width: 720 });
+
+const lipstickProductVid = getCloudinaryVideo('lipstick-product.mp4');
+const lipstickProductFastVid = getCloudinaryVideo('lipstick-product.mp4', { optimize: true, quality: 'low', width: 360 });
+const lipstickProductHighVid = getCloudinaryVideo('lipstick-product.mp4', { optimize: true, quality: 'good', width: 720 });
+
+const lipstickVid = getCloudinaryVideo('lipstick.mp4');
+const lipstickFastVid = getCloudinaryVideo('lipstick.mp4', { optimize: true, quality: 'low', width: 360 });
+const lipstickHighVid = getCloudinaryVideo('lipstick.mp4', { optimize: true, quality: 'good', width: 720 });
+
+const menPerfumeVid = getCloudinaryVideo('men-perfume.mp4');
+const menPerfumeFastVid = getCloudinaryVideo('men-perfume.mp4', { optimize: true, quality: 'low', width: 360 });
+const menPerfumeHighVid = getCloudinaryVideo('men-perfume.mp4', { optimize: true, quality: 'good', width: 720 });
+
+const nailArtVid = getCloudinaryVideo('nail-art.mp4');
+const nailArtFastVid = getCloudinaryVideo('nail-art.mp4', { optimize: true, quality: 'low', width: 360 });
+const nailArtHighVid = getCloudinaryVideo('nail-art.mp4', { optimize: true, quality: 'good', width: 720 });
+
+const nailVid = getCloudinaryVideo('nail.mp4');
+const nailFastVid = getCloudinaryVideo('nail.mp4', { optimize: true, quality: 'low', width: 360 });
+const nailHighVid = getCloudinaryVideo('nail.mp4', { optimize: true, quality: 'good', width: 720 });
+
+const rampwalkVid = getCloudinaryVideo('rampwalk.mp4');
+const rampwalkFastVid = getCloudinaryVideo('rampwalk.mp4', { optimize: true, quality: 'low', width: 360 });
+const rampwalkHighVid = getCloudinaryVideo('rampwalk.mp4', { optimize: true, quality: 'good', width: 720 });
+
+const sukoonVid = getCloudinaryVideo('sukoon.mp4');
+const sukoonFastVid = getCloudinaryVideo('sukoon.mp4', { optimize: true, quality: 'low', width: 360 });
+const sukoonHighVid = getCloudinaryVideo('sukoon.mp4', { optimize: true, quality: 'good', width: 720 });
+
+const tshirtFerreriVid = getCloudinaryVideo('tshirt-ferreri.mp4');
+const tshirtFerreriFastVid = getCloudinaryVideo('tshirt-ferreri.mp4', { optimize: true, quality: 'low', width: 360 });
+const tshirtFerreriHighVid = getCloudinaryVideo('tshirt-ferreri.mp4', { optimize: true, quality: 'good', width: 720 });
+
+const womenPerfumeVid = getCloudinaryVideo('women-perfume.mp4');
+const womenPerfumeFastVid = getCloudinaryVideo('women-perfume.mp4', { optimize: true, quality: 'low', width: 360 });
+const womenPerfumeHighVid = getCloudinaryVideo('women-perfume.mp4', { optimize: true, quality: 'good', width: 720 });
 
 interface VideoItem {
   id: string;
@@ -38,6 +85,8 @@ interface VideoItem {
   category: 'Corporate' | 'E-commerce' | 'Ads' | 'Viral Reels';
   image: string;
   videoSrc: string;
+  streamSrc: string;
+  highResSrc: string;
   duration?: string;
   description?: string;
   views?: string;
@@ -51,8 +100,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-women-perfume',
     title: 'WOMEN PERFUME COMMERCIAL',
     category: 'Ads',
-    image: womenPerfumeCommercialImg,
+    image: womenPerfumeThumb,
     videoSrc: womenPerfumeVid,
+    streamSrc: womenPerfumeFastVid,
+    highResSrc: womenPerfumeHighVid,
     duration: '0:30',
     description: 'Cinematic fragrance commercial highlighting delicate floral notes, golden mist, and sculptural bottle design.',
     views: '15.4M Views',
@@ -64,8 +115,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-facewash',
     title: 'NATURAL FACEWASH ROUTINE',
     category: 'E-commerce',
-    image: skincareStoneImg,
+    image: facewashThumb,
     videoSrc: facewashVid,
+    streamSrc: facewashFastVid,
+    highResSrc: facewashHighVid,
     duration: '0:25',
     description: 'High-impact organic skincare routine demonstrating deep foaming cleanse and instant skin hydration.',
     views: '8.4M Views',
@@ -77,8 +130,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-lipstick-product',
     title: 'LUXURY LIPSTICK PRODUCT REEL',
     category: 'Viral Reels',
-    image: lipstickMarbleImg,
+    image: lipstickProductThumb,
     videoSrc: lipstickProductVid,
+    streamSrc: lipstickProductFastVid,
+    highResSrc: lipstickProductHighVid,
     duration: '0:18',
     description: 'Ultra-HD macro texture shot showcasing creamy velvet pigment glide and metallic gold casing.',
     views: '19.4M Views',
@@ -90,8 +145,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-men-perfume',
     title: 'MEN PERFUME NOCTURNE',
     category: 'Ads',
-    image: menPerfumeLibraryImg,
+    image: menPerfumeThumb,
     videoSrc: menPerfumeVid,
+    streamSrc: menPerfumeFastVid,
+    highResSrc: menPerfumeHighVid,
     duration: '0:20',
     description: 'Moody luxury commercial presenting a deep woody fragrance against warm cedarwood library tones.',
     views: '12.2M Views',
@@ -103,8 +160,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-rampwalk',
     title: 'PARIS RUNWAY RAMPWALK',
     category: 'Viral Reels',
-    image: communityFriendsImg,
+    image: rampwalkThumb,
     videoSrc: rampwalkVid,
+    streamSrc: rampwalkFastVid,
+    highResSrc: rampwalkHighVid,
     duration: '0:22',
     description: 'Fast-paced fashion runway showcase with dynamic pacing, dramatic lighting, and avant-garde silhouettes.',
     views: '24.6M Views',
@@ -116,8 +175,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-lipstick',
     title: 'MATTE LIPSTICK APPLICATION',
     category: 'Viral Reels',
-    image: lipstickMarbleImg,
+    image: lipstickThumb,
     videoSrc: lipstickVid,
+    streamSrc: lipstickFastVid,
+    highResSrc: lipstickHighVid,
     duration: '0:24',
     description: 'Step-by-step beauty tutorial swatching rich burgundy lipstick with precision contouring.',
     views: '9.8M Views',
@@ -129,8 +190,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-nail-art',
     title: 'CHROME NAIL ART ATELIER',
     category: 'Viral Reels',
-    image: skincareCommercialImg,
+    image: nailArtThumb,
     videoSrc: nailArtVid,
+    streamSrc: nailArtFastVid,
+    highResSrc: nailArtHighVid,
     duration: '0:20',
     description: 'Mesmerizing studio nail art process demonstrating holographic chrome powder and precise line work.',
     views: '11.5M Views',
@@ -142,8 +205,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-tshirt-ferreri',
     title: 'STREETWEAR T-SHIRT DROP',
     category: 'E-commerce',
-    image: sunlightManImg,
+    image: tshirtFerreriThumb,
     videoSrc: tshirtFerreriVid,
+    streamSrc: tshirtFerreriFastVid,
+    highResSrc: tshirtFerreriHighVid,
     duration: '0:28',
     description: 'Modern urban streetwear apparel launch film capturing oversized heavyweight cotton textures.',
     views: '18.2M Views',
@@ -155,8 +220,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-sukoon',
     title: 'SUKOON WELLNESS ESSENTIALS',
     category: 'Corporate',
-    image: windblownImg,
+    image: sukoonThumb,
     videoSrc: sukoonVid,
+    streamSrc: sukoonFastVid,
+    highResSrc: sukoonHighVid,
     duration: '0:35',
     description: 'Tranquil Ayurvedic wellness film showcasing mindful holistic lifestyle and botanical elixirs.',
     views: '14.1M Views',
@@ -168,8 +235,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-nail',
     title: 'MINIMALIST NAIL DESIGN',
     category: 'Viral Reels',
-    image: pixieImg,
+    image: nailThumb,
     videoSrc: nailVid,
+    streamSrc: nailFastVid,
+    highResSrc: nailHighVid,
     duration: '0:18',
     description: 'Clean aesthetic nail routine detailing glass shine top coat and modern nude aesthetics.',
     views: '7.1M Views',
@@ -181,8 +250,10 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: 'vid-cocaine',
     title: 'COCAINE NOIR COLOGNE',
     category: 'Corporate',
-    image: yasminImg,
+    image: cocaineThumb,
     videoSrc: cocaineVid,
+    streamSrc: cocaineFastVid,
+    highResSrc: cocaineHighVid,
     duration: '0:30',
     description: 'High-concept niche perfume visualizer playing with dark shadows, glass refractions, and smoky haze.',
     views: '31.3M Views',
@@ -202,13 +273,16 @@ interface ReelCardProps {
 const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  // Start with ultra-light low-quality stream for 0ms instant startup without lag
+  const [currentSrc, setCurrentSrc] = useState<string>(vid.streamSrc);
+  const [isVisible, setIsVisible] = useState(false);
+  const isUpgradedRef = useRef(false);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
-    // Use IntersectionObserver so only cards visible in viewport play in a loop smoothly
+    // IntersectionObserver: lazy load videos slightly before viewport and pause when off-screen
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -216,21 +290,44 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
           if (!video) return;
 
           if (entry.isIntersecting) {
-            video.play().then(() => setIsPlaying(true)).catch(() => {
-              // Browser autoplay policy handler
-            });
+            setIsVisible(true);
+            video.play().catch(() => {});
+
+            // Progressively upgrade to crisp high-res quality seamlessly while preserving playback time
+            if (!isUpgradedRef.current && vid.highResSrc && vid.highResSrc !== currentSrc) {
+              const upgradeTimer = setTimeout(() => {
+                const highResVideo = document.createElement('video');
+                highResVideo.preload = 'auto';
+                highResVideo.src = vid.highResSrc;
+                highResVideo.oncanplay = () => {
+                  if (videoRef.current) {
+                    const currentTime = videoRef.current.currentTime;
+                    setCurrentSrc(vid.highResSrc);
+                    // seamless time sync on next frame
+                    requestAnimationFrame(() => {
+                      if (videoRef.current) {
+                        videoRef.current.currentTime = currentTime;
+                        videoRef.current.play().catch(() => {});
+                      }
+                    });
+                    isUpgradedRef.current = true;
+                  }
+                };
+              }, 1200);
+
+              return () => clearTimeout(upgradeTimer);
+            }
           } else {
             video.pause();
-            setIsPlaying(false);
           }
         });
       },
-      { threshold: 0.25 }
+      { rootMargin: '150px 0px', threshold: 0.15 }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [vid.highResSrc, currentSrc]);
 
   return (
     <div
@@ -238,27 +335,25 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
       onClick={() => onSelect(vid)}
       className="group relative aspect-[9/16] w-full rounded-[28px] sm:rounded-[32px] overflow-hidden bg-neutral-950 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.25)] cursor-pointer transform hover:-translate-y-1.5 hover:shadow-[0_25px_50px_-10px_rgba(0,0,0,0.4)] transition-all duration-300"
     >
-      {/* Seamless looping video playing automatically in the viewport */}
+      {/* Direct Cloudinary video playback with middle frame poster thumbnail */}
       <video
         ref={videoRef}
-        src={vid.videoSrc}
+        src={isVisible ? currentSrc : ''}
         poster={vid.image}
         autoPlay
         loop
         muted
         playsInline
         preload="auto"
+        onError={(e) => {
+          // If remote stream fails, seamlessly fall back to base or local asset
+          const fallback = getLocalVideoFallback(vid.videoSrc);
+          if (fallback && e.currentTarget.src !== fallback) {
+            e.currentTarget.src = fallback;
+            e.currentTarget.play().catch(() => {});
+          }
+        }}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-      />
-
-      {/* Poster image that smoothly fades out when video playback starts */}
-      <img
-        src={vid.image}
-        alt={vid.title}
-        loading="lazy"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 pointer-events-none group-hover:scale-105 ${
-          isPlaying ? 'opacity-0' : 'opacity-100'
-        }`}
       />
 
       {/* Bottom Vignette Gradient matching reference image */}
@@ -394,7 +489,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
               >
                 <video
                   src={lipstickVid}
-                  poster={lipstickMarbleImg}
+                  poster={lipstickThumb}
                   autoPlay
                   loop
                   muted
@@ -414,7 +509,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
               >
                 <video
                   src={rampwalkVid}
-                  poster={communityFriendsImg}
+                  poster={rampwalkThumb}
                   autoPlay
                   loop
                   muted
@@ -434,7 +529,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
               >
                 <video
                   src={menPerfumeVid}
-                  poster={menPerfumeLibraryImg}
+                  poster={menPerfumeThumb}
                   autoPlay
                   loop
                   muted
@@ -454,7 +549,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
               >
                 <video
                   src={womenPerfumeVid}
-                  poster={womenPerfumeCommercialImg}
+                  poster={womenPerfumeThumb}
                   autoPlay
                   loop
                   muted
@@ -474,7 +569,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
               >
                 <video
                   src={facewashVid}
-                  poster={skincareStoneImg}
+                  poster={facewashThumb}
                   autoPlay
                   loop
                   muted
@@ -490,24 +585,26 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
         </div>
       </div>
 
-      {/* Category Pills Bar matching Home Page Pill Buttons */}
-      <div className="relative z-10 flex items-center justify-center flex-wrap gap-2.5 sm:gap-3 mb-14">
-        {CATEGORIES.map((cat) => {
-          const isActive = selectedCategory === cat;
-          return (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-6 sm:px-7 py-2.5 rounded-full font-display text-xs sm:text-sm font-black tracking-wider uppercase transition-all active:scale-95 shadow-sm cursor-pointer ${
-                isActive
-                  ? 'bg-[#dcc6d5] hover:bg-[#d2b8cb] text-neutral-900 border border-white/80'
-                  : 'bg-white/80 hover:bg-white text-neutral-800 border border-white/70'
-              }`}
-            >
-              {cat}
-            </button>
-          );
-        })}
+      {/* Single-Div Segmented Category Bar with Website Theme Colors */}
+      <div className="relative z-20 flex justify-center mb-12 px-2">
+        <div className="inline-flex items-center p-1 sm:p-1.5 bg-[#f5ecf2]/80 backdrop-blur-md rounded-full border border-[#e8d5df] shadow-[0_4px_20px_-4px_rgba(220,198,213,0.5)] max-w-full overflow-x-auto scrollbar-none">
+          {CATEGORIES.map((cat) => {
+            const isActive = selectedCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-[13px] tracking-wide transition-all duration-200 cursor-pointer select-none whitespace-nowrap ${
+                  isActive
+                    ? 'bg-[#eda970] text-neutral-900 shadow-sm font-bold'
+                    : 'text-[#6b4c63] hover:text-neutral-900 hover:bg-white/60 font-medium'
+                }`}
+              >
+                {cat}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* ALL VIDEOS IN UNIFORM 9:16 RATIO FORMAT (Matching reference reel card) */}
@@ -546,6 +643,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 autoPlay
                 controls
                 playsInline
+                onError={(e) => {
+                  const fallback = getLocalVideoFallback(activeVideo.videoSrc);
+                  if (fallback && e.currentTarget.src !== fallback) {
+                    e.currentTarget.src = fallback;
+                    e.currentTarget.play().catch(() => {});
+                  }
+                }}
                 className="w-full h-full object-cover"
               />
 

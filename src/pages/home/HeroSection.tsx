@@ -6,7 +6,9 @@ import { Profile } from '@/types';
 import avatarHipsterBeardImg from '@/assets/img/avatar_hipster_beard_1790979384816.jpg';
 import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
 import yasminImg from '@/assets/img/yasmin_clean_916_1790980492922.jpg';
-import womenPerfumeImg from '@/assets/images/women-perfume/Perfume_bottle_flat-lay_photograph.jpg';
+import { getCloudinaryImage } from '@/utils/cloudinary';
+
+const womenPerfumeImg = getCloudinaryImage('women-perfume/Perfume_bottle_flat-lay_photograph.jpg');
 
 interface HeroSectionProps {
   onSelectProfile?: (profile: Profile) => void;

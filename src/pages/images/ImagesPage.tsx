@@ -1,30 +1,32 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 
-// All 20 Images from assets/images folder
-import lipstickFlatLayImg from '@/assets/images/lipstick/Create_cosmetics_flat_lay_photog.jpg';
-import lipstickMarbleImg from '@/assets/images/lipstick/Lipstick_advertisement_on_marble.jpg';
-import lipstickEditorialImg from '@/assets/images/lipstick/Lipstick_product_editorial_photo.jpg';
-import lipstickLuxuryImg from '@/assets/images/lipstick/Luxury_lipstick_advertising_phot.jpg';
+import { getCloudinaryImage, getLocalImageFallback } from '@/utils/cloudinary';
 
-import menPerfumeCreatingAdvImg from '@/assets/images/men-perfume/Creating_perfume_bottle_adv.jpg';
-import menPerfumeCreatingAdvertisImg from '@/assets/images/men-perfume/Creating_perfume_bottle_advertis.jpg';
-import menPerfumePosterImg from '@/assets/images/men-perfume/Perfume_bottle_advertising_poster.jpg';
-import menPerfumeEditorialImg from '@/assets/images/men-perfume/Perfume_bottle_editorial_photogr.jpg';
-import menPerfumeLibraryImg from '@/assets/images/men-perfume/Perfume_bottle_in_luxury_library.jpg';
-import menPerfumeMindtrixImg from '@/assets/images/men-perfume/Photographing_Mindtrix_Media_per.jpg';
+// All 20 Images from Cloudinary
+const lipstickFlatLayImg = getCloudinaryImage('lipstick/Create_cosmetics_flat_lay_photog.jpg');
+const lipstickMarbleImg = getCloudinaryImage('lipstick/Lipstick_advertisement_on_marble.jpg');
+const lipstickEditorialImg = getCloudinaryImage('lipstick/Lipstick_product_editorial_photo.jpg');
+const lipstickLuxuryImg = getCloudinaryImage('lipstick/Luxury_lipstick_advertising_phot.jpg');
 
-import skincareStoneImg from '@/assets/images/facewash/Skincare_advertisement_on_stone.jpg';
-import skincarePhotographImg from '@/assets/images/facewash/Skincare_advertising_photograph.jpg';
-import skincareAdvertisemenImg from '@/assets/images/facewash/Skincare_product_advertisemen.jpg';
-import skincareAdvertisementImg from '@/assets/images/facewash/Skincare_product_advertisement.jpg';
-import skincareCommercialImg from '@/assets/images/facewash/Skincare_product_commercial_photo.jpg';
+const menPerfumeCreatingAdvImg = getCloudinaryImage('men-perfume/Creating_perfume_bottle_adv.jpg');
+const menPerfumeCreatingAdvertisImg = getCloudinaryImage('men-perfume/Creating_perfume_bottle_advertis.jpg');
+const menPerfumePosterImg = getCloudinaryImage('men-perfume/Perfume_bottle_advertising_poster.jpg');
+const menPerfumeEditorialImg = getCloudinaryImage('men-perfume/Perfume_bottle_editorial_photogr.jpg');
+const menPerfumeLibraryImg = getCloudinaryImage('men-perfume/Perfume_bottle_in_luxury_library.jpg');
+const menPerfumeMindtrixImg = getCloudinaryImage('men-perfume/Photographing_Mindtrix_Media_per.jpg');
 
-import womenPerfumeCreatingImg from '@/assets/images/women-perfume/Creating_perfume_advertising_pho.jpg';
-import womenPerfumeCommercialImg from '@/assets/images/women-perfume/Perfume_bottle_commercial_photog.jpg';
-import womenPerfumeFlatLayImg from '@/assets/images/women-perfume/Perfume_bottle_flat-lay_photograph.jpg';
-import womenPerfumePedestalImg from '@/assets/images/women-perfume/Perfume_bottle_on_stone_pedestal.jpg';
-import womenPerfumePlaceImg from '@/assets/images/women-perfume/Perfume_product_photograph_place.jpg';
+const skincareStoneImg = getCloudinaryImage('facewash/Skincare_advertisement_on_stone.jpg');
+const skincarePhotographImg = getCloudinaryImage('facewash/Skincare_advertising_photograph.jpg');
+const skincareAdvertisemenImg = getCloudinaryImage('facewash/Skincare_product_advertisemen.jpg');
+const skincareAdvertisementImg = getCloudinaryImage('facewash/Skincare_product_advertisement.jpg');
+const skincareCommercialImg = getCloudinaryImage('facewash/Skincare_product_commercial_photo.jpg');
+
+const womenPerfumeCreatingImg = getCloudinaryImage('women-perfume/Creating_perfume_advertising_pho.jpg');
+const womenPerfumeCommercialImg = getCloudinaryImage('women-perfume/Perfume_bottle_commercial_photog.jpg');
+const womenPerfumeFlatLayImg = getCloudinaryImage('women-perfume/Perfume_bottle_flat-lay_photograph.jpg');
+const womenPerfumePedestalImg = getCloudinaryImage('women-perfume/Perfume_bottle_on_stone_pedestal.jpg');
+const womenPerfumePlaceImg = getCloudinaryImage('women-perfume/Perfume_product_photograph_place.jpg');
 
 interface ImagesPageProps {
   onBackToHome?: () => void;
@@ -168,6 +170,12 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
                     <img
                       src={img.src}
                       alt="UGC Product Image"
+                      onError={(e) => {
+                        const fallback = getLocalImageFallback(img.src);
+                        if (fallback && e.currentTarget.src !== fallback) {
+                          e.currentTarget.src = fallback;
+                        }
+                      }}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
