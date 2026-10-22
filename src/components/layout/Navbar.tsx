@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import mindtrixLogo from '@/assets/logo.png';
 
 interface NavbarProps {
@@ -25,42 +26,37 @@ export const Navbar: React.FC<NavbarProps> = ({
     }
   };
 
+  const navItems: Array<{ id: 'home' | 'images' | 'reels'; label: string; anchor?: string }> = [
+    { id: 'home', label: 'Home', anchor: 'hero' },
+    { id: 'images', label: 'Images' },
+    { id: 'reels', label: 'Reels' },
+  ];
+
   return (
     <header className="w-full pt-6 pb-4 px-4 sm:px-8 max-w-6xl mx-auto flex items-center justify-between text-neutral-900 text-sm">
-      {/* Navigation Links: Home, Images, Reels */}
-      <nav className="flex items-center gap-6 sm:gap-10 md:gap-12 font-medium text-xs sm:text-[14px] text-neutral-800">
-        <button
-          onClick={() => handleNavClick('home', 'hero')}
-          className={`transition-all cursor-pointer font-semibold ${
-            currentPage === 'home'
-              ? 'text-[#6566ee] font-extrabold border-b-2 border-[#6566ee] pb-0.5'
-              : 'hover:text-[#6566ee] text-neutral-700'
-          }`}
-        >
-          Home
-        </button>
-
-        <button
-          onClick={() => handleNavClick('images')}
-          className={`transition-all cursor-pointer font-semibold ${
-            currentPage === 'images'
-              ? 'text-[#6566ee] font-extrabold border-b-2 border-[#6566ee] pb-0.5'
-              : 'hover:text-[#6566ee] text-neutral-700'
-          }`}
-        >
-          Images
-        </button>
-
-        <button
-          onClick={() => handleNavClick('reels')}
-          className={`transition-all cursor-pointer font-semibold ${
-            currentPage === 'reels'
-              ? 'text-[#6566ee] font-extrabold border-b-2 border-[#6566ee] pb-0.5'
-              : 'hover:text-[#6566ee] text-neutral-700'
-          }`}
-        >
-          Reels
-        </button>
+      {/* Navigation Links with animated active underline indicator */}
+      <nav className="flex items-center gap-6 sm:gap-10 md:gap-12 font-medium text-xs sm:text-[14px]">
+        {navItems.map((item) => {
+          const isActive = currentPage === item.id;
+          return (
+            <button
+              key={item.id}
+              onClick={() => handleNavClick(item.id, item.anchor)}
+              className={`relative py-1 transition-colors cursor-pointer font-semibold ${
+                isActive ? 'text-[#6566ee] font-extrabold' : 'text-neutral-700 hover:text-[#6566ee]'
+              }`}
+            >
+              <span>{item.label}</span>
+              {isActive && (
+                <motion.div
+                  layoutId="navbarActiveIndicator"
+                  className="absolute bottom-0 inset-x-0 h-[2px] bg-[#6566ee] rounded-full"
+                  transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                />
+              )}
+            </button>
+          );
+        })}
       </nav>
 
       {/* Right: Mindtrix Media Logo (Click to go Home) */}

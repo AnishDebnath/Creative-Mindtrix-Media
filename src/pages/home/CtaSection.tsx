@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 interface CtaSectionProps {
@@ -39,7 +40,13 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
       }}
     >
       {/* 1. Top Sub-Bar Row */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between w-full pb-6">
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between w-full pb-6"
+      >
         {/* Left: Domain Indicator */}
         <button
           onClick={onScrollToAbout}
@@ -63,7 +70,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
         >
           GET STARTED
         </button>
-      </div>
+      </motion.div>
 
       {/* Full-Width Segmented Horizontal Line */}
       <div className="w-full flex items-center justify-between gap-3 sm:gap-4 mb-20 sm:mb-24 px-2 sm:px-4">
@@ -79,12 +86,25 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
           {/* Massive 2-Line Stacked Headline */}
-          <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[88px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-12 sm:mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
+            className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[88px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-12 sm:mb-16"
+          >
             SCALE YOUR BRAND<br />WITH AI CREATIVES.
-          </h2>
+          </motion.h2>
 
           {/* Master Tilted Capsule with 3 Separated Fields inside */}
-          <form onSubmit={handleSubmit} className="w-full max-w-3xl relative">
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+            className="w-full max-w-3xl relative"
+          >
             
             {/* Outer Frosted Glass Aura Ring with Exact Tilt Angle (-3.5deg) */}
             <div className="bg-white/45 backdrop-blur-xl rounded-[36px] sm:rounded-full p-2.5 sm:p-3 shadow-[0_20px_50px_-10px_rgba(143,115,204,0.15)] border border-white/80 transform -rotate-[3.5deg] hover:rotate-0 transition-all duration-300">
@@ -150,7 +170,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
                 🎉 Thank you! A Mindtrix AI ad strategist will reach out to schedule your campaign onboarding.
               </p>
             )}
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>

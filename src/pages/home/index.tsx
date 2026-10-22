@@ -16,7 +16,7 @@ interface HomePageProps {
 
 export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProps) {
   return (
-    <main className="flex-1 w-full">
+    <div className="w-full">
       {/* Hero Section */}
       <HeroSection
         onSelectProfile={noop}
@@ -65,6 +65,6 @@ export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProp
         onScrollToAbout={() => scrollToId('stand-for')}
         onNavigateToImages={onNavigateToImages}
       />
-    </main>
+    </div>
   );
 }

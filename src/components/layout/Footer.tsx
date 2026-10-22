@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Instagram, Facebook, Globe, Sparkles } from 'lucide-react';
 import mindtrixLogo from '@/assets/logo.png';
 
@@ -15,7 +16,13 @@ export const Footer: React.FC<FooterProps> = ({
   onNavigateToReels
 }) => {
   return (
-    <footer className="w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <motion.footer
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-30px' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+    >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
 
         {/* Column 1 (Left): MINDTRIX Logo + Software & AI Creative Note */}
@@ -159,6 +166,6 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
       </div>
-    </footer>
+    </motion.footer>
   );
 };

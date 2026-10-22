@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
 import { HERO_PROFILES } from '@/data/mockData';
@@ -7,17 +8,29 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section id="testimonials" className="w-full py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-visible">
       {/* Big Headline */}
-      <div className="text-center mb-14 sm:mb-18">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="text-center mb-14 sm:mb-18"
+      >
         <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3]">
           WHY BRANDS<br />CHOOSE US
         </h2>
-      </div>
+      </motion.div>
 
       {/* Asymmetrical Testimonials Cards Grid: Left card is wider, Right card is shorter */}
       <div className="flex flex-col md:flex-row items-stretch justify-center gap-8 lg:gap-10 max-w-5xl mx-auto">
 
         {/* Card 1 (Left - Wider Card: Marcus Vance) */}
-        <div className="relative group w-full md:w-[56%] flex flex-col">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-30px' }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="relative group w-full md:w-[56%] flex flex-col"
+        >
           {/* White Speech Bubble Container */}
           <div className="relative z-10 bg-white rounded-[32px] sm:rounded-[36px] p-8 sm:p-10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] border border-white flex flex-col justify-between h-full transition-shadow hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)]">
 
@@ -72,10 +85,16 @@ export const TestimonialsSection: React.FC = () => {
               />
             </svg>
           </div>
-        </div>
+        </motion.div>
 
         {/* Card 2 (Right - Shorter Width Card: Sarah Lindquist) */}
-        <div className="relative group w-full md:w-[44%] flex flex-col">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-30px' }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="relative group w-full md:w-[44%] flex flex-col"
+        >
           {/* White Speech Bubble Container */}
           <div className="relative z-10 bg-white rounded-[32px] sm:rounded-[36px] p-7 sm:p-9 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] border border-white flex flex-col justify-between h-full transition-shadow hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)]">
 
@@ -130,7 +149,7 @@ export const TestimonialsSection: React.FC = () => {
               />
             </svg>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

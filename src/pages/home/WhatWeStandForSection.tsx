@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface WhatWeStandForSectionProps {
   onDiscoverMore: () => void;
@@ -20,7 +21,13 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
     <section id="stand-for" className="w-full bg-white py-24 sm:py-28 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Top Header Row */}
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-14"
+        >
           {/* Left Big Stacked Headline */}
           <div>
             <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3]">
@@ -40,13 +47,19 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
               EXPLORE AI CREATIVES
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* 3-Column Staggered Layout with 1:1 Square Ratio Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           
           {/* ROW 1 - COL 1: AI PRODUCT ADVERTISING (4-Color Soft Gradient) */}
-          <div className="w-full aspect-square bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#dcc6d5]">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.45, delay: 0.05 }}
+            className="w-full aspect-square bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#dcc6d5]"
+          >
             <SwirlIcon />
             <div>
               <h3 className="font-display text-3xl sm:text-[32px] lg:text-[36px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-6">
@@ -56,10 +69,16 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
                 Simple, clear, and high-converting product ads built to turn casual viewers into loyal customers.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* ROW 1 - COL 2: AI-POWERED PRODUCT ADS (4-Color Soft Gradient) */}
-          <div className="w-full aspect-square bg-gradient-to-br from-[#f0f0fd] via-[#f7f0fb] to-[#faedf4] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#6566ee]/30">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.45, delay: 0.15 }}
+            className="w-full aspect-square bg-gradient-to-br from-[#f0f0fd] via-[#f7f0fb] to-[#faedf4] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#6566ee]/30"
+          >
             <SwirlIcon />
             <div>
               <h3 className="font-display text-3xl sm:text-[32px] lg:text-[36px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-6">
@@ -69,7 +88,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
                 Modern, marketing-friendly ad variations tailored for Instagram, TikTok, and Meta feeds.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* ROW 1 - COL 3: Empty spacer on desktop for staggered stepped feel */}
           <div className="hidden lg:block pointer-events-none" />
@@ -78,7 +97,13 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
           <div className="hidden lg:block pointer-events-none" />
 
           {/* ROW 2 - COL 2: AI PRODUCT VIDEO CREATION (4-Color Soft Gradient) */}
-          <div className="w-full aspect-square bg-gradient-to-br from-[#fdf4ed] via-[#f8edf5] to-[#f1ecfc] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#eda970]/40">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.45, delay: 0.1 }}
+            className="w-full aspect-square bg-gradient-to-br from-[#fdf4ed] via-[#f8edf5] to-[#f1ecfc] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#eda970]/40"
+          >
             <SwirlIcon />
             <div>
               <h3 className="font-display text-3xl sm:text-[32px] lg:text-[36px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-6">
@@ -88,10 +113,16 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
                 Scroll-stopping video reels, 3D product animations, and viral UGC style videos made to convert.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* ROW 2 - COL 3: COMMERCIAL PRODUCTION (4-Color Soft Gradient) */}
-          <div className="w-full aspect-square bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#8f73cc]/40">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.45, delay: 0.2 }}
+            className="w-full aspect-square bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#8f73cc]/40"
+          >
             <SwirlIcon />
             <div>
               <h3 className="font-display text-3xl sm:text-[32px] lg:text-[36px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-6">
@@ -101,7 +132,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
                 Agency-grade cinematic product commercials built with cutting-edge AI systems at scale.
               </p>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

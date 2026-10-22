@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Profile } from '@/types';
 import { HERO_PROFILES } from '@/data/mockData';
 
@@ -34,7 +35,13 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Heading, Description, Button */}
-          <div className="lg:col-span-5 flex flex-col items-start justify-between min-h-[440px]">
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
+            className="lg:col-span-5 flex flex-col items-start justify-between min-h-[440px]"
+          >
             <div>
               <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-8">
                 GROW YOUR<br />BUSINESS WITH<br />AI ADS
@@ -52,14 +59,20 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                 VIEW AI IMAGE GALLERY
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Visual Composition matching reference image */}
           <div className="lg:col-span-7 relative flex items-center justify-center min-h-[500px]">
             {/* Main Card with Surrounding Floating Overlays */}
             <div className="relative flex items-center justify-center">
               {/* 1. Top-Left Floating Reaction Bar */}
-              <div className="absolute top-8 -left-10 sm:-left-14 md:-left-26 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(143,115,204,0.2)] border border-white flex items-center gap-1.5 sm:gap-2 transform -rotate-6 transition-transform duration-300 hover:rotate-0">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.1 }}
+                className="absolute top-8 -left-10 sm:-left-14 md:-left-26 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(143,115,204,0.2)] border border-white flex items-center gap-1.5 sm:gap-2 transform -rotate-6 transition-transform duration-300 hover:rotate-0"
+              >
                 {emojis.map((emoji) => (
                   <button
                     key={emoji}
@@ -70,11 +83,15 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                     {emoji}
                   </button>
                 ))}
-              </div>
+              </motion.div>
 
               {/* 2. Small Card (Skincare on Stone) */}
-              <div
+              <motion.div
                 onClick={onNavigateToImages}
+                initial={{ opacity: 0, scale: 0.85, x: -30 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15 }}
                 className="absolute bottom-8 sm:bottom-10 -left-18 sm:-left-26 md:-left-30 lg:-left-32 z-10 w-36 sm:w-42 bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-2.5 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.22)] border border-white transform -rotate-3 hover:rotate-0 transition-transform duration-300 cursor-pointer"
               >
                 <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-1.5 bg-neutral-100">
@@ -88,11 +105,15 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                   <span className="flex items-center gap-0.5">❤️ 19.8k</span>
                   <span className="flex items-center gap-0.5">🚀 4.2x ROAS</span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* 3. Main Central Creative Card (z-20) */}
-              <div
+              <motion.div
                 onClick={onNavigateToImages}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, ease: 'easeOut' }}
                 className="relative z-20 w-[275px] sm:w-[315px] md:w-[330px] bg-white rounded-[32px] p-3 shadow-[0_25px_60px_-15px_rgba(143,115,204,0.25)] border border-white cursor-pointer transform hover:scale-[1.01] transition-transform duration-300"
               >
                 {/* Photo Canvas */}
@@ -112,24 +133,42 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                   <span>LUXURY COSMETICS AD</span>
                   <span className="text-xs bg-gradient-to-r from-[#f4effb] to-[#faedf5] text-[#8f73cc] px-2 py-0.5 rounded-full font-sans font-bold">4K Studio</span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* 4. Floating Top-Right Speech Bubble */}
-              <div className="absolute top-16 sm:top-24 -right-14 sm:-right-20 md:-right-24 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(0,0,0,0.2)] border border-white text-neutral-900 text-xs sm:text-sm font-bold whitespace-nowrap flex items-center gap-1.5 transform -rotate-4 transition-transform duration-300 hover:rotate-0">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, x: 20 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.2 }}
+                className="absolute top-16 sm:top-24 -right-14 sm:-right-20 md:-right-24 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(0,0,0,0.2)] border border-white text-neutral-900 text-xs sm:text-sm font-bold whitespace-nowrap flex items-center gap-1.5 transform -rotate-4 transition-transform duration-300 hover:rotate-0"
+              >
                 <span>Higher Conversion</span>
                 <span>📈</span>
-              </div>
+              </motion.div>
 
               {/* 5. Floating Bottom-Right Bubble */}
-              <div className="absolute bottom-28 sm:bottom-26 -right-10 sm:-right-16 md:-right-20 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(0,0,0,0.2)] border border-white text-neutral-900 text-xs sm:text-sm font-bold whitespace-nowrap flex items-center gap-1.5 transform -rotate-4 transition-transform duration-300 hover:rotate-0">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, x: 20 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.25 }}
+                className="absolute bottom-28 sm:bottom-26 -right-10 sm:-right-16 md:-right-20 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(0,0,0,0.2)] border border-white text-neutral-900 text-xs sm:text-sm font-bold whitespace-nowrap flex items-center gap-1.5 transform -rotate-4 transition-transform duration-300 hover:rotate-0"
+              >
                 <span>Ready in 48 Hours</span>
                 <span>⚡</span>
-              </div>
+              </motion.div>
 
               {/* 6. Floating Bottom-Right Badge */}
-              <div className="absolute -bottom-3 sm:-bottom-4 right-0 sm:-right-2 z-30 px-4 sm:px-5 py-1.5 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] text-[#3d1e06] font-display text-sm sm:text-base font-bold rounded-full shadow-lg border border-white/80 transform -rotate-6">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, y: 15 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="absolute -bottom-3 sm:-bottom-4 right-0 sm:-right-2 z-30 px-4 sm:px-5 py-1.5 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] text-[#3d1e06] font-display text-sm sm:text-base font-bold rounded-full shadow-lg border border-white/80 transform -rotate-6"
+              >
                 AI Commercial
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

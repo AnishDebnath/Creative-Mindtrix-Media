@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { HERO_PROFILES } from '@/data/mockData';
 import { Play } from 'lucide-react';
 
@@ -24,7 +25,13 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
     <section id="reels" className="w-full py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-visible scroll-mt-6">
       <span id="community" className="sr-only" />
       {/* Top Header Row */}
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-12 sm:mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-12 sm:mb-16"
+      >
         <div>
           <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3]">
             THE MINDTRIX<br />AI REEL STAGE
@@ -42,10 +49,16 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
             EXPLORE ALL REELS & VIDEOS
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* 3D Isometric Perspective Stage in 16:9 Ratio */}
-      <div className="relative w-full max-w-[940px] mx-auto py-12 sm:py-16 flex items-center justify-center [perspective:1600px] overflow-visible">
+      <motion.div
+        initial={{ opacity: 0, y: 40, scale: 0.94 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="relative w-full max-w-[940px] mx-auto py-12 sm:py-16 flex items-center justify-center [perspective:1600px] overflow-visible"
+      >
 
         {/* Tilted 3D Stage */}
         <div
@@ -256,7 +269,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
           </div>
 
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

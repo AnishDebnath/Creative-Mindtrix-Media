@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { HomePage } from '@/pages/home';
@@ -34,7 +35,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-landing-gradient relative overflow-x-hidden text-neutral-900 selection:bg-indigo-100 flex flex-col justify-between">
+    <div className="min-h-screen bg-landing-gradient relative text-neutral-900 selection:bg-indigo-100 flex flex-col justify-between">
       {/* Top Navbar */}
       <Navbar
         currentPage={currentPage}
@@ -44,27 +45,55 @@ export default function App() {
         onScrollTo={scrollToId}
       />
 
-      {/* Dynamic Page Routing */}
-      {currentPage === 'home' && (
-        <HomePage
-          onNavigateToImages={() => navigateTo('images')}
-          onNavigateToReels={() => navigateTo('reels')}
-        />
-      )}
+      {/* Dynamic Page Routing with Smooth Page Transitions */}
+      <main className="flex-1">
+        <AnimatePresence mode="wait">
+          {currentPage === 'home' && (
+            <motion.div
+              key="home"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28, ease: 'easeInOut' }}
+            >
+              <HomePage
+                onNavigateToImages={() => navigateTo('images')}
+                onNavigateToReels={() => navigateTo('reels')}
+              />
+            </motion.div>
+          )}
 
-      {currentPage === 'images' && (
-        <ImagesPage
-          onBackToHome={() => navigateTo('home')}
-          onNavigateToReels={() => navigateTo('reels')}
-        />
-      )}
+          {currentPage === 'images' && (
+            <motion.div
+              key="images"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28, ease: 'easeInOut' }}
+            >
+              <ImagesPage
+                onBackToHome={() => navigateTo('home')}
+                onNavigateToReels={() => navigateTo('reels')}
+              />
+            </motion.div>
+          )}
 
-      {currentPage === 'reels' && (
-        <ReelsPage
-          onBackToHome={() => navigateTo('home')}
-          onNavigateToImages={() => navigateTo('images')}
-        />
-      )}
+          {currentPage === 'reels' && (
+            <motion.div
+              key="reels"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28, ease: 'easeInOut' }}
+            >
+              <ReelsPage
+                onBackToHome={() => navigateTo('home')}
+                onNavigateToImages={() => navigateTo('images')}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </main>
 
       {/* Footer */}
       <Footer

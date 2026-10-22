@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 import { getCloudinaryImage, getLocalImageFallback } from '@/utils/cloudinary';
@@ -87,7 +88,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
   const headerOverlap = Math.min(20, (scrollY / maxScroll) * 20); // From 20 to 0
 
   return (
-    <div className="relative w-full min-h-screen pt-4 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-hidden">
+    <div className="relative w-full pt-4 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-hidden">
       
       {/* Background Giant Watermark Typography: MINDTRIX */}
       <div className="absolute top-0 inset-x-0 flex items-start justify-center pointer-events-none select-none z-0 opacity-30 overflow-hidden">
@@ -113,7 +114,12 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
       </div>
 
       {/* Top Header Row matching requested design */}
-      <div className="relative z-10 pt-12 mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="relative z-10 pt-12 mb-16"
+      >
         <div className="max-w-3xl flex flex-col items-start gap-6">
           
           {/* Trend Tag */}
@@ -141,7 +147,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
             Start for free
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Image Container - 4 separate columns for seamless vertical spacing and staircase offset */}
       <div className="relative z-20 mb-16 px-4 pt-28" style={{ marginTop: `${-20 + headerOverlap}px` }}>
@@ -189,32 +195,44 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
       </div>
 
 
-      {/* Full-Screen Image Lightbox Preview Modal */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div
-            className="relative bg-neutral-950 rounded-[32px] max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl my-auto p-3 flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
+      {/* Full-Screen Image Lightbox Preview Modal with Framer Motion */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            key="lightbox-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+            onClick={() => setSelectedImage(null)}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer"
+            <motion.div
+              key="lightbox-container"
+              initial={{ opacity: 0, scale: 0.92, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 12 }}
+              transition={{ type: 'spring', damping: 28, stiffness: 350 }}
+              className="relative bg-neutral-950 rounded-[32px] max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl my-auto p-3 flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-5 h-5" />
-            </button>
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
-            <img
-              src={selectedImage}
-              alt="Asset Full Preview"
-              className="max-h-[85vh] w-auto max-w-full rounded-[24px] object-contain shadow-2xl"
-            />
-          </div>
-        </div>
-      )}
+              <img
+                src={selectedImage}
+                alt="Asset Full Preview"
+                className="max-h-[85vh] w-auto max-w-full rounded-[24px] object-contain shadow-2xl"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );

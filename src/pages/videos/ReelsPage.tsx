@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Play, X, Volume2, ArrowUpRight, Eye, Check } from 'lucide-react';
 
 import brunetteImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
@@ -413,7 +414,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
     : VIDEO_ITEMS.filter(v => v.category === selectedCategory);
 
   return (
-    <div className="relative w-full min-h-screen pt-4 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-hidden">
+    <div className="relative w-full pt-4 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-hidden">
       
       {/* Background Giant Watermark Typography: MINDTRIX */}
       <div className="absolute top-0 inset-x-0 flex items-start justify-center pointer-events-none select-none z-0 opacity-20 overflow-hidden">
@@ -439,7 +440,12 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
       </div>
 
       {/* Header Section matching website brand theme */}
-      <div className="relative z-10 pt-4 mb-10 sm:mb-12">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="relative z-10 pt-4 mb-10 sm:mb-12"
+      >
         <div className="bg-gradient-to-b from-[#f6eee7] via-[#f1e5df] to-[#ebdbe7] rounded-[24px] sm:rounded-[32px] pt-7 sm:pt-9 px-6 sm:px-10 pb-0 shadow-[0_20px_50px_-20px_rgba(220,198,213,0.45)] border border-[#e8d5df]/70 overflow-hidden flex flex-col justify-between">
           
           {/* Top Header Row: 2-column balanced layout (Headline on left, description & CTA on right) */}
@@ -583,10 +589,15 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
           </div>
 
         </div>
-      </div>
+      </motion.div>
 
-      {/* Single-Div Segmented Category Bar with Website Theme Colors */}
-      <div className="relative z-20 flex justify-center mb-12 px-2">
+      {/* Single-Div Segmented Category Bar with Framer Motion Animated Indicator & Smooth Entrance */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, delay: 0.15 }}
+        className="relative z-20 flex justify-center mb-12 px-2"
+      >
         <div className="inline-flex items-center p-1 sm:p-1.5 bg-[#f5ecf2]/80 backdrop-blur-md rounded-full border border-[#e8d5df] shadow-[0_4px_20px_-4px_rgba(220,198,213,0.5)] max-w-full overflow-x-auto scrollbar-none">
           {CATEGORIES.map((cat) => {
             const isActive = selectedCategory === cat;
@@ -594,77 +605,111 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-[13px] tracking-wide transition-all duration-200 cursor-pointer select-none whitespace-nowrap ${
+                className={`relative px-4 sm:px-6 py-2 rounded-full text-xs sm:text-[13px] tracking-wide transition-colors duration-200 cursor-pointer select-none whitespace-nowrap ${
                   isActive
-                    ? 'bg-[#eda970] text-neutral-900 shadow-sm font-bold'
-                    : 'text-[#6b4c63] hover:text-neutral-900 hover:bg-white/60 font-medium'
+                    ? 'text-neutral-900 font-bold'
+                    : 'text-[#6b4c63] hover:text-neutral-900 font-medium'
                 }`}
               >
-                {cat}
+                {/* Framer-Motion Animated Pill Slider */}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeCategoryPill"
+                    className="absolute inset-0 bg-[#eda970] rounded-full shadow-sm"
+                    transition={{ type: 'spring', stiffness: 450, damping: 35 }}
+                  />
+                )}
+                <span className="relative z-10">{cat}</span>
               </button>
             );
           })}
         </div>
-      </div>
+      </motion.div>
 
-      {/* ALL VIDEOS IN UNIFORM 9:16 RATIO FORMAT (Matching reference reel card) */}
+      {/* ALL VIDEOS IN UNIFORM 9:16 RATIO FORMAT WITH SMOOTH REORDERING */}
       <div className="relative z-10 mb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {filteredList.map((vid) => (
-            <ReelCard key={vid.id} vid={vid} onSelect={setActiveVideo} />
-          ))}
-        </div>
+        <motion.div
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredList.map((vid) => (
+              <motion.div
+                key={vid.id}
+                layout
+                initial={{ opacity: 0, scale: 0.94 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.94 }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+              >
+                <ReelCard vid={vid} onSelect={setActiveVideo} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
 
 
 
-      {/* Clean Interactive Video Modal with real video playback */}
-      {activeVideo && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
-          onClick={() => setActiveVideo(null)}
-        >
-          <div
-            className="relative bg-white rounded-[36px] max-w-sm sm:max-w-md w-full overflow-hidden shadow-2xl border-[3px] border-white my-auto p-3 sm:p-4"
-            onClick={(e) => e.stopPropagation()}
+      {/* Clean Interactive Video Modal with real video playback & Framer Motion smooth entrance */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            key="video-modal-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+            onClick={() => setActiveVideo(null)}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setActiveVideo(null)}
-              className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer"
+            <motion.div
+              key="video-modal-container"
+              initial={{ opacity: 0, scale: 0.92, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 15 }}
+              transition={{ type: 'spring', damping: 28, stiffness: 350 }}
+              className="relative bg-white rounded-[36px] max-w-sm sm:max-w-md w-full overflow-hidden shadow-2xl border-[3px] border-white my-auto p-3 sm:p-4"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-5 h-5" />
-            </button>
+              {/* Close Button */}
+              <button
+                onClick={() => setActiveVideo(null)}
+                className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
-            <div className="relative aspect-[9/16] w-full rounded-[26px] overflow-hidden bg-neutral-950 flex items-center justify-center shadow-inner">
-              <video
-                src={activeVideo.videoSrc}
-                poster={activeVideo.image}
-                autoPlay
-                controls
-                playsInline
-                onError={(e) => {
-                  const fallback = getLocalVideoFallback(activeVideo.videoSrc);
-                  if (fallback && e.currentTarget.src !== fallback) {
-                    e.currentTarget.src = fallback;
-                    e.currentTarget.play().catch(() => {});
-                  }
-                }}
-                className="w-full h-full object-cover"
-              />
+              <div className="relative aspect-[9/16] w-full rounded-[26px] overflow-hidden bg-neutral-950 flex items-center justify-center shadow-inner">
+                <video
+                  src={activeVideo.videoSrc}
+                  poster={activeVideo.image}
+                  autoPlay
+                  controls
+                  playsInline
+                  onError={(e) => {
+                    const fallback = getLocalVideoFallback(activeVideo.videoSrc);
+                    if (fallback && e.currentTarget.src !== fallback) {
+                      e.currentTarget.src = fallback;
+                      e.currentTarget.play().catch(() => {});
+                    }
+                  }}
+                  className="w-full h-full object-cover"
+                />
 
-              {/* Bottom Scrim Bar */}
-              <div className="absolute top-4 inset-x-5 flex items-center justify-between text-white text-xs sm:text-sm font-display font-black uppercase tracking-wider pointer-events-none drop-shadow">
-                <span className="truncate mr-2">{activeVideo.title}</span>
-                <div className="flex items-center gap-1.5 shrink-0">
-                  <Volume2 className="w-4 h-4 text-white/80" />
-                  <span>{activeVideo.duration}</span>
+                {/* Bottom Scrim Bar */}
+                <div className="absolute top-4 inset-x-5 flex items-center justify-between text-white text-xs sm:text-sm font-display font-black uppercase tracking-wider pointer-events-none drop-shadow">
+                  <span className="truncate mr-2">{activeVideo.title}</span>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <Volume2 className="w-4 h-4 text-white/80" />
+                    <span>{activeVideo.duration}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { UWE_PROFILE } from '@/data/mockData';
 import { Profile } from '@/types';
 
@@ -49,13 +50,23 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
         <div className="relative flex items-center justify-center">
 
           {/* 1. Top-Left Floating Chat Bubble */}
-          <div className="absolute -top-2 sm:-top-4 -left-40 sm:-left-56 md:-left-72 lg:-left-80 z-20 bg-white px-5 sm:px-6 py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-white text-neutral-800 text-sm sm:text-[15px] font-semibold whitespace-nowrap transform -rotate-[7deg] hover:rotate-0 transition-transform duration-300">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85, x: -30 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="absolute -top-2 sm:-top-4 -left-40 sm:-left-56 md:-left-72 lg:-left-80 z-20 bg-white px-5 sm:px-6 py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-white text-neutral-800 text-sm sm:text-[15px] font-semibold whitespace-nowrap transform -rotate-[7deg] hover:rotate-0 transition-transform duration-300"
+          >
             Scale your business with AI 🚀
-          </div>
+          </motion.div>
 
           {/* 2. Center Profile Card: Uwe Sanger (Tilted +5deg) */}
-          <div
+          <motion.div
             onClick={onNavigateToImages}
+            initial={{ opacity: 0, y: 30, scale: 0.94 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             className="relative w-[300px] sm:w-[350px] md:w-[370px] aspect-square bg-white rounded-[40px] sm:rounded-[46px] p-1.5 sm:p-2 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.22)] border border-white cursor-pointer transform rotate-[5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300 group"
           >
             {/* Inner Photo Container */}
@@ -96,15 +107,27 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             >
               🔥
             </button>
-          </div>
+          </motion.div>
 
           {/* 3. Top-Right Floating Chat Bubble */}
-          <div className="absolute -top-2 sm:-top-4 -right-40 sm:-right-56 md:-right-72 lg:-right-80 z-20 bg-white px-5 sm:px-6 py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-white text-neutral-800 text-sm sm:text-[15px] font-semibold whitespace-nowrap transform rotate-[7deg] hover:rotate-0 transition-transform duration-300">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85, x: 30 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="absolute -top-2 sm:-top-4 -right-40 sm:-right-56 md:-right-72 lg:-right-80 z-20 bg-white px-5 sm:px-6 py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-white text-neutral-800 text-sm sm:text-[15px] font-semibold whitespace-nowrap transform rotate-[7deg] hover:rotate-0 transition-transform duration-300"
+          >
             Ready for your next campaign? ✨
-          </div>
+          </motion.div>
 
           {/* 4. Right Floating Round Avatar with Attached Online Green Dot */}
-          <div className="absolute top-36 sm:top-40 -right-20 sm:-right-32 md:-right-40 lg:-right-48 z-20 flex items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, x: 25 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="absolute top-36 sm:top-40 -right-20 sm:-right-32 md:-right-40 lg:-right-48 z-20 flex items-center"
+          >
             {/* Green Dot pinned on the left */}
             <span className="w-3.5 h-3.5 rounded-full bg-[#22c55e] ring-2 ring-white shadow-sm z-30 -mr-2" />
 
@@ -116,7 +139,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

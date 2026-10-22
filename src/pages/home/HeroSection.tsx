@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { Star, Sparkles, Home, Zap } from 'lucide-react';
 import { MARQUEE_PRODUCTS, PHONE_FRIEND_CARD } from '@/data/mockData';
 import { Profile } from '@/types';
@@ -45,10 +46,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       }}
     >
       {/* Top Banner Section: Centered "MINDTRIX" Background Text with Right-to-Left Marquee Cards */}
-      <div
+      <motion.div
         id="images-preview"
         onClick={onNavigateToImages}
-        className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden py-4 sm:py-6 my-2 min-h-[260px] sm:min-h-[320px] md:min-h-[360px] flex items-center justify-center cursor-pointer"
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="relative w-full overflow-hidden py-4 sm:py-6 my-2 min-h-[260px] sm:min-h-[320px] md:min-h-[360px] flex items-center justify-center cursor-pointer"
         title="Click to view full AI Images Gallery"
       >
         {/* Giant Black Typography Background: MINDTRIX */}
@@ -101,19 +105,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Main Showcase Section */}
-      <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden pt-8 sm:pt-12 pb-20">
+      <div className="relative w-full overflow-hidden pt-8 sm:pt-12 pb-20">
         {/* Section Headline */}
-        <div className="text-center mb-8 sm:mb-12 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="text-center mb-8 sm:mb-12 px-4"
+        >
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-black tracking-normal text-[#111111] uppercase leading-[1.3]">
             AI PRODUCT ADVERTISING. VIRAL REELS. COMMERCIAL PRODUCTION.
           </h2>
           <p className="text-neutral-700 text-sm sm:text-base max-w-2xl mx-auto mt-2 font-medium">
             Mindtrix Media develops intelligent systems and high-impact AI creatives that help businesses scale faster.
           </p>
-        </div>
+        </motion.div>
 
         {/* Edge-to-Edge Visual Composition Area */}
         <div className="relative w-full min-h-[600px] sm:min-h-[680px] lg:min-h-[740px] flex items-center justify-center">
@@ -151,14 +161,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Relative Frame */}
             <div className="relative flex items-center justify-center">
               {/* 1. Top-Left Floating 5-Star Badge */}
-              <div className="absolute top-16 sm:top-35 -left-10 sm:-left-16 md:-left-20 z-30 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] px-3.5 sm:px-4 py-1.5 rounded-full shadow-[0_12px_30px_-5px_rgba(143,115,204,0.35)] border border-white/90 flex items-center gap-1 text-[#3d2035] transform -rotate-8 transition-transform duration-300 hover:rotate-0">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="absolute top-16 sm:top-35 -left-10 sm:-left-16 md:-left-20 z-30 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] px-3.5 sm:px-4 py-1.5 rounded-full shadow-[0_12px_30px_-5px_rgba(143,115,204,0.35)] border border-white/90 flex items-center gap-1 text-[#3d2035] transform -rotate-8 transition-transform duration-300 hover:rotate-0"
+              >
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-[#3d2035] text-[#3d2035]" />
                 ))}
-              </div>
+              </motion.div>
 
               {/* 2. Bottom-Left Floating Profile Card with AI-Powered Badge */}
-              <div className="absolute bottom-5 sm:bottom-6 -left-24 sm:-left-36 md:-left-44 lg:-left-48 z-20 w-32 sm:w-38 md:w-42 bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-2.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white transform -rotate-6 hover:rotate-0 transition-transform duration-300">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, x: -30 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.2 }}
+                className="absolute bottom-5 sm:bottom-6 -left-24 sm:-left-36 md:-left-44 lg:-left-48 z-20 w-32 sm:w-38 md:w-42 bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-2.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white transform -rotate-6 hover:rotate-0 transition-transform duration-300"
+              >
                 {/* AI-Powered Badge */}
                 <div className="absolute -top-2 -left-5 z-30 px-2.5 sm:px-3 py-1 bg-gradient-to-r from-[#eda970] via-[#dcc6d5] to-[#8f73cc] text-[#3d1e06] font-display text-[10px] sm:text-[11px] font-bold rounded-full shadow-lg border border-white/80 whitespace-nowrap transition-all transform rotate-[-20deg] hover:rotate-0 flex items-center gap-1">
                   <Sparkles className="w-3 h-3 text-[#6566ee]" /> AI Ads
@@ -177,10 +199,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <span className="flex items-center gap-0.5">💬 {PHONE_FRIEND_CARD.comments}</span>
                   <span className="flex items-center gap-0.5">🚀 {PHONE_FRIEND_CARD.shares}</span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* 3. Center Slim Clean iPhone Mockup */}
-              <div className="relative z-25 w-[285px] sm:w-[305px] md:w-[320px] rounded-[48px] bg-black p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[4px] border-[#18181a]">
+              <motion.div
+                initial={{ opacity: 0, y: 35, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.65, ease: 'easeOut' }}
+                className="relative z-25 w-[285px] sm:w-[305px] md:w-[320px] rounded-[48px] bg-black p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[4px] border-[#18181a]"
+              >
                 {/* Inner Screen Canvas */}
                 <div className="relative rounded-[42px] overflow-hidden bg-gradient-to-b from-[#ebdce7] via-[#eae3fb] via-[#e5e1fc] to-[#faede5] text-neutral-900 flex flex-col h-[595px] sm:h-[630px] shadow-inner justify-between p-3.5">
 
@@ -267,10 +295,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   </div>
 
                 </div>
-              </div>
+              </motion.div>
 
               {/* 4. Top-Right Floating Chat Bubble */}
-              <div className="absolute top-20 sm:top-40 -right-20 sm:-right-32 md:-right-36 lg:-right-38 z-30 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl py-2 px-3.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white w-44 sm:w-52 flex items-center gap-2.5 transform rotate-[5deg] hover:rotate-0 transition-transform duration-300">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, x: 25 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="absolute top-20 sm:top-40 -right-20 sm:-right-32 md:-right-36 lg:-right-38 z-30 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl py-2 px-3.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white w-44 sm:w-52 flex items-center gap-2.5 transform rotate-[5deg] hover:rotate-0 transition-transform duration-300"
+              >
                 <div className="w-8 sm:w-9 h-8 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-neutral-100 shadow-sm">
                   <img
                     src={avatarHipsterBeardImg}
@@ -282,10 +316,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="text-[11px] sm:text-xs font-bold text-neutral-900">3.8x Higher ROAS 🚀</div>
                   <div className="text-[9px] text-neutral-500 font-medium">Delivered in 48 hours</div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* 5. Bottom-Right Floating Chat Bubble */}
-              <div className="absolute bottom-16 sm:bottom-28 -right-16 sm:-right-26 md:-right-30 lg:-right-34 z-30 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl py-2 px-3.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white w-44 sm:w-52 flex items-center gap-2.5 transform -rotate-[5deg] hover:rotate-0 transition-transform duration-300">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, x: 25 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.25 }}
+                className="absolute bottom-16 sm:bottom-28 -right-16 sm:-right-26 md:-right-30 lg:-right-34 z-30 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl py-2 px-3.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white w-44 sm:w-52 flex items-center gap-2.5 transform -rotate-[5deg] hover:rotate-0 transition-transform duration-300"
+              >
                 <div className="w-8 sm:w-9 h-8 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-neutral-100 shadow-sm">
                   <img
                     src={avatarGreenCapImg}
@@ -297,7 +337,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="text-[11px] sm:text-xs font-bold text-neutral-900">100% AI Generated ✨</div>
                   <div className="text-[9px] text-neutral-500 font-medium">Ready for Meta & TikTok</div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
