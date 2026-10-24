@@ -20,7 +20,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
   onNavigateToImages
 }) => {
   const simoneProfile = HERO_PROFILES[2]; // Simone Lange - Creative Director
-  const emojis = ['🚀', '🔥', '📈', '✨', '💎'];
+  const emojis = ['👍', '❤️', '😂', '😮', '😢', '🙏'];
 
   return (
     <section className="relative w-full py-24 mb-6 overflow-hidden">
@@ -77,7 +77,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                   <button
                     key={emoji}
                     onClick={() => onSendReaction?.(emoji, simoneProfile)}
-                    className="text-sm sm:text-base hover:scale-130 transition-transform cursor-pointer"
+                    className="inline-flex items-center justify-center text-base sm:text-lg hover:scale-135 active:scale-95 transition-transform duration-150 cursor-pointer origin-center"
                     title={emoji}
                   >
                     {emoji}
@@ -123,15 +123,11 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                     alt="Lipstick product"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 px-2.5 py-0.5 bg-gradient-to-r from-[#6566ee] to-[#8f73cc] rounded-full text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">
-                    AI Creative Ad
-                  </div>
                 </div>
 
                 {/* Card Footer: Category & Title */}
                 <div className="px-2 py-0.5 flex items-center justify-between text-neutral-900 font-display text-sm sm:text-base font-black uppercase tracking-wider">
                   <span>LUXURY COSMETICS AD</span>
-                  <span className="text-xs bg-gradient-to-r from-[#f4effb] to-[#faedf5] text-[#8f73cc] px-2 py-0.5 rounded-full font-sans font-bold">4K Studio</span>
                 </div>
               </motion.div>
 

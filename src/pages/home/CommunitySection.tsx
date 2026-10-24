@@ -1,14 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HERO_PROFILES } from '@/data/mockData';
-import { Play } from 'lucide-react';
+import { getCloudinaryVideo, getCloudinaryVideoThumbnail, getCloudinaryImage } from '@/utils/cloudinary';
 
-import runwayImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
-import lipstickFriendsImg from '@/assets/img/community_wide_friends_1790982804862.jpg';
-import tousledGuyImg from '@/assets/img/tousled_guy_sky_1790982870552.jpg';
-import windblownWomanImg from '@/assets/img/windblown_hair_woman_1790982857578.jpg';
-import pixieWomanImg from '@/assets/img/woman_bandana_pixie_1790982884567.jpg';
-import sunlightManImg from '@/assets/img/community_man_sunlight_1790982822414.jpg';
+// Product images for the portfolio pill
+const lipstickThumbImg = getCloudinaryImage('lipstick/Lipstick_advertisement_on_marble.jpg');
+const facewashThumbImg = getCloudinaryImage('facewash/Skincare_advertisement_on_stone.jpg');
+const perfumeThumbImg = getCloudinaryImage('women-perfume/Perfume_bottle_flat-lay_photograph.jpg');
+const menPerfumeThumbImg = getCloudinaryImage('men-perfume/Creating_perfume_bottle_adv.jpg');
+
+// Cloudinary Fast Videos for seamless autoplay
+const rampwalkVid = getCloudinaryVideo('rampwalk.mp4', { optimize: true, quality: 'good', width: 480 });
+const rampwalkThumb = getCloudinaryVideoThumbnail('rampwalk.mp4');
+
+const lipstickVid = getCloudinaryVideo('lipstick.mp4', { optimize: true, quality: 'good', width: 480 });
+const lipstickThumb = getCloudinaryVideoThumbnail('lipstick.mp4');
+
+const menPerfumeVid = getCloudinaryVideo('men-perfume.mp4', { optimize: true, quality: 'good', width: 480 });
+const menPerfumeThumb = getCloudinaryVideoThumbnail('men-perfume.mp4');
+
+const facewashVid = getCloudinaryVideo('facewash.mp4', { optimize: true, quality: 'good', width: 480 });
+const facewashThumb = getCloudinaryVideoThumbnail('facewash.mp4');
+
+const nailArtVid = getCloudinaryVideo('nail-art.mp4', { optimize: true, quality: 'good', width: 480 });
+const nailArtThumb = getCloudinaryVideoThumbnail('nail-art.mp4');
+
+const cocaineVid = getCloudinaryVideo('cocaine.mp4', { optimize: true, quality: 'good', width: 480 });
+const cocaineThumb = getCloudinaryVideoThumbnail('cocaine.mp4');
 
 interface CommunitySectionProps {
   onOpenVideoChat?: () => void;
@@ -19,7 +36,7 @@ interface CommunitySectionProps {
 export const CommunitySection: React.FC<CommunitySectionProps> = ({
   onNavigateToReels
 }) => {
-  const emojis = ['🚀', '❤️', '🔥', '📈', '✨'];
+  const emojis = ['👍', '❤️', '😂', '😮', '😢', '🙏'];
 
   return (
     <section id="reels" className="w-full py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-visible scroll-mt-6">
@@ -98,22 +115,18 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                 onClick={onNavigateToReels}
                 className="col-span-3 h-full rounded-[18px] sm:rounded-[24px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
               >
-                <img
-                  src={runwayImg}
-                  alt="AI Video Reel"
+                <video
+                  src={rampwalkVid}
+                  poster={rampwalkThumb}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                  <div className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-neutral-900 shadow-lg group-hover:scale-110 transition-transform">
-                    <Play className="w-4 h-4 fill-neutral-900 ml-0.5" />
-                  </div>
-                </div>
-                <div className="absolute bottom-2 inset-x-2 text-[9px] font-bold text-white uppercase truncate drop-shadow">
-                  Fashion UGC Reel
-                </div>
               </div>
 
-              {/* COLUMN 2 & 3: Center Grid with 4 Square 1:1 Images (Span 6) */}
+              {/* COLUMN 2 & 3: Center Grid with 4 Square 1:1 Videos (Span 6) */}
               <div className="col-span-6 h-full flex flex-col justify-between gap-2.5 sm:gap-3.5 relative">
 
                 {/* Top Center: 2 Side-by-Side 1:1 Square Cards */}
@@ -123,20 +136,15 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                     onClick={onNavigateToReels}
                     className="w-1/2 h-full aspect-square rounded-[16px] sm:rounded-[20px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
                   >
-                    <img
-                      src={lipstickFriendsImg}
-                      alt="Cosmetics Reel"
+                    <video
+                      src={lipstickVid}
+                      poster={lipstickThumb}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-2 right-2 z-20 px-2 py-0.5 bg-white/95 backdrop-blur-md rounded-full text-[9px] sm:text-[10px] font-bold text-neutral-900 flex items-center gap-1 shadow-sm border border-white">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
-                      <span>5.1x ROAS</span>
-                    </div>
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-colors flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-neutral-900 shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="w-3.5 h-3.5 fill-neutral-900 ml-0.5" />
-                      </div>
-                    </div>
                   </div>
 
                   {/* Top-Right Square Card */}
@@ -144,16 +152,15 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                     onClick={onNavigateToReels}
                     className="w-1/2 h-full aspect-square rounded-[16px] sm:rounded-[20px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
                   >
-                    <img
-                      src={tousledGuyImg}
-                      alt="Men Cologne Ad"
+                    <video
+                      src={menPerfumeVid}
+                      poster={menPerfumeThumb}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-colors flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-neutral-900 shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="w-3.5 h-3.5 fill-neutral-900 ml-0.5" />
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -161,12 +168,14 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none">
                   <div className="pointer-events-auto bg-white/95 backdrop-blur-md px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-[0_12px_30px_-5px_rgba(0,0,0,0.25)] border border-white flex items-center gap-2 sm:gap-2.5">
                     {emojis.map((emoji) => (
-                      <span
+                      <button
                         key={emoji}
-                        className="text-base sm:text-lg hover:scale-130 transition-transform cursor-pointer"
+                        type="button"
+                        className="inline-flex items-center justify-center text-lg sm:text-xl hover:scale-135 active:scale-95 transition-transform duration-150 cursor-pointer origin-center"
+                        title={emoji}
                       >
                         {emoji}
-                      </span>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -178,16 +187,15 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                     onClick={onNavigateToReels}
                     className="w-1/2 h-full aspect-square rounded-[16px] sm:rounded-[20px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
                   >
-                    <img
-                      src={windblownWomanImg}
-                      alt="Beauty Reel"
+                    <video
+                      src={facewashVid}
+                      poster={facewashThumb}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-colors flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-neutral-900 shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="w-3.5 h-3.5 fill-neutral-900 ml-0.5" />
-                      </div>
-                    </div>
                   </div>
 
                   {/* Bottom-Right Square Card */}
@@ -195,16 +203,15 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                     onClick={onNavigateToReels}
                     className="w-1/2 h-full aspect-square rounded-[16px] sm:rounded-[20px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
                   >
-                    <img
-                      src={pixieWomanImg}
-                      alt="Product Explainer"
+                    <video
+                      src={nailArtVid}
+                      poster={nailArtThumb}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-colors flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-neutral-900 shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="w-3.5 h-3.5 fill-neutral-900 ml-0.5" />
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -215,19 +222,15 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                 onClick={onNavigateToReels}
                 className="col-span-3 h-full rounded-[18px] sm:rounded-[24px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
               >
-                <img
-                  src={sunlightManImg}
-                  alt="AI Commercial"
+                <video
+                  src={cocaineVid}
+                  poster={cocaineThumb}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                  <div className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-neutral-900 shadow-lg group-hover:scale-110 transition-transform">
-                    <Play className="w-4 h-4 fill-neutral-900 ml-0.5" />
-                  </div>
-                </div>
-                <div className="absolute bottom-2 inset-x-2 text-[9px] font-bold text-white uppercase truncate drop-shadow">
-                  Gold Flacon Film
-                </div>
               </div>
 
             </div>
@@ -245,16 +248,21 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
               onClick={onNavigateToReels}
               className="flex items-center gap-2.5 sm:gap-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-[0_20px_40px_-5px_rgba(143,115,204,0.35)] border border-white/90 transition-all active:scale-95 cursor-pointer"
             >
-              {/* Overlapping Mini Avatars */}
+              {/* Overlapping Mini Product Images */}
               <div className="flex items-center -space-x-2">
-                {HERO_PROFILES.slice(0, 5).map((prof) => (
+                {[
+                  { id: 'p1', src: lipstickThumbImg, alt: 'Cosmetics' },
+                  { id: 'p2', src: facewashThumbImg, alt: 'Skincare' },
+                  { id: 'p3', src: perfumeThumbImg, alt: 'Perfume' },
+                  { id: 'p4', src: menPerfumeThumbImg, alt: 'Cologne' },
+                ].map((item) => (
                   <div
-                    key={prof.id}
-                    className="w-6 sm:w-7 h-6 sm:h-7 rounded-full ring-2 ring-white overflow-hidden shadow-sm bg-neutral-200"
+                    key={item.id}
+                    className="w-6 sm:w-7 h-6 sm:h-7 rounded-full ring-2 ring-white overflow-hidden shadow-sm bg-neutral-900"
                   >
                     <img
-                      src={prof.avatar}
-                      alt={prof.name}
+                      src={item.src}
+                      alt={item.alt}
                       className="w-full h-full object-cover"
                     />
                   </div>

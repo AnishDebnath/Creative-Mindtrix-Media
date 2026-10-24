@@ -6,6 +6,7 @@ import { Profile } from '@/types';
 
 import avatarHipsterBeardImg from '@/assets/img/avatar_hipster_beard_1790979384816.jpg';
 import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
+import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
 import { getCloudinaryImage, getCloudinaryVideo } from '@/utils/cloudinary';
 
 const womenPerfumeImg = getCloudinaryImage('women-perfume/Perfume_bottle_flat-lay_photograph.jpg');
@@ -236,9 +237,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     {/* Header Pill */}
                     <div className="w-[92%] max-w-[250px] mx-auto flex items-center justify-between gap-2 pt-0.5">
                       <div className="flex items-center gap-2 bg-white/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/60 shadow-sm flex-1 min-w-0">
-                        <div className="w-6 h-6 rounded-full bg-neutral-900 flex items-center justify-center text-white text-[10px] font-bold shrink-0">
-                          M
-                        </div>
+                        <img
+                          src={logoImg}
+                          alt="Mindtrix"
+                          className="w-6 h-6 rounded-full object-cover shrink-0 shadow-xs border border-white/60"
+                        />
                         <div className="truncate">
                           <div className="text-[11px] font-bold leading-none text-neutral-900 truncate">Mindtrix Creative</div>
                           <div className="text-[9px] text-neutral-600 leading-none mt-0.5 flex items-center gap-0.5 font-medium truncate">

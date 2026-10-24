@@ -4,7 +4,7 @@ import { UWE_PROFILE } from '@/data/mockData';
 import { Profile } from '@/types';
 
 import uweSangerTealImg from '@/assets/img/uwe_sanger_teal_1790985575257.jpg';
-import asianGuyGreencapImg from '@/assets/img/asian_guy_greencap_1790985591686.jpg';
+import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
 
 interface BottomShowcaseSectionProps {
   onSelectProfile?: (profile: Profile) => void;
@@ -131,10 +131,10 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             <span className="w-3.5 h-3.5 rounded-full bg-[#22c55e] ring-2 ring-white shadow-sm z-30 -mr-2" />
 
             {/* Round Avatar */}
-            <div className="w-18 sm:w-22 h-18 sm:h-22 rounded-full ring-3 ring-white shadow-xl overflow-hidden bg-neutral-200">
+            <div className="w-18 sm:w-22 h-18 sm:h-22 rounded-full ring-3 ring-white shadow-xl overflow-hidden bg-white flex items-center justify-center">
               <img
-                src={asianGuyGreencapImg}
-                alt="Online Campaign Specialist"
+                src={logoImg}
+                alt="Mindtrix Media"
                 className="w-full h-full object-cover"
               />
             </div>
