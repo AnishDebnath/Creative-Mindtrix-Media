@@ -44,7 +44,7 @@ export const TestimonialsSection: React.FC = () => {
 
               {/* Review Text */}
               <p className="text-neutral-800 text-[14px] sm:text-[15px] leading-relaxed font-normal mb-8">
-                Mindtrix Media completely revolutionized our e-commerce advertising. Their AI product video creation delivered 15 high-converting reels in under 48 hours. Our ROAS increased from 1.8x to 4.2x within two weeks. The quality matches top creative agencies at a fraction of the cost.
+                Mindtrix Media helped us launch our product ads faster than ever. Their team delivered 15 high-quality AI product reels in under 48 hours. The visual finish looks like a high-budget commercial production.
               </p>
             </div>
 
@@ -108,7 +108,7 @@ export const TestimonialsSection: React.FC = () => {
 
               {/* Review Text */}
               <p className="text-neutral-800 text-[14px] sm:text-[15px] leading-relaxed font-normal mb-8">
-                We used Mindtrix Media software for business automation, and when they launched their AI Product Advertising service, we signed up immediately. The AI product photography and commercial video look like a $60,000 studio shoot.
+                Partnering with Mindtrix Media gave us complete creative freedom for our product launches. Their AI product photography and commercial videos match the quality of a top-tier studio shoot in a fraction of traditional production time.
               </p>
             </div>
 

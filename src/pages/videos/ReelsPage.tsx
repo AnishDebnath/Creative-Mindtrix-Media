@@ -553,7 +553,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
             {/* Right Column: Clean description + Action Button filling the space naturally */}
             <div className="max-w-md flex flex-col items-start md:items-end gap-4 shrink-0">
               <p className="text-neutral-800 text-sm sm:text-base leading-relaxed font-normal md:text-right">
-                Fast-paced 9:16 video reels, 3D product animations, and UGC campaigns crafted to drive high retention and scale your brand.
+                9:16 vertical video reels, 3D product animations, and short video ads made for Instagram, TikTok, and YouTube.
               </p>
 
               <a

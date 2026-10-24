@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               />
               <p className="text-sm text-neutral-600 leading-relaxed max-w-sm">
-                Empowering modern brands with AI product advertising, commercial CGI rendering, and viral video reels built to convert.
+                Mindtrix Media is an AI creative production studio helping brands produce high-converting product advertisements, commercial video reels, and studio-grade visuals at scale.
               </p>
 
               {/* Social Media Channels under About */}

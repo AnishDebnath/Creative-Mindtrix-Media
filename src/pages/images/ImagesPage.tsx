@@ -141,13 +141,13 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
 
           {/* Main Headline */}
           <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.05]">
-            Scale your brand<br />
-            on social media
+            AI Product<br />
+            Photography & Ads
           </h2>
 
           {/* Subtitle */}
           <p className="text-neutral-800 text-base sm:text-lg leading-relaxed font-normal max-w-lg">
-            High performing social media strategies that grow your audience and drive real business results.
+            Studio-quality AI product imagery, marble flat-lays, and lifestyle scenes engineered for e-commerce stores, Amazon listings, and social campaigns.
           </p>
           
           {/* Action Button */}
@@ -155,7 +155,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="px-7 py-3 bg-[#eda970] hover:bg-[#e59c60] text-neutral-900 font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
           >
-            Start for free
+            Explore AI Gallery
           </button>
         </div>
       </motion.div>
@@ -186,7 +186,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
                   >
                     <img
                       src={img.src}
-                      alt="UGC Product Image"
+                      alt="AI Product Photography - Mindtrix Media"
                       onError={(e) => {
                         const fallback = getLocalImageFallback(img.src);
                         if (fallback && e.currentTarget.src !== fallback) {

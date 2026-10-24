@@ -51,19 +51,19 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
       >
         <div>
           <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3]">
-            THE MINDTRIX<br />AI REEL STAGE
+            AI PRODUCT<br />VIDEO REELS
           </h2>
         </div>
 
         <div className="max-w-md flex flex-col items-start gap-4">
           <p className="text-neutral-800 text-base sm:text-lg leading-relaxed font-normal">
-            Scroll-stopping AI product video reels and UGC campaigns crafted for brands that demand fast growth and high conversion.
+            Short, engaging product video reels designed to capture attention and drive direct sales on social media.
           </p>
           <button
             onClick={onNavigateToReels}
             className="px-7 py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-neutral-900 font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
           >
-            EXPLORE ALL REELS & VIDEOS
+            VIEW ALL PRODUCT REELS
           </button>
         </div>
       </motion.div>

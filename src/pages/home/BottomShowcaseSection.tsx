@@ -57,7 +57,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             transition={{ duration: 0.5, delay: 0.1 }}
             className="absolute -top-2 sm:-top-4 -left-40 sm:-left-56 md:-left-72 lg:-left-80 z-20 bg-white px-5 sm:px-6 py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-white text-neutral-800 text-sm sm:text-[15px] font-semibold whitespace-nowrap transform -rotate-[7deg] hover:rotate-0 transition-transform duration-300"
           >
-            Scale your business with AI 🚀
+            Create better product ads with AI 🚀
           </motion.div>
 
           {/* 2. Center Profile Card: Uwe Sanger (Tilted +5deg) */}

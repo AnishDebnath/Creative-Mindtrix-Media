@@ -38,7 +38,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
           {/* Right Description & Action */}
           <div className="max-w-md flex flex-col items-start gap-4">
             <p className="text-neutral-800 text-base sm:text-lg leading-relaxed font-normal">
-              Mindtrix Media develops software and AI systems that help businesses scale their advertising, increase conversions, and launch viral product campaigns.
+              We help businesses create engaging product ads, social video reels, and high-quality product images using AI.
             </p>
             <button
               onClick={onDiscoverMore}
@@ -51,7 +51,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
 
         {/* 3-Column Staggered Layout with 1:1 Square Ratio Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          
+
           {/* ROW 1 - COL 1: AI PRODUCT ADVERTISING (4-Color Soft Gradient) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -66,12 +66,12 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
                 AI PRODUCT<br />ADVERTISING
               </h3>
               <p className="text-neutral-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Simple, clear, and high-converting product ads built to turn casual viewers into loyal customers.
+                Ready-to-run product video ads that grab attention and turn viewers into buyers across Instagram, Facebook, and TikTok.
               </p>
             </div>
           </motion.div>
 
-          {/* ROW 1 - COL 2: AI-POWERED PRODUCT ADS (4-Color Soft Gradient) */}
+          {/* ROW 1 - COL 2: E-COMMERCE VISUALS (4-Color Soft Gradient) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -82,10 +82,10 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
             <SwirlIcon />
             <div>
               <h3 className="font-display text-3xl sm:text-[32px] lg:text-[36px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-6">
-                AI-POWERED<br />PRODUCT ADS
+                E-COMMERCE<br />STUDIO VISUALS
               </h3>
               <p className="text-neutral-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Modern, marketing-friendly ad variations tailored for Instagram, TikTok, and Meta feeds.
+                Clean AI product photos and lifestyle scenes made for Amazon, Shopify, and online product listings.
               </p>
             </div>
           </motion.div>
@@ -110,7 +110,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
                 AI PRODUCT<br />VIDEO CREATION
               </h3>
               <p className="text-neutral-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Scroll-stopping video reels, 3D product animations, and viral UGC style videos made to convert.
+                Short 9:16 Instagram Reels, YouTube Shorts, and product demo videos made to show your product in action.
               </p>
             </div>
           </motion.div>
@@ -129,7 +129,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
                 COMMERCIAL<br />PRODUCTION
               </h3>
               <p className="text-neutral-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Agency-grade cinematic product commercials built with cutting-edge AI systems at scale.
+                High-quality product launch videos with realistic lighting and studio-grade commercial visuals.
               </p>
             </div>
           </motion.div>

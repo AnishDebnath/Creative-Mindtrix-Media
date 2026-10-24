@@ -112,7 +112,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Main Showcase Section */}
       <div className="relative w-full overflow-hidden pt-8 sm:pt-12 pb-20">
-        {/* Section Headline */}
+        {/* Section Headline (H1 for Main Service Page) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -120,9 +120,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="text-center mb-8 sm:mb-12 px-4"
         >
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-black tracking-normal text-[#111111] uppercase leading-[1.3]">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-black tracking-normal text-[#111111] uppercase leading-[1.3]">
             AI PRODUCT ADVERTISING. VIRAL REELS. COMMERCIAL PRODUCTION.
-          </h2>
+          </h1>
         </motion.div>
 
         {/* Edge-to-Edge Visual Composition Area */}
@@ -243,7 +243,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                           className="w-6 h-6 rounded-full object-cover shrink-0 shadow-xs border border-white/60"
                         />
                         <div className="truncate">
-                          <div className="text-[11px] font-bold leading-none text-neutral-900 truncate">Mindtrix Creative</div>
+                          <div className="text-[11px] font-bold leading-none text-neutral-900 truncate">Mindtrix Media Creative</div>
                           <div className="text-[9px] text-neutral-600 leading-none mt-0.5 flex items-center gap-0.5 font-medium truncate">
                             <Zap className="w-2.5 h-2.5 text-[#6566ee] shrink-0" /> AI Product Ads
                           </div>

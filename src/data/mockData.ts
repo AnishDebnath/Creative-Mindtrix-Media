@@ -60,7 +60,7 @@ export const HERO_PROFILES: Profile[] = [
     city: 'Berlin',
     isOnline: true,
     avatar: matthiasCardImg,
-    bio: 'Lead AI Video Producer at Mindtrix. Directing viral UGC ads and 3D product motion campaigns for European direct-to-consumer brands.',
+    bio: 'Lead AI Video Producer at Mindtrix. Directing viral product video ads and 3D product motion campaigns for European direct-to-consumer brands.',
     role: 'AI Video Director',
     interests: ['AI Commercials', 'Viral Ads', '3D Motion', 'E-commerce'],
     likesCount: '24.8k',
@@ -142,9 +142,9 @@ export const PHONE_PROFILE: Profile = {
   city: 'New York City',
   isOnline: true,
   avatar: yasminImg,
-  bio: 'Mindtrix AI UGC Creator. Featured in 40+ viral fragrance and skincare social campaigns with 3.8x average ROAS.',
+  bio: 'Mindtrix AI Creator. Featured in 40+ viral fragrance and skincare product ad campaigns across social media.',
   role: 'Featured AI Creator',
-  interests: ['Viral UGC', 'Fragrance Ads', 'Product Testing'],
+  interests: ['Product Ads', 'Fragrance Visuals', 'Social Reels'],
   likesCount: '48k',
   commentsCount: '2.8k',
   sharesCount: '8.4k'
@@ -167,9 +167,9 @@ export const UWE_PROFILE: Profile = {
   city: 'Vancouver',
   isOnline: true,
   avatar: uweImg,
-  bio: 'Senior Systems Architect at Mindtrix Media. Engineering scalable software and automated AI content pipelines for global enterprise clients.',
-  role: 'AI Systems Architect',
-  interests: ['Business Software', 'AI Automation', 'Campaign Tech'],
+  bio: 'Lead AI Production Director at Mindtrix Media. Overseeing AI product ad pipelines, 4K render quality, and commercial video delivery.',
+  role: 'AI Production Director',
+  interests: ['AI Product Ads', 'Commercial Video', 'Creative Tech'],
   likesCount: '28.4k',
   commentsCount: '1.4k',
   sharesCount: '4.2k'
@@ -179,7 +179,7 @@ export const STAND_FOR_CARDS: StandForCard[] = [
   {
     id: '1',
     title: 'AI PRODUCT ADVERTISING',
-    description: 'Simple, clear, and high-converting product ads built to turn casual viewers into loyal buyers.',
+    description: 'Simple, clear, and high-converting product ads built to turn viewers into buyers.',
     serviceKey: 'advertising',
     bgClass: 'bg-[#f0f7fc] border border-[#d8eaf6] shadow-sm',
     textClass: 'text-neutral-900'
@@ -187,7 +187,7 @@ export const STAND_FOR_CARDS: StandForCard[] = [
   {
     id: '2',
     title: 'AI PRODUCT VIDEO CREATION',
-    description: 'Fast-paced, scroll-stopping video reels and UGC-style ads crafted for TikTok, Instagram, and YouTube Shorts.',
+    description: 'Short video reels, demo videos, and social ads made for Instagram, TikTok, and YouTube.',
     serviceKey: 'video',
     bgClass: 'bg-[#f9f0fb] border border-[#edd7ee] shadow-sm',
     textClass: 'text-neutral-900'
@@ -195,7 +195,7 @@ export const STAND_FOR_CARDS: StandForCard[] = [
   {
     id: '3',
     title: 'COMMERCIAL PRODUCTION',
-    description: 'Agency-grade cinematic product commercials with studio lighting, realistic textures, and premium finish.',
+    description: 'High-quality product launch commercials with realistic lighting and clean studio finishes.',
     serviceKey: 'commercial',
     bgClass: 'bg-[#f4faea] border border-[#e2f2cc] shadow-sm',
     textClass: 'text-neutral-900'
@@ -203,7 +203,7 @@ export const STAND_FOR_CARDS: StandForCard[] = [
   {
     id: '4',
     title: 'AI-GENERATED CAMPAIGNS',
-    description: 'End-to-end multi-asset campaigns including high-res photos, video variations, and copy designed to scale your business.',
+    description: 'Complete multi-format creative sets including product images, video ads, and campaign visuals.',
     serviceKey: 'campaigns',
     bgClass: 'bg-[#edf7f9] border border-[#d2ecf2] shadow-sm',
     textClass: 'text-neutral-900'
@@ -217,7 +217,7 @@ export const TESTIMONIALS: Testimonial[] = [
     country: 'United States',
     flag: '🇺🇸',
     rating: 5,
-    text: 'Mindtrix Media completely revolutionized our e-commerce advertising. Their AI product video creation delivered 15 high-converting reels in under 48 hours. Our ROAS increased from 1.8x to 4.2x within two weeks. The quality matches top creative agencies at a fraction of the cost.',
+    text: 'Mindtrix Media helped us launch our product ads faster than ever. Their AI video reels were delivered in under 48 hours and looked like a high-budget studio production.',
     avatar: paulCardImg,
     role: 'Founder & CEO',
     company: 'Veloce Luxury Goods'
@@ -228,7 +228,7 @@ export const TESTIMONIALS: Testimonial[] = [
     country: 'Sweden',
     flag: '🇸🇪',
     rating: 5,
-    text: 'We used Mindtrix Media software for business automation, and when they launched their AI Product Advertising service, we signed up immediately. The AI-generated product photography and commercials look like a $60,000 studio shoot. Highly recommend their team.',
+    text: 'Their AI product photography and commercial videos gave our online store an immediate visual upgrade. The image quality and turnaround time are incredible.',
     avatar: matthiasCardImg,
     role: 'Head of Growth',
     company: 'Nordic Skincare Co.'
@@ -450,7 +450,7 @@ export const ALL_VIDEO_PROJECTS: VideoProject[] = [
   },
   {
     id: 'vid-4',
-    title: 'COSMETICS LAUNCH UGC SPOTLIGHT',
+    title: 'COSMETICS LAUNCH PRODUCT SPOTLIGHT',
     category: 'E-Commerce',
     format: 'tall',
     thumbnail: communityFriendsImg,
@@ -459,8 +459,8 @@ export const ALL_VIDEO_PROJECTS: VideoProject[] = [
     clientIndustry: 'D2C E-Commerce Brand',
     views: '1.5M',
     roas: '4.2x',
-    description: 'Authentic creator-style testimonial vibe with product unboxing and real-time application glow.',
-    tags: ['UGC Format', 'Unboxing', 'E-Commerce']
+    description: 'Engaging creator-style product video reel with unboxing and real-time application highlight.',
+    tags: ['Product Reel', 'Unboxing', 'E-Commerce']
   },
   {
     id: 'vid-5',

@@ -167,7 +167,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
 
             {isSuccess && (
               <p className="text-xs sm:text-sm font-bold text-emerald-700 mt-4 animate-in fade-in">
-                🎉 Thank you! A Mindtrix AI ad strategist will reach out to schedule your campaign onboarding.
+                🎉 Thank you! Our team will contact you shortly to discuss your product video and ad creative needs.
               </p>
             )}
           </motion.form>

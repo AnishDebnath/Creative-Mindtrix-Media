@@ -50,7 +50,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
 
             <div className="max-w-md flex flex-col items-start gap-4 mt-auto">
               <p className="text-neutral-800 text-base sm:text-lg leading-relaxed font-normal">
-                Mindtrix Media develops software and AI systems that power high-converting product ads, viral reels, and studio-quality commercial production.
+                We create eye-catching product video ads, social media reels, and studio-quality visuals that help brands sell more.
               </p>
               <button
                 onClick={onNavigateToImages}
@@ -103,7 +103,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                 </div>
                 <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-bold text-neutral-600 px-1">
                   <span className="flex items-center gap-0.5">❤️ 19.8k</span>
-                  <span className="flex items-center gap-0.5">🚀 4.2x ROAS</span>
+                  <span className="flex items-center gap-0.5">🚀 High Reach</span>
                 </div>
               </motion.div>
 
