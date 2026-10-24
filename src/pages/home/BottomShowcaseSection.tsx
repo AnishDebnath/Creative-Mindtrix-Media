@@ -100,9 +100,8 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
                 onSendReaction?.('🔥', { ...UWE_PROFILE, avatar: uweSangerTealImg });
                 setTimeout(() => setFireClicked(false), 700);
               }}
-              className={`absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 z-30 w-14 sm:w-18 h-14 sm:h-18 bg-white rounded-full shadow-[0_12px_28px_-5px_rgba(0,0,0,0.22)] border-[2.5px] border-white flex items-center justify-center text-3xl sm:text-4xl transition-transform active:scale-95 cursor-pointer ${
-                fireClicked ? 'scale-125' : 'hover:scale-110'
-              }`}
+              className={`absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 z-30 w-14 sm:w-18 h-14 sm:h-18 bg-white rounded-full shadow-[0_12px_28px_-5px_rgba(0,0,0,0.22)] border-[2.5px] border-white flex items-center justify-center text-3xl sm:text-4xl transition-transform active:scale-95 cursor-pointer ${fireClicked ? 'scale-125' : 'hover:scale-110'
+                }`}
               title="Launch Campaign"
             >
               🔥
