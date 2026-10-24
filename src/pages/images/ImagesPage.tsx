@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { getCloudinaryImage, getLocalImageFallback } from '@/utils/cloudinary';
 
@@ -206,43 +206,88 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
       </div>
 
 
-      {/* Full-Screen Image Lightbox Preview Modal with Framer Motion */}
+      {/* Interactive Image Modal matching Video Window layout & blur backdrop with Next/Prev navigation */}
       <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            key="lightbox-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
-            onClick={() => setSelectedImage(null)}
-          >
+        {selectedImage && (() => {
+          const currentIndex = ALL_UGC_PRODUCT_IMAGES.findIndex(img => img.src === selectedImage);
+          const handlePrev = (e: React.MouseEvent) => {
+            e.stopPropagation();
+            if (currentIndex !== -1) {
+              const prevIdx = (currentIndex - 1 + ALL_UGC_PRODUCT_IMAGES.length) % ALL_UGC_PRODUCT_IMAGES.length;
+              setSelectedImage(ALL_UGC_PRODUCT_IMAGES[prevIdx].src);
+            }
+          };
+          const handleNext = (e: React.MouseEvent) => {
+            e.stopPropagation();
+            if (currentIndex !== -1) {
+              const nextIdx = (currentIndex + 1) % ALL_UGC_PRODUCT_IMAGES.length;
+              setSelectedImage(ALL_UGC_PRODUCT_IMAGES[nextIdx].src);
+            }
+          };
+
+          return (
             <motion.div
-              key="lightbox-container"
-              initial={{ opacity: 0, scale: 0.92, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 12 }}
-              transition={{ type: 'spring', damping: 28, stiffness: 350 }}
-              className="relative bg-neutral-950 rounded-[32px] max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl my-auto p-3 flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
+              key="image-modal-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+              onClick={() => setSelectedImage(null)}
             >
-              {/* Close Button */}
+              {/* Close Button top-right */}
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="absolute top-5 right-5 sm:top-6 sm:right-6 z-50 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-sm"
+                title="Close"
               >
-                <X className="w-5 h-5" />
+                <X className="w-6 h-6" />
               </button>
 
-              <img
-                src={selectedImage}
-                alt="Asset Full Preview"
-                className="max-h-[85vh] w-auto max-w-full rounded-[24px] object-contain shadow-2xl"
-              />
+              {/* Previous Button */}
+              <button
+                onClick={handlePrev}
+                className="absolute left-3 sm:left-6 md:left-10 z-50 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-sm shadow-lg hover:scale-105 active:scale-95"
+                title="Previous Image"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+
+              {/* Next Button */}
+              <button
+                onClick={handleNext}
+                className="absolute right-3 sm:right-6 md:right-10 z-50 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-sm shadow-lg hover:scale-105 active:scale-95"
+                title="Next Image"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+
+              <motion.div
+                key={`image-modal-container-${selectedImage}`}
+                initial={{ opacity: 0, scale: 0.94 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.94 }}
+                transition={{ type: 'spring', damping: 28, stiffness: 350 }}
+                className="relative max-w-sm sm:max-w-md w-full max-h-[90vh] my-auto overflow-hidden rounded-[28px] sm:rounded-[32px] shadow-2xl bg-black border border-white/10 flex items-center justify-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="relative aspect-[9/16] w-full rounded-[28px] sm:rounded-[32px] overflow-hidden bg-black flex items-center justify-center">
+                  <img
+                    src={selectedImage}
+                    alt="Product Image Showcase"
+                    onError={(e) => {
+                      const fallback = getLocalImageFallback(selectedImage);
+                      if (fallback && e.currentTarget.src !== fallback) {
+                        e.currentTarget.src = fallback;
+                      }
+                    }}
+                    className="w-full h-full object-cover select-none"
+                  />
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
+          );
+        })()}
       </AnimatePresence>
 
     </div>
