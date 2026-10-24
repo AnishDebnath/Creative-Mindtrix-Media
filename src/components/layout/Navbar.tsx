@@ -34,26 +34,29 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="w-full pt-6 pb-4 px-4 sm:px-8 max-w-6xl mx-auto flex items-center justify-between text-neutral-900 text-sm">
-      {/* Navigation Links with animated active underline indicator */}
-      <nav className="flex items-center gap-6 sm:gap-10 md:gap-12 font-medium text-xs sm:text-[14px]">
+      {/* Left: Navigation Pills matching website theme (frosted glass capsule with animated pill) */}
+      <nav className="inline-flex items-center p-1 bg-white/70 backdrop-blur-md rounded-full border border-[#e8d5df] shadow-[0_2px_12px_-3px_rgba(220,198,213,0.35)]">
         {navItems.map((item) => {
           const isActive = currentPage === item.id;
           return (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id, item.anchor)}
-              className={`relative py-1 transition-colors cursor-pointer font-semibold ${
-                isActive ? 'text-[#6566ee] font-extrabold' : 'text-neutral-700 hover:text-[#6566ee]'
+              className={`relative px-4 sm:px-5 py-1.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition-colors duration-200 cursor-pointer select-none whitespace-nowrap ${
+                isActive
+                  ? 'text-neutral-950 font-bold'
+                  : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
-              <span>{item.label}</span>
+              {/* Framer-Motion Animated Active Pill Slider matching site palette */}
               {isActive && (
                 <motion.div
                   layoutId="navbarActiveIndicator"
-                  className="absolute bottom-0 inset-x-0 h-[2px] bg-[#6566ee] rounded-full"
-                  transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                  className="absolute inset-0 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] rounded-full shadow-xs"
+                  transition={{ type: 'spring', stiffness: 450, damping: 32 }}
                 />
               )}
+              <span className="relative z-10">{item.label}</span>
             </button>
           );
         })}
