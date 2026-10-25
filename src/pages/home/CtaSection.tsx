@@ -57,7 +57,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
 
         {/* Center: Headline */}
         <h3 className="font-display text-lg sm:text-2xl md:text-[26px] lg:text-[28px] font-black tracking-normal text-neutral-900 uppercase text-center px-4">
-          AI PRODUCT ADVERTISING MADE TO GROW YOUR BUSINESS
+          AI PRODUCT ADVERTISING & CREATIVE SOLUTIONS TO GROW YOUR BUSINESS
         </h3>
 
         {/* Right: GET STARTED Pill Button */}

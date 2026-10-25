@@ -541,7 +541,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
             <div className="max-w-xl flex flex-col items-start gap-3.5">
               <div className="flex items-center gap-2 px-3 py-1 bg-[#dcc6d5]/30 text-[#3d2035] text-xs font-bold rounded-full border border-[#dcc6d5]/50">
                 <span className="w-2 h-2 rounded-full bg-[#eda970] animate-pulse" />
-                <span>Viral Video Reels →</span>
+                <span>AI Video Ads & Reels →</span>
               </div>
 
               <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-normal text-neutral-900 uppercase leading-[1.05]">
@@ -566,6 +566,8 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
               </a>
             </div>
+
+
           </div>
 
           {/* Bottom Side: Fanned-out Cards emerging from bottom edge in 9:16 vertical reels ratio */}

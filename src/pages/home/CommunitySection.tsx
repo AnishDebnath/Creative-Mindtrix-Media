@@ -66,6 +66,8 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
             VIEW ALL PRODUCT REELS
           </button>
         </div>
+
+
       </motion.div>
 
       {/* 3D Isometric Perspective Stage in 16:9 Ratio */}

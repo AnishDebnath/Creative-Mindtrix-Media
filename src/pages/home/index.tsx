@@ -1,6 +1,6 @@
 import { scrollToId } from '@/utils/scroll';
 import { HeroSection } from './HeroSection';
-import { WhatWeStandForSection } from './WhatWeStandForSection';
+import { CreativeServicesSection } from './CreativeServicesSection';
 import { MeetTheWorldSection } from './MeetTheWorldSection';
 import { CommunitySection } from './CommunitySection';
 import { TestimonialsSection } from './TestimonialsSection';
@@ -26,9 +26,8 @@ export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProp
         onNavigateToReels={onNavigateToReels}
       />
 
-      {/* What We Stand For Section */}
-      <WhatWeStandForSection
-        onDiscoverMore={() => scrollToId('stand-for')}
+      {/* Creative Services Section */}
+      <CreativeServicesSection
         onNavigateToImages={onNavigateToImages}
         onNavigateToReels={onNavigateToReels}
       />

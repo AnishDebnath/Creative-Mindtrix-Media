@@ -121,9 +121,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           className="text-center mb-8 sm:mb-12 px-4"
         >
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-black tracking-normal text-[#111111] uppercase leading-[1.3]">
-            AI PRODUCT ADVERTISING. VIRAL REELS. COMMERCIAL PRODUCTION.
+            AI PRODUCT ADS. VIRAL REELS. E-COMMERCE VISUALS.
           </h1>
         </motion.div>
+
 
         {/* Edge-to-Edge Visual Composition Area */}
         <div className="relative w-full min-h-[600px] sm:min-h-[680px] lg:min-h-[740px] flex items-center justify-center">

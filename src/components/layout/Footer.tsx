@@ -168,6 +168,17 @@ export const Footer: React.FC<FooterProps> = ({
                 <li>
                   <button
                     onClick={() => {
+                      const el = document.getElementById('services');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="hover:text-black hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>Creative Services</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
                       const el = document.getElementById('stand-for');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}

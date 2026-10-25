@@ -96,7 +96,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
           {/* ROW 2 - COL 1: Empty spacer on desktop */}
           <div className="hidden lg:block pointer-events-none" />
 
-          {/* ROW 2 - COL 2: AI PRODUCT VIDEO CREATION (4-Color Soft Gradient) */}
+          {/* ROW 2 - COL 2: AI PRODUCT DEMO REELS (4-Color Soft Gradient) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +107,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
             <SwirlIcon />
             <div>
               <h3 className="font-display text-3xl sm:text-[32px] lg:text-[36px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-6">
-                AI PRODUCT<br />VIDEO CREATION
+                AI PRODUCT<br />DEMO REELS
               </h3>
               <p className="text-neutral-600 text-sm sm:text-[15px] leading-relaxed font-normal">
                 Short 9:16 Instagram Reels, YouTube Shorts, and product demo videos made to show your product in action.
@@ -133,6 +133,8 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
               </p>
             </div>
           </motion.div>
+
+
 
         </div>
       </div>

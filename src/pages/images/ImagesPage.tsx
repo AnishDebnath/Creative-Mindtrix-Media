@@ -136,7 +136,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
           {/* Trend Tag */}
           <div className="flex items-center gap-2 px-3 py-1 bg-[#dcc6d5]/30 text-[#3d2035] text-xs font-bold rounded-full border border-[#dcc6d5]/50">
             <span className="w-2 h-2 rounded-full bg-[#eda970]" />
-            See 2026 social media trends →
+            <span>AI Product Imagery</span>
           </div>
 
           {/* Main Headline */}
@@ -147,7 +147,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
 
           {/* Subtitle */}
           <p className="text-neutral-800 text-base sm:text-lg leading-relaxed font-normal max-w-lg">
-            Studio-quality AI product imagery, marble flat-lays, and lifestyle scenes engineered for e-commerce stores, Amazon listings, and social campaigns.
+            Studio-quality AI product imagery and lifestyle visuals created for e-commerce stores, Amazon listings, and social campaigns.
           </p>
           
           {/* Action Button */}
@@ -157,6 +157,8 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
           >
             Explore AI Gallery
           </button>
+
+
         </div>
       </motion.div>
 

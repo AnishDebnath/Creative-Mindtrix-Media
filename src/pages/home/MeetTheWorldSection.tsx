@@ -50,7 +50,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
 
             <div className="max-w-md flex flex-col items-start gap-4 mt-auto">
               <p className="text-neutral-800 text-base sm:text-lg leading-relaxed font-normal">
-                We create eye-catching product video ads, social media reels, and studio-quality visuals that help brands sell more.
+                Eye-catching AI product video ads, viral reels, and e-commerce visuals that attract buyers and grow your brand.
               </p>
               <button
                 onClick={onNavigateToImages}
@@ -59,6 +59,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                 VIEW AI IMAGE GALLERY
               </button>
             </div>
+
           </motion.div>
 
           {/* Right Column: Visual Composition matching reference image */}
