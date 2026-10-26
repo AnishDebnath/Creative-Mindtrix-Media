@@ -39,11 +39,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       id="hero"
       className="relative w-full pt-1 sm:pt-3 pb-24 overflow-hidden"
       style={{
-        backgroundImage:
-          'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 55%, #ffffff 100%)',
-        backgroundSize: '100% 320px',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'bottom'
+        backgroundImage: `
+          linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 55%, #ffffff 100%),
+          linear-gradient(180deg, #ebdce7 0%, #faede5 18%, #eae3fb 38%, #e5e1fc 62%, #f8f6fd 82%, #ffffff 100%)
+        `,
+        backgroundSize: '100% 320px, 100% 100%',
+        backgroundRepeat: 'no-repeat, no-repeat',
+        backgroundPosition: 'bottom, top',
       }}
     >
       {/* Top Banner Section: Centered "MINDTRIX" Background Text with Staggered 3:4 Cards */}

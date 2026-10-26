@@ -105,13 +105,13 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
             className="w-full max-w-3xl relative"
           >
-            
+
             {/* Outer Frosted Glass Aura Ring with Exact Tilt Angle (-3.5deg) */}
             <div className="bg-white/45 backdrop-blur-xl rounded-[36px] sm:rounded-full p-2.5 sm:p-3 shadow-[0_20px_50px_-10px_rgba(143,115,204,0.15)] border border-white/80 transform -rotate-[3.5deg] hover:rotate-0 transition-all duration-300">
-              
+
               {/* Inner White Capsule Container */}
               <div className="flex flex-col sm:flex-row items-center bg-white rounded-[30px] sm:rounded-full p-2 sm:p-1.5 shadow-sm divide-y sm:divide-y-0 sm:divide-x divide-neutral-200/80">
-                
+
                 {/* Field 1: Name */}
                 <div className="w-full sm:w-[28%] px-4 py-2 sm:py-2.5 flex items-center">
                   <input
