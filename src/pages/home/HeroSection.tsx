@@ -150,22 +150,31 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Edge-to-Edge Visual Composition Area */}
         <div className="relative w-full min-h-[600px] sm:min-h-[680px] lg:min-h-[740px] flex items-center justify-center">
           {/* Background Typography "CREATIVE" Anchored at the Bottom Side */}
-          <div className="absolute inset-x-0 bottom-2 sm:bottom-4 z-0 flex items-end justify-center pointer-events-none select-none overflow-hidden h-[300px] sm:h-[360px] md:h-[400px] lg:h-[440px]">
+          {/* ponytail: keep text 90-95% legible throughout with a gentle 15% feather blend at the base */}
+          <div
+            className="absolute inset-x-0 bottom-0 z-0 flex items-end justify-center pointer-events-none select-none overflow-hidden h-[300px] sm:h-[360px] md:h-[400px] lg:h-[440px]"
+            style={{
+              maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 78%, rgba(0,0,0,0.7) 88%, rgba(0,0,0,0) 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 78%, rgba(0,0,0,0.7) 88%, rgba(0,0,0,0) 100%)',
+            }}
+          >
             <svg
-              viewBox="0 0 1600 360"
+              viewBox="0 0 1600 380"
               className="w-full h-full object-fill"
               preserveAspectRatio="none"
             >
               <defs>
                 <linearGradient id="creativeTextGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#ffffff" />
-                  <stop offset="50%" stopColor="#fafafa" />
-                  <stop offset="100%" stopColor="#f2f2f2" />
+                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+                  <stop offset="65%" stopColor="#ffffff" stopOpacity="0.9" />
+                  <stop offset="82%" stopColor="#fafafa" stopOpacity="0.8" />
+                  <stop offset="94%" stopColor="#f5f5f5" stopOpacity="0.45" />
+                  <stop offset="100%" stopColor="#f5f5f5" stopOpacity="0.1" />
                 </linearGradient>
               </defs>
               <text
                 x="50%"
-                y="92%"
+                y="89%"
                 textAnchor="middle"
                 fill="url(#creativeTextGradient)"
                 fontFamily="'Anton', 'Oswald', 'Impact', sans-serif"
@@ -196,19 +205,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </motion.div>
 
               {/* 2. Bottom-Left Floating Profile Card with AI-Powered Badge */}
+              {/* ponytail: proportional border radius (16px outer, 8px inner) to avoid over-rounded ballooning */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, x: -30 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.2 }}
-                className="absolute bottom-5 sm:bottom-6 -left-24 sm:-left-36 md:-left-44 lg:-left-48 z-20 w-32 sm:w-38 md:w-42 bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-2.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white transform -rotate-6 hover:rotate-0 transition-transform duration-300"
+                className="absolute bottom-5 sm:bottom-6 -left-24 sm:-left-36 md:-left-44 lg:-left-48 z-20 w-32 sm:w-38 md:w-42 bg-white rounded-xl sm:rounded-2xl p-2 sm:p-2.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white transform -rotate-6 hover:rotate-0 transition-transform duration-300"
               >
                 {/* AI-Powered Badge */}
                 <div className="absolute -top-2 -left-5 z-30 px-2.5 sm:px-3 py-1 bg-gradient-to-r from-[#eda970] via-[#dcc6d5] to-[#8f73cc] text-[#3d1e06] font-display text-[10px] sm:text-[11px] font-bold rounded-full shadow-lg border border-white/80 whitespace-nowrap transition-all transform rotate-[-20deg] hover:rotate-0 flex items-center gap-1">
                   <Sparkles className="w-3 h-3 text-[#6566ee]" /> AI Ads
                 </div>
                 {/* Photo */}
-                <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-1.5 bg-neutral-100">
+                <div className="aspect-square rounded-lg overflow-hidden mb-1.5 bg-neutral-100">
                   <img
                     src={womenPerfumeImg}
                     alt="Women's perfume"
