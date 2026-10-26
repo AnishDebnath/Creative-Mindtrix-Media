@@ -8,6 +8,7 @@ import avatarHipsterBeardImg from '@/assets/img/avatar_hipster_beard_17909793848
 import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
 import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
 import { getCloudinaryImage, getCloudinaryVideo } from '@/utils/cloudinary';
+import { BrandsSection } from './BrandsSection';
 
 const womenPerfumeImg = getCloudinaryImage('women-perfume/Perfume_bottle_flat-lay_photograph.jpg');
 const heroReelVideo = getCloudinaryVideo('women-perfume.mp4', { optimize: true, quality: 'good', width: 720 });
@@ -372,6 +373,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
         </div>
+
+        {/* Brands Showcase directly on the continuous Hero background */}
+        <BrandsSection className="mt-8 sm:mt-12 md:mt-14 relative z-10" />
       </div>
     </section>
   );

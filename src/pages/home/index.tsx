@@ -19,7 +19,7 @@ interface HomePageProps {
 export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProps) {
   return (
     <div className="w-full">
-      {/* Hero Section */}
+      {/* Hero Section (including top Marquee, Centerpiece, and Brands Showcase) */}
       <HeroSection
         onSelectProfile={noop}
         onSendReaction={noop}
