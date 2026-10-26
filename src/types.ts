@@ -58,6 +58,9 @@ export interface MarqueeProduct {
   src: string;
   label: string;
   category?: string;
+  // ponytail: minimal type discriminator to allow native HTML5 video or image rendering
+  type?: 'image' | 'video';
+  videoSrc?: string;
 }
 
 export interface ImageProject {

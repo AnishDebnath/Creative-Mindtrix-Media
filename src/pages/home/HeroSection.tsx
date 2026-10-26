@@ -24,14 +24,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onNavigateToImages,
   onNavigateToReels
 }) => {
-  // Shuffle once per mount, then repeat for seamless infinite marquee scrolling
+  // ponytail: duplicate array twice for seamless 100% infinite CSS marquee without decoder overload
   const marqueeProducts = useMemo(() => {
-    const shuffled = [...MARQUEE_PRODUCTS];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return [...shuffled, ...shuffled, ...shuffled, ...shuffled];
+    return [...MARQUEE_PRODUCTS, ...MARQUEE_PRODUCTS];
   }, []);
 
   return (
@@ -56,7 +51,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative w-full overflow-hidden py-2 sm:py-3 my-0 flex items-center justify-center cursor-pointer"
-        title="Click to view full AI Images Gallery"
+        title="Click to explore AI Images & Reels"
       >
         {/* Giant Typography Background: MINDTRIX watermark */}
         <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-35">
@@ -88,22 +83,46 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               // Alternating upper/bottom placement with clear difference:
               // Even cards shift down, odd cards shift up
               const isEven = index % 2 === 0;
+              const isVideo = product.type === 'video' || Boolean(product.videoSrc);
+
               return (
                 <div
                   key={`${product.id}-${index}`}
-                  className={`group relative shrink-0 transition-transform duration-300 hover:scale-[1.03] ${isEven
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (isVideo) {
+                      onNavigateToReels?.();
+                    } else {
+                      onNavigateToImages?.();
+                    }
+                  }}
+                  title={isVideo ? `Watch ${product.label} reel` : `View ${product.label} image`}
+                  className={`group relative shrink-0 transition-transform duration-300 hover:scale-[1.03] cursor-pointer ${isEven
                     ? 'w-[145px] sm:w-[185px] md:w-[210px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] translate-y-5 sm:translate-y-7'
                     : 'w-[145px] sm:w-[185px] md:w-[210px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] -translate-y-5 sm:-translate-y-7'
                     }`}
                 >
-                  {/* Clean 3/4 card with rounded corners and no overlays */}
+                  {/* ponytail: clean cards with zero overlays for both videos and images */}
                   <div className="relative w-full h-full rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-md group-hover:shadow-xl bg-neutral-900 border border-white/60 transition-shadow">
-                    <img
-                      src={product.src}
-                      alt={product.label}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
+                    {isVideo ? (
+                      <video
+                        src={product.videoSrc}
+                        poster={product.src}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <img
+                        src={product.src}
+                        alt={product.label}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    )}
                   </div>
                 </div>
               );

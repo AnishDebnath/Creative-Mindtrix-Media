@@ -24,7 +24,25 @@ import windblownImg from '@/assets/img/windblown_hair_woman_1790982857578.jpg';
 import pixieImg from '@/assets/img/woman_bandana_pixie_1790982884567.jpg';
 import sunlightManImg from '@/assets/img/community_man_sunlight_1790982822414.jpg';
 
-import { getCloudinaryImage } from '@/utils/cloudinary';
+import { getCloudinaryImage, getCloudinaryVideo, getCloudinaryVideoThumbnail } from '@/utils/cloudinary';
+
+// ponytail: lightweight video streams for marquee preview (w_360, eco) to maintain 60fps scrolling
+const womenPerfumeVid = getCloudinaryVideo('women-perfume.mp4', { optimize: true, quality: 'eco', width: 360 });
+const menPerfumeVid = getCloudinaryVideo('men-perfume.mp4', { optimize: true, quality: 'eco', width: 360 });
+const facewashVid = getCloudinaryVideo('facewash.mp4', { optimize: true, quality: 'eco', width: 360 });
+const lipstickProductVid = getCloudinaryVideo('lipstick-product.mp4', { optimize: true, quality: 'eco', width: 360 });
+const lipstickVid = getCloudinaryVideo('lipstick.mp4', { optimize: true, quality: 'eco', width: 360 });
+const nailArtVid = getCloudinaryVideo('nail-art.mp4', { optimize: true, quality: 'eco', width: 360 });
+const rampwalkVid = getCloudinaryVideo('rampwalk.mp4', { optimize: true, quality: 'eco', width: 360 });
+const tshirtFerreriVid = getCloudinaryVideo('tshirt-ferreri.mp4', { optimize: true, quality: 'eco', width: 360 });
+const sukoonVid = getCloudinaryVideo('sukoon.mp4', { optimize: true, quality: 'eco', width: 360 });
+const cocaineVid = getCloudinaryVideo('cocaine.mp4', { optimize: true, quality: 'eco', width: 360 });
+
+const nailArtThumb = getCloudinaryVideoThumbnail('nail-art.mp4');
+const rampwalkThumb = getCloudinaryVideoThumbnail('rampwalk.mp4');
+const tshirtFerreriThumb = getCloudinaryVideoThumbnail('tshirt-ferreri.mp4');
+const sukoonThumb = getCloudinaryVideoThumbnail('sukoon.mp4');
+const cocaineThumb = getCloudinaryVideoThumbnail('cocaine.mp4');
 
 const lipstickFlatLayImg = getCloudinaryImage('lipstick/Create_cosmetics_flat_lay_photog.jpg');
 const lipstickMarbleImg = getCloudinaryImage('lipstick/Lipstick_advertisement_on_marble.jpg');
@@ -236,26 +254,27 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const MARQUEE_PRODUCTS: MarqueeProduct[] = [
-  { id: 'lip-1', src: lipstickFlatLayImg, label: 'Lipstick Studio Flat Lay', category: 'Lipstick' },
-  { id: 'lip-2', src: lipstickMarbleImg, label: 'Lipstick on Carrara Marble', category: 'Lipstick' },
-  { id: 'lip-3', src: lipstickEditorialImg, label: 'Editorial Velvet Lipstick', category: 'Lipstick' },
-  { id: 'lip-4', src: lipstickLuxuryImg, label: 'Luxury Gold Trim Lipstick', category: 'Lipstick' },
-  { id: 'mp-1', src: menPerfumeCreatingAdvImg, label: "Men's Noir Fragrance Ad", category: "Men's Perfume" },
-  { id: 'mp-2', src: menPerfumeCreatingAdvertisImg, label: "Men's Cologne Splash Shot", category: "Men's Perfume" },
-  { id: 'mp-3', src: menPerfumePosterImg, label: "Men's Eau De Parfum Poster", category: "Men's Perfume" },
-  { id: 'mp-4', src: menPerfumeEditorialImg, label: 'Editorial Perfume Lighting', category: "Men's Perfume" },
-  { id: 'mp-5', src: menPerfumeLibraryImg, label: 'Luxury Library Cologne Staging', category: "Men's Perfume" },
-  { id: 'mp-6', src: menPerfumeMindtrixImg, label: 'Mindtrix Signature Perfume Shot', category: "Men's Perfume" },
-  { id: 'skin-1', src: skincareStoneImg, label: 'Organic Skincare on Stone', category: 'Skincare' },
-  { id: 'skin-2', src: skincarePhotographImg, label: 'Pure Serum Dropper Staging', category: 'Skincare' },
-  { id: 'skin-3', src: skincareAdvertisemenImg, label: 'Botanical Skincare Clean Ad', category: 'Skincare' },
-  { id: 'skin-4', src: skincareAdvertisementImg, label: 'Hydra Glow Cream Campaign', category: 'Skincare' },
-  { id: 'skin-5', src: skincareCommercialImg, label: 'Luxury Skincare Trio Commercial', category: 'Skincare' },
-  { id: 'wp-1', src: womenPerfumeCreatingImg, label: "Women's Floral Perfume Ad", category: "Women's Perfume" },
-  { id: 'wp-2', src: womenPerfumeCommercialImg, label: 'Commercial Glass Reflection', category: "Women's Perfume" },
-  { id: 'wp-3', src: womenPerfumeFlatLayImg, label: 'Crystal Bottle Studio Flat Lay', category: "Women's Perfume" },
-  { id: 'wp-4', src: womenPerfumePedestalImg, label: 'Rose Gold Flacon on Pedestal', category: "Women's Perfume" },
-  { id: 'wp-5', src: womenPerfumePlaceImg, label: 'Premium Perfume Editorial Spread', category: "Women's Perfume" }
+  // ponytail: curated mix of videos and images with balanced cadence across staggered upper/lower tiers
+  { id: 'vid-wp', type: 'video', videoSrc: womenPerfumeVid, src: womenPerfumePlaceImg, label: "Women's Floral Perfume Commercial Reel", category: "Women's Perfume" },
+  { id: 'lip-3', type: 'image', src: lipstickEditorialImg, label: 'Editorial Velvet Lipstick', category: 'Lipstick' },
+  { id: 'skin-1', type: 'image', src: skincareStoneImg, label: 'Organic Skincare on Stone', category: 'Skincare' },
+  { id: 'vid-mp', type: 'video', videoSrc: menPerfumeVid, src: menPerfumePosterImg, label: "Men's Noir Cologne Cinema Reel", category: "Men's Perfume" },
+  { id: 'vid-face', type: 'video', videoSrc: facewashVid, src: skincareAdvertisementImg, label: 'Hydra Cleanse Facewash Commercial', category: 'Skincare' },
+  { id: 'wp-4', type: 'image', src: womenPerfumePedestalImg, label: 'Rose Gold Flacon on Pedestal', category: "Women's Perfume" },
+  { id: 'lip-2', type: 'image', src: lipstickMarbleImg, label: 'Lipstick on Carrara Marble', category: 'Lipstick' },
+  { id: 'vid-lip-prod', type: 'video', videoSrc: lipstickProductVid, src: lipstickFlatLayImg, label: 'Velvet Lipstick Macro Reveal', category: 'Lipstick' },
+  { id: 'vid-ramp', type: 'video', videoSrc: rampwalkVid, src: rampwalkThumb, label: 'Fashion Runway Viral Reel', category: 'Editorial' },
+  { id: 'mp-4', type: 'image', src: menPerfumeEditorialImg, label: 'Editorial Perfume Lighting', category: "Men's Perfume" },
+  { id: 'wp-3', type: 'image', src: womenPerfumeFlatLayImg, label: 'Crystal Bottle Studio Flat Lay', category: "Women's Perfume" },
+  { id: 'vid-lip', type: 'video', videoSrc: lipstickVid, src: lipstickLuxuryImg, label: 'Crimson Velvet Lipstick Motion', category: 'Lipstick' },
+  { id: 'vid-nail', type: 'video', videoSrc: nailArtVid, src: nailArtThumb, label: 'Aesthetic Nail Art Reel', category: 'Cosmetics' },
+  { id: 'skin-2', type: 'image', src: skincareAdvertisemenImg, label: 'Pure Serum Dropper Staging', category: 'Skincare' },
+  { id: 'mp-5', type: 'image', src: menPerfumeLibraryImg, label: 'Luxury Library Cologne Staging', category: "Men's Perfume" },
+  { id: 'vid-tshirt', type: 'video', videoSrc: tshirtFerreriVid, src: tshirtFerreriThumb, label: 'D2C Streetwear & Apparel Ad', category: 'Commercials' },
+  { id: 'vid-sukoon', type: 'video', videoSrc: sukoonVid, src: sukoonThumb, label: 'Calming Botanical Mist Reel', category: 'Commercials' },
+  { id: 'lip-4', type: 'image', src: lipstickLuxuryImg, label: 'Luxury Gold Trim Lipstick', category: 'Lipstick' },
+  { id: 'mp-2', type: 'image', src: menPerfumeCreatingAdvertisImg, label: "Men's Cologne Splash Shot", category: "Men's Perfume" },
+  { id: 'vid-noir', type: 'video', videoSrc: cocaineVid, src: cocaineThumb, label: 'Noir Bottle Splash Cinema Reel', category: "Men's Perfume" }
 ];
 
 export const ALL_IMAGE_PROJECTS: ImageProject[] = [
