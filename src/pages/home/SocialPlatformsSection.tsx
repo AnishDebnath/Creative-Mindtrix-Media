@@ -43,7 +43,7 @@ const InstagramIcon: React.FC = () => (
 
 export const SocialPlatformsSection: React.FC = () => {
   return (
-    <section className="relative w-full pt-16 sm:pt-20 md:pt-24 pb-16 sm:pb-20 md:pb-24 overflow-hidden bg-white">
+    <section className="relative w-full pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20 overflow-hidden bg-white">
       {/* Soft Ethereal Website Theme Ambient Glow in Background */}
       <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center">
         <div
