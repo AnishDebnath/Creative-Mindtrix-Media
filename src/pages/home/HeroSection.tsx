@@ -33,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       id="hero"
-      className="relative w-full pt-1 sm:pt-3 pb-24 overflow-hidden"
+      className="relative w-full pt-1 sm:pt-3 pb-8 sm:pb-12 md:pb-14 overflow-hidden"
       style={{
         backgroundImage: `
           linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 55%, #ffffff 100%),
