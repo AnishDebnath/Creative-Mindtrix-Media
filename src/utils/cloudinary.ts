@@ -71,6 +71,27 @@ const CLOUDINARY_IMAGE_PATHS: Record<string, string> = {
 
   'Perfume_product_photograph_place.jpg': 'v1792659240/Perfume_product_photograph_place_xirpec.jpg',
   'women-perfume/Perfume_product_photograph_place.jpg': 'v1792659240/Perfume_product_photograph_place_xirpec.jpg',
+
+  // Brand Logos (under "mindtrix media" / "brand logo" with automatic whitespace trimming)
+  'tph.png': 'f_auto,q_auto,e_trim/tph_gfjmyo.png',
+  'brand-logo/tph.png': 'f_auto,q_auto,e_trim/tph_gfjmyo.png',
+  'tph_gfjmyo.png': 'f_auto,q_auto,e_trim/tph_gfjmyo.png',
+
+  'charu.png': 'f_auto,q_auto,e_trim/charu_ypwood.png',
+  'brand-logo/charu.png': 'f_auto,q_auto,e_trim/charu_ypwood.png',
+  'charu_ypwood.png': 'f_auto,q_auto,e_trim/charu_ypwood.png',
+
+  'gconnect.png': 'f_auto,q_auto,e_trim/gconnect_gpyufu.png',
+  'brand-logo/gconnect.png': 'f_auto,q_auto,e_trim/gconnect_gpyufu.png',
+  'gconnect_gpyufu.png': 'f_auto,q_auto,e_trim/gconnect_gpyufu.png',
+
+  'crh.png': 'f_auto,q_auto,e_trim/crh_ctephp.png',
+  'brand-logo/crh.png': 'f_auto,q_auto,e_trim/crh_ctephp.png',
+  'crh_ctephp.png': 'f_auto,q_auto,e_trim/crh_ctephp.png',
+
+  'gold.png': 'f_auto,q_auto,e_trim/gold_zfz6i0.png',
+  'brand-logo/gold.png': 'f_auto,q_auto,e_trim/gold_zfz6i0.png',
+  'gold_zfz6i0.png': 'f_auto,q_auto,e_trim/gold_zfz6i0.png',
 };
 
 /**
