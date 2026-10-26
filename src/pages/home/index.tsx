@@ -1,5 +1,6 @@
 import { scrollToId } from '@/utils/scroll';
 import { HeroSection } from './HeroSection';
+import { SocialPlatformsSection } from './SocialPlatformsSection';
 import { CreativeServicesSection } from './CreativeServicesSection';
 import { MeetTheWorldSection } from './MeetTheWorldSection';
 import { CommunitySection } from './CommunitySection';
@@ -25,6 +26,9 @@ export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProp
         onNavigateToImages={onNavigateToImages}
         onNavigateToReels={onNavigateToReels}
       />
+
+      {/* Social Platforms Showcase Section */}
+      <SocialPlatformsSection />
 
       {/* Creative Services Section */}
       <CreativeServicesSection
