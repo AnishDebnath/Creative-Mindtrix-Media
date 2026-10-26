@@ -28,6 +28,22 @@ export interface Testimonial {
   company?: string;
 }
 
+export interface CreativeService {
+  id: string;
+  badge: string;
+  title: string;
+  description: string;
+  features: string[];
+  videoSrc: string;
+  posterSrc: string;
+  cardGradient: string;
+  borderColor: string;
+  shadowClass: string;
+  checkColor?: string;
+  phoneAlignment: 'left' | 'right';
+  stickyTopClass: string;
+}
+
 export interface StandForCard {
   id: string;
   title: string;
