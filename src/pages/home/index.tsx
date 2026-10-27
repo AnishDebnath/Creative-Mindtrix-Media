@@ -3,6 +3,7 @@ import { HeroSection } from './HeroSection';
 import { SocialPlatformsSection } from './SocialPlatformsSection';
 import { AudienceResultsSection } from './AudienceResultsSection';
 import { CreativeServicesSection } from './CreativeServicesSection';
+import { WhyChooseUsSection } from './WhyChooseUsSection';
 import { MeetTheWorldSection } from './MeetTheWorldSection';
 import { CommunitySection } from './CommunitySection';
 import { TestimonialsSection } from './TestimonialsSection';
@@ -38,6 +39,12 @@ export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProp
       <CreativeServicesSection
         onNavigateToImages={onNavigateToImages}
         onNavigateToReels={onNavigateToReels}
+      />
+
+      {/* Why Choose Us Section */}
+      <WhyChooseUsSection
+        onGetStarted={() => scrollToId('cta')}
+        onViewCaseStudies={onNavigateToReels}
       />
 
       {/* Meet The World Section */}
