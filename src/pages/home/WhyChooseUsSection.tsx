@@ -12,6 +12,7 @@ import {
   Share2,
 } from 'lucide-react';
 import creatorImg from '@/assets/img/scale_expert_team_creator.jpg';
+import scaleVideo from '@/assets/videos/rampwalk.mp4';
 
 interface WhyChooseUsSectionProps {
   onGetStarted?: () => void;
@@ -367,11 +368,11 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
           </h2>
         </motion.div>
 
-        {/* Bento Grid: 4 Process Steps on Left + Tall Feature Card on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        {/* Bento Grid: 4 Process Steps on Left (8 cols) + 9:16 Feature Video Card on Right (4 cols) with tight gap */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
           
-          {/* Left Area: 4 Steps of How We Work (2x2 Grid, 8 Columns on desktop, NO NUMBER COUNTING) */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Left Area: 4 Steps of How We Work (2x2 Grid, 8 Columns on desktop for perfect balance) */}
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
 
             {/* STEP 1: Collect Media & Samples (Theme: Peach & Sunset / Lavender) */}
             <motion.div
@@ -379,10 +380,10 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.05 }}
-              className="bg-gradient-to-br from-[#fdf4ed] via-[#f8edf5] to-[#f1ecfc] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#eda970]/40 shadow-[0_24px_50px_-12px_rgba(237,169,112,0.18)] hover:shadow-[0_28px_60px_-12px_rgba(237,169,112,0.28)] transition-all duration-300 flex flex-col justify-between group"
+              className="bg-gradient-to-br from-[#fdf4ed] via-[#f8edf5] to-[#f1ecfc] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#eda970]/40 shadow-[0_24px_50px_-12px_rgba(237,169,112,0.18)] hover:shadow-[0_28px_60px_-12px_rgba(237,169,112,0.28)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
-              {/* Visual Showcase */}
-              <div className="mb-4">
+              {/* Visual Showcase - Reduced top & side outer padding */}
+              <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
                 <CollectMediaShowcase />
               </div>
 
@@ -403,10 +404,10 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.1 }}
-              className="bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#8f73cc]/40 shadow-[0_30px_70px_-15px_rgba(143,115,204,0.2)] hover:shadow-[0_32px_75px_-15px_rgba(143,115,204,0.3)] transition-all duration-300 flex flex-col justify-between group"
+              className="bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#8f73cc]/40 shadow-[0_30px_70px_-15px_rgba(143,115,204,0.2)] hover:shadow-[0_32px_75px_-15px_rgba(143,115,204,0.3)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
-              {/* Visual Showcase */}
-              <div className="mb-4">
+              {/* Visual Showcase - Reduced top & side outer padding */}
+              <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
                 <MarketResearchShowcase />
               </div>
 
@@ -427,10 +428,10 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.15 }}
-              className="bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#dcc6d5] shadow-[0_24px_50px_-12px_rgba(143,115,204,0.18)] hover:shadow-[0_28px_60px_-12px_rgba(143,115,204,0.28)] transition-all duration-300 flex flex-col justify-between group"
+              className="bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#dcc6d5] shadow-[0_24px_50px_-12px_rgba(143,115,204,0.18)] hover:shadow-[0_28px_60px_-12px_rgba(143,115,204,0.28)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
-              {/* Visual Showcase */}
-              <div className="mb-4">
+              {/* Visual Showcase - Reduced top & side outer padding */}
+              <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
                 <MakeProduceShowcase />
               </div>
 
@@ -451,10 +452,10 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.2 }}
-              className="bg-gradient-to-br from-[#f0f0fd] via-[#f7f0fb] to-[#faedf4] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#6566ee]/30 shadow-[0_30px_70px_-15px_rgba(101,102,238,0.2)] hover:shadow-[0_32px_75px_-15px_rgba(101,102,238,0.3)] transition-all duration-300 flex flex-col justify-between group"
+              className="bg-gradient-to-br from-[#f0f0fd] via-[#f7f0fb] to-[#faedf4] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#6566ee]/30 shadow-[0_30px_70px_-15px_rgba(101,102,238,0.2)] hover:shadow-[0_32px_75px_-15px_rgba(101,102,238,0.3)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
-              {/* Visual Showcase */}
-              <div className="mb-4">
+              {/* Visual Showcase - Reduced top & side outer padding */}
+              <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
                 <DeliverPostShowcase />
               </div>
 
@@ -471,61 +472,59 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
 
           </div>
 
-          {/* Right Area: Tall Feature Card (4 Columns on desktop) */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-30px' }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="lg:col-span-4 relative rounded-[28px] sm:rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-7 min-h-[500px] sm:min-h-[540px] shadow-[0_16px_50px_-10px_rgba(143,115,204,0.35)] border border-[#cfc1ee]/60 group"
-          >
-            {/* Background Editorial Creator Photo */}
-            <img
-              src={creatorImg}
-              alt="Scale with our expert team"
-              className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
-            />
+          {/* Right Area: 9/16 Aspect Ratio Feature Card with Background Video matching Section Height */}
+          <div className="lg:col-span-4 flex justify-center lg:justify-end items-stretch w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="relative w-full h-full aspect-[9/16] rounded-[28px] sm:rounded-[32px] overflow-hidden flex flex-col justify-end p-6 sm:p-7 shadow-[0_20px_60px_-15px_rgba(143,115,204,0.35)] border border-[#cfc1ee]/60 group mx-auto lg:mx-0 select-none"
+            >
+              {/* Background 9:16 Video with Fallback Poster */}
+              <video
+                src={scaleVideo}
+                poster={creatorImg}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
 
-            {/* Deep Plum & Indigo Themed Vignette */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1b1226]/95 via-[#1b1226]/50 via-50% to-transparent pointer-events-none" />
+              {/* Deep Plum & Indigo Themed Vignette Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1b1226]/95 via-[#1b1226]/40 via-45% to-black/25 pointer-events-none" />
 
-            {/* Top Floating Badge in Theme Gradient */}
-            <div className="relative z-10 self-start">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] text-[#3d2035] text-[11px] font-bold rounded-full shadow-md border border-white/80">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ed4f6c] animate-pulse" />
-                Creative Growth Squad
-              </span>
-            </div>
+              {/* Bottom Overlay Content: Well spaced and balanced for 9:16 height */}
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <h3 className="text-2xl sm:text-[26px] font-bold text-white tracking-tight leading-snug mb-2">
+                  Scale with our <br />
+                  expert team
+                </h3>
 
-            {/* Floating Overlay Content */}
-            <div className="relative z-10 flex flex-col items-center text-center mt-auto">
-              <h3 className="text-2xl sm:text-[28px] font-bold text-white tracking-tight leading-snug mb-2">
-                Scale with our <br />
-                expert team
-              </h3>
+                <p className="text-white/85 text-xs sm:text-[13px] leading-relaxed max-w-[250px] mb-5 font-normal">
+                  Expert strategies designed to help your brand dominate social.
+                </p>
 
-              <p className="text-white/85 text-xs sm:text-sm leading-relaxed max-w-[260px] mb-6 font-normal">
-                Expert strategies designed to help your brand dominate social.
-              </p>
+                {/* Action Buttons in Theme Gradients */}
+                <div className="w-full flex flex-col gap-2.5">
+                  <button
+                    onClick={onGetStarted}
+                    className="w-full py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-[#2a1324] font-bold text-sm rounded-full transition-all active:scale-95 shadow-md cursor-pointer"
+                  >
+                    Get Started
+                  </button>
 
-              {/* Action Buttons in Theme Gradients */}
-              <div className="w-full flex flex-col gap-2.5">
-                <button
-                  onClick={onGetStarted}
-                  className="w-full py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-[#2a1324] font-bold text-sm rounded-full transition-all active:scale-95 shadow-md cursor-pointer"
-                >
-                  Get Started
-                </button>
-
-                <button
-                  onClick={onViewCaseStudies}
-                  className="w-full py-3 bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-medium text-sm rounded-full border border-white/30 transition-all active:scale-95 cursor-pointer"
-                >
-                  View Case Studies
-                </button>
+                  <button
+                    onClick={onViewCaseStudies}
+                    className="w-full py-2.5 bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-medium text-xs sm:text-sm rounded-full border border-white/25 transition-all active:scale-95 cursor-pointer"
+                  >
+                    View Case Studies
+                  </button>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
         </div>
       </div>
