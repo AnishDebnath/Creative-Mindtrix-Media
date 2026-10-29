@@ -122,9 +122,6 @@ export const AudienceResultsSection: React.FC = () => {
               <span className="font-sans font-bold text-xs sm:text-sm text-white tracking-tight whitespace-nowrap">
                 100k+ Followers
               </span>
-              <span className="text-[10px] font-bold text-[#eda970] px-1.5 py-0.5 rounded-full bg-white/12 border border-white/15">
-                ★ Viral
-              </span>
             </motion.div>
           </motion.div>
 

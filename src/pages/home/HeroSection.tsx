@@ -198,10 +198,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="absolute top-16 sm:top-35 -left-10 sm:-left-16 md:-left-20 z-30 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] px-3.5 sm:px-4 py-1.5 rounded-full shadow-[0_12px_30px_-5px_rgba(143,115,204,0.35)] border border-white/90 flex items-center gap-1 text-[#3d2035] transform -rotate-8 transition-transform duration-300 hover:rotate-0"
+                className="absolute top-16 sm:top-35 -left-10 sm:-left-16 md:-left-20 z-30 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] px-3.5 sm:px-4 py-1.5 rounded-full shadow-[0_12px_30px_-5px_rgba(61,32,53,0.4)] border border-white/20 flex items-center gap-1 text-white transform -rotate-8 transition-transform duration-300 hover:rotate-0"
               >
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-[#3d2035] text-[#3d2035]" />
+                  <Star key={i} className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-[#eda970] text-[#eda970]" />
                 ))}
               </motion.div>
 
@@ -214,9 +214,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 transition={{ duration: 0.55, delay: 0.2 }}
                 className="absolute bottom-5 sm:bottom-6 -left-24 sm:-left-36 md:-left-44 lg:-left-48 z-20 w-32 sm:w-38 md:w-42 bg-white rounded-xl sm:rounded-2xl p-2 sm:p-2.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white transform -rotate-6 hover:rotate-0 transition-transform duration-300"
               >
-                {/* AI-Powered Badge */}
-                <div className="absolute -top-2 -left-5 z-30 px-2.5 sm:px-3 py-1 bg-gradient-to-r from-[#eda970] via-[#dcc6d5] to-[#cfc1ee] text-[#3d1e06] font-display text-[10px] sm:text-[11px] font-bold rounded-full shadow-lg border border-white/80 whitespace-nowrap transition-all transform rotate-[-20deg] hover:rotate-0 flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-[#3d2035]" /> AI Ads
+                {/* AI-Powered Badge in Plum-Noir */}
+                <div className="absolute -top-2 -left-5 z-30 px-2.5 sm:px-3 py-1 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white font-display text-[10px] sm:text-[11px] font-bold rounded-full shadow-lg shadow-[#3d2035]/30 border border-white/20 whitespace-nowrap transition-all transform rotate-[-20deg] hover:rotate-0 flex items-center gap-1">
+                  <Sparkles className="w-3 h-3 text-[#eda970]" /> AI Ads
                 </div>
                 {/* Photo */}
                 <div className="aspect-square rounded-lg overflow-hidden mb-1.5 bg-neutral-100">
@@ -278,14 +278,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         <div className="truncate">
                           <div className="text-[11px] font-bold leading-none text-neutral-900 truncate">Mindtrix Media Creative</div>
                           <div className="text-[9px] text-neutral-600 leading-none mt-0.5 flex items-center gap-0.5 font-medium truncate">
-                            <Zap className="w-2.5 h-2.5 text-[#3d2035] shrink-0" /> AI Product Ads
+                            <Zap className="w-2.5 h-2.5 text-[#eda970] fill-[#eda970] shrink-0" /> AI Product Ads
                           </div>
                         </div>
                       </div>
 
                       <button
                         onClick={onNavigateToReels}
-                        className="px-2.5 py-1 rounded-full bg-white/50 backdrop-blur-md flex items-center justify-center text-[10px] font-bold border border-white/60 text-neutral-900 shadow-sm shrink-0"
+                        className="px-2.5 py-1 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white flex items-center justify-center text-[10px] font-bold border border-white/20 shadow-xs shrink-0 cursor-pointer hover:opacity-95"
                       >
                         Reels
                       </button>
@@ -356,9 +356,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.25 }}
-                className="absolute bottom-16 sm:bottom-28 -right-16 sm:-right-26 md:-right-30 lg:-right-34 z-30 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl py-2 px-3.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white w-44 sm:w-52 flex items-center gap-2.5 transform -rotate-[5deg] hover:rotate-0 transition-transform duration-300"
+                className="absolute bottom-16 sm:bottom-28 -right-16 sm:-right-26 md:-right-30 lg:-right-34 z-30 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl py-2 px-3.5 shadow-[0_18px_40px_-10px_rgba(61,32,53,0.15)] border border-[#ebdce7] w-44 sm:w-52 flex items-center gap-2.5 transform -rotate-[5deg] hover:rotate-0 transition-transform duration-300"
               >
-                <div className="w-8 sm:w-9 h-8 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-neutral-100 shadow-sm">
+                <div className="w-8 sm:w-9 h-8 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-[#ebdce7] shadow-sm">
                   <img
                     src={avatarGreenCapImg}
                     alt="User"
@@ -367,7 +367,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-[11px] sm:text-xs font-bold text-neutral-900">100% AI Generated</div>
-                  <div className="text-[9px] text-neutral-500 font-medium">Ready for Meta & Instagram</div>
+                  <div className="text-[9px] text-[#3d2035] font-semibold">Ready for Meta & Instagram</div>
                 </div>
               </motion.div>
             </div>

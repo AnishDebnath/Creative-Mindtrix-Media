@@ -38,10 +38,6 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="text-center mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#dcc6d5]/50 via-[#cfc1ee]/50 to-[#eda970]/40 border border-[#dcc6d5] text-[#3d2035] text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#d97736]" />
-            <span>TRANSPARENT PRICING</span>
-          </div>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-normal text-neutral-900 uppercase leading-[1.15] max-w-4xl mx-auto">
             AFFORDABLE PLANS FOR<br className="hidden sm:block" /> VIRAL BRAND GROWTH
           </h2>

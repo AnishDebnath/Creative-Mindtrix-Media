@@ -129,9 +129,6 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                 {/* Card Footer: Category & Title */}
                 <div className="px-2 py-1 flex items-center justify-between text-white font-display text-sm sm:text-base font-black uppercase tracking-wider">
                   <span>LUXURY COSMETICS AD</span>
-                  <span className="text-[10px] font-sans font-bold text-[#eda970] px-2 py-0.5 rounded-full bg-white/12 border border-white/15">
-                    Viral AI
-                  </span>
                 </div>
               </motion.div>
 
