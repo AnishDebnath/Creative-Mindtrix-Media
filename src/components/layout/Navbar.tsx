@@ -44,15 +44,15 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick(item.id, item.anchor)}
               className={`relative px-4 sm:px-5 py-1.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition-colors duration-200 cursor-pointer select-none whitespace-nowrap ${
                 isActive
-                  ? 'text-neutral-950 font-bold'
+                  ? 'text-white font-bold'
                   : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
-              {/* Framer-Motion Animated Active Pill Slider matching site palette */}
+              {/* Framer-Motion Animated Active Pill Slider in signature Plum-Noir */}
               {isActive && (
                 <motion.div
                   layoutId="navbarActiveIndicator"
-                  className="absolute inset-0 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] rounded-full shadow-xs"
+                  className="absolute inset-0 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] rounded-full shadow-sm shadow-[#3d2035]/25 border border-white/10"
                   transition={{ type: 'spring', stiffness: 450, damping: 32 }}
                 />
               )}

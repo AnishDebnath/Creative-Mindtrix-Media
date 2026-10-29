@@ -66,7 +66,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
             const input = document.getElementById('cta-email-input');
             input?.focus();
           }}
-          className="px-5 sm:px-6 py-2 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-[#2a1324] font-display text-[11px] sm:text-xs font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer whitespace-nowrap shrink-0"
+          className="px-5 sm:px-6 py-2 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-[11px] sm:text-xs font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap shrink-0"
         >
           GET STARTED
         </button>

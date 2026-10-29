@@ -68,7 +68,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
           </p>
           <button
             onClick={onNavigateToReels}
-            className="px-7 py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-neutral-900 font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
+            className="px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer"
           >
             VIEW ALL PRODUCT REELS
           </button>
@@ -108,12 +108,12 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
           {/* 2. Main Front Pure White Board in 16:9 Ratio */}
           <div className="relative w-full h-full aspect-[16/9] bg-white rounded-[36px] sm:rounded-[44px] p-3 sm:p-4 md:p-5 shadow-[0_40px_90px_-20px_rgba(0,0,0,0.24)] border border-white flex flex-col justify-between">
 
-            {/* Top-Right Floating Badge with 4-Color Gradient */}
+            {/* Top-Right Floating Badge in Signature Plum-Noir */}
             <div
-              className="absolute -top-3.5 right-6 sm:right-12 z-30 px-4 sm:px-5 py-1 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] text-[#3d1e06] font-display text-base sm:text-lg font-bold rounded-full shadow-md border border-white/90"
+              className="absolute -top-3.5 right-6 sm:right-12 z-30 px-4 sm:px-5 py-1 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white font-display text-base sm:text-lg font-bold rounded-full shadow-lg shadow-[#3d2035]/35 border border-white/20"
               style={{ transform: 'rotate(15deg)' }}
             >
-              AI Product Reels
+              <span className="text-[#eda970] mr-1">✦</span> AI Product Reels
             </div>
 
             {/* Seamless 4-Column Balanced Grid */}
@@ -255,7 +255,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
           >
             <button
               onClick={onNavigateToReels}
-              className="flex items-center gap-2.5 sm:gap-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-[0_20px_40px_-5px_rgba(143,115,204,0.35)] border border-white/90 transition-all active:scale-95 cursor-pointer"
+              className="flex items-center gap-2.5 sm:gap-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-[0_20px_40px_-5px_rgba(61,32,53,0.5)] border border-white/20 transition-all active:scale-95 cursor-pointer"
             >
               {/* Overlapping Mini Product Images */}
               <div className="flex items-center -space-x-2">
@@ -267,7 +267,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                 ].map((item) => (
                   <div
                     key={item.id}
-                    className="w-6 sm:w-7 h-6 sm:h-7 rounded-full ring-2 ring-white overflow-hidden shadow-sm bg-neutral-900"
+                    className="w-6 sm:w-7 h-6 sm:h-7 rounded-full ring-2 ring-white/80 overflow-hidden shadow-sm bg-neutral-900"
                   >
                     <img
                       src={item.src}
@@ -279,7 +279,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
               </div>
 
               {/* Action Text */}
-              <span className="font-display text-xs sm:text-[13px] font-black tracking-wider text-neutral-900 uppercase pr-1">
+              <span className="font-display text-xs sm:text-[13px] font-black tracking-wider text-white uppercase pr-1">
                 VIEW REEL PORTFOLIO
               </span>
             </button>

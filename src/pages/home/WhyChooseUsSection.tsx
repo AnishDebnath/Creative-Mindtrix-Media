@@ -473,7 +473,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
                 <div className="w-full flex flex-col gap-2.5">
                   <button
                     onClick={onGetStarted}
-                    className="w-full py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-[#2a1324] font-bold text-sm rounded-full transition-all active:scale-95 shadow-md cursor-pointer"
+                    className="w-full py-3 bg-white hover:bg-neutral-100 text-[#3d2035] font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md cursor-pointer"
                   >
                     Get Started
                   </button>

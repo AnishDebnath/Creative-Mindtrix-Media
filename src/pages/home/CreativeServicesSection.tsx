@@ -121,10 +121,10 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
             <div className="flex flex-wrap items-center justify-between w-full gap-4 pt-3 border-t border-neutral-100">
               <button
                 onClick={onNavigateToReels}
-                className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-neutral-900 font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer whitespace-nowrap"
+                className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
               >
                 <span>{SERVICES_SECTION_HEADER.ctaText}</span>
-                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
               </button>
 
               {/* Navigation Controls: Slide Counter + Prev/Next Buttons */}
@@ -138,14 +138,14 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
                   <button
                     onClick={handlePrev}
                     aria-label="Previous service card"
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white hover:bg-neutral-900 hover:text-white flex items-center justify-center transition-all active:scale-90 cursor-pointer shadow-xs text-neutral-800"
+                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-neutral-300 hover:border-transparent bg-white hover:bg-gradient-to-br hover:from-[#2f182a] hover:via-[#3d2035] hover:to-[#542947] hover:text-white flex items-center justify-center transition-all active:scale-90 cursor-pointer shadow-xs text-neutral-800 hover:shadow-md hover:shadow-[#3d2035]/20"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
                   <button
                     onClick={handleNext}
                     aria-label="Next service card"
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-neutral-300 hover:border-neutral-900 bg-white hover:bg-neutral-900 hover:text-white flex items-center justify-center transition-all active:scale-90 cursor-pointer shadow-xs text-neutral-800"
+                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-neutral-300 hover:border-transparent bg-white hover:bg-gradient-to-br hover:from-[#2f182a] hover:via-[#3d2035] hover:to-[#542947] hover:text-white flex items-center justify-center transition-all active:scale-90 cursor-pointer shadow-xs text-neutral-800 hover:shadow-md hover:shadow-[#3d2035]/20"
                   >
                     <ChevronRight className="w-5 h-5" />
                   </button>
@@ -205,7 +205,7 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
                   {/* Service Details Column (Left Side) */}
                   <div className="lg:col-span-6 flex flex-col items-start justify-center p-4 sm:p-6 lg:p-8 h-full order-1">
                     {/* Pill Badge */}
-                    <span className="inline-block px-3.5 py-1 rounded-full text-xs sm:text-[13px] font-bold tracking-wide bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] text-[#3d2035] border border-white/80 mb-3 shadow-2xs">
+                    <span className="inline-block px-3.5 py-1 rounded-full text-xs sm:text-[13px] font-bold tracking-wide bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white border border-white/20 mb-3 shadow-sm shadow-[#3d2035]/15">
                       {service.badge}
                     </span>
 

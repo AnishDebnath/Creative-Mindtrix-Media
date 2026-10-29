@@ -313,7 +313,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   {/* ZONE 3: BOTTOM PART */}
                   <div className="flex flex-col items-center gap-2.5 z-20 pb-0.5 w-full">
                     <div className="py-1.5 px-3.5 bg-white/50 backdrop-blur-md rounded-full flex items-center justify-between border border-white/60 text-neutral-700 shadow-sm w-[90%] max-w-[220px]">
-                      <div className="flex items-center gap-1.5 text-[#381f30] font-bold text-[11px] bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] px-3.5 py-1 rounded-full shadow-sm">
+                      <div className="flex items-center gap-1.5 text-white font-bold text-[11px] bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] px-3.5 py-1 rounded-full shadow-xs border border-white/15">
                         <Home className="w-3.5 h-3.5" />
                         <span>Home</span>
                       </div>
@@ -335,9 +335,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="absolute top-20 sm:top-40 -right-20 sm:-right-32 md:-right-36 lg:-right-38 z-30 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl py-2 px-3.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white w-44 sm:w-52 flex items-center gap-2.5 transform rotate-[5deg] hover:rotate-0 transition-transform duration-300"
+                className="absolute top-20 sm:top-40 -right-20 sm:-right-32 md:-right-36 lg:-right-38 z-30 bg-gradient-to-br from-[#2f182a] via-[#3d2035] to-[#542947] rounded-2xl sm:rounded-3xl py-2 px-3.5 shadow-[0_18px_40px_-10px_rgba(61,32,53,0.45)] border border-white/20 w-44 sm:w-52 flex items-center gap-2.5 transform rotate-[5deg] hover:rotate-0 transition-transform duration-300 text-white"
               >
-                <div className="w-8 sm:w-9 h-8 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-neutral-100 shadow-sm">
+                <div className="w-8 sm:w-9 h-8 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-white/25 shadow-sm">
                   <img
                     src={avatarHipsterBeardImg}
                     alt="User"
@@ -345,8 +345,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-[11px] sm:text-xs font-bold text-neutral-900">3.8x Higher ROAS</div>
-                  <div className="text-[9px] text-neutral-500 font-medium">Delivered in 48 hours</div>
+                  <div className="text-[11px] sm:text-xs font-bold text-white">3.8x Higher ROAS</div>
+                  <div className="text-[9px] text-[#eda970] font-medium">Delivered in 48 hours</div>
                 </div>
               </motion.div>
 

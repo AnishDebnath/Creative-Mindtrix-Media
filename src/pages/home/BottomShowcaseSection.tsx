@@ -55,7 +55,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="absolute -top-2 sm:-top-4 -left-40 sm:-left-56 md:-left-72 lg:-left-80 z-20 bg-white px-5 sm:px-6 py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-white text-neutral-800 text-sm sm:text-[15px] font-semibold whitespace-nowrap transform -rotate-[7deg] hover:rotate-0 transition-transform duration-300"
+            className="absolute -top-2 sm:-top-4 -left-40 sm:-left-56 md:-left-72 lg:-left-80 z-20 bg-gradient-to-br from-[#2f182a] via-[#3d2035] to-[#542947] text-white px-5 sm:px-6 py-2.5 rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.4)] border border-white/20 text-sm sm:text-[15px] font-semibold whitespace-nowrap transform -rotate-[7deg] hover:rotate-0 transition-transform duration-300"
           >
             Create better product ads with AI 🚀
           </motion.div>
@@ -84,7 +84,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
               </div>
 
               {/* Bottom Scrim & Name Label */}
-              <div className="absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
+              <div className="absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 bg-gradient-to-t from-[#2f182a]/95 via-[#3d2035]/50 to-transparent flex items-end">
                 <div className="flex items-center gap-2 text-white font-display text-base sm:text-lg font-black uppercase tracking-wider drop-shadow-md">
                   <span className="text-lg sm:text-xl">🇨🇦</span>
                   <span>MINDTRIX MEDIA LEAD</span>

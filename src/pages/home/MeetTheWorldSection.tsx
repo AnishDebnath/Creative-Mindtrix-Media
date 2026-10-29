@@ -115,10 +115,10 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
-                className="relative z-20 w-[275px] sm:w-[315px] md:w-[330px] bg-white rounded-[32px] p-3 shadow-[0_25px_60px_-15px_rgba(61,32,53,0.14)] border border-[#ebdce7] cursor-pointer transform hover:scale-[1.01] transition-transform duration-300"
+                className="relative z-20 w-[275px] sm:w-[315px] md:w-[330px] bg-gradient-to-br from-[#2f182a] via-[#3d2035] to-[#542947] rounded-[32px] p-3 sm:p-3.5 shadow-[0_25px_60px_-15px_rgba(61,32,53,0.45)] border border-white/20 cursor-pointer transform hover:scale-[1.01] transition-transform duration-300 select-none"
               >
                 {/* Photo Canvas */}
-                <div className="w-full aspect-[4/5] rounded-[24px] overflow-hidden bg-neutral-900 mb-2 relative group">
+                <div className="w-full aspect-[4/5] rounded-[24px] overflow-hidden bg-neutral-900 mb-2.5 relative group border border-white/10">
                   <img
                     src={lipstickImg}
                     alt="Lipstick product"
@@ -127,8 +127,11 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                 </div>
 
                 {/* Card Footer: Category & Title */}
-                <div className="px-2 py-0.5 flex items-center justify-between text-neutral-900 font-display text-sm sm:text-base font-black uppercase tracking-wider">
+                <div className="px-2 py-1 flex items-center justify-between text-white font-display text-sm sm:text-base font-black uppercase tracking-wider">
                   <span>LUXURY COSMETICS AD</span>
+                  <span className="text-[10px] font-sans font-bold text-[#eda970] px-2 py-0.5 rounded-full bg-white/12 border border-white/15">
+                    Viral AI
+                  </span>
                 </div>
               </motion.div>
 
@@ -162,9 +165,9 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="absolute -bottom-3 sm:-bottom-4 right-0 sm:-right-2 z-30 px-4 sm:px-5 py-1.5 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] text-[#2a1324] font-display text-sm sm:text-base font-bold rounded-full shadow-lg border border-white/80 transform -rotate-6"
+                className="absolute -bottom-3 sm:-bottom-4 right-0 sm:-right-2 z-30 px-4 sm:px-5 py-1.5 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white font-display text-sm sm:text-base font-bold rounded-full shadow-lg shadow-[#3d2035]/35 border border-white/20 transform -rotate-6"
               >
-                AI Commercial
+                <span className="text-[#eda970] mr-1">✦</span> AI Commercial
               </motion.div>
             </div>
           </div>
