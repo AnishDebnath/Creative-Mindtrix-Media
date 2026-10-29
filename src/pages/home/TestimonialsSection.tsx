@@ -218,7 +218,7 @@ export const TestimonialsSection: React.FC = () => {
       id="testimonials"
       className="relative w-full py-20 sm:py-24 lg:py-28 px-4 sm:px-6 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #eae3fb 0%, #faede5 40%, #f7edf5 75%, #ffffff 100%)',
+        background: 'linear-gradient(180deg, #eae3fb 0%, #faede5 50%, #f7edf5 100%)',
       }}
     >
       {/* Website Theme Ambient Radial Glows (Warm peach, blush mauve & soft lavender) */}

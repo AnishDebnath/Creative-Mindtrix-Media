@@ -31,7 +31,8 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
 
   return (
     <section
-      className="relative w-full pt-16 pb-28 overflow-visible"
+      id="cta"
+      className="relative w-full pt-16 pb-28 overflow-visible scroll-mt-6"
       style={{
         backgroundImage:
           'linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.7) 55%, rgba(255,255,255,0) 100%)',

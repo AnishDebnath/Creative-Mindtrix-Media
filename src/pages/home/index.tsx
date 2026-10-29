@@ -8,6 +8,7 @@ import { MeetTheWorldSection } from './MeetTheWorldSection';
 import { CommunitySection } from './CommunitySection';
 import { TestimonialsSection } from './TestimonialsSection';
 import { PricingSection } from './PricingSection';
+import { FaqSection } from './FaqSection';
 import { BottomShowcaseSection } from './BottomShowcaseSection';
 import { CtaSection } from './CtaSection';
 
@@ -68,6 +69,12 @@ export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProp
 
       {/* Pricing Section (Per Project & Monthly Subscription) */}
       <PricingSection onSelectPlan={() => scrollToId('cta')} />
+
+      {/* FAQ Section */}
+      <FaqSection
+        onBookCall={() => scrollToId('cta')}
+        onContactUs={() => scrollToId('cta')}
+      />
 
       {/* Bottom Profile Floating Showcase */}
       <BottomShowcaseSection
