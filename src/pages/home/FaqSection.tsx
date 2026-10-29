@@ -69,11 +69,6 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className="w-full lg:w-[46%] max-w-[440px] flex flex-col items-start shrink-0"
           >
-            {/* Top Pill / Badge in Theme Styling */}
-            <div className="px-3.5 py-1 rounded-md bg-white/80 backdrop-blur-xs border border-[#ebdce7] text-[#3d2035] text-xs font-bold uppercase tracking-wider inline-block mb-3.5 shadow-2xs">
-              FAQ
-            </div>
-
             {/* Main Headline with Website Theme Gradient Accent */}
             <h2 className="font-display text-4xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-[1.08] text-neutral-900 mb-3.5">
               Got questions?
