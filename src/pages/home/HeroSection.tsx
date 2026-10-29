@@ -215,8 +215,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className="absolute bottom-5 sm:bottom-6 -left-24 sm:-left-36 md:-left-44 lg:-left-48 z-20 w-32 sm:w-38 md:w-42 bg-white rounded-xl sm:rounded-2xl p-2 sm:p-2.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white transform -rotate-6 hover:rotate-0 transition-transform duration-300"
               >
                 {/* AI-Powered Badge */}
-                <div className="absolute -top-2 -left-5 z-30 px-2.5 sm:px-3 py-1 bg-gradient-to-r from-[#eda970] via-[#dcc6d5] to-[#8f73cc] text-[#3d1e06] font-display text-[10px] sm:text-[11px] font-bold rounded-full shadow-lg border border-white/80 whitespace-nowrap transition-all transform rotate-[-20deg] hover:rotate-0 flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-[#6566ee]" /> AI Ads
+                <div className="absolute -top-2 -left-5 z-30 px-2.5 sm:px-3 py-1 bg-gradient-to-r from-[#eda970] via-[#dcc6d5] to-[#cfc1ee] text-[#3d1e06] font-display text-[10px] sm:text-[11px] font-bold rounded-full shadow-lg border border-white/80 whitespace-nowrap transition-all transform rotate-[-20deg] hover:rotate-0 flex items-center gap-1">
+                  <Sparkles className="w-3 h-3 text-[#3d2035]" /> AI Ads
                 </div>
                 {/* Photo */}
                 <div className="aspect-square rounded-lg overflow-hidden mb-1.5 bg-neutral-100">
@@ -278,7 +278,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         <div className="truncate">
                           <div className="text-[11px] font-bold leading-none text-neutral-900 truncate">Mindtrix Media Creative</div>
                           <div className="text-[9px] text-neutral-600 leading-none mt-0.5 flex items-center gap-0.5 font-medium truncate">
-                            <Zap className="w-2.5 h-2.5 text-[#6566ee] shrink-0" /> AI Product Ads
+                            <Zap className="w-2.5 h-2.5 text-[#3d2035] shrink-0" /> AI Product Ads
                           </div>
                         </div>
                       </div>

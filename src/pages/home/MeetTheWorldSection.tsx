@@ -25,11 +25,11 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
   return (
     <section className="relative w-full py-24 mb-6 overflow-hidden">
       {/* Distinct Ambient Background Strip */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#dcc6d5]/70 via-[#8f73cc]/35 via-[#6566ee]/25 to-[#eda970]/60 border-y border-white/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#dcc6d5]/60 via-[#ebdce7]/50 via-[#cfc1ee]/40 to-[#eda970]/50 border-y border-white/80 pointer-events-none" />
 
       {/* Subtle Ambient Decorative Glow Orbs */}
       <div className="absolute -bottom-24 -right-20 w-96 h-96 bg-[#eda970]/25 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -top-24 -left-20 w-96 h-96 bg-[#6566ee]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 -left-20 w-96 h-96 bg-[#3d2035]/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Main Section Content Wrapper */}
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -54,7 +54,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
               </p>
               <button
                 onClick={onNavigateToImages}
-                className="px-7 py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-neutral-900 font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
+                className="px-7 py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-[#2a1324] font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
               >
                 VIEW AI IMAGE GALLERY
               </button>
@@ -72,7 +72,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: 0.1 }}
-                className="absolute top-8 -left-10 sm:-left-14 md:-left-26 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(143,115,204,0.2)] border border-white flex items-center gap-1.5 sm:gap-2 transform -rotate-6 transition-transform duration-300 hover:rotate-0"
+                className="absolute top-8 -left-10 sm:-left-14 md:-left-26 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(61,32,53,0.1)] border border-[#ebdce7] flex items-center gap-1.5 sm:gap-2 transform -rotate-6 transition-transform duration-300 hover:rotate-0"
               >
                 {emojis.map((emoji) => (
                   <button
@@ -115,7 +115,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
-                className="relative z-20 w-[275px] sm:w-[315px] md:w-[330px] bg-white rounded-[32px] p-3 shadow-[0_25px_60px_-15px_rgba(143,115,204,0.25)] border border-white cursor-pointer transform hover:scale-[1.01] transition-transform duration-300"
+                className="relative z-20 w-[275px] sm:w-[315px] md:w-[330px] bg-white rounded-[32px] p-3 shadow-[0_25px_60px_-15px_rgba(61,32,53,0.14)] border border-[#ebdce7] cursor-pointer transform hover:scale-[1.01] transition-transform duration-300"
               >
                 {/* Photo Canvas */}
                 <div className="w-full aspect-[4/5] rounded-[24px] overflow-hidden bg-neutral-900 mb-2 relative group">
@@ -162,7 +162,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="absolute -bottom-3 sm:-bottom-4 right-0 sm:-right-2 z-30 px-4 sm:px-5 py-1.5 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] text-[#3d1e06] font-display text-sm sm:text-base font-bold rounded-full shadow-lg border border-white/80 transform -rotate-6"
+                className="absolute -bottom-3 sm:-bottom-4 right-0 sm:-right-2 z-30 px-4 sm:px-5 py-1.5 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] text-[#2a1324] font-display text-sm sm:text-base font-bold rounded-full shadow-lg border border-white/80 transform -rotate-6"
               >
                 AI Commercial
               </motion.div>

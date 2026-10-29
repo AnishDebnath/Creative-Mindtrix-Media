@@ -136,7 +136,7 @@ export const SocialPlatformsSection: React.FC = () => {
             <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-extrabold tracking-tight text-neutral-900 leading-[1.14]">
               We Work Across All
               <br />
-              <span className="bg-gradient-to-r from-[#ed4f6c] via-[#a855f7] to-[#6566ee] bg-clip-text text-transparent font-black">
+              <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
                 Major
               </span>{' '}
               Social Platforms.

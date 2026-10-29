@@ -211,12 +211,12 @@ export const Footer: React.FC<FooterProps> = ({
                 {/* Email */}
                 <a
                   href="mailto:mindtrixmediaindia@gmail.com"
-                  className="flex items-center gap-3 text-neutral-800 hover:text-[#6566ee] transition-colors group"
+                  className="flex items-center gap-3 text-neutral-800 hover:text-[#3d2035] transition-colors group"
                 >
-                  <span className="w-8 h-8 rounded-full bg-white border border-[#e8d5df] flex items-center justify-center shrink-0 shadow-xs group-hover:border-[#6566ee]/50 transition-colors">
-                    <Mail className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#6566ee] transition-colors" />
+                  <span className="w-8 h-8 rounded-full bg-white border border-[#e8d5df] flex items-center justify-center shrink-0 shadow-xs group-hover:border-[#3d2035]/40 transition-colors">
+                    <Mail className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#3d2035] transition-colors" />
                   </span>
-                  <span className="font-semibold text-neutral-900 group-hover:text-[#6566ee] transition-colors break-all">
+                  <span className="font-semibold text-neutral-900 group-hover:text-[#3d2035] transition-colors break-all">
                     mindtrixmediaindia@gmail.com
                   </span>
                 </a>
@@ -229,14 +229,14 @@ export const Footer: React.FC<FooterProps> = ({
                   <div className="flex flex-wrap items-center gap-x-2 text-sm font-semibold text-neutral-900">
                     <a
                       href="tel:+918910092451"
-                      className="hover:text-[#6566ee] transition-colors"
+                      className="hover:text-[#3d2035] transition-colors"
                     >
                       +91 89100 92451
                     </a>
                     <span className="text-neutral-400 font-normal">/</span>
                     <a
                       href="tel:+919073604457"
-                      className="hover:text-[#6566ee] transition-colors"
+                      className="hover:text-[#3d2035] transition-colors"
                     >
                       +91 90736 04457
                     </a>

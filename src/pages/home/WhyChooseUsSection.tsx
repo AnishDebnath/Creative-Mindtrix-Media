@@ -59,9 +59,9 @@ const CollectMediaShowcase: React.FC = () => (
       <motion.div
         animate={{ y: [0, -2.5, 0] }}
         transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut', delay: 1.4 }}
-        className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-b from-[#f7f4fd] to-white border border-[#cfc1ee]/40 shadow-xs flex items-center gap-2"
+        className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-b from-[#faf5f8] to-white border border-[#dcc6d5]/50 shadow-xs flex items-center gap-2"
       >
-        <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#6566ee] to-[#a855f7] text-white flex items-center justify-center shrink-0 shadow-xs">
+        <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#2f182a] via-[#3d2035] to-[#542947] text-white flex items-center justify-center shrink-0 shadow-xs">
           <Film className="w-3.5 h-3.5" />
         </div>
         <div className="min-w-0">
@@ -92,16 +92,16 @@ const CollectMediaShowcase: React.FC = () => (
 
 // Showcase 2: Step 2 - Market & Trend Research (Compact, smooth continuous breathing bar)
 const MarketResearchShowcase: React.FC = () => (
-  <div className="w-full h-[180px] sm:h-[185px] rounded-2xl bg-white/90 backdrop-blur-xs border border-white shadow-[0_4px_16px_rgba(207,193,238,0.2)] p-3 sm:p-3.5 flex flex-col justify-between select-none relative overflow-hidden">
+  <div className="w-full h-[180px] sm:h-[185px] rounded-2xl bg-white/90 backdrop-blur-xs border border-white shadow-[0_4px_16px_rgba(220,198,213,0.25)] p-3 sm:p-3.5 flex flex-col justify-between select-none relative overflow-hidden">
     {/* Clean Compact Header */}
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-1.5">
-        <div className="w-5 h-5 rounded-md bg-[#6566ee]/15 flex items-center justify-center text-[#6566ee]">
+        <div className="w-5 h-5 rounded-md bg-[#3d2035]/10 flex items-center justify-center text-[#3d2035]">
           <TrendingUp className="w-3 h-3" />
         </div>
         <span className="text-[11px] font-bold text-neutral-800">Trend Analysis</span>
       </div>
-      <span className="text-[9.5px] font-bold text-[#6566ee] bg-[#cfc1ee]/25 px-2 py-0.5 rounded-full border border-[#cfc1ee]/50">
+      <span className="text-[9.5px] font-bold text-[#3d2035] bg-[#dcc6d5]/35 px-2 py-0.5 rounded-full border border-[#dcc6d5]">
         Live Intel
       </span>
     </div>
@@ -109,19 +109,19 @@ const MarketResearchShowcase: React.FC = () => (
     {/* Center: Compact in-motion comparison bar with continuous subtle pulse */}
     <div className="space-y-2 my-auto">
       {/* 9:16 Video Reels */}
-      <div className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-r from-[#f5f1fc] to-white border border-[#cfc1ee]/50 shadow-xs">
+      <div className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-r from-[#faf6f8] to-white border border-[#dcc6d5]/60 shadow-xs">
         <div className="flex items-center justify-between text-[11px] font-bold mb-1.5">
           <span className="text-neutral-800 flex items-center gap-1">
-            <Sparkles className="w-3 h-3 text-[#6566ee]" />
+            <Sparkles className="w-3 h-3 text-[#d97736]" />
             9:16 Video Reels
           </span>
-          <span className="text-[#6566ee] font-black">+340% Lead</span>
+          <span className="text-[#3d2035] font-black">+340% Lead</span>
         </div>
         <div className="w-full h-1.5 rounded-full bg-neutral-100 overflow-hidden relative">
           <motion.div
             animate={{ width: ['84%', '94%', '84%'] }}
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            className="h-full rounded-full bg-gradient-to-r from-[#cfc1ee] via-[#a855f7] to-[#6566ee]"
+            className="h-full rounded-full bg-gradient-to-r from-[#dcc6d5] via-[#eda970] to-[#ed4f6c]"
           />
         </div>
       </div>
@@ -139,8 +139,8 @@ const MarketResearchShowcase: React.FC = () => (
     </div>
 
     {/* Simple Bottom Status */}
-    <div className="flex items-center gap-1.5 text-[10px] text-neutral-700 font-medium px-2 py-1 rounded-lg bg-[#f5f1fc] border border-[#cfc1ee]/40">
-      <CheckCircle2 className="w-3 h-3 text-[#6566ee] shrink-0" />
+    <div className="flex items-center gap-1.5 text-[10px] text-neutral-700 font-medium px-2 py-1 rounded-lg bg-[#faf6f8] border border-[#dcc6d5]/60">
+      <CheckCircle2 className="w-3 h-3 text-[#d97736] shrink-0" />
       <span className="truncate">Winning Creative Recommendation</span>
     </div>
   </div>
@@ -195,11 +195,11 @@ const MakeProduceShowcase: React.FC = () => (
         </div>
         <div className="flex items-center justify-between px-2 py-0.5 rounded-md bg-gradient-to-r from-[#faf5f8] to-white border border-[#dcc6d5]/30 text-[10px]">
           <span className="font-semibold text-neutral-700">Kinetic Subtitles</span>
-          <span className="text-[#a855f7] font-bold">✓</span>
+          <span className="text-[#3d2035] font-bold">✓</span>
         </div>
         <div className="flex items-center justify-between px-2 py-0.5 rounded-md bg-gradient-to-r from-[#f5f1fc] to-white border border-[#cfc1ee]/30 text-[10px]">
           <span className="font-semibold text-neutral-700">Viral Soundtrack</span>
-          <span className="text-[#6566ee] font-bold">✓</span>
+          <span className="text-[#d97736] font-bold">✓</span>
         </div>
       </div>
     </div>
@@ -214,11 +214,11 @@ const MakeProduceShowcase: React.FC = () => (
 
 // Showcase 4: Step 4 - Deliver & Post Directly (Compact live publishing channel beacons)
 const DeliverPostShowcase: React.FC = () => (
-  <div className="w-full h-[180px] sm:h-[185px] rounded-2xl bg-white/90 backdrop-blur-xs border border-white shadow-[0_4px_16px_rgba(101,102,238,0.2)] p-3 sm:p-3.5 flex flex-col justify-between select-none relative overflow-hidden">
+  <div className="w-full h-[180px] sm:h-[185px] rounded-2xl bg-white/90 backdrop-blur-xs border border-white shadow-[0_4px_16px_rgba(61,32,53,0.08)] p-3 sm:p-3.5 flex flex-col justify-between select-none relative overflow-hidden">
     {/* Clean Compact Header */}
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-1.5">
-        <div className="w-5 h-5 rounded-md bg-[#6566ee]/15 flex items-center justify-center text-[#6566ee]">
+        <div className="w-5 h-5 rounded-md bg-[#3d2035]/10 flex items-center justify-center text-[#3d2035]">
           <Share2 className="w-3 h-3" />
         </div>
         <span className="text-[11px] font-bold text-neutral-800">Auto-Publish</span>
@@ -289,7 +289,7 @@ const DeliverPostShowcase: React.FC = () => (
         className="px-2 py-1.5 rounded-xl bg-white border border-neutral-200/80 shadow-xs flex items-center justify-between"
       >
         <div className="flex items-center gap-1.5 min-w-0">
-          <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-[#6566ee] to-[#a855f7] text-white flex items-center justify-center shrink-0">
+          <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-[#2f182a] via-[#3d2035] to-[#542947] text-white flex items-center justify-center shrink-0">
             <Globe className="w-3 h-3" />
           </div>
           <span className="text-[10.5px] font-semibold text-neutral-800 truncate">Website</span>
@@ -299,8 +299,8 @@ const DeliverPostShowcase: React.FC = () => (
     </div>
 
     {/* Simple Bottom Status */}
-    <div className="flex items-center gap-1.5 text-[10px] text-neutral-700 font-medium px-2 py-1 rounded-lg bg-[#f0f0fd] border border-[#6566ee]/25">
-      <CheckCircle2 className="w-3 h-3 text-[#6566ee] shrink-0" />
+    <div className="flex items-center gap-1.5 text-[10px] text-neutral-700 font-medium px-2 py-1 rounded-lg bg-[#faf6f8] border border-[#ebdce7]">
+      <CheckCircle2 className="w-3 h-3 text-[#d97736] shrink-0" />
       <span className="truncate">Instant Multi-Platform Delivery</span>
     </div>
   </div>
@@ -314,7 +314,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
     <section id="why-us" className="relative w-full bg-white py-20 sm:py-24 md:py-28 overflow-hidden">
       {/* Website Theme Ambient Radial Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[550px] bg-gradient-to-r from-[#dcc6d5]/25 via-[#cfc1ee]/25 to-[#eda970]/20 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute -bottom-20 -right-20 w-[450px] h-[450px] bg-gradient-to-l from-[#6566ee]/15 to-[#a855f7]/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute -bottom-20 -right-20 w-[450px] h-[450px] bg-gradient-to-l from-[#3d2035]/10 via-[#dcc6d5]/20 to-[#eda970]/15 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header: Heading Only */}
@@ -333,7 +333,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
 
         {/* Bento Grid: 4 Process Steps on Left (8 cols) + 9:16 Feature Video Card on Right (4 cols) with tight gap */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
-          
+
           {/* Left Area: 4 Steps of How We Work (2x2 Grid, 8 Columns on desktop for perfect balance) */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
 
@@ -367,7 +367,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.1 }}
-              className="bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#8f73cc]/40 shadow-[0_30px_70px_-15px_rgba(143,115,204,0.2)] hover:shadow-[0_32px_75px_-15px_rgba(143,115,204,0.3)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#ebdce7] shadow-[0_24px_50px_-12px_rgba(61,32,53,0.1)] hover:shadow-[0_28px_60px_-12px_rgba(61,32,53,0.16)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
               {/* Visual Showcase - Reduced top & side outer padding */}
               <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
@@ -391,7 +391,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.15 }}
-              className="bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#dcc6d5] shadow-[0_24px_50px_-12px_rgba(143,115,204,0.18)] hover:shadow-[0_28px_60px_-12px_rgba(143,115,204,0.28)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#dcc6d5] shadow-[0_24px_50px_-12px_rgba(61,32,53,0.1)] hover:shadow-[0_28px_60px_-12px_rgba(61,32,53,0.16)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
               {/* Visual Showcase - Reduced top & side outer padding */}
               <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
@@ -415,7 +415,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.2 }}
-              className="bg-gradient-to-br from-[#f0f0fd] via-[#f7f0fb] to-[#faedf4] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#6566ee]/30 shadow-[0_30px_70px_-15px_rgba(101,102,238,0.2)] hover:shadow-[0_32px_75px_-15px_rgba(101,102,238,0.3)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="bg-gradient-to-br from-[#faf6f8] via-[#f5eef4] to-[#faede5] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#ebdce7] shadow-[0_20px_50px_-15px_rgba(61,32,53,0.12)] hover:shadow-[0_24px_60px_-15px_rgba(61,32,53,0.18)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
               {/* Visual Showcase - Reduced top & side outer padding */}
               <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
@@ -442,7 +442,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="relative w-full h-full aspect-[9/16] rounded-[28px] sm:rounded-[32px] overflow-hidden flex flex-col justify-end p-6 sm:p-7 shadow-[0_20px_60px_-15px_rgba(143,115,204,0.35)] border border-[#cfc1ee]/60 group mx-auto lg:mx-0 select-none"
+              className="relative w-full h-full aspect-[9/16] rounded-[28px] sm:rounded-[32px] overflow-hidden flex flex-col justify-end p-6 sm:p-7 shadow-[0_20px_60px_-15px_rgba(61,32,53,0.35)] border border-[#ebdce7]/60 group mx-auto lg:mx-0 select-none"
             >
               {/* Background 9:16 Video with Fallback Poster */}
               <video
@@ -455,8 +455,8 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
 
-              {/* Deep Plum & Indigo Themed Vignette Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1b1226]/95 via-[#1b1226]/40 via-45% to-black/25 pointer-events-none" />
+              {/* Deep Plum & Warm Vignette Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2f182a]/95 via-[#3d2035]/50 via-45% to-black/25 pointer-events-none" />
 
               {/* Bottom Overlay Content: Well spaced and balanced for 9:16 height */}
               <div className="relative z-10 flex flex-col items-center text-center">

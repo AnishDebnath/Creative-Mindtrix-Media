@@ -39,7 +39,14 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
   const emojis = ['👍', '❤️', '😂', '😮', '😢', '🙏'];
 
   return (
-    <section id="reels" className="w-full py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-visible scroll-mt-6">
+    <section
+      id="reels"
+      className="relative w-full py-20 px-4 sm:px-6 lg:px-8 overflow-visible scroll-mt-6"
+      style={{
+        background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(248, 246, 253, 0.45) 50%, #eae3fb 100%)',
+      }}
+    >
+      <div className="max-w-6xl mx-auto">
       <span id="community" className="sr-only" />
       {/* Top Header Row */}
       <motion.div
@@ -280,6 +287,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
 
         </div>
       </motion.div>
+      </div>
     </section>
   );
 };

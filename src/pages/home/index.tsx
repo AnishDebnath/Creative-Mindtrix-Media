@@ -7,10 +7,11 @@ import { WhyChooseUsSection } from './WhyChooseUsSection';
 import { MeetTheWorldSection } from './MeetTheWorldSection';
 import { CommunitySection } from './CommunitySection';
 import { TestimonialsSection } from './TestimonialsSection';
+import { PricingSection } from './PricingSection';
 import { BottomShowcaseSection } from './BottomShowcaseSection';
 import { CtaSection } from './CtaSection';
 
-const noop = () => {};
+const noop = () => { };
 
 interface HomePageProps {
   onNavigateToImages: () => void;
@@ -64,6 +65,9 @@ export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProp
 
       {/* Testimonials */}
       <TestimonialsSection />
+
+      {/* Pricing Section (Per Project & Monthly Subscription) */}
+      <PricingSection onSelectPlan={() => scrollToId('cta')} />
 
       {/* Bottom Profile Floating Showcase */}
       <BottomShowcaseSection

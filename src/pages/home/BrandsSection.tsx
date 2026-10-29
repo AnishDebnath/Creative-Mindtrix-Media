@@ -62,7 +62,7 @@ export const BrandsSection: React.FC<{ className?: string }> = ({ className = ''
         <div className="text-center mb-7 sm:mb-9">
           <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tight text-neutral-900">
             Trusted by{' '}
-            <span className="bg-gradient-to-r from-[#ed4f6c] via-[#a855f7] to-[#6566ee] bg-clip-text text-transparent font-black">
+            <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
               120+
             </span>{' '}
             creators and brands

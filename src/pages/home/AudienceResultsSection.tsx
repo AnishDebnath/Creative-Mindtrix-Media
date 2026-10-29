@@ -40,7 +40,7 @@ const HeartIcon: React.FC = () => (
 const ChatIcon: React.FC = () => (
   <svg
     viewBox="0 0 24 24"
-    className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#a855f7]"
+    className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#3d2035]"
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
@@ -57,7 +57,7 @@ const ChatIcon: React.FC = () => (
 const LinkIcon: React.FC = () => (
   <svg
     viewBox="0 0 24 24"
-    className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#6566ee]"
+    className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#d97736]"
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
@@ -99,7 +99,7 @@ export const AudienceResultsSection: React.FC = () => {
               animate={{ y: [0, -7, 0] }}
               transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
               whileHover={{ scale: 1.08 }}
-              className="flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(0,0,0,0.12),0_3px_10px_rgba(0,0,0,0.04)] border border-neutral-200/70 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
+              className="flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
             >
               {/* Overlapping Avatars */}
               <div className="flex items-center -space-x-2">
@@ -137,7 +137,7 @@ export const AudienceResultsSection: React.FC = () => {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
               whileHover={{ scale: 1.08, rotate: 0 }}
-              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(0,0,0,0.12),0_3px_10px_rgba(0,0,0,0.04)] border border-neutral-200/70 transform -rotate-12 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
+              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform -rotate-12 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
             >
               <CashIcon />
               <span className="font-sans font-bold text-xs sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
@@ -158,7 +158,7 @@ export const AudienceResultsSection: React.FC = () => {
               animate={{ y: [0, -7, 0] }}
               transition={{ duration: 3.9, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
               whileHover={{ scale: 1.08, rotate: 0 }}
-              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(0,0,0,0.12),0_3px_10px_rgba(0,0,0,0.04)] border border-neutral-200/70 transform rotate-12 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
+              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform rotate-12 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
             >
               <HeartIcon />
               <span className="font-sans font-bold text-xs sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
@@ -177,7 +177,7 @@ export const AudienceResultsSection: React.FC = () => {
           >
             <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight text-neutral-900 leading-[1.16]">
               And We Focus On{' '}
-              <span className="bg-gradient-to-r from-[#ed4f6c] via-[#a855f7] to-[#6566ee] bg-clip-text text-transparent font-black">
+              <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
                 Results
               </span>{' '}
               Your
@@ -198,7 +198,7 @@ export const AudienceResultsSection: React.FC = () => {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4.1, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
               whileHover={{ scale: 1.08, rotate: 0 }}
-              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(0,0,0,0.12),0_3px_10px_rgba(0,0,0,0.04)] border border-neutral-200/70 transform rotate-8 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
+              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform rotate-8 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
             >
               <ChatIcon />
               <span className="font-sans font-bold text-xs sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
@@ -219,7 +219,7 @@ export const AudienceResultsSection: React.FC = () => {
               animate={{ y: [0, -7, 0] }}
               transition={{ duration: 3.7, repeat: Infinity, ease: 'easeInOut', delay: 1.6 }}
               whileHover={{ scale: 1.08, rotate: 0 }}
-              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(0,0,0,0.12),0_3px_10px_rgba(0,0,0,0.04)] border border-neutral-200/70 transform -rotate-8 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
+              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform -rotate-8 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
             >
               <LinkIcon />
               <span className="font-sans font-bold text-xs sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">

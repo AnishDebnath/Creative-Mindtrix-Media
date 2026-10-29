@@ -9,7 +9,7 @@ interface WhatWeStandForSectionProps {
 
 // Exact Swirl Icon from the design
 const SwirlIcon: React.FC = () => (
-  <svg viewBox="0 0 36 36" fill="currentColor" className="w-12 h-12 text-black">
+  <svg viewBox="0 0 36 36" fill="currentColor" className="w-12 h-12 text-[#3d2035]">
     <path d="M18 4C10.27 4 4 10.27 4 18c0 4.48 2.11 8.48 5.4 11.03a1.5 1.5 0 0 0 1.85-2.37C8.42 24.49 6.8 21.43 6.8 18c0-6.19 5.01-11.2 11.2-11.2 4.67 0 8.68 2.87 10.34 6.94a1.5 1.5 0 1 0 2.78-1.13C28.87 7.91 23.83 4 18 4zm0 6.5c-4.14 0-7.5 3.36-7.5 7.5 0 2.65 1.25 5.01 3.19 6.52a1.5 1.5 0 1 0 1.85-2.37A4.68 4.68 0 0 1 13.3 18c0-2.6 2.1-4.7 4.7-4.7 1.95 0 3.63 1.2 4.31 2.91a1.5 1.5 0 1 0 2.79-1.11C23.95 12.37 21.2 10.5 18 10.5zm0 5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z" />
   </svg>
 );
@@ -42,7 +42,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
             </p>
             <button
               onClick={onDiscoverMore}
-              className="px-7 py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-neutral-900 font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
+              className="px-7 py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-[#2a1324] font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
             >
               EXPLORE AI CREATIVES
             </button>
@@ -77,7 +77,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-30px' }}
             transition={{ duration: 0.45, delay: 0.15 }}
-            className="w-full aspect-square bg-gradient-to-br from-[#f0f0fd] via-[#f7f0fb] to-[#faedf4] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#6566ee]/30"
+            className="w-full aspect-square bg-gradient-to-br from-[#faf6f8] via-[#f5eef4] to-[#faede5] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#ebdce7]"
           >
             <SwirlIcon />
             <div>
@@ -121,7 +121,7 @@ export const WhatWeStandForSection: React.FC<WhatWeStandForSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-30px' }}
             transition={{ duration: 0.45, delay: 0.2 }}
-            className="w-full aspect-square bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#8f73cc]/40"
+            className="w-full aspect-square bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[32px] p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all border border-[#ebdce7]"
           >
             <SwirlIcon />
             <div>

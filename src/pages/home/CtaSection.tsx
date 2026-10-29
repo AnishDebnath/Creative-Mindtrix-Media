@@ -66,7 +66,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
             const input = document.getElementById('cta-email-input');
             input?.focus();
           }}
-          className="px-5 sm:px-6 py-2 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-neutral-900 font-display text-[11px] sm:text-xs font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer whitespace-nowrap shrink-0"
+          className="px-5 sm:px-6 py-2 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-[#2a1324] font-display text-[11px] sm:text-xs font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer whitespace-nowrap shrink-0"
         >
           GET STARTED
         </button>
@@ -107,10 +107,10 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
           >
 
             {/* Outer Frosted Glass Aura Ring with Exact Tilt Angle (-3.5deg) */}
-            <div className="bg-white/45 backdrop-blur-xl rounded-[36px] sm:rounded-full p-2.5 sm:p-3 shadow-[0_20px_50px_-10px_rgba(143,115,204,0.15)] border border-white/80 transform -rotate-[3.5deg] hover:rotate-0 transition-all duration-300">
+            <div className="bg-white/45 backdrop-blur-xl rounded-[36px] sm:rounded-full p-2.5 sm:p-3 shadow-[0_20px_50px_-10px_rgba(61,32,53,0.12)] border border-[#ebdce7]/80 transform -rotate-[3.5deg] hover:rotate-0 transition-all duration-300">
 
               {/* Inner White Capsule Container */}
-              <div className="flex flex-col sm:flex-row items-center bg-white rounded-[30px] sm:rounded-full p-2 sm:p-1.5 shadow-sm divide-y sm:divide-y-0 sm:divide-x divide-neutral-200/80">
+              <div className="flex flex-col sm:flex-row items-center bg-white rounded-[30px] sm:rounded-full p-2 sm:p-1.5 shadow-sm divide-y sm:divide-y-0 sm:divide-x divide-[#ebdce7]">
 
                 {/* Field 1: Name */}
                 <div className="w-full sm:w-[28%] px-4 py-2 sm:py-2.5 flex items-center">
@@ -149,7 +149,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
                   />
                   <button
                     type="submit"
-                    className="px-6 sm:px-7 py-3 bg-gradient-to-r from-[#6566ee] to-[#8f73cc] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer shrink-0"
+                    className="px-6 sm:px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 cursor-pointer shrink-0"
                   >
                     {isSuccess ? (
                       <span className="flex items-center gap-1.5 text-emerald-200">
