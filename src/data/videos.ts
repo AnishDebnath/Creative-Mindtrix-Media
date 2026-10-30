@@ -39,9 +39,12 @@ export interface TopHeroVideoItem {
   poster: string;
 }
 
+export const VIDEO_CATEGORIES = ['All', 'Fashion', 'Beauty', 'Luxury', 'Commercials'] as const;
+export type VideoCategory = (typeof VIDEO_CATEGORIES)[number];
+
 export interface ShowcaseVideoItem {
   id: VideoId;
-  category: 'Corporate' | 'E-commerce' | 'Ads' | 'Viral Reels';
+  category: Exclude<VideoCategory, 'All'>;
   image: string;
   videoSrc: string;
   streamSrc: string;
@@ -50,9 +53,6 @@ export interface ShowcaseVideoItem {
   creator: string;
   avatar: string;
 }
-
-export const VIDEO_CATEGORIES = ['All', 'Corporate', 'E-commerce', 'Ads', 'Viral Reels'] as const;
-export type VideoCategory = (typeof VIDEO_CATEGORIES)[number];
 
 // Helper to construct showcase video items
 const createVideoItem = (
@@ -82,126 +82,126 @@ export const VIDEOS: Record<VideoId, ShowcaseVideoItem> = {
   'women-perfume': createVideoItem(
     'women-perfume',
     'womens-luxury-perfume-elegance.mp4',
-    'Ads',
+    'Beauty',
     'Delicate floral notes captured in pure Parisian luxury ✨'
   ),
   'natural-facewash': createVideoItem(
     'natural-facewash',
     'natural-facewash-skincare.mp4',
-    'E-commerce',
+    'Beauty',
     'Pure botanical foaming cleanse for glowing, healthy skin 🌿'
   ),
   'lipstick-spotlight': createVideoItem(
     'lipstick-spotlight',
     'beauty-lipstick-spotlight.mp4',
-    'Viral Reels',
+    'Beauty',
     'Rich velvet matte pigment crafted for all-day comfort 💄'
   ),
   'men-perfume': createVideoItem(
     'men-perfume',
     'mens-luxury-perfume-nocturne.mp4',
-    'Ads',
+    'Beauty',
     'Smoky cedarwood and warm amber for magnetic presence 🖤'
   ),
   'paris-runway': createVideoItem(
     'paris-runway',
     'paris-fashion-runway.mp4',
-    'Viral Reels',
+    'Fashion',
     'High-energy runway pacing and bold designer silhouettes 👠'
   ),
   'lipstick-application': createVideoItem(
     'lipstick-application',
     'cosmetic-lipstick-application.mp4',
-    'Viral Reels',
+    'Beauty',
     'Smooth contour glide and rich pigment for bold lips 💋'
   ),
   'chrome-nails': createVideoItem(
     'chrome-nails',
     'chrome-nail-art-atelier.mp4',
-    'Viral Reels',
+    'Beauty',
     'Handcrafted mirror chrome finish with fine studio art 💅'
   ),
   'streetwear-ferreri': createVideoItem(
     'streetwear-ferreri',
     'ferreri-streetwear-drop.mp4',
-    'E-commerce',
+    'Fashion',
     'Heavyweight French terry streetwear for modern daily style ⚡'
   ),
   'sukoon-wellness': createVideoItem(
     'sukoon-wellness',
     'sukoon-wellness-essentials.mp4',
-    'Corporate',
+    'Fashion',
     'Mindful botanical wellness rituals to restore inner calm 🧘'
   ),
   'minimalist-nails': createVideoItem(
     'minimalist-nails',
     'minimalist-nail-routine.mp4',
-    'Viral Reels',
+    'Beauty',
     'Clean minimalist nude manicure with glass shine finish ✨'
   ),
   'perfume-noir': createVideoItem(
     'perfume-noir',
     'luxury-perfume-noir-splash.mp4',
-    'Corporate',
+    'Fashion',
     'Dark noir refractions and water splash luxury aesthetics 🌊'
   ),
   'fashion-lookbook': createVideoItem(
     'fashion-lookbook',
     'fashion-model-lookbook.mp4',
-    'Viral Reels',
+    'Fashion',
     'Editorial studio lighting and fluid contemporary motion 📸'
   ),
   'gourmet-food': createVideoItem(
     'gourmet-food',
     'gourmet-food-branding.mp4',
-    'Ads',
+    'Commercials',
     'Artisan culinary craftsmanship with fresh gourmet plating 🍽️'
   ),
   'industrial-automation': createVideoItem(
     'industrial-automation',
     'industrial-manufacturing-process.mp4',
-    'Corporate',
+    'Commercials',
     'Precision industrial automation and high-speed robotics ⚙️'
   ),
   'jewelry-editorial': createVideoItem(
     'jewelry-editorial',
     'jewelry-model-editorial.mp4',
-    'Ads',
+    'Luxury',
     'Handcrafted fine diamonds glowing in warm golden light 💎'
   ),
   'luxury-jewelry': createVideoItem(
     'luxury-jewelry',
     'luxury-jewelry-collection.mp4',
-    'E-commerce',
+    'Luxury',
     'Brilliant diamond pavé detailing sculpted in 18k gold 💍'
   ),
   'technical-tee': createVideoItem(
     'technical-tee',
     'streetwear-tee-technical.mp4',
-    'E-commerce',
+    'Fashion',
     'Relaxed drop-shoulder technical fit in dense cotton 🛹'
   ),
   'viral-fashion': createVideoItem(
     'viral-fashion',
     'viral-fashion-trends.mp4',
-    'Viral Reels',
+    'Fashion',
     'Dynamic aesthetic street trends setting modern culture 🔥'
   ),
 };
 
 // ============================================================================
-// 2. TOP HERO SECTION: 5 SHOWCASE VIDEOS (Fanned-out top cards)
+// 2. TOP HERO SECTION: 5 SHOWCASE VIDEOS (Fanned-out top cards: #4, #1, #11, #5, #7)
 // ============================================================================
 export const TOP_HERO_VIDEOS: TopHeroVideoItem[] = [
   {
-    id: 'lipstick-application',
-    src: VIDEOS['lipstick-application'].videoSrc,
-    poster: VIDEOS['lipstick-application'].image,
+    id: 'jewelry-editorial',
+    src: VIDEOS['jewelry-editorial'].videoSrc,
+    poster: VIDEOS['jewelry-editorial'].image,
   },
   {
-    id: 'paris-runway',
-    src: VIDEOS['paris-runway'].videoSrc,
-    poster: VIDEOS['paris-runway'].image,
+    id: 'fashion-lookbook',
+    src: VIDEOS['fashion-lookbook'].videoSrc,
+    poster: VIDEOS['fashion-lookbook'].image,
   },
   {
     id: 'men-perfume',
@@ -209,37 +209,37 @@ export const TOP_HERO_VIDEOS: TopHeroVideoItem[] = [
     poster: VIDEOS['men-perfume'].image,
   },
   {
+    id: 'technical-tee',
+    src: VIDEOS['technical-tee'].videoSrc,
+    poster: VIDEOS['technical-tee'].image,
+  },
+  {
     id: 'women-perfume',
     src: VIDEOS['women-perfume'].videoSrc,
     poster: VIDEOS['women-perfume'].image,
   },
-  {
-    id: 'natural-facewash',
-    src: VIDEOS['natural-facewash'].videoSrc,
-    poster: VIDEOS['natural-facewash'].image,
-  },
 ];
 
 // ============================================================================
-// 3. SHOWCASE GRID SECTION: Easily rearrange video sequence by ID
+// 3. SHOWCASE GRID SECTION: Arranged 1 to 18 with categorized tabs
 // ============================================================================
 export const SHOWCASE_GRID_VIDEOS: ShowcaseVideoItem[] = [
-  VIDEOS['fashion-lookbook'],
-  VIDEOS['sukoon-wellness'],
-  VIDEOS['streetwear-ferreri'],
-  VIDEOS['jewelry-editorial'],
-  VIDEOS['technical-tee'],
-  VIDEOS['perfume-noir'],
-  VIDEOS['women-perfume'],
-  VIDEOS['luxury-jewelry'],
-  VIDEOS['gourmet-food'],
-  VIDEOS['viral-fashion'],
-  VIDEOS['men-perfume'],
-  VIDEOS['lipstick-spotlight'],
-  VIDEOS['natural-facewash'],
-  VIDEOS['lipstick-application'],
-  VIDEOS['chrome-nails'],
-  VIDEOS['minimalist-nails'],
-  VIDEOS['paris-runway'],
-  VIDEOS['industrial-automation'],
+  VIDEOS['fashion-lookbook'],          // 1. Fashion
+  VIDEOS['sukoon-wellness'],           // 2. Fashion
+  VIDEOS['streetwear-ferreri'],        // 3. Fashion
+  VIDEOS['jewelry-editorial'],         // 4. Luxury
+  VIDEOS['technical-tee'],             // 5. Fashion
+  VIDEOS['perfume-noir'],              // 6. Fashion
+  VIDEOS['women-perfume'],             // 7. Beauty
+  VIDEOS['luxury-jewelry'],            // 8. Luxury
+  VIDEOS['gourmet-food'],              // 9. Commercials
+  VIDEOS['viral-fashion'],             // 10. Fashion
+  VIDEOS['men-perfume'],               // 11. Beauty
+  VIDEOS['lipstick-spotlight'],        // 12. Beauty
+  VIDEOS['natural-facewash'],          // 13. Beauty
+  VIDEOS['lipstick-application'],      // 14. Beauty
+  VIDEOS['chrome-nails'],              // 15. Beauty
+  VIDEOS['minimalist-nails'],          // 16. Beauty
+  VIDEOS['paris-runway'],              // 17. Fashion
+  VIDEOS['industrial-automation'],     // 18. Commercials
 ];
