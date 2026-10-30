@@ -98,6 +98,7 @@ const CLOUDINARY_IMAGE_PATHS: Record<string, string> = {
  * Cloudinary video asset public paths and versions
  */
 const CLOUDINARY_VIDEO_PATHS: Record<string, string> = {
+  // Legacy short aliases
   'cocaine.mp4': 'v1792658970/cocaine_mhdqai.mp4',
   'facewash.mp4': 'v1792658952/facewash_ctb4wv.mp4',
   'lipstick.mp4': 'v1792658952/lipstick_gifinm.mp4',
@@ -109,6 +110,19 @@ const CLOUDINARY_VIDEO_PATHS: Record<string, string> = {
   'sukoon.mp4': 'v1792658975/sukoon_hw8m5y.mp4',
   'tshirt-ferreri.mp4': 'v1792658973/tshirt-ferreri_ggosxe.mp4',
   'women-perfume.mp4': 'v1792658957/women-perfume_uoacl0.mp4',
+
+  // SEO-Optimised Descriptive File Names
+  'luxury-perfume-splash-cinema-reel.mp4': 'v1792658970/cocaine_mhdqai.mp4',
+  'skincare-facewash-commercial-ad.mp4': 'v1792658952/facewash_ctb4wv.mp4',
+  'cosmetic-lipstick-commercial-ad.mp4': 'v1792658952/lipstick_gifinm.mp4',
+  'beauty-lipstick-product-spotlight.mp4': 'v1792658961/lipstick-product_jdjb4q.mp4',
+  'mens-luxury-perfume-commercial.mp4': 'v1792658960/men-perfume_ipjmpf.mp4',
+  'nail-art-commercial-reel.mp4': 'v1792658965/nail-art_g8rn6x.mp4',
+  'nail-design-showcase-video.mp4': 'v1792658959/nail_bezdmy.mp4',
+  'fashion-runway-rampwalk-commercial.mp4': 'v1792658961/rampwalk_dcfckk.mp4',
+  'sukoon-streetwear-apparel-reel.mp4': 'v1792658975/sukoon_hw8m5y.mp4',
+  'ferreri-tshirt-streetwear-commercial.mp4': 'v1792658973/tshirt-ferreri_ggosxe.mp4',
+  'womens-luxury-perfume-commercial.mp4': 'v1792658957/women-perfume_uoacl0.mp4',
 };
 
 /**
