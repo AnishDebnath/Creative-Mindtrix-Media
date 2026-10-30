@@ -2,14 +2,14 @@ import { CreativeService } from '@/types';
 import { getCloudinaryVideo, getCloudinaryVideoThumbnail } from '@/utils/cloudinary';
 
 // Local video assets directly from the video folder (src/assets/videos)
-import lipstickVid from '@/assets/videos/cosmetic-lipstick-application.mp4';
-import menPerfumeVid from '@/assets/videos/mens-luxury-perfume-nocturne.mp4';
-import nailArtVid from '@/assets/videos/chrome-nail-art-atelier.mp4';
-import rampwalkVid from '@/assets/videos/paris-fashion-runway.mp4';
-import sukoonVid from '@/assets/videos/sukoon-wellness-essentials.mp4';
-import lipstickProductVid from '@/assets/videos/beauty-lipstick-spotlight.mp4';
-import womenPerfumeVid from '@/assets/videos/womens-luxury-perfume-elegance.mp4';
-import cocaineVid from '@/assets/videos/luxury-perfume-noir-splash.mp4';
+import lipstickVid from '@/assets/videos/beauty/cosmetic-lipstick-application.mp4';
+import menPerfumeVid from '@/assets/videos/beauty/mens-luxury-perfume-nocturne.mp4';
+import nailArtVid from '@/assets/videos/beauty/chrome-nail-art-atelier.mp4';
+import rampwalkVid from '@/assets/videos/fashion/paris-fashion-runway.mp4';
+import sukoonVid from '@/assets/videos/fashion/sukoon-wellness-essentials.mp4';
+import lipstickProductVid from '@/assets/videos/beauty/beauty-lipstick-spotlight.mp4';
+import womenPerfumeVid from '@/assets/videos/beauty/womens-luxury-perfume-elegance.mp4';
+import cocaineVid from '@/assets/videos/fashion/luxury-perfume-noir-splash.mp4';
 
 /**
  * Section Header Information for Creative Services

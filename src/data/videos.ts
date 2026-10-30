@@ -4,14 +4,18 @@ import {
 } from '@/utils/cloudinary';
 import mindtrixLogo from '@/assets/Mindtrix-Media-Logo.jpeg';
 
-// ponytail: import all videos directly from src/assets/videos
-const assetVideos = import.meta.glob<string>('../assets/videos/*.mp4', {
+// ponytail: import all videos directly from src/assets/videos subfolders
+const assetVideos = import.meta.glob<string>('../assets/videos/**/*.mp4', {
   eager: true,
   import: 'default',
 });
 
-const getAssetVideo = (fileName: string): string =>
-  assetVideos[`../assets/videos/${fileName}`] || getCloudinaryVideo(fileName);
+const getAssetVideo = (fileName: string): string => {
+  const match = Object.entries(assetVideos).find(([path]) =>
+    path.endsWith(`/${fileName}`)
+  );
+  return match ? match[1] : getCloudinaryVideo(fileName);
+};
 
 export type VideoId =
   | 'women-perfume'

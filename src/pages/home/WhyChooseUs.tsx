@@ -13,7 +13,7 @@ import {
   Share2,
 } from 'lucide-react';
 import creatorImg from '@/assets/img/scale_expert_team_creator.jpg';
-import scaleVideo from '@/assets/videos/paris-fashion-runway.mp4';
+import scaleVideo from '@/assets/videos/fashion/paris-fashion-runway.mp4';
 
 interface WhyChooseUsSectionProps {
   onGetStarted?: () => void;
