@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { SectionTag } from '@/components/ui/SectionTag';
 import { CREATIVE_SERVICES, SERVICES_SECTION_HEADER } from '@/data/services';
 
 interface CreativeServicesSectionProps {
@@ -106,6 +107,7 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
 
           {/* Left Column: Big 2-Line Headline in uniform solid color */}
           <div>
+            <SectionTag label="Creative Services" className="mb-3.5" />
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.1]">
               WHAT WE <br />
               DELIVER

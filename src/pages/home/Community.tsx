@@ -1,4 +1,5 @@
 import React from 'react';
+import { SectionTag } from '@/components/ui/SectionTag';
 import { motion } from 'framer-motion';
 import { getCloudinaryVideo, getCloudinaryVideoThumbnail, getCloudinaryImage } from '@/utils/cloudinary';
 
@@ -57,6 +58,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
         className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-12 sm:mb-16"
       >
         <div>
+          <SectionTag label="AI Reel Stage" className="mb-3.5" />
           <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3]">
             AI PRODUCT<br />VIDEO REELS
           </h2>

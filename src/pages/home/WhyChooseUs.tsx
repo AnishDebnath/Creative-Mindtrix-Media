@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SectionTag } from '@/components/ui/SectionTag';
 import {
   Film,
   Image as ImageIcon,
@@ -317,14 +318,15 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
       <div className="absolute -bottom-20 -right-20 w-[450px] h-[450px] bg-gradient-to-l from-[#3d2035]/10 via-[#dcc6d5]/20 to-[#eda970]/15 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header: Heading Only */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-12 sm:mb-16 flex flex-col items-center"
         >
+          <SectionTag label="Why Choose Us" className="mb-4" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.15]">
             WHY THE FASTEST GROWING <br />
             BRANDS CHOOSE US.

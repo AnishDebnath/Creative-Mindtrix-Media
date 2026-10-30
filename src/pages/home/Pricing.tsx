@@ -1,4 +1,5 @@
 import React from 'react';
+import { SectionTag } from '@/components/ui/SectionTag';
 import { motion } from 'framer-motion';
 import {
   Sparkles,
@@ -38,6 +39,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="text-center mb-12 sm:mb-16"
         >
+          <SectionTag label="Transparent Pricing" className="mb-4" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-normal text-neutral-900 uppercase leading-[1.15] max-w-4xl mx-auto">
             AFFORDABLE PLANS FOR<br className="hidden sm:block" /> VIRAL BRAND GROWTH
           </h2>

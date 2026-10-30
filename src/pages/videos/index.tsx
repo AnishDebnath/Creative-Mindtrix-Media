@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, X, ArrowUpRight, Check, ChevronLeft, ChevronRight, Heart, MessageCircle, Repeat2, Send, MoreHorizontal } from 'lucide-react';
 import mindtrixLogo from '@/assets/Mindtrix-Media-Logo.jpeg';
+import { SectionTag } from '@/components/ui/SectionTag';
 import { getLocalVideoFallback } from '@/utils/cloudinary';
 import {
   SHOWCASE_GRID_VIDEOS as VIDEO_ITEMS,
@@ -283,10 +284,8 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
           <div className="relative z-20 flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-12 pb-7 border-b border-[#ddcad6]/60">
             {/* Left Column: Tag + Headline */}
             <div className="max-w-xl flex flex-col items-start gap-3.5">
-              <div className="flex items-center gap-2 px-3 py-1 bg-[#dcc6d5]/30 text-[#3d2035] text-xs font-bold rounded-full border border-[#dcc6d5]/50">
-                <span className="w-2 h-2 rounded-full bg-[#eda970] animate-pulse" />
-                <span>AI Video Ads & Reels →</span>
-              </div>
+              {/* Section Tag */}
+              <SectionTag label="AI Video Solutions" />
 
               <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-normal text-neutral-900 uppercase leading-[1.05]">
                 AI Video Ads<br />

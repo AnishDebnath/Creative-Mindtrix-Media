@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { SectionTag } from '@/components/ui/SectionTag';
 
 import { getCloudinaryImage, getLocalImageFallback } from '@/utils/cloudinary';
 
@@ -133,11 +134,8 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
       >
         <div className="max-w-3xl flex flex-col items-start gap-6">
           
-          {/* Trend Tag */}
-          <div className="flex items-center gap-2 px-3 py-1 bg-[#dcc6d5]/30 text-[#3d2035] text-xs font-bold rounded-full border border-[#dcc6d5]/50">
-            <span className="w-2 h-2 rounded-full bg-[#eda970]" />
-            <span>AI Product Imagery</span>
-          </div>
+          {/* Section Tag */}
+          <SectionTag label="AI Product Imagery" />
 
           {/* Main Headline */}
           <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.05]">

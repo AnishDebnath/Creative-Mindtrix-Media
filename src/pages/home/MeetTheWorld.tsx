@@ -1,4 +1,5 @@
 import React from 'react';
+import { SectionTag } from '@/components/ui/SectionTag';
 import { motion } from 'framer-motion';
 import { Profile } from '@/types';
 import { HERO_PROFILES } from '@/data/mock';
@@ -43,6 +44,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
             className="lg:col-span-5 flex flex-col items-start justify-between min-h-[440px]"
           >
             <div>
+              <SectionTag label="Scale & Growth" className="mb-3.5" />
               <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-8">
                 GROW YOUR<br />BUSINESS WITH<br />AI ADS
               </h2>

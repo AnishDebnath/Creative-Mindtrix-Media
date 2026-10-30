@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SectionTag } from '@/components/ui/SectionTag';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, X } from 'lucide-react';
 
@@ -69,6 +70,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className="w-full lg:w-[46%] max-w-[440px] flex flex-col items-start shrink-0"
           >
+            <SectionTag label="Common Questions" className="mb-3.5" />
             {/* Main Headline with Website Theme Gradient Accent */}
             <h2 className="font-display text-4xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-[1.08] text-neutral-900 mb-3.5">
               Got questions?

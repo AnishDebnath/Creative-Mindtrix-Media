@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { SectionTag } from '@/components/ui/SectionTag';
 import { motion } from 'framer-motion';
 import { Star, Volume2, VolumeX, Heart, Send } from 'lucide-react';
 
@@ -227,6 +228,7 @@ export const TestimonialsSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto text-center">
         {/* Big Bold Two-Line Headline */}
+        <SectionTag label="Client Reviews" className="mb-4" />
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
