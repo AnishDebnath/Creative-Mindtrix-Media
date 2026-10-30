@@ -98,7 +98,7 @@ const CLOUDINARY_IMAGE_PATHS: Record<string, string> = {
  * Cloudinary video asset public paths and versions
  */
 const CLOUDINARY_VIDEO_PATHS: Record<string, string> = {
-  // Legacy short aliases
+  // Legacy aliases
   'cocaine.mp4': 'v1792658970/cocaine_mhdqai.mp4',
   'facewash.mp4': 'v1792658952/facewash_ctb4wv.mp4',
   'lipstick.mp4': 'v1792658952/lipstick_gifinm.mp4',
@@ -111,18 +111,18 @@ const CLOUDINARY_VIDEO_PATHS: Record<string, string> = {
   'tshirt-ferreri.mp4': 'v1792658973/tshirt-ferreri_ggosxe.mp4',
   'women-perfume.mp4': 'v1792658957/women-perfume_uoacl0.mp4',
 
-  // SEO-Optimised Descriptive File Names
-  'luxury-perfume-splash-cinema-reel.mp4': 'v1792658970/cocaine_mhdqai.mp4',
-  'skincare-facewash-commercial-ad.mp4': 'v1792658952/facewash_ctb4wv.mp4',
-  'cosmetic-lipstick-commercial-ad.mp4': 'v1792658952/lipstick_gifinm.mp4',
-  'beauty-lipstick-product-spotlight.mp4': 'v1792658961/lipstick-product_jdjb4q.mp4',
-  'mens-luxury-perfume-commercial.mp4': 'v1792658960/men-perfume_ipjmpf.mp4',
-  'nail-art-commercial-reel.mp4': 'v1792658965/nail-art_g8rn6x.mp4',
-  'nail-design-showcase-video.mp4': 'v1792658959/nail_bezdmy.mp4',
-  'fashion-runway-rampwalk-commercial.mp4': 'v1792658961/rampwalk_dcfckk.mp4',
-  'sukoon-streetwear-apparel-reel.mp4': 'v1792658975/sukoon_hw8m5y.mp4',
-  'ferreri-tshirt-streetwear-commercial.mp4': 'v1792658973/tshirt-ferreri_ggosxe.mp4',
-  'womens-luxury-perfume-commercial.mp4': 'v1792658957/women-perfume_uoacl0.mp4',
+  // SEO-Optimised Clean Semantic Names (distinct without repeated postfixes)
+  'luxury-perfume-noir-splash.mp4': 'v1792658970/cocaine_mhdqai.mp4',
+  'natural-facewash-skincare.mp4': 'v1792658952/facewash_ctb4wv.mp4',
+  'cosmetic-lipstick-application.mp4': 'v1792658952/lipstick_gifinm.mp4',
+  'beauty-lipstick-spotlight.mp4': 'v1792658961/lipstick-product_jdjb4q.mp4',
+  'mens-luxury-perfume-nocturne.mp4': 'v1792658960/men-perfume_ipjmpf.mp4',
+  'chrome-nail-art-atelier.mp4': 'v1792658965/nail-art_g8rn6x.mp4',
+  'minimalist-nail-routine.mp4': 'v1792658959/nail_bezdmy.mp4',
+  'paris-fashion-runway.mp4': 'v1792658961/rampwalk_dcfckk.mp4',
+  'sukoon-wellness-essentials.mp4': 'v1792658975/sukoon_hw8m5y.mp4',
+  'ferreri-streetwear-drop.mp4': 'v1792658973/tshirt-ferreri_ggosxe.mp4',
+  'womens-luxury-perfume-elegance.mp4': 'v1792658957/women-perfume_uoacl0.mp4',
 };
 
 /**

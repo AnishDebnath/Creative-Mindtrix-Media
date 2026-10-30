@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { UWE_PROFILE } from '@/data/mockData';
+import { UWE_PROFILE } from '@/data/mock';
 import { Profile } from '@/types';
 
 import uweSangerTealImg from '@/assets/img/uwe_sanger_teal_1790985575257.jpg';

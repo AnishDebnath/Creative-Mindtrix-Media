@@ -1,270 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, X, ArrowUpRight, Check, ChevronLeft, ChevronRight, Heart, MessageCircle, Repeat2, Send, MoreHorizontal } from 'lucide-react';
-
-import brunetteImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
-import tousledGuyImg from '@/assets/img/tousled_guy_sky_1790982870552.jpg';
-import windblownImg from '@/assets/img/windblown_hair_woman_1790982857578.jpg';
-import pixieImg from '@/assets/img/woman_bandana_pixie_1790982884567.jpg';
-import sunlightManImg from '@/assets/img/community_man_sunlight_1790982822414.jpg';
-import yasminImg from '@/assets/img/yasmin_clean_916_1790980492922.jpg';
-import simoneImg from '@/assets/img/card_simone_1790977134116.jpg';
-import johannaImg from '@/assets/img/card_johanna_1790977118147.jpg';
-import matthiasImg from '@/assets/img/card_matthias_1790977103900.jpg';
-import sarahImg from '@/assets/img/card_sarah_1790977156627.jpg';
-
+import mindtrixLogo from '@/assets/Mindtrix-Media-Logo.jpeg';
+import { getLocalVideoFallback } from '@/utils/cloudinary';
 import {
-  getCloudinaryVideo,
-  getCloudinaryVideoThumbnail,
-  getLocalVideoFallback,
-} from '@/utils/cloudinary';
-
-// Dynamic video thumbnails extracted from the exact middle position frame (50% timestamp) of each video
-const womenPerfumeThumb = getCloudinaryVideoThumbnail('women-perfume.mp4');
-const facewashThumb = getCloudinaryVideoThumbnail('facewash.mp4');
-const lipstickProductThumb = getCloudinaryVideoThumbnail('lipstick-product.mp4');
-const menPerfumeThumb = getCloudinaryVideoThumbnail('men-perfume.mp4');
-const rampwalkThumb = getCloudinaryVideoThumbnail('rampwalk.mp4');
-const lipstickThumb = getCloudinaryVideoThumbnail('lipstick.mp4');
-const nailArtThumb = getCloudinaryVideoThumbnail('nail-art.mp4');
-const tshirtFerreriThumb = getCloudinaryVideoThumbnail('tshirt-ferreri.mp4');
-const sukoonThumb = getCloudinaryVideoThumbnail('sukoon.mp4');
-const nailThumb = getCloudinaryVideoThumbnail('nail.mp4');
-const cocaineThumb = getCloudinaryVideoThumbnail('cocaine.mp4');
-
-// Cloudinary video assets (cardStreamSrc is lightweight ~800KB eco-streamed for instant play without lag)
-// Cloudinary video assets:
-// 1. streamSrc: ultra-fast low-bitrate stream (w_360, q_auto:low) ~400-500KB for immediate 0ms startup
-// 2. highResSrc: rich crisp HD stream (w_720, q_auto:good) upgraded smoothly in the background
-const cocaineVid = getCloudinaryVideo('cocaine.mp4');
-const cocaineFastVid = getCloudinaryVideo('cocaine.mp4', { optimize: true, quality: 'low', width: 360 });
-const cocaineHighVid = getCloudinaryVideo('cocaine.mp4', { optimize: true, quality: 'good', width: 720 });
-
-const facewashVid = getCloudinaryVideo('facewash.mp4');
-const facewashFastVid = getCloudinaryVideo('facewash.mp4', { optimize: true, quality: 'low', width: 360 });
-const facewashHighVid = getCloudinaryVideo('facewash.mp4', { optimize: true, quality: 'good', width: 720 });
-
-const lipstickProductVid = getCloudinaryVideo('lipstick-product.mp4');
-const lipstickProductFastVid = getCloudinaryVideo('lipstick-product.mp4', { optimize: true, quality: 'low', width: 360 });
-const lipstickProductHighVid = getCloudinaryVideo('lipstick-product.mp4', { optimize: true, quality: 'good', width: 720 });
-
-const lipstickVid = getCloudinaryVideo('lipstick.mp4');
-const lipstickFastVid = getCloudinaryVideo('lipstick.mp4', { optimize: true, quality: 'low', width: 360 });
-const lipstickHighVid = getCloudinaryVideo('lipstick.mp4', { optimize: true, quality: 'good', width: 720 });
-
-const menPerfumeVid = getCloudinaryVideo('men-perfume.mp4');
-const menPerfumeFastVid = getCloudinaryVideo('men-perfume.mp4', { optimize: true, quality: 'low', width: 360 });
-const menPerfumeHighVid = getCloudinaryVideo('men-perfume.mp4', { optimize: true, quality: 'good', width: 720 });
-
-const nailArtVid = getCloudinaryVideo('nail-art.mp4');
-const nailArtFastVid = getCloudinaryVideo('nail-art.mp4', { optimize: true, quality: 'low', width: 360 });
-const nailArtHighVid = getCloudinaryVideo('nail-art.mp4', { optimize: true, quality: 'good', width: 720 });
-
-const nailVid = getCloudinaryVideo('nail.mp4');
-const nailFastVid = getCloudinaryVideo('nail.mp4', { optimize: true, quality: 'low', width: 360 });
-const nailHighVid = getCloudinaryVideo('nail.mp4', { optimize: true, quality: 'good', width: 720 });
-
-const rampwalkVid = getCloudinaryVideo('rampwalk.mp4');
-const rampwalkFastVid = getCloudinaryVideo('rampwalk.mp4', { optimize: true, quality: 'low', width: 360 });
-const rampwalkHighVid = getCloudinaryVideo('rampwalk.mp4', { optimize: true, quality: 'good', width: 720 });
-
-const sukoonVid = getCloudinaryVideo('sukoon.mp4');
-const sukoonFastVid = getCloudinaryVideo('sukoon.mp4', { optimize: true, quality: 'low', width: 360 });
-const sukoonHighVid = getCloudinaryVideo('sukoon.mp4', { optimize: true, quality: 'good', width: 720 });
-
-const tshirtFerreriVid = getCloudinaryVideo('tshirt-ferreri.mp4');
-const tshirtFerreriFastVid = getCloudinaryVideo('tshirt-ferreri.mp4', { optimize: true, quality: 'low', width: 360 });
-const tshirtFerreriHighVid = getCloudinaryVideo('tshirt-ferreri.mp4', { optimize: true, quality: 'good', width: 720 });
-
-const womenPerfumeVid = getCloudinaryVideo('women-perfume.mp4');
-const womenPerfumeFastVid = getCloudinaryVideo('women-perfume.mp4', { optimize: true, quality: 'low', width: 360 });
-const womenPerfumeHighVid = getCloudinaryVideo('women-perfume.mp4', { optimize: true, quality: 'good', width: 720 });
-
-interface VideoItem {
-  id: string;
-  title: string;
-  category: 'Corporate' | 'E-commerce' | 'Ads' | 'Viral Reels';
-  image: string;
-  videoSrc: string;
-  streamSrc: string;
-  highResSrc: string;
-  duration?: string;
-  description?: string;
-  views?: string;
-  quote?: string;
-  creator?: string;
-  avatar?: string;
-}
-
-const VIDEO_ITEMS: VideoItem[] = [
-  {
-    id: 'vid-women-perfume',
-    title: 'WOMEN PERFUME COMMERCIAL',
-    category: 'Ads',
-    image: womenPerfumeThumb,
-    videoSrc: womenPerfumeVid,
-    streamSrc: womenPerfumeFastVid,
-    highResSrc: womenPerfumeHighVid,
-    duration: '0:30',
-    description: 'Cinematic fragrance commercial highlighting delicate floral notes, golden mist, and sculptural bottle design.',
-    views: '15.4M Views',
-    quote: 'floral elegance captured in every drop,',
-    creator: 'elena_fragrance',
-    avatar: yasminImg,
-  },
-  {
-    id: 'vid-facewash',
-    title: 'NATURAL FACEWASH ROUTINE',
-    category: 'E-commerce',
-    image: facewashThumb,
-    videoSrc: facewashVid,
-    streamSrc: facewashFastVid,
-    highResSrc: facewashHighVid,
-    duration: '0:25',
-    description: 'High-impact organic skincare routine demonstrating deep foaming cleanse and instant skin hydration.',
-    views: '8.4M Views',
-    quote: 'glow naturally every morning with pure botanical foam,',
-    creator: 'chloe_wellness',
-    avatar: brunetteImg,
-  },
-  {
-    id: 'vid-lipstick-product',
-    title: 'LUXURY LIPSTICK PRODUCT REEL',
-    category: 'Viral Reels',
-    image: lipstickProductThumb,
-    videoSrc: lipstickProductVid,
-    streamSrc: lipstickProductFastVid,
-    highResSrc: lipstickProductHighVid,
-    duration: '0:18',
-    description: 'Ultra-HD macro texture shot showcasing creamy velvet pigment glide and metallic gold casing.',
-    views: '19.4M Views',
-    quote: 'silky matte finish that stays flawless for 24 hours,',
-    creator: 'beauty_unboxed',
-    avatar: johannaImg,
-  },
-  {
-    id: 'vid-men-perfume',
-    title: 'MEN PERFUME NOCTURNE',
-    category: 'Ads',
-    image: menPerfumeThumb,
-    videoSrc: menPerfumeVid,
-    streamSrc: menPerfumeFastVid,
-    highResSrc: menPerfumeHighVid,
-    duration: '0:20',
-    description: 'Moody luxury commercial presenting a deep woody fragrance against warm cedarwood library tones.',
-    views: '12.2M Views',
-    quote: 'an intoxicating blend of smoky amber & cedarwood,',
-    creator: 'crafted_gent',
-    avatar: matthiasImg,
-  },
-  {
-    id: 'vid-rampwalk',
-    title: 'PARIS RUNWAY RAMPWALK',
-    category: 'Viral Reels',
-    image: rampwalkThumb,
-    videoSrc: rampwalkVid,
-    streamSrc: rampwalkFastVid,
-    highResSrc: rampwalkHighVid,
-    duration: '0:22',
-    description: 'Fast-paced fashion runway showcase with dynamic pacing, dramatic lighting, and avant-garde silhouettes.',
-    views: '24.6M Views',
-    quote: 'bold runway energy that steals the entire fashion week,',
-    creator: 'couture_pulse',
-    avatar: simoneImg,
-  },
-  {
-    id: 'vid-lipstick',
-    title: 'MATTE LIPSTICK APPLICATION',
-    category: 'Viral Reels',
-    image: lipstickThumb,
-    videoSrc: lipstickVid,
-    streamSrc: lipstickFastVid,
-    highResSrc: lipstickHighVid,
-    duration: '0:24',
-    description: 'Step-by-step beauty tutorial swatching rich burgundy lipstick with precision contouring.',
-    views: '9.8M Views',
-    quote: 'velvet glide formula with zero feathering or transfer,',
-    creator: 'maya_makeuplab',
-    avatar: sarahImg,
-  },
-  {
-    id: 'vid-nail-art',
-    title: 'CHROME NAIL ART ATELIER',
-    category: 'Viral Reels',
-    image: nailArtThumb,
-    videoSrc: nailArtVid,
-    streamSrc: nailArtFastVid,
-    highResSrc: nailArtHighVid,
-    duration: '0:20',
-    description: 'Mesmerizing studio nail art process demonstrating holographic chrome powder and precise line work.',
-    views: '11.5M Views',
-    quote: 'mirror chrome effects crafted completely in-studio,',
-    creator: 'nail_atelier',
-    avatar: windblownImg,
-  },
-  {
-    id: 'vid-tshirt-ferreri',
-    title: 'STREETWEAR T-SHIRT DROP',
-    category: 'E-commerce',
-    image: tshirtFerreriThumb,
-    videoSrc: tshirtFerreriVid,
-    streamSrc: tshirtFerreriFastVid,
-    highResSrc: tshirtFerreriHighVid,
-    duration: '0:28',
-    description: 'Modern urban streetwear apparel launch film capturing oversized heavyweight cotton textures.',
-    views: '18.2M Views',
-    quote: 'where luxury tailoring meets raw streetwear culture,',
-    creator: 'ferreri_studios',
-    avatar: sunlightManImg,
-  },
-  {
-    id: 'vid-sukoon',
-    title: 'SUKOON WELLNESS ESSENTIALS',
-    category: 'Corporate',
-    image: sukoonThumb,
-    videoSrc: sukoonVid,
-    streamSrc: sukoonFastVid,
-    highResSrc: sukoonHighVid,
-    duration: '0:35',
-    description: 'Tranquil Ayurvedic wellness film showcasing mindful holistic lifestyle and botanical elixirs.',
-    views: '14.1M Views',
-    quote: 'finding inner calm through pure mindful botanicals,',
-    creator: 'sukoon_living',
-    avatar: tousledGuyImg,
-  },
-  {
-    id: 'vid-nail',
-    title: 'MINIMALIST NAIL DESIGN',
-    category: 'Viral Reels',
-    image: nailThumb,
-    videoSrc: nailVid,
-    streamSrc: nailFastVid,
-    highResSrc: nailHighVid,
-    duration: '0:18',
-    description: 'Clean aesthetic nail routine detailing glass shine top coat and modern nude aesthetics.',
-    views: '7.1M Views',
-    quote: 'clean, sharp lines for the effortless everyday manicure,',
-    creator: 'claire_nails',
-    avatar: pixieImg,
-  },
-  {
-    id: 'vid-cocaine',
-    title: 'COCAINE NOIR COLOGNE',
-    category: 'Corporate',
-    image: cocaineThumb,
-    videoSrc: cocaineVid,
-    streamSrc: cocaineFastVid,
-    highResSrc: cocaineHighVid,
-    duration: '0:30',
-    description: 'High-concept niche perfume visualizer playing with dark shadows, glass refractions, and smoky haze.',
-    views: '31.3M Views',
-    quote: 'provocative notes engineered to leave a lingering statement,',
-    creator: 'atelier_noir',
-    avatar: brunetteImg,
-  }
-];
-
-const CATEGORIES = ['All', 'Corporate', 'E-commerce', 'Ads', 'Viral Reels'] as const;
+  SHOWCASE_GRID_VIDEOS as VIDEO_ITEMS,
+  VIDEO_CATEGORIES as CATEGORIES,
+  TOP_HERO_VIDEOS as HERO_FAN_REELS,
+  type ShowcaseVideoItem as VideoItem,
+} from '@/data/videos';
 
 interface ReelCardProps {
   vid: VideoItem;
@@ -426,7 +170,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
         {/* Bottom Spinning Audio Album Thumbnail */}
         <div className="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-[5px] overflow-hidden ring-1 ring-white/70 shadow-md bg-neutral-900 shrink-0 mt-0.5">
           <img
-            src={vid.avatar || yasminImg}
+            src={vid.avatar || mindtrixLogo}
             alt="Audio track"
             className="w-full h-full object-cover"
           />
@@ -440,15 +184,15 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
           {/* Avatar */}
           <div className="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full overflow-hidden ring-1 ring-white/80 shadow-sm shrink-0 bg-neutral-800">
             <img
-              src={vid.avatar || yasminImg}
-              alt={vid.creator || 'creator'}
+              src={vid.avatar || mindtrixLogo}
+              alt={vid.creator || 'Mindtrix Media'}
               className="w-full h-full object-cover"
             />
           </div>
 
           {/* Name */}
           <span className="text-white font-bold text-[11px] sm:text-xs tracking-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] truncate">
-            {vid.creator ? vid.creator.replace(/_/g, ' ') : 'Ademide Grace'}
+            {vid.creator || 'Mindtrix Media'}
           </span>
 
           {/* Verified Check Badge */}
@@ -469,7 +213,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
 
         {/* Caption */}
         <p className="text-white/95 text-[10px] sm:text-[11px] font-normal leading-snug drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] line-clamp-2 pr-1">
-          {vid.quote || vid.description || 'Creators aren’t lucky. They’re trained.'}
+          {vid.quote || 'Creators aren’t lucky. They’re trained.'}
         </p>
       </div>
     </div>
@@ -583,8 +327,8 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 }}
               >
                 <video
-                  src={lipstickVid}
-                  poster={lipstickThumb}
+                  src={HERO_FAN_REELS[0].src}
+                  poster={HERO_FAN_REELS[0].poster}
                   autoPlay
                   loop
                   muted
@@ -603,8 +347,8 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 }}
               >
                 <video
-                  src={rampwalkVid}
-                  poster={rampwalkThumb}
+                  src={HERO_FAN_REELS[1].src}
+                  poster={HERO_FAN_REELS[1].poster}
                   autoPlay
                   loop
                   muted
@@ -623,8 +367,8 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 }}
               >
                 <video
-                  src={menPerfumeVid}
-                  poster={menPerfumeThumb}
+                  src={HERO_FAN_REELS[2].src}
+                  poster={HERO_FAN_REELS[2].poster}
                   autoPlay
                   loop
                   muted
@@ -643,8 +387,8 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 }}
               >
                 <video
-                  src={womenPerfumeVid}
-                  poster={womenPerfumeThumb}
+                  src={HERO_FAN_REELS[3].src}
+                  poster={HERO_FAN_REELS[3].poster}
                   autoPlay
                   loop
                   muted
@@ -663,8 +407,8 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 }}
               >
                 <video
-                  src={facewashVid}
-                  poster={facewashThumb}
+                  src={HERO_FAN_REELS[4].src}
+                  poster={HERO_FAN_REELS[4].poster}
                   autoPlay
                   loop
                   muted

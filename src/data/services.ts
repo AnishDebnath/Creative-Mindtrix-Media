@@ -2,14 +2,14 @@ import { CreativeService } from '@/types';
 import { getCloudinaryVideo, getCloudinaryVideoThumbnail } from '@/utils/cloudinary';
 
 // Local video assets directly from the video folder (src/assets/videos)
-import lipstickVid from '@/assets/videos/cosmetic-lipstick-commercial-ad.mp4';
-import menPerfumeVid from '@/assets/videos/mens-luxury-perfume-commercial.mp4';
-import nailArtVid from '@/assets/videos/nail-art-commercial-reel.mp4';
-import rampwalkVid from '@/assets/videos/fashion-runway-rampwalk-commercial.mp4';
-import sukoonVid from '@/assets/videos/sukoon-streetwear-apparel-reel.mp4';
-import lipstickProductVid from '@/assets/videos/beauty-lipstick-product-spotlight.mp4';
-import womenPerfumeVid from '@/assets/videos/womens-luxury-perfume-commercial.mp4';
-import cocaineVid from '@/assets/videos/luxury-perfume-splash-cinema-reel.mp4';
+import lipstickVid from '@/assets/videos/cosmetic-lipstick-application.mp4';
+import menPerfumeVid from '@/assets/videos/mens-luxury-perfume-nocturne.mp4';
+import nailArtVid from '@/assets/videos/chrome-nail-art-atelier.mp4';
+import rampwalkVid from '@/assets/videos/paris-fashion-runway.mp4';
+import sukoonVid from '@/assets/videos/sukoon-wellness-essentials.mp4';
+import lipstickProductVid from '@/assets/videos/beauty-lipstick-spotlight.mp4';
+import womenPerfumeVid from '@/assets/videos/womens-luxury-perfume-elegance.mp4';
+import cocaineVid from '@/assets/videos/luxury-perfume-noir-splash.mp4';
 
 /**
  * Section Header Information for Creative Services
@@ -35,8 +35,8 @@ export const CREATIVE_SERVICES: CreativeService[] = [
       'Cinematic Ad Creatives',
       'Promotional Campaign Visuals',
     ],
-    videoSrc: lipstickVid || getCloudinaryVideo('cosmetic-lipstick-commercial-ad.mp4', { optimize: true, quality: 'good', width: 480 }),
-    posterSrc: getCloudinaryVideoThumbnail('cosmetic-lipstick-commercial-ad.mp4'),
+    videoSrc: lipstickVid || getCloudinaryVideo('cosmetic-lipstick-application.mp4', { optimize: true, quality: 'good', width: 480 }),
+    posterSrc: getCloudinaryVideoThumbnail('cosmetic-lipstick-application.mp4'),
     cardGradient: 'bg-gradient-to-br from-[#fdf4ed] via-[#f8edf5] to-[#f1ecfc]',
     borderColor: 'border-[#eda970]/40',
     shadowClass: 'shadow-[0_24px_50px_-12px_rgba(237,169,112,0.18)]',
@@ -54,8 +54,8 @@ export const CREATIVE_SERVICES: CreativeService[] = [
       'AI Lifestyle Product Images',
       'Background Replacement & Enhancement',
     ],
-    videoSrc: menPerfumeVid || getCloudinaryVideo('mens-luxury-perfume-commercial.mp4', { optimize: true, quality: 'good', width: 480 }),
-    posterSrc: getCloudinaryVideoThumbnail('mens-luxury-perfume-commercial.mp4'),
+    videoSrc: menPerfumeVid || getCloudinaryVideo('mens-luxury-perfume-nocturne.mp4', { optimize: true, quality: 'good', width: 480 }),
+    posterSrc: getCloudinaryVideoThumbnail('mens-luxury-perfume-nocturne.mp4'),
     cardGradient: 'bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee]',
     borderColor: 'border-[#8f73cc]/40',
     shadowClass: 'shadow-[0_30px_70px_-15px_rgba(143,115,204,0.2)]',
@@ -73,8 +73,8 @@ export const CREATIVE_SERVICES: CreativeService[] = [
       'Brand Promotional Videos',
       'Social Media Video Content',
     ],
-    videoSrc: nailArtVid || getCloudinaryVideo('nail-art-commercial-reel.mp4', { optimize: true, quality: 'good', width: 480 }),
-    posterSrc: getCloudinaryVideoThumbnail('nail-art-commercial-reel.mp4'),
+    videoSrc: nailArtVid || getCloudinaryVideo('chrome-nail-art-atelier.mp4', { optimize: true, quality: 'good', width: 480 }),
+    posterSrc: getCloudinaryVideoThumbnail('chrome-nail-art-atelier.mp4'),
     cardGradient: 'bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed]',
     borderColor: 'border-[#dcc6d5]',
     shadowClass: 'shadow-[0_24px_50px_-12px_rgba(143,115,204,0.18)]',
@@ -92,8 +92,8 @@ export const CREATIVE_SERVICES: CreativeService[] = [
       'Google & YouTube Ad Creatives',
       'Offers & Promotional Graphics',
     ],
-    videoSrc: rampwalkVid || getCloudinaryVideo('fashion-runway-rampwalk-commercial.mp4', { optimize: true, quality: 'good', width: 480 }),
-    posterSrc: getCloudinaryVideoThumbnail('fashion-runway-rampwalk-commercial.mp4'),
+    videoSrc: rampwalkVid || getCloudinaryVideo('paris-fashion-runway.mp4', { optimize: true, quality: 'good', width: 480 }),
+    posterSrc: getCloudinaryVideoThumbnail('paris-fashion-runway.mp4'),
     cardGradient: 'bg-gradient-to-br from-[#f0f0fd] via-[#f7f0fb] to-[#faedf4]',
     borderColor: 'border-[#6566ee]/30',
     shadowClass: 'shadow-[0_30px_70px_-15px_rgba(101,102,238,0.2)]',
@@ -111,8 +111,8 @@ export const CREATIVE_SERVICES: CreativeService[] = [
       'UGC-Style Product Ads',
       'Product Explainer Videos',
     ],
-    videoSrc: sukoonVid || getCloudinaryVideo('sukoon-streetwear-apparel-reel.mp4', { optimize: true, quality: 'good', width: 480 }),
-    posterSrc: getCloudinaryVideoThumbnail('sukoon-streetwear-apparel-reel.mp4'),
+    videoSrc: sukoonVid || getCloudinaryVideo('sukoon-wellness-essentials.mp4', { optimize: true, quality: 'good', width: 480 }),
+    posterSrc: getCloudinaryVideoThumbnail('sukoon-wellness-essentials.mp4'),
     cardGradient: 'bg-gradient-to-br from-[#fdf4ed] via-[#f8edf5] to-[#f1ecfc]',
     borderColor: 'border-[#eda970]/40',
     shadowClass: 'shadow-[0_24px_50px_-12px_rgba(237,169,112,0.18)]',
@@ -130,8 +130,8 @@ export const CREATIVE_SERVICES: CreativeService[] = [
       'Product Feature Infographics',
       'Catalogue & Store Banners',
     ],
-    videoSrc: lipstickProductVid || getCloudinaryVideo('beauty-lipstick-product-spotlight.mp4', { optimize: true, quality: 'good', width: 480 }),
-    posterSrc: getCloudinaryVideoThumbnail('beauty-lipstick-product-spotlight.mp4'),
+    videoSrc: lipstickProductVid || getCloudinaryVideo('beauty-lipstick-spotlight.mp4', { optimize: true, quality: 'good', width: 480 }),
+    posterSrc: getCloudinaryVideoThumbnail('beauty-lipstick-spotlight.mp4'),
     cardGradient: 'bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee]',
     borderColor: 'border-[#8f73cc]/40',
     shadowClass: 'shadow-[0_30px_70px_-15px_rgba(143,115,204,0.2)]',
@@ -149,8 +149,8 @@ export const CREATIVE_SERVICES: CreativeService[] = [
       'Packaging & Label Design',
       'Brochures & Marketing Materials',
     ],
-    videoSrc: womenPerfumeVid || getCloudinaryVideo('womens-luxury-perfume-commercial.mp4', { optimize: true, quality: 'good', width: 480 }),
-    posterSrc: getCloudinaryVideoThumbnail('womens-luxury-perfume-commercial.mp4'),
+    videoSrc: womenPerfumeVid || getCloudinaryVideo('womens-luxury-perfume-elegance.mp4', { optimize: true, quality: 'good', width: 480 }),
+    posterSrc: getCloudinaryVideoThumbnail('womens-luxury-perfume-elegance.mp4'),
     cardGradient: 'bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed]',
     borderColor: 'border-[#dcc6d5]',
     shadowClass: 'shadow-[0_24px_50px_-12px_rgba(143,115,204,0.18)]',
@@ -168,8 +168,8 @@ export const CREATIVE_SERVICES: CreativeService[] = [
       'Product Launch & Festival Campaigns',
       'Ad Copy & Video Scripts',
     ],
-    videoSrc: cocaineVid || getCloudinaryVideo('luxury-perfume-splash-cinema-reel.mp4', { optimize: true, quality: 'good', width: 480 }),
-    posterSrc: getCloudinaryVideoThumbnail('luxury-perfume-splash-cinema-reel.mp4'),
+    videoSrc: cocaineVid || getCloudinaryVideo('luxury-perfume-noir-splash.mp4', { optimize: true, quality: 'good', width: 480 }),
+    posterSrc: getCloudinaryVideoThumbnail('luxury-perfume-noir-splash.mp4'),
     cardGradient: 'bg-gradient-to-br from-[#f0f0fd] via-[#f7f0fb] to-[#faedf4]',
     borderColor: 'border-[#6566ee]/30',
     shadowClass: 'shadow-[0_30px_70px_-15px_rgba(101,102,238,0.2)]',

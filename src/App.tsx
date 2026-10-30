@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { HomePage } from '@/pages/home';
-import { ImagesPage } from '@/pages/images/ImagesPage';
-import { ReelsPage } from '@/pages/videos/ReelsPage';
+import { ImagesPage } from '@/pages/images';
+import { ReelsPage } from '@/pages/videos';
 import { scrollToId } from '@/utils/scroll';
 
 const noop = () => {};

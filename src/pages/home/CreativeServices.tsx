@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, ChevronLeft, ChevronRight } from 'lucide-react';
-import { CREATIVE_SERVICES, SERVICES_SECTION_HEADER } from '@/data/servicesData';
+import { CREATIVE_SERVICES, SERVICES_SECTION_HEADER } from '@/data/services';
 
 interface CreativeServicesSectionProps {
   onNavigateToReels?: () => void;

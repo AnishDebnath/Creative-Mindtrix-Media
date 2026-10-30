@@ -1,16 +1,16 @@
 import { scrollToId } from '@/utils/scroll';
-import { HeroSection } from './HeroSection';
-import { SocialPlatformsSection } from './SocialPlatformsSection';
-import { AudienceResultsSection } from './AudienceResultsSection';
-import { CreativeServicesSection } from './CreativeServicesSection';
-import { WhyChooseUsSection } from './WhyChooseUsSection';
-import { MeetTheWorldSection } from './MeetTheWorldSection';
-import { CommunitySection } from './CommunitySection';
-import { TestimonialsSection } from './TestimonialsSection';
-import { PricingSection } from './PricingSection';
-import { FaqSection } from './FaqSection';
-import { BottomShowcaseSection } from './BottomShowcaseSection';
-import { CtaSection } from './CtaSection';
+import { HeroSection } from './Hero';
+import { SocialPlatformsSection } from './SocialPlatforms';
+import { AudienceResultsSection } from './AudienceResults';
+import { CreativeServicesSection } from './CreativeServices';
+import { WhyChooseUsSection } from './WhyChooseUs';
+import { MeetTheWorldSection } from './MeetTheWorld';
+import { CommunitySection } from './Community';
+import { TestimonialsSection } from './Testimonials';
+import { PricingSection } from './Pricing';
+import { FaqSection } from './Faq';
+import { BottomShowcaseSection } from './BottomShowcase';
+import { CtaSection } from './Cta';
 
 const noop = () => { };
 

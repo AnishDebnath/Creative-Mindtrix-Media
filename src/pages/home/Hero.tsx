@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Sparkles, Home, Zap } from 'lucide-react';
-import { MARQUEE_PRODUCTS, PHONE_FRIEND_CARD } from '@/data/mockData';
+import { MARQUEE_PRODUCTS, PHONE_FRIEND_CARD } from '@/data/mock';
 import { Profile } from '@/types';
 
 import avatarHipsterBeardImg from '@/assets/img/avatar_hipster_beard_1790979384816.jpg';
 import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
 import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
 import { getCloudinaryImage, getCloudinaryVideo } from '@/utils/cloudinary';
-import { BrandsSection } from './BrandsSection';
+import { BrandsSection } from './Brands';
 
 const womenPerfumeImg = getCloudinaryImage('women-perfume/Perfume_bottle_flat-lay_photograph.jpg');
 const heroReelVideo = getCloudinaryVideo('women-perfume.mp4', { optimize: true, quality: 'good', width: 720 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Profile } from '@/types';
-import { HERO_PROFILES } from '@/data/mockData';
+import { HERO_PROFILES } from '@/data/mock';
 
 import { getCloudinaryImage } from '@/utils/cloudinary';
 
