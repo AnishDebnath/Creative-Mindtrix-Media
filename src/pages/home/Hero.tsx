@@ -1,7 +1,8 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Sparkles, Home, Zap } from 'lucide-react';
-import { MARQUEE_PRODUCTS, PHONE_FRIEND_CARD } from '@/data/mock';
+import { PHONE_FRIEND_CARD } from '@/data/mock';
+import { MARQUEE_PRODUCTS } from '@/data/marquee';
 import { Profile } from '@/types';
 
 import avatarHipsterBeardImg from '@/assets/img/avatar_hipster_beard_1790979384816.jpg';
@@ -25,10 +26,92 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onNavigateToImages,
   onNavigateToReels
 }) => {
-  // ponytail: duplicate array twice for seamless 100% infinite CSS marquee without decoder overload
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const isPointerDownRef = useRef(false);
+  const startXRef = useRef(0);
+  const startScrollLeftRef = useRef(0);
+  const hasDraggedRef = useRef(false);
+  const isHoveredRef = useRef(false);
+
+  // ponytail: duplicate array 3 times for seamless 2-way infinite scroll/drag
   const marqueeProducts = useMemo(() => {
-    return [...MARQUEE_PRODUCTS, ...MARQUEE_PRODUCTS];
+    return [...MARQUEE_PRODUCTS, ...MARQUEE_PRODUCTS, ...MARQUEE_PRODUCTS];
   }, []);
+
+  // Set initial scroll position to middle set on mount
+  useEffect(() => {
+    const container = sliderRef.current;
+    if (container) {
+      const oneSetWidth = container.scrollWidth / 3;
+      if (oneSetWidth > 0) {
+        container.scrollLeft = oneSetWidth;
+      }
+    }
+  }, []);
+
+  // Continuous auto-marquee ticker that respects dragging and hover
+  useEffect(() => {
+    let animId: number;
+    let lastTime = performance.now();
+    const speed = 36; // px per second
+
+    const tick = (now: number) => {
+      const delta = (now - lastTime) / 1000;
+      lastTime = now;
+
+      const container = sliderRef.current;
+      if (container && !isPointerDownRef.current && !isHoveredRef.current) {
+        container.scrollLeft += speed * delta;
+        const oneSetWidth = container.scrollWidth / 3;
+        if (oneSetWidth > 0) {
+          if (container.scrollLeft >= oneSetWidth * 2) {
+            container.scrollLeft -= oneSetWidth;
+          } else if (container.scrollLeft <= 0) {
+            container.scrollLeft += oneSetWidth;
+          }
+        }
+      }
+
+      animId = requestAnimationFrame(tick);
+    };
+
+    animId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    isPointerDownRef.current = true;
+    hasDraggedRef.current = false;
+    startXRef.current = e.clientX;
+    if (sliderRef.current) {
+      startScrollLeftRef.current = sliderRef.current.scrollLeft;
+    }
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isPointerDownRef.current || !sliderRef.current) return;
+    const dx = e.clientX - startXRef.current;
+    if (Math.abs(dx) > 6) {
+      hasDraggedRef.current = true;
+    }
+    sliderRef.current.scrollLeft = startScrollLeftRef.current - dx;
+
+    // Wrap seamlessly while dragging in either direction
+    const oneSetWidth = sliderRef.current.scrollWidth / 3;
+    if (oneSetWidth > 0) {
+      if (sliderRef.current.scrollLeft >= oneSetWidth * 2) {
+        sliderRef.current.scrollLeft -= oneSetWidth;
+        startScrollLeftRef.current -= oneSetWidth;
+      } else if (sliderRef.current.scrollLeft <= 0) {
+        sliderRef.current.scrollLeft += oneSetWidth;
+        startScrollLeftRef.current += oneSetWidth;
+      }
+    }
+  };
+
+  const handlePointerUp = () => {
+    isPointerDownRef.current = false;
+  };
 
   return (
     <section
@@ -47,12 +130,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Top Banner Section: Centered "MINDTRIX" Background Text with Staggered 3:4 Cards */}
       <motion.div
         id="images-preview"
-        onClick={onNavigateToImages}
+        onClick={() => {
+          if (hasDraggedRef.current) return;
+          onNavigateToImages?.();
+        }}
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative w-full overflow-hidden py-2 sm:py-3 my-0 flex items-center justify-center cursor-pointer"
-        title="Click to explore AI Images & Reels"
+        title="Click to explore AI Images & Reels or drag to browse"
       >
         {/* Giant Typography Background: MINDTRIX watermark */}
         <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-35">
@@ -77,9 +163,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </svg>
         </div>
 
-        {/* Edge-to-Edge Marquee Track with 3:4 Ratio & Enhanced Upper/Lower Staggering */}
-        <div className="relative z-10 w-full overflow-hidden flex items-center py-4 sm:py-6">
-          <div className="animate-marquee flex gap-3 sm:gap-4 md:gap-5 py-4 sm:py-6 items-center">
+        {/* Edge-to-Edge Draggable Marquee Track with 3:4 Ratio & Enhanced Upper/Lower Staggering */}
+        <div
+          ref={sliderRef}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          onPointerEnter={() => { isHoveredRef.current = true; }}
+          onPointerLeave={() => {
+            isHoveredRef.current = false;
+            isPointerDownRef.current = false;
+          }}
+          className="relative z-10 w-full overflow-x-auto scrollbar-none flex items-center py-4 sm:py-6 cursor-grab active:cursor-grabbing select-none touch-pan-y"
+        >
+          <div className="flex gap-3 sm:gap-4 md:gap-5 py-4 sm:py-6 items-center w-max shrink-0">
             {marqueeProducts.map((product, index) => {
               // Alternating upper/bottom placement with clear difference:
               // Even cards shift down, odd cards shift up
@@ -91,6 +189,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   key={`${product.id}-${index}`}
                   onClick={(e) => {
                     e.stopPropagation();
+                    if (hasDraggedRef.current) return;
                     if (isVideo) {
                       onNavigateToReels?.();
                     } else {
@@ -114,13 +213,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         muted
                         playsInline
                         preload="metadata"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        draggable={false}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
                       />
                     ) : (
                       <img
                         src={product.src}
                         alt={product.label}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        draggable={false}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
                         loading="lazy"
                       />
                     )}
