@@ -13,7 +13,7 @@ import {
   Share2,
 } from 'lucide-react';
 import creatorImg from '@/assets/img/scale_expert_team_creator.jpg';
-import scaleVideo from '@/assets/videos/fashion/paris-fashion-runway.mp4';
+import howWeWorkVideo from '@/assets/how-we-work.mp4';
 
 interface WhyChooseUsSectionProps {
   onGetStarted?: () => void;
@@ -437,56 +437,44 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
 
           </div>
 
-          {/* Right Area: 9/16 Aspect Ratio Feature Card with Background Video matching Section Height */}
+          {/* Right Area: 9/16 Aspect Ratio Feature Card with How We Work Video */}
           <div className="lg:col-span-4 flex justify-center lg:justify-end items-stretch w-full">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="relative w-full h-full aspect-[9/16] rounded-[28px] sm:rounded-[32px] overflow-hidden flex flex-col justify-end p-6 sm:p-7 shadow-[0_20px_60px_-15px_rgba(61,32,53,0.35)] border border-[#ebdce7]/60 group mx-auto lg:mx-0 select-none"
+              className="relative w-full h-full aspect-[9/16] rounded-[28px] sm:rounded-[32px] overflow-hidden flex flex-col justify-end p-6 sm:p-7 shadow-[0_20px_60px_-15px_rgba(61,32,53,0.35)] border border-[#ebdce7]/60 mx-auto lg:mx-0 select-none bg-black"
             >
-              {/* Background 9:16 Video with Fallback Poster */}
+              {/* Clean 9:16 Video with Zero Hover Effect */}
               <video
-                src={scaleVideo}
+                src={howWeWorkVideo}
                 poster={creatorImg}
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="absolute inset-0 w-full h-full object-cover"
               />
 
-              {/* Deep Plum & Warm Vignette Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2f182a]/95 via-[#3d2035]/50 via-45% to-black/25 pointer-events-none" />
+              {/* Gentle bottom-only gradient for button contrast */}
+              <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/70 via-black/35 to-transparent pointer-events-none" />
 
-              {/* Bottom Overlay Content: Well spaced and balanced for 9:16 height */}
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <h3 className="text-2xl sm:text-[26px] font-bold text-white tracking-tight leading-snug mb-2">
-                  Scale with our <br />
-                  expert team
-                </h3>
+              {/* Action Buttons */}
+              <div className="relative z-10 w-full flex flex-col gap-2.5">
+                <button
+                  onClick={onGetStarted}
+                  className="w-full py-3 bg-white hover:bg-neutral-100 text-[#3d2035] font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md cursor-pointer"
+                >
+                  Get Started
+                </button>
 
-                <p className="text-white/85 text-xs sm:text-[13px] leading-relaxed max-w-[250px] mb-5 font-normal">
-                  Expert strategies designed to help your brand dominate social.
-                </p>
-
-                {/* Action Buttons in Theme Gradients */}
-                <div className="w-full flex flex-col gap-2.5">
-                  <button
-                    onClick={onGetStarted}
-                    className="w-full py-3 bg-white hover:bg-neutral-100 text-[#3d2035] font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md cursor-pointer"
-                  >
-                    Get Started
-                  </button>
-
-                  <button
-                    onClick={onViewCaseStudies}
-                    className="w-full py-2.5 bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-medium text-xs sm:text-sm rounded-full border border-white/25 transition-all active:scale-95 cursor-pointer"
-                  >
-                    View Case Studies
-                  </button>
-                </div>
+                <button
+                  onClick={onViewCaseStudies}
+                  className="w-full py-2.5 bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-medium text-xs sm:text-sm rounded-full border border-white/25 transition-all active:scale-95 cursor-pointer"
+                >
+                  View Case Studies
+                </button>
               </div>
             </motion.div>
           </div>

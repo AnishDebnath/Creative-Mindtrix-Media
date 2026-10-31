@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Play } from 'lucide-react';
 import { UWE_PROFILE } from '@/data/mock';
 import { Profile } from '@/types';
 
-import uweSangerTealImg from '@/assets/img/uwe_sanger_teal_1790985575257.jpg';
+import introVideo from '@/assets/mindtrix-media-intro.mp4';
 import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
 
 interface BottomShowcaseSectionProps {
@@ -14,9 +15,58 @@ interface BottomShowcaseSectionProps {
 
 export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
   onSendReaction,
-  onNavigateToImages
+  onNavigateToImages,
 }) => {
   const [fireClicked, setFireClicked] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Force muted DOM properties so modern browser autoplay policies permit playback
+    video.defaultMuted = true;
+    video.muted = true;
+    video.playsInline = true;
+
+    const playVideo = () => {
+      video.muted = true;
+      video
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {
+          setIsPlaying(false);
+          const handleFirstGesture = () => {
+            if (videoRef.current) {
+              videoRef.current.muted = true;
+              videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+            }
+            window.removeEventListener('scroll', handleFirstGesture);
+            window.removeEventListener('click', handleFirstGesture);
+            window.removeEventListener('touchstart', handleFirstGesture);
+          };
+          window.addEventListener('scroll', handleFirstGesture, { passive: true, once: true });
+          window.addEventListener('click', handleFirstGesture, { passive: true, once: true });
+          window.addEventListener('touchstart', handleFirstGesture, { passive: true, once: true });
+        });
+    };
+
+    playVideo();
+  }, []);
+
+  const handleCardClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.muted = true;
+        videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+      } else {
+        onNavigateToImages?.();
+      }
+    } else {
+      onNavigateToImages?.();
+    }
+  };
 
   return (
     <section className="relative w-full py-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
@@ -44,7 +94,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
       </div>
 
       {/* Center Interactive Showcase Composition */}
-      <div className="relative max-w-5xl mx-auto z-10 flex items-center justify-center min-h-[460px]">
+      <div className="relative max-w-5xl mx-auto z-10 flex items-center justify-center min-h-[500px]">
 
         {/* Relative Anchor Frame */}
         <div className="relative flex items-center justify-center">
@@ -60,36 +110,44 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             Create better product ads with AI 🚀
           </motion.div>
 
-          {/* 2. Center Profile Card: Uwe Sanger (Tilted +5deg) */}
+          {/* 2. Center Card: Mindtrix Media Intro Video (1:1 Aspect Ratio, Clean with Zero Overlays) */}
           <motion.div
-            onClick={onNavigateToImages}
+            onClick={handleCardClick}
             initial={{ opacity: 0, y: 30, scale: 0.94 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="relative w-[300px] sm:w-[350px] md:w-[370px] aspect-square bg-white rounded-[40px] sm:rounded-[46px] p-1.5 sm:p-2 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.22)] border border-white cursor-pointer transform rotate-[5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300 group"
+            className="relative w-[300px] sm:w-[350px] md:w-[370px] aspect-square bg-white rounded-[40px] sm:rounded-[46px] p-1.5 sm:p-2 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.22)] border border-white cursor-pointer transform rotate-[3deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300 group"
           >
-            {/* Inner Photo Container */}
-            <div className="relative w-full h-full rounded-[32px] sm:rounded-[38px] overflow-hidden bg-neutral-900 shadow-inner">
-              <img
-                src={uweSangerTealImg}
-                alt="Mindtrix Systems Lead"
+            {/* Inner Video Container */}
+            <div className="relative w-full h-full rounded-[32px] sm:rounded-[38px] overflow-hidden bg-black shadow-inner">
+              <video
+                ref={videoRef}
+                src={introVideo}
+                poster={logoImg}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onLoadedData={(e) => {
+                  const el = e.currentTarget;
+                  el.muted = true;
+                  el.play().catch(() => {});
+                }}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
 
-              {/* Top-Right Online Badge */}
-              <div className="absolute top-3.5 right-3.5 z-20 px-2.5 py-0.5 bg-white/95 backdrop-blur-md text-neutral-900 text-[10px] sm:text-[11px] font-bold rounded-full shadow-sm flex items-center gap-1.5 border border-white">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
-                <span>AI Systems Online</span>
-              </div>
-
-              {/* Bottom Scrim & Name Label */}
-              <div className="absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 bg-gradient-to-t from-[#2f182a]/95 via-[#3d2035]/50 to-transparent flex items-end">
-                <div className="flex items-center gap-2 text-white font-display text-base sm:text-lg font-black uppercase tracking-wider drop-shadow-md">
-                  <span className="text-lg sm:text-xl">🇨🇦</span>
-                  <span>MINDTRIX MEDIA LEAD</span>
+              {/* Play Button Indicator if video is paused */}
+              {!isPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/35 z-20 pointer-events-none">
+                  <div className="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-lg text-[#2f182a]">
+                    <Play className="w-6 h-6 fill-current ml-0.5" />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Floating Fire Reaction Circle Button */}
@@ -97,10 +155,10 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
               onClick={(e) => {
                 e.stopPropagation();
                 setFireClicked(true);
-                onSendReaction?.('🔥', { ...UWE_PROFILE, avatar: uweSangerTealImg });
+                onSendReaction?.('🔥', { ...UWE_PROFILE, avatar: logoImg });
                 setTimeout(() => setFireClicked(false), 700);
               }}
-              className={`absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 z-30 w-14 sm:w-18 h-14 sm:h-18 bg-white rounded-full shadow-[0_12px_28px_-5px_rgba(0,0,0,0.22)] border-[2.5px] border-white flex items-center justify-center text-3xl sm:text-4xl transition-transform active:scale-95 cursor-pointer ${fireClicked ? 'scale-125' : 'hover:scale-110'
+              className={`absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 z-30 w-14 sm:w-16 h-14 sm:h-16 bg-white rounded-full shadow-[0_12px_28px_-5px_rgba(0,0,0,0.22)] border-[2.5px] border-white flex items-center justify-center text-3xl sm:text-4xl transition-transform active:scale-95 cursor-pointer ${fireClicked ? 'scale-125' : 'hover:scale-110'
                 }`}
               title="Launch Campaign"
             >
