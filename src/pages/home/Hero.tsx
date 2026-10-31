@@ -8,11 +8,12 @@ import { Profile } from '@/types';
 import avatarHipsterBeardImg from '@/assets/img/avatar_hipster_beard_1790979384816.jpg';
 import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
 import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
-import { getCloudinaryImage, getCloudinaryVideo } from '@/utils/cloudinary';
+import { VIDEOS } from '@/data/videos';
+import { IMAGES } from '@/data/images';
 import { BrandsSection } from './Brands';
 
-const womenPerfumeImg = getCloudinaryImage('women-perfume/Perfume_bottle_flat-lay_photograph.jpg');
-const heroReelVideo = getCloudinaryVideo('women-perfume.mp4', { optimize: true, quality: 'good', width: 720 });
+const ferreriVideo = VIDEOS['streetwear-ferreri'].videoSrc;
+const ferreriImage = IMAGES['fashion-confident-red-tee'].src;
 
 interface HeroSectionProps {
   onSelectProfile?: (profile: Profile) => void;
@@ -319,11 +320,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="absolute -top-2 -left-5 z-30 px-2.5 sm:px-3 py-1 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white font-display text-[10px] sm:text-[11px] font-bold rounded-full shadow-lg shadow-[#3d2035]/30 border border-white/20 whitespace-nowrap transition-all transform rotate-[-20deg] hover:rotate-0 flex items-center gap-1">
                   <Sparkles className="w-3 h-3 text-[#eda970]" /> AI Ads
                 </div>
-                {/* Photo */}
-                <div className="aspect-square rounded-lg overflow-hidden mb-1.5 bg-neutral-100">
+                {/* Photo in original natural aspect ratio (2:3) */}
+                <div className="aspect-[2/3] w-full rounded-lg overflow-hidden mb-1.5 bg-neutral-100">
                   <img
-                    src={womenPerfumeImg}
-                    alt="Women's perfume"
+                    src={ferreriImage}
+                    alt="Ferreri Streetwear Collection"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -400,8 +401,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       className="relative w-[92%] max-w-[250px] aspect-[9/16] rounded-[24px] overflow-hidden shadow-xl border-[1.5px] border-white/90 bg-black cursor-pointer group"
                     >
                       <video
-                        src={heroReelVideo}
-                        poster={womenPerfumeImg}
+                        src={ferreriVideo}
+                        poster={ferreriImage}
                         autoPlay
                         loop
                         muted
