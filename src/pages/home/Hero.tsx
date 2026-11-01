@@ -1,7 +1,6 @@
 import React, { useMemo, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Sparkles, Home, Zap } from 'lucide-react';
-import { PHONE_FRIEND_CARD } from '@/data/mock';
 import { MARQUEE_PRODUCTS } from '@/data/marquee';
 import { Profile } from '@/types';
 
@@ -330,9 +329,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
                 {/* Stats Bar */}
                 <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-bold text-neutral-600 px-1">
-                  <span className="flex items-center gap-0.5">❤️ {PHONE_FRIEND_CARD.likes}</span>
-                  <span className="flex items-center gap-0.5">💬 {PHONE_FRIEND_CARD.comments}</span>
-                  <span className="flex items-center gap-0.5">🚀 {PHONE_FRIEND_CARD.shares}</span>
+                  <span className="flex items-center gap-0.5">❤️ 34k</span>
+                  <span className="flex items-center gap-0.5">💬 1.2k</span>
+                  <span className="flex items-center gap-0.5">🚀 5.6k</span>
                 </div>
               </motion.div>
 

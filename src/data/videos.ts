@@ -1,10 +1,6 @@
-import {
-  getCloudinaryVideo,
-  getCloudinaryVideoThumbnail,
-} from '@/utils/cloudinary';
 import mindtrixLogo from '@/assets/Mindtrix-Media-Logo.jpeg';
 
-// ponytail: import all videos directly from src/assets/videos subfolders
+// ponytail: import all videos directly from src/assets/videos subfolders - no alternative media fallback
 const assetVideos = import.meta.glob<string>('../assets/videos/**/*.mp4', {
   eager: true,
   import: 'default',
@@ -14,7 +10,7 @@ const getAssetVideo = (fileName: string): string => {
   const match = Object.entries(assetVideos).find(([path]) =>
     path.endsWith(`/${fileName}`)
   );
-  return match ? match[1] : getCloudinaryVideo(fileName);
+  return match ? match[1] : '';
 };
 
 export type VideoId =
@@ -76,7 +72,7 @@ const createVideoItem = (
   return {
     id,
     category,
-    image: getCloudinaryVideoThumbnail(fileName),
+    image: '',
     videoSrc: src,
     streamSrc: src,
     highResSrc: src,

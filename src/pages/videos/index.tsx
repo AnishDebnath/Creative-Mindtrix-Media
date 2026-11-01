@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, X, ArrowUpRight, Check, ChevronLeft, ChevronRight, Heart, MessageCircle, Repeat2, Send, MoreHorizontal } from 'lucide-react';
 import mindtrixLogo from '@/assets/Mindtrix-Media-Logo.jpeg';
 import { SectionTag } from '@/components/ui/SectionTag';
-import { getLocalVideoFallback } from '@/utils/cloudinary';
 import {
   SHOWCASE_GRID_VIDEOS as VIDEO_ITEMS,
   VIDEO_CATEGORIES as CATEGORIES,
@@ -22,6 +21,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
   // Start with ultra-light low-quality stream for 0ms instant startup without lag
   const [currentSrc, setCurrentSrc] = useState<string>(vid.streamSrc);
   const [isVisible, setIsVisible] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const isUpgradedRef = useRef(false);
 
   useEffect(() => {
@@ -82,25 +82,25 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
       className="group relative aspect-[9/16] w-full rounded-[28px] sm:rounded-[32px] overflow-hidden bg-neutral-950 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.25)] cursor-pointer transform hover:-translate-y-1.5 hover:shadow-[0_25px_50px_-10px_rgba(0,0,0,0.4)] transition-all duration-300"
     >
       {/* Direct Cloudinary video playback with middle frame poster thumbnail */}
-      <video
-        ref={videoRef}
-        src={isVisible ? currentSrc : ''}
-        poster={vid.image}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        onError={(e) => {
-          // If remote stream fails, seamlessly fall back to base or local asset
-          const fallback = getLocalVideoFallback(vid.videoSrc);
-          if (fallback && e.currentTarget.src !== fallback) {
-            e.currentTarget.src = fallback;
-            e.currentTarget.play().catch(() => {});
-          }
-        }}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-      />
+      {videoError || !vid.videoSrc ? (
+        <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-neutral-950 text-center">
+          <span className="text-xs uppercase tracking-wider text-[#eda970] mb-2">{vid.category}</span>
+          <p className="text-white text-xs sm:text-sm font-semibold line-clamp-3">{vid.quote || vid.id.replace(/-/g, ' ')}</p>
+        </div>
+      ) : (
+        <video
+          ref={videoRef}
+          src={isVisible ? currentSrc : ''}
+          poster={vid.image}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          onError={() => setVideoError(true)}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+      )}
 
       {/* Bottom Vignette Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 via-50% to-transparent pointer-events-none" />
@@ -559,13 +559,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                     controlsList="nofullscreen nodownload noremoteplayback"
                     disablePictureInPicture
                     playsInline
-                    onError={(e) => {
-                      const fallback = getLocalVideoFallback(activeVideo.videoSrc);
-                      if (fallback && e.currentTarget.src !== fallback) {
-                        e.currentTarget.src = fallback;
-                        e.currentTarget.play().catch(() => {});
-                      }
-                    }}
+                    
                     className="w-full h-full object-cover"
                   />
                 </div>

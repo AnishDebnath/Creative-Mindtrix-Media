@@ -1,6 +1,4 @@
-import { getCloudinaryImage } from '@/utils/cloudinary';
-
-// ponytail: import all images directly from src/assets/images subfolders
+// ponytail: import all images directly from src/assets/images subfolders - no alternative media fallback
 const assetImages = import.meta.glob<string>(
   '../assets/images/**/*.{jpg,jpeg,png,webp}',
   {
@@ -13,7 +11,7 @@ const getAssetImage = (fileName: string): string => {
   const match = Object.entries(assetImages).find(([path]) =>
     path.endsWith(`/${fileName}`)
   );
-  return match ? match[1] : getCloudinaryImage(fileName);
+  return match ? match[1] : '';
 };
 
 export const IMAGE_CATEGORIES = [

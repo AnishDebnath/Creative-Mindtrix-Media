@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SectionTag } from '@/components/ui/SectionTag';
-import { getLocalImageFallback } from '@/utils/cloudinary';
 import {
   SHOWCASE_GRID_IMAGES,
   IMAGE_CATEGORIES,
@@ -16,6 +15,7 @@ interface ImagesPageProps {
 export const ImagesPage: React.FC<ImagesPageProps> = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   const [scrollY, setScrollY] = useState(0);
 
   const activeCategories = useMemo(() => {
@@ -231,18 +231,24 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
                             onClick={() => setSelectedImage(img.src)}
                             className="group relative w-full rounded-[20px] sm:rounded-[28px] overflow-hidden bg-neutral-900/60 shadow-sm hover:shadow-xl cursor-pointer transform hover:-translate-y-1.5 transition-all duration-300"
                           >
-                            <img
-                              src={img.src}
-                              alt={img.title || `${category} AI Photography - Mindtrix Media`}
-                              onError={(e) => {
-                                const fallback = getLocalImageFallback(img.src);
-                                if (fallback && e.currentTarget.src !== fallback) {
-                                  e.currentTarget.src = fallback;
-                                }
-                              }}
-                              className="w-full h-auto block object-cover transition-transform duration-700 group-hover:scale-105"
-                              loading="lazy"
-                            />
+                            {failedImages[img.id] || !img.src ? (
+                              <div className="w-full aspect-[3/4] flex flex-col items-center justify-center p-4 bg-neutral-900/90 text-center border border-white/10">
+                                <span className="text-[10px] font-bold tracking-wider uppercase text-[#eda970] mb-1">
+                                  {img.category}
+                                </span>
+                                <p className="text-white text-xs sm:text-sm font-semibold line-clamp-3">
+                                  {img.title || `${img.category} AI Media`}
+                                </p>
+                              </div>
+                            ) : (
+                              <img
+                                src={img.src}
+                                alt={img.title || `${category} AI Photography - Mindtrix Media`}
+                                onError={() => setFailedImages((prev) => ({ ...prev, [img.id]: true }))}
+                                className="w-full h-auto block object-cover transition-transform duration-700 group-hover:scale-105"
+                                loading="lazy"
+                              />
+                            )}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3.5 sm:p-4 flex flex-col justify-end pointer-events-none">
                               <span className="text-[10px] font-bold tracking-wider uppercase text-[#eda970]">
                                 {img.category}
@@ -339,12 +345,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
                   <img
                     src={selectedImage}
                     alt={currentItem?.title || "Product Image Showcase"}
-                    onError={(e) => {
-                      const fallback = getLocalImageFallback(selectedImage);
-                      if (fallback && e.currentTarget.src !== fallback) {
-                        e.currentTarget.src = fallback;
-                      }
-                    }}
+                    
                     className="max-h-[85vh] max-w-[85vw] w-auto h-auto object-contain select-none"
                   />
                   {currentItem && (

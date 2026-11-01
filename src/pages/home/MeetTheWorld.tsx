@@ -2,8 +2,6 @@ import React from 'react';
 import { SectionTag } from '@/components/ui/SectionTag';
 import { motion } from 'framer-motion';
 import { Profile } from '@/types';
-import { HERO_PROFILES } from '@/data/mock';
-
 import { getCloudinaryImage } from '@/utils/cloudinary';
 
 const skincareImg = getCloudinaryImage('facewash/Skincare_advertisement_on_stone.jpg');
@@ -20,7 +18,23 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
   onSendReaction,
   onNavigateToImages
 }) => {
-  const simoneProfile = HERO_PROFILES[2]; // Simone Lange - Creative Director
+  // ponytail: inline profile for reaction handler
+  const simoneProfile: Profile = {
+    id: 'simone',
+    name: 'SIMONE LANGE',
+    age: 27,
+    country: 'Liberia',
+    flag: '🇱🇷',
+    city: 'Monrovia',
+    isOnline: true,
+    avatar: lipstickImg,
+    bio: 'Head of AI Creative Advertising at Mindtrix Media.',
+    role: 'Creative Director',
+    interests: ['Luxury Beauty', 'Commercial AI', 'Editorial Ads'],
+    likesCount: '31.5k',
+    commentsCount: '2.1k',
+    sharesCount: '4.8k',
+  };
   const emojis = ['👍', '❤️', '😂', '😮', '😢', '🙏'];
 
   return (

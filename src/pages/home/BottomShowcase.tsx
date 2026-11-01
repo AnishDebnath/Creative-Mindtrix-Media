@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
-import { UWE_PROFILE } from '@/data/mock';
 import { Profile } from '@/types';
 
 import introVideo from '@/assets/mindtrix-media-intro.mp4';
@@ -12,6 +11,24 @@ interface BottomShowcaseSectionProps {
   onSendReaction?: (emoji: string, profile: Profile) => void;
   onNavigateToImages?: () => void;
 }
+
+// ponytail: inline profile for fire reaction handler
+const uweProfile: Profile = {
+  id: 'uwe',
+  name: 'UWE SANGER',
+  age: 29,
+  country: 'Canada',
+  flag: '🇨🇦',
+  city: 'Vancouver',
+  isOnline: true,
+  avatar: logoImg,
+  bio: 'Lead AI Production Director at Mindtrix Media.',
+  role: 'AI Production Director',
+  interests: ['AI Product Ads', 'Commercial Video', 'Creative Tech'],
+  likesCount: '28.4k',
+  commentsCount: '1.4k',
+  sharesCount: '4.2k',
+};
 
 export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
   onSendReaction,
@@ -155,7 +172,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
               onClick={(e) => {
                 e.stopPropagation();
                 setFireClicked(true);
-                onSendReaction?.('🔥', { ...UWE_PROFILE, avatar: logoImg });
+                onSendReaction?.('🔥', uweProfile);
                 setTimeout(() => setFireClicked(false), 700);
               }}
               className={`absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 z-30 w-14 sm:w-16 h-14 sm:h-16 bg-white rounded-full shadow-[0_12px_28px_-5px_rgba(0,0,0,0.22)] border-[2.5px] border-white flex items-center justify-center text-3xl sm:text-4xl transition-transform active:scale-95 cursor-pointer ${fireClicked ? 'scale-125' : 'hover:scale-110'
