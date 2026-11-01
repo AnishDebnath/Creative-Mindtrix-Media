@@ -1,32 +1,8 @@
-import React from 'react';
-import { SectionTag } from '@/components/ui/SectionTag';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { getCloudinaryVideo, getCloudinaryVideoThumbnail, getCloudinaryImage } from '@/utils/cloudinary';
-
-// Product images for the portfolio pill
-const lipstickThumbImg = getCloudinaryImage('lipstick/Lipstick_advertisement_on_marble.jpg');
-const facewashThumbImg = getCloudinaryImage('facewash/Skincare_advertisement_on_stone.jpg');
-const perfumeThumbImg = getCloudinaryImage('women-perfume/Perfume_bottle_flat-lay_photograph.jpg');
-const menPerfumeThumbImg = getCloudinaryImage('men-perfume/Creating_perfume_bottle_adv.jpg');
-
-// Cloudinary Fast Videos for seamless autoplay
-const rampwalkVid = getCloudinaryVideo('rampwalk.mp4', { optimize: true, quality: 'good', width: 480 });
-const rampwalkThumb = getCloudinaryVideoThumbnail('rampwalk.mp4');
-
-const lipstickVid = getCloudinaryVideo('lipstick.mp4', { optimize: true, quality: 'good', width: 480 });
-const lipstickThumb = getCloudinaryVideoThumbnail('lipstick.mp4');
-
-const menPerfumeVid = getCloudinaryVideo('men-perfume.mp4', { optimize: true, quality: 'good', width: 480 });
-const menPerfumeThumb = getCloudinaryVideoThumbnail('men-perfume.mp4');
-
-const facewashVid = getCloudinaryVideo('facewash.mp4', { optimize: true, quality: 'good', width: 480 });
-const facewashThumb = getCloudinaryVideoThumbnail('facewash.mp4');
-
-const nailArtVid = getCloudinaryVideo('nail-art.mp4', { optimize: true, quality: 'good', width: 480 });
-const nailArtThumb = getCloudinaryVideoThumbnail('nail-art.mp4');
-
-const cocaineVid = getCloudinaryVideo('cocaine.mp4', { optimize: true, quality: 'good', width: 480 });
-const cocaineThumb = getCloudinaryVideoThumbnail('cocaine.mp4');
+import { ChevronRight } from 'lucide-react';
+import { SectionTag } from '@/components/ui/SectionTag';
+import { VIDEOS } from '@/data/videos';
 
 interface CommunitySectionProps {
   onOpenVideoChat?: () => void;
@@ -35,260 +11,188 @@ interface CommunitySectionProps {
 }
 
 export const CommunitySection: React.FC<CommunitySectionProps> = ({
-  onNavigateToReels
+  onNavigateToReels,
+  onOpenVideoChat,
 }) => {
-  const emojis = ['👍', '❤️', '😂', '😮', '😢', '🙏'];
+  const handleCtaClick = () => {
+    if (onNavigateToReels) {
+      onNavigateToReels();
+    } else if (onOpenVideoChat) {
+      onOpenVideoChat();
+    }
+  };
+
+  // 9:16 video cards for the carousel (clean with zero overlays)
+  const REEL_CARDS = [
+    {
+      id: 'reel-facewash',
+      videoSrc: VIDEOS['natural-facewash']?.videoSrc,
+    },
+    {
+      id: 'reel-runway',
+      videoSrc: VIDEOS['paris-runway']?.videoSrc,
+    },
+    {
+      id: 'reel-streetwear',
+      videoSrc: VIDEOS['streetwear-ferreri']?.videoSrc,
+    },
+    {
+      id: 'reel-perfume',
+      videoSrc: VIDEOS['women-perfume']?.videoSrc,
+    },
+    {
+      id: 'reel-lipstick',
+      videoSrc: VIDEOS['lipstick-spotlight']?.videoSrc,
+    },
+  ];
+
+  // Default active center card (index 1)
+  const [activeIndex, setActiveIndex] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Automatically cycle to show other cards
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % REEL_CARDS.length);
+    }, 3800);
+
+    return () => clearInterval(timer);
+  }, [isPaused, REEL_CARDS.length]);
 
   return (
     <section
       id="reels"
-      className="relative w-full py-20 px-4 sm:px-6 lg:px-8 overflow-visible scroll-mt-6"
+      className="relative w-full py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-6"
       style={{
         background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(248, 246, 253, 0.45) 50%, #eae3fb 100%)',
       }}
     >
       <div className="max-w-6xl mx-auto">
-      <span id="community" className="sr-only" />
-      {/* Top Header Row */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-40px' }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-12 sm:mb-16"
-      >
-        <div>
-          <SectionTag label="AI Reel Stage" className="mb-3.5" />
-          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3]">
-            AI PRODUCT<br />VIDEO REELS
-          </h2>
-        </div>
+        <span id="community" className="sr-only" />
 
-        <div className="max-w-md flex flex-col items-start gap-4">
-          <p className="text-neutral-800 text-base sm:text-lg leading-relaxed font-normal">
-            Short, engaging product video reels designed to capture attention and drive direct sales on social media.
-          </p>
-          <button
-            onClick={onNavigateToReels}
-            className="px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer"
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
+
+          {/* LEFT: About Us Tag, Display Headline, Description, and Circular-Arrow CTA */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="lg:col-span-5 flex flex-col items-start justify-center text-left"
           >
-            VIEW ALL PRODUCT REELS
-          </button>
-        </div>
+            {/* Website Theme SectionTag */}
+            <SectionTag label="AI Reel Stage" className="mb-4 sm:mb-5" />
 
+            {/* Headline matching MeetTheWorld right-side font size & 3-line cadence */}
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-[1.04] mb-4 sm:mb-5">
+              AI PRODUCT REELS<br />
+              BUILT TO CAPTURE<br />
+              AND CONVERT.
+            </h2>
 
-      </motion.div>
+            {/* Description matching MeetTheWorld right-side font size and proportion */}
+            <p className="text-neutral-700 text-base sm:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
+              Short, high-impact AI product video reels engineered to capture attention, stop the scroll, and turn casual viewers into paying customers.
+            </p>
 
-      {/* 3D Isometric Perspective Stage in 16:9 Ratio */}
-      <motion.div
-        initial={{ opacity: 0, y: 40, scale: 0.94 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true, margin: '-50px' }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="relative w-full max-w-[940px] mx-auto py-12 sm:py-16 flex items-center justify-center [perspective:1600px] overflow-visible"
-      >
-
-        {/* Tilted 3D Stage */}
-        <div
-          className="relative w-full aspect-[16/9] transition-transform duration-500 ease-out"
-          style={{
-            transform: 'rotateX(22deg) rotateY(-16deg) rotateZ(6deg)',
-            transformStyle: 'preserve-3d'
-          }}
-        >
-          {/* 1. Rear Card: Same Size (16:9), shifted further up with 4-Color Gradient */}
-          <div
-            className="absolute inset-0 w-full h-full aspect-[16/9] bg-gradient-to-tr from-[#dcc6d5] via-[#8f73cc] via-[#6566ee] to-[#eda970] rounded-[36px] sm:rounded-[44px] shadow-[0_30px_70px_-10px_rgba(143,115,204,0.3)] border-[2.5px] border-white pointer-events-none overflow-hidden"
-            style={{
-              transform: 'translate3d(44px, -64px, -30px)'
-            }}
-          >
-            {/* Bottom Fade */}
-            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white via-white/70 to-transparent rounded-b-[36px] sm:rounded-b-[44px]" />
-          </div>
-
-          {/* 2. Main Front Pure White Board in 16:9 Ratio */}
-          <div className="relative w-full h-full aspect-[16/9] bg-white rounded-[36px] sm:rounded-[44px] p-3 sm:p-4 md:p-5 shadow-[0_40px_90px_-20px_rgba(0,0,0,0.24)] border border-white flex flex-col justify-between">
-
-            {/* Top-Right Floating Badge in Signature Plum-Noir */}
-            <div
-              className="absolute -top-3.5 right-6 sm:right-12 z-30 px-4 sm:px-5 py-1 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white font-display text-base sm:text-lg font-bold rounded-full shadow-lg shadow-[#3d2035]/35 border border-white/20"
-              style={{ transform: 'rotate(15deg)' }}
-            >
-              <span className="text-[#eda970] mr-1">✦</span> AI Product Reels
-            </div>
-
-            {/* Seamless 4-Column Balanced Grid */}
-            <div className="grid grid-cols-12 gap-2.5 sm:gap-3.5 h-full w-full">
-
-              {/* COLUMN 1: Full-Height 9:16 Vertical Portrait (Span 3) */}
-              <div
-                onClick={onNavigateToReels}
-                className="col-span-3 h-full rounded-[18px] sm:rounded-[24px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
-              >
-                <video
-                  src={rampwalkVid}
-                  poster={rampwalkThumb}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* COLUMN 2 & 3: Center Grid with 4 Square 1:1 Videos (Span 6) */}
-              <div className="col-span-6 h-full flex flex-col justify-between gap-2.5 sm:gap-3.5 relative">
-
-                {/* Top Center: 2 Side-by-Side 1:1 Square Cards */}
-                <div className="flex items-center justify-between gap-2.5 sm:gap-3.5 flex-1 min-h-0">
-                  {/* Top-Left Square Card */}
-                  <div
-                    onClick={onNavigateToReels}
-                    className="w-1/2 h-full aspect-square rounded-[16px] sm:rounded-[20px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
-                  >
-                    <video
-                      src={lipstickVid}
-                      poster={lipstickThumb}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-
-                  {/* Top-Right Square Card */}
-                  <div
-                    onClick={onNavigateToReels}
-                    className="w-1/2 h-full aspect-square rounded-[16px] sm:rounded-[20px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
-                  >
-                    <video
-                      src={menPerfumeVid}
-                      poster={menPerfumeThumb}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-
-                {/* Floating Larger Reaction Bar Centered on Seam */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none">
-                  <div className="pointer-events-auto bg-white/95 backdrop-blur-md px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-[0_12px_30px_-5px_rgba(0,0,0,0.25)] border border-white flex items-center gap-2 sm:gap-2.5">
-                    {emojis.map((emoji) => (
-                      <button
-                        key={emoji}
-                        type="button"
-                        className="inline-flex items-center justify-center text-lg sm:text-xl hover:scale-135 active:scale-95 transition-transform duration-150 cursor-pointer origin-center"
-                        title={emoji}
-                      >
-                        {emoji}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Bottom Center: 2 Side-by-Side 1:1 Square Cards */}
-                <div className="flex items-center justify-between gap-2.5 sm:gap-3.5 flex-1 min-h-0">
-                  {/* Bottom-Left Square Card */}
-                  <div
-                    onClick={onNavigateToReels}
-                    className="w-1/2 h-full aspect-square rounded-[16px] sm:rounded-[20px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
-                  >
-                    <video
-                      src={facewashVid}
-                      poster={facewashThumb}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-
-                  {/* Bottom-Right Square Card */}
-                  <div
-                    onClick={onNavigateToReels}
-                    className="w-1/2 h-full aspect-square rounded-[16px] sm:rounded-[20px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
-                  >
-                    <video
-                      src={nailArtVid}
-                      poster={nailArtThumb}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-
-              </div>
-
-              {/* COLUMN 4: Full-Height 9:16 Vertical Portrait (Span 3) */}
-              <div
-                onClick={onNavigateToReels}
-                className="col-span-3 h-full rounded-[18px] sm:rounded-[24px] overflow-hidden bg-neutral-900 shadow-sm cursor-pointer group relative"
-              >
-                <video
-                  src={cocaineVid}
-                  poster={cocaineThumb}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-            </div>
-
-            {/* Bottom Fade */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[18%] z-[35] bg-gradient-to-t from-white via-white/70 to-transparent rounded-b-[36px] sm:rounded-b-[44px]" />
-          </div>
-
-          {/* 3. Floating Video Chat Pill Bar */}
-          <div
-            className="absolute -bottom-8 sm:-bottom-12 left-4 sm:left-30 z-40"
-            style={{ transform: 'translateZ(45px)' }}
-          >
+            {/* Brand CTA Button matching MeetTheWorld right-side button size & style */}
             <button
-              onClick={onNavigateToReels}
-              className="flex items-center gap-2.5 sm:gap-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-[0_20px_40px_-5px_rgba(61,32,53,0.5)] border border-white/20 transition-all active:scale-95 cursor-pointer"
+              onClick={handleCtaClick}
+              className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
             >
-              {/* Overlapping Mini Product Images */}
-              <div className="flex items-center -space-x-2">
-                {[
-                  { id: 'p1', src: lipstickThumbImg, alt: 'Cosmetics' },
-                  { id: 'p2', src: facewashThumbImg, alt: 'Skincare' },
-                  { id: 'p3', src: perfumeThumbImg, alt: 'Perfume' },
-                  { id: 'p4', src: menPerfumeThumbImg, alt: 'Cologne' },
-                ].map((item) => (
-                  <div
-                    key={item.id}
-                    className="w-6 sm:w-7 h-6 sm:h-7 rounded-full ring-2 ring-white/80 overflow-hidden shadow-sm bg-neutral-900"
-                  >
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* Action Text */}
-              <span className="font-display text-xs sm:text-[13px] font-black tracking-wider text-white uppercase pr-1">
-                VIEW REEL PORTFOLIO
-              </span>
+              <span>View All Product Reels</span>
+              <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
             </button>
-          </div>
+          </motion.div>
+
+          {/* RIGHT: 3-Card Carousel with Larger 9:16 Video Cards (Zero overlays) */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="lg:col-span-7 flex flex-col items-center justify-center w-full"
+          >
+            {/* 3-Card Carousel Stage in Larger 9:16 Ratio with Auto-Rotation */}
+            <div
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              className="relative w-full max-w-[560px] md:max-w-[620px] h-[460px] sm:h-[530px] md:h-[580px] lg:h-[600px] flex items-center justify-center overflow-visible select-none"
+            >
+              {REEL_CARDS.map((reel, idx) => {
+                const count = REEL_CARDS.length;
+                const isActive = idx === activeIndex;
+                const isLeft = idx === (activeIndex - 1 + count) % count;
+                const isRight = idx === (activeIndex + 1) % count;
+                const isFarLeft = idx === (activeIndex - 2 + count) % count;
+
+                // Position styling based on role in carousel
+                let transformClass = 'opacity-0 pointer-events-none scale-75 z-0';
+                let zIndex = 0;
+
+                if (isActive) {
+                  transformClass = 'translate-x-0 scale-100 opacity-100 z-30 shadow-[0_25px_60px_-15px_rgba(47,24,42,0.3)]';
+                  zIndex = 30;
+                } else if (isLeft) {
+                  transformClass = '-translate-x-[48%] sm:-translate-x-[52%] scale-[0.88] opacity-50 blur-[1.5px] z-10 cursor-pointer hover:opacity-75';
+                  zIndex = 10;
+                } else if (isRight) {
+                  transformClass = 'translate-x-[48%] sm:translate-x-[52%] scale-[0.88] opacity-50 blur-[1.5px] z-10 cursor-pointer hover:opacity-75';
+                  zIndex = 10;
+                } else if (isFarLeft) {
+                  transformClass = '-translate-x-[72%] scale-75 opacity-0 pointer-events-none blur-[2px] z-0';
+                  zIndex = 0;
+                } else {
+                  // Far right / offscreen queue: glides in smoothly from right
+                  transformClass = 'translate-x-[72%] scale-75 opacity-0 pointer-events-none blur-[2px] z-0';
+                  zIndex = 0;
+                }
+
+                return (
+                  <div
+                    key={reel.id}
+                    onClick={() => {
+                      if (!isActive) setActiveIndex(idx);
+                    }}
+                    style={{ zIndex }}
+                    className={`absolute w-[240px] sm:w-[280px] md:w-[310px] lg:w-[325px] aspect-[9/16] rounded-[26px] sm:rounded-[34px] md:rounded-[38px] overflow-hidden border border-white/80 bg-neutral-900 transition-all duration-500 ease-out ${transformClass}`}
+                  >
+                    {/* Pure Video - Zero Overlays */}
+                    {reel.videoSrc && (
+                      <video
+                        src={reel.videoSrc}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Pagination Indicator in Website Theme (Dot - Pill - Dot) */}
+            <div className="flex items-center justify-center gap-2 mt-6 select-none">
+              {REEL_CARDS.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`transition-all duration-300 cursor-pointer ${
+                    activeIndex === idx
+                      ? 'w-7 h-2 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] shadow-sm shadow-[#3d2035]/30'
+                      : 'w-2 h-2 rounded-full bg-[#3d2035]/25 hover:bg-[#3d2035]/50'
+                  }`}
+                  aria-label={`Go to reel slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </motion.div>
 
         </div>
-      </motion.div>
       </div>
     </section>
   );

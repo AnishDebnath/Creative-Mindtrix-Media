@@ -1,189 +1,141 @@
 import React from 'react';
-import { SectionTag } from '@/components/ui/SectionTag';
 import { motion } from 'framer-motion';
+import { Heart, MessageCircle, Eye, ChevronRight } from 'lucide-react';
+import { SectionTag } from '@/components/ui/SectionTag';
+import { IMAGES } from '@/data/images';
 import { Profile } from '@/types';
-import { getCloudinaryImage } from '@/utils/cloudinary';
 
-const skincareImg = getCloudinaryImage('facewash/Skincare_advertisement_on_stone.jpg');
-const lipstickImg = getCloudinaryImage('lipstick/Lipstick_advertisement_on_marble.jpg');
+// ponytail: 15th image from jewellery category & 12th image from perfume category
+const jewelryImage = IMAGES['jewelry-pendant-hand-pose']?.src;
+const perfumeImage = IMAGES['perfume-flatlay-botanical']?.src;
 
 interface MeetTheWorldSectionProps {
   onSelectProfile?: (profile: Profile) => void;
   onSendReaction?: (emoji: string, profile: Profile) => void;
   onDiscoverMore?: () => void;
   onNavigateToImages?: () => void;
+  onNavigateToReels?: () => void;
 }
 
 export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
-  onSendReaction,
-  onNavigateToImages
+  onNavigateToImages,
+  onDiscoverMore,
+  onNavigateToReels,
 }) => {
-  // ponytail: inline profile for reaction handler
-  const simoneProfile: Profile = {
-    id: 'simone',
-    name: 'SIMONE LANGE',
-    age: 27,
-    country: 'Liberia',
-    flag: '🇱🇷',
-    city: 'Monrovia',
-    isOnline: true,
-    avatar: lipstickImg,
-    bio: 'Head of AI Creative Advertising at Mindtrix Media.',
-    role: 'Creative Director',
-    interests: ['Luxury Beauty', 'Commercial AI', 'Editorial Ads'],
-    likesCount: '31.5k',
-    commentsCount: '2.1k',
-    sharesCount: '4.8k',
+  const handleCtaClick = () => {
+    if (onNavigateToImages) {
+      onNavigateToImages();
+    } else if (onDiscoverMore) {
+      onDiscoverMore();
+    } else if (onNavigateToReels) {
+      onNavigateToReels();
+    }
   };
-  const emojis = ['👍', '❤️', '😂', '😮', '😢', '🙏'];
 
   return (
-    <section className="relative w-full py-24 mb-6 overflow-hidden">
-      {/* Distinct Ambient Background Strip */}
+    <section className="relative w-full py-20 sm:py-28 md:py-32 overflow-hidden">
+      {/* Distinct Ambient Background Strip (Previous Signature Theme) */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#dcc6d5]/60 via-[#ebdce7]/50 via-[#cfc1ee]/40 to-[#eda970]/50 border-y border-white/80 pointer-events-none" />
 
       {/* Subtle Ambient Decorative Glow Orbs */}
       <div className="absolute -bottom-24 -right-20 w-96 h-96 bg-[#eda970]/25 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -top-24 -left-20 w-96 h-96 bg-[#3d2035]/10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Main Section Content Wrapper */}
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Column: Heading, Description, Button */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
+          
+          {/* LEFT: Two Large Rounded Cards in 3:4 Aspect Ratio with Floating Pill Badges */}
           <motion.div
-            initial={{ opacity: 0, x: -25 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.55, ease: 'easeOut' }}
-            className="lg:col-span-5 flex flex-col items-start justify-between min-h-[440px]"
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="lg:col-span-7 flex items-center justify-center w-full"
           >
-            <div>
-              <SectionTag label="Scale & Growth" className="mb-3.5" />
-              <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-8">
-                GROW YOUR<br />BUSINESS WITH<br />AI ADS
-              </h2>
-            </div>
+            <div className="relative flex items-center gap-4 sm:gap-5 md:gap-6 w-full max-w-[620px] pt-4 pb-4">
+              
+              {/* Card 1 (Left): Aspect 3:4 with Top-Left Heart Badge & Seam-Bridging Chat Badge */}
+              <div className="relative w-1/2 -translate-y-5 sm:-translate-y-7 md:-translate-y-9">
+                {/* Top-Left Floating Badge: ❤️ 12M (Sleek Obsidian Glass Sticker - Differentiated from SectionTag) */}
+                <div className="absolute -top-3.5 -left-2.5 sm:-top-4 sm:-left-3.5 md:-left-4 z-30 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-[#18181b]/95 backdrop-blur-md text-white font-sans text-xs sm:text-[13px] font-bold tracking-tight shadow-[0_12px_28px_-6px_rgba(0,0,0,0.5)] border border-white/20 flex items-center gap-1.5 select-none -rotate-12 hover:rotate-0 hover:scale-105 transition-all duration-300">
+                  <Heart className="w-3.5 h-3.5 fill-[#ff3b5c] text-[#ff3b5c]" />
+                  <span>12M</span>
+                </div>
 
-            <div className="max-w-md flex flex-col items-start gap-4 mt-auto">
-              <p className="text-neutral-800 text-base sm:text-lg leading-relaxed font-normal">
-                Eye-catching AI product video ads, viral reels, and e-commerce visuals that attract buyers and grow your brand.
-              </p>
-              <button
-                onClick={onNavigateToImages}
-                className="px-7 py-3 bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-[#2a1324] font-display text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-sm cursor-pointer"
-              >
-                VIEW AI IMAGE GALLERY
-              </button>
-            </div>
+                {/* 3:4 Ratio Card Container */}
+                <div
+                  onClick={handleCtaClick}
+                  className="group relative aspect-[3/4] w-full rounded-[26px] sm:rounded-[34px] md:rounded-[40px] overflow-hidden bg-neutral-900 shadow-[0_20px_50px_-15px_rgba(47,24,42,0.22)] border border-white/60 cursor-pointer transform hover:-translate-y-1.5 transition-all duration-300"
+                >
+                  <img
+                    src={jewelryImage}
+                    alt="Luxury Jewellery Photography"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
 
+                {/* Right Edge Seam-Bridging Floating Badge: 💬 82+ (Crisp White Glass Sticker - Differentiated from SectionTag) */}
+                <div className="absolute top-[62%] -right-3 sm:-right-4.5 md:-right-5 z-30 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md text-neutral-900 font-sans text-xs sm:text-[13px] font-bold tracking-tight shadow-[0_12px_24px_-4px_rgba(47,24,42,0.16)] border border-neutral-200/80 flex items-center gap-1.5 select-none rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300">
+                  <MessageCircle className="w-3.5 h-3.5 fill-[#3b82f6] text-[#3b82f6]" />
+                  <span>82+</span>
+                </div>
+              </div>
+
+              {/* Card 2 (Right): Aspect 3:4 with Top-Right Eye Badge */}
+              <div className="relative w-1/2 translate-y-5 sm:translate-y-7 md:translate-y-9">
+                {/* Top-Right Floating Badge: 👁️ 18.8M (Crisp White Glass Sticker - Differentiated from SectionTag) */}
+                <div className="absolute -top-3.5 -right-2.5 sm:-top-4 sm:-right-3.5 md:-right-4 z-30 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md text-neutral-900 font-sans text-xs sm:text-[13px] font-bold tracking-tight shadow-[0_12px_24px_-4px_rgba(47,24,42,0.16)] border border-neutral-200/80 flex items-center gap-1.5 select-none rotate-12 hover:rotate-0 hover:scale-105 transition-all duration-300">
+                  <Eye className="w-3.5 h-3.5 text-[#f97316] stroke-[2.5]" />
+                  <span>18.8M</span>
+                </div>
+
+                {/* 3:4 Ratio Card Container */}
+                <div
+                  onClick={handleCtaClick}
+                  className="group relative aspect-[3/4] w-full rounded-[26px] sm:rounded-[34px] md:rounded-[40px] overflow-hidden bg-neutral-900 shadow-[0_20px_50px_-15px_rgba(47,24,42,0.22)] border border-white/60 cursor-pointer transform hover:-translate-y-1.5 transition-all duration-300"
+                >
+                  <img
+                    src={perfumeImage}
+                    alt="Botanical Perfume Flat Lay"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+
+            </div>
           </motion.div>
 
-          {/* Right Column: Visual Composition matching reference image */}
-          <div className="lg:col-span-7 relative flex items-center justify-center min-h-[500px]">
-            {/* Main Card with Surrounding Floating Overlays */}
-            <div className="relative flex items-center justify-center">
-              {/* 1. Top-Left Floating Reaction Bar */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, x: -20 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: 0.1 }}
-                className="absolute top-8 -left-10 sm:-left-14 md:-left-26 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(61,32,53,0.1)] border border-[#ebdce7] flex items-center gap-1.5 sm:gap-2 transform -rotate-6 transition-transform duration-300 hover:rotate-0"
-              >
-                {emojis.map((emoji) => (
-                  <button
-                    key={emoji}
-                    onClick={() => onSendReaction?.(emoji, simoneProfile)}
-                    className="inline-flex items-center justify-center text-base sm:text-lg hover:scale-135 active:scale-95 transition-transform duration-150 cursor-pointer origin-center"
-                    title={emoji}
-                  >
-                    {emoji}
-                  </button>
-                ))}
-              </motion.div>
+          {/* RIGHT: Typography, Description, and CTA Button Styled with Website Theme */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+            className="lg:col-span-5 flex flex-col items-start justify-center text-left"
+          >
+            {/* Website Theme SectionTag */}
+            <SectionTag label="Our Mission" className="mb-4 sm:mb-5" />
 
-              {/* 2. Small Card (Skincare on Stone) */}
-              <motion.div
-                onClick={onNavigateToImages}
-                initial={{ opacity: 0, scale: 0.85, x: -30 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="absolute bottom-8 sm:bottom-10 -left-18 sm:-left-26 md:-left-30 lg:-left-32 z-10 w-36 sm:w-42 bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-2.5 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.22)] border border-white transform -rotate-3 hover:rotate-0 transition-transform duration-300 cursor-pointer"
-              >
-                <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-1.5 bg-neutral-100">
-                  <img
-                    src={skincareImg}
-                    alt="Skincare product"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-bold text-neutral-600 px-1">
-                  <span className="flex items-center gap-0.5">❤️ 19.8k</span>
-                  <span className="flex items-center gap-0.5">🚀 High Reach</span>
-                </div>
-              </motion.div>
+            {/* Well-proportioned Headline - optimal balanced scale */}
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-[1.04] mb-4 sm:mb-5">
+              WE MAKE REAL<br />PEOPLE YOUR BEST<br />MARKETING ASSET.
+            </h2>
 
-              {/* 3. Main Central Creative Card (z-20) */}
-              <motion.div
-                onClick={onNavigateToImages}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, ease: 'easeOut' }}
-                className="relative z-20 w-[275px] sm:w-[315px] md:w-[330px] bg-gradient-to-br from-[#2f182a] via-[#3d2035] to-[#542947] rounded-[32px] p-3 sm:p-3.5 shadow-[0_25px_60px_-15px_rgba(61,32,53,0.45)] border border-white/20 cursor-pointer transform hover:scale-[1.01] transition-transform duration-300 select-none"
-              >
-                {/* Photo Canvas */}
-                <div className="w-full aspect-[4/5] rounded-[24px] overflow-hidden bg-neutral-900 mb-2.5 relative group border border-white/10">
-                  <img
-                    src={lipstickImg}
-                    alt="Lipstick product"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+            {/* Well-proportioned Description - comfortable readability */}
+            <p className="text-neutral-700 text-base sm:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
+              UGC grounded in performance data. We find the right creators and craft content that earns attention and converts into revenue.
+            </p>
 
-                {/* Card Footer: Category & Title */}
-                <div className="px-2 py-1 flex items-center justify-between text-white font-display text-sm sm:text-base font-black uppercase tracking-wider">
-                  <span>LUXURY COSMETICS AD</span>
-                </div>
-              </motion.div>
+            {/* CTA Button matching website sections style */}
+            <button
+              onClick={handleCtaClick}
+              className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
+            >
+              <span>See How We Do It</span>
+              <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
+            </button>
+          </motion.div>
 
-              {/* 4. Floating Top-Right Speech Bubble */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.85, x: 20 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: 0.2 }}
-                className="absolute top-16 sm:top-24 -right-14 sm:-right-20 md:-right-24 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(0,0,0,0.2)] border border-white text-neutral-900 text-xs sm:text-sm font-bold whitespace-nowrap flex items-center gap-1.5 transform -rotate-4 transition-transform duration-300 hover:rotate-0"
-              >
-                <span>Higher Conversion</span>
-                <span>📈</span>
-              </motion.div>
-
-              {/* 5. Floating Bottom-Right Bubble */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.85, x: 20 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.25 }}
-                className="absolute bottom-28 sm:bottom-26 -right-10 sm:-right-16 md:-right-20 z-30 bg-white/95 backdrop-blur-md px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_15px_35px_-5px_rgba(0,0,0,0.2)] border border-white text-neutral-900 text-xs sm:text-sm font-bold whitespace-nowrap flex items-center gap-1.5 transform -rotate-4 transition-transform duration-300 hover:rotate-0"
-              >
-                <span>Ready in 48 Hours</span>
-                <span>⚡</span>
-              </motion.div>
-
-              {/* 6. Floating Bottom-Right Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.85, y: 15 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="absolute -bottom-3 sm:-bottom-4 right-0 sm:-right-2 z-30 px-4 sm:px-5 py-1.5 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white font-display text-sm sm:text-base font-bold rounded-full shadow-lg shadow-[#3d2035]/35 border border-white/20 transform -rotate-6"
-              >
-                <span className="text-[#eda970] mr-1">✦</span> AI Commercial
-              </motion.div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
