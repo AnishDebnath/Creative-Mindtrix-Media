@@ -12,8 +12,8 @@ import {
   Play,
   Share2,
 } from 'lucide-react';
-import creatorImg from '@/assets/img/scale_expert_team_creator.jpg';
 import howWeWorkVideo from '@/assets/how-we-work.mp4';
+import { IMAGES } from '@/data/images';
 
 interface WhyChooseUsSectionProps {
   onGetStarted?: () => void;
@@ -449,7 +449,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               {/* Clean 9:16 Video with Zero Hover Effect */}
               <video
                 src={howWeWorkVideo}
-                poster={creatorImg}
+                poster={IMAGES['studio-midnight-muse'].src}
                 autoPlay
                 loop
                 muted

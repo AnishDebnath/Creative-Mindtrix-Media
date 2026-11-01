@@ -1,12 +1,13 @@
 import { Profile } from '@/types';
+import { IMAGES } from '@/data/images';
 
-import matthiasCardImg from '@/assets/img/card_matthias_1790977103900.jpg';
-import johannaCardImg from '@/assets/img/card_johanna_1790977118147.jpg';
-import simoneCardImg from '@/assets/img/card_simone_1790977134116.jpg';
-import paulCardImg from '@/assets/img/card_paul_1790977146486.jpg';
-import sarahCardImg from '@/assets/img/card_sarah_1790977156627.jpg';
-import uweImg from '@/assets/img/profile_uwe_1790976747637.jpg';
-import girlWithSunglassesImg from '@/assets/img/card_girl_sunglasses_1790978472551.jpg';
+const matthiasCardImg = IMAGES['fashion-confident-red-tee'].src;
+const johannaCardImg = IMAGES['jewelry-elegant-necklace-portrait'].src;
+const simoneCardImg = IMAGES['studio-midnight-muse'].src;
+const paulCardImg = IMAGES['fashion-model-studio-pose'].src;
+const sarahCardImg = IMAGES['jewelry-pendant-hand-pose'].src;
+const uweImg = IMAGES['fashion-red-tinted-model'].src;
+const girlWithSunglassesImg = IMAGES['jewelry-heart-necklace-red-dress'].src;
 
 export const HERO_PROFILES: Profile[] = [
   {

@@ -1,12 +1,18 @@
-import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
-import avatarHipsterBeardImg from '@/assets/img/avatar_hipster_beard_1790979384816.jpg';
-import brunetteImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
-import uweImg from '@/assets/img/profile_uwe_1790976747637.jpg';
-import matthiasCardImg from '@/assets/img/card_matthias_1790977103900.jpg';
-import johannaCardImg from '@/assets/img/card_johanna_1790977118147.jpg';
-import sarahCardImg from '@/assets/img/card_sarah_1790977156627.jpg';
-import paulCardImg from '@/assets/img/card_paul_1790977146486.jpg';
+import { IMAGES } from '@/data/images';
 import { VIDEOS } from '@/data/videos';
+
+// Authentic portraits from src/assets/images
+const avatarJames = IMAGES['fashion-confident-red-tee'].src;
+const avatarRachel = IMAGES['jewelry-elegant-necklace-portrait'].src;
+const avatarTom = IMAGES['fashion-model-studio-pose'].src;
+const avatarSara = IMAGES['jewelry-pendant-hand-pose'].src;
+const avatarMarcus = IMAGES['fashion-red-tinted-model'].src;
+
+const avatarAlicia = IMAGES['jewelry-heart-necklace-red-dress'].src;
+const avatarEthan = IMAGES['fashion-oversized-graphic-tee'].src;
+const avatarChloe = IMAGES['studio-midnight-muse'].src;
+const avatarNoah = IMAGES['fashion-deep-red-studio'].src;
+const avatarElena = IMAGES['jewelry-pendant-red-dress-model'].src;
 
 export interface StoryReel {
   id: string;
@@ -53,35 +59,35 @@ export const TOP_ROW_TESTIMONIALS: TestimonialCardData[] = [
     quote: "Our engagement tripled and our ad costs dropped. Turns out when content looks real, people actually click.",
     author: "James Adler",
     role: "Founder, Duskline",
-    avatar: matthiasCardImg,
+    avatar: avatarJames,
     stars: 5,
   },
   {
     quote: "I finally found an agency that gets speed and aesthetic. The weekly deliverables exceeded our expectations from day one.",
     author: "Rachel Lin",
     role: "Head of Growth, Aura",
-    avatar: sarahCardImg,
+    avatar: avatarRachel,
     stars: 5,
   },
   {
     quote: "Within 30 days we had more content than we'd made in a full year, and it was better content. The results exceeded our expectations.",
     author: "Tom Nakamura",
     role: "CEO, Velour Co.",
-    avatar: avatarHipsterBeardImg,
+    avatar: avatarTom,
     stars: 5,
   },
   {
     quote: "We tried two agencies before this and got nothing but pitch decks and excuses. Real results happened fast.",
     author: "Sara Kim",
     role: "CMO, Oraly",
-    avatar: brunetteImg,
+    avatar: avatarSara,
     stars: 5,
   },
   {
     quote: "Mindtrix Media streamlined our entire visual pipeline. High performance creative produced without the endless delays.",
     author: "Marcus Vance",
     role: "Founder, Veloce Goods",
-    avatar: uweImg,
+    avatar: avatarMarcus,
     stars: 5,
   },
 ];
@@ -91,35 +97,35 @@ export const BOTTOM_ROW_TESTIMONIALS: TestimonialCardData[] = [
     quote: "Social media ad creative used to be shouting into a void. Now our ROAS is consistently 3.5x+ across paid campaigns.",
     author: "Alicia Gomez",
     role: "Marketing Director, Lumina",
-    avatar: johannaCardImg,
+    avatar: avatarAlicia,
     stars: 5,
   },
   {
     quote: "Mindtrix Media gave us a real strategy, real creators, and real results within 60 days, helping us grow faster with measurable impact.",
     author: "Ethan Brooks",
     role: "Wellness, Oralyn Skincare",
-    avatar: paulCardImg,
+    avatar: avatarEthan,
     stars: 5,
   },
   {
     quote: "120+ video assets delivered in record time with zero compromise on visual finish. Our team can finally focus on scaling.",
     author: "Chloe Dubois",
     role: "Creative Lead, Maison",
-    avatar: avatarGreenCapImg,
+    avatar: avatarChloe,
     stars: 5,
   },
   {
     quote: "With Mindtrix Media, we saw structured strategy, quality creators, and strong results within two months.",
     author: "Noah Parker",
     role: "Brand Strategist, Mintwave",
-    avatar: matthiasCardImg,
+    avatar: avatarNoah,
     stars: 5,
   },
   {
     quote: "Our CTR increased by 84% in the first two weeks of running these reels. The conversion speak for itself.",
     author: "Elena Rostova",
     role: "VP Ecommerce, SORA",
-    avatar: brunetteImg,
+    avatar: avatarElena,
     stars: 5,
   },
 ];
@@ -130,8 +136,8 @@ export const ALL_TESTIMONIALS: TestimonialCardData[] = [
 ];
 
 export const CLIENT_PROOF_AVATARS = [
-  avatarGreenCapImg,
-  avatarHipsterBeardImg,
-  brunetteImg,
-  uweImg,
+  avatarJames,
+  avatarRachel,
+  avatarTom,
+  avatarSara,
 ];

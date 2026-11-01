@@ -26,30 +26,42 @@ const toVideoMarquee = (
 });
 
 /**
- * Curated Marquee Products for Home Page Infinite Ribbon
- * - Sources directly from asset folders via IMAGES and VIDEOS catalogs
- * - Features the gourmet food video alongside Fashion, Jewellery, Perfume, Beauty, and Studio
- * - Interleaved in a balanced, dynamic cadence (alternating video and image)
+ * Curated Marquee Products for Home Page Hero Ribbon
+ * - ponytail: structured strictly category order wise:
+ *   1. Fashion -> 2. Jewellery -> 3. Perfume -> 4. Beauty -> 5. Studio
+ * - In each category: top-position video followed by top-position image
+ * - Excludes Commercial category entirely
+ * - Every asset features dead-center subject/object framing for 3:4 aspect ratio
+ * - Alternates Video/Image cadence continuously across loop cycles
  */
 export const MARQUEE_PRODUCTS: MarqueeProduct[] = [
-  toVideoMarquee(VIDEOS['paris-runway'], 'Paris Fashion Runway', 'Fashion'),
-  toImageMarquee(IMAGES['perfume-mindtrix-rose-campaign']),
-  toVideoMarquee(VIDEOS['jewelry-editorial'], 'Jewelry Editorial', 'Jewellery'),
-  toImageMarquee(IMAGES['studio-midnight-muse']),
-  toVideoMarquee(VIDEOS['gourmet-food'], 'Gourmet Food Branding', 'Commercials'),
-  toImageMarquee(IMAGES['beauty-botanical-skincare']),
-  toVideoMarquee(VIDEOS['women-perfume'], 'Womens Luxury Perfume', 'Perfume'),
-  toImageMarquee(IMAGES['jewelry-royal-gold-choker']),
-  toVideoMarquee(VIDEOS['fashion-lookbook'], 'Studio Lookbook', 'Studio'),
+  // --------------------------------------------------------------------------
+  // 1. Fashion (Top Video & Top Image)
+  // --------------------------------------------------------------------------
+  toVideoMarquee(VIDEOS['fashion-lookbook'], 'Fashion Studio Lookbook', 'Fashion'),
   toImageMarquee(IMAGES['fashion-confident-red-tee']),
-  toVideoMarquee(VIDEOS['lipstick-spotlight'], 'Lipstick Spotlight', 'Beauty'),
-  toImageMarquee(IMAGES['beauty-velvet-lipstick-marble']),
-  toVideoMarquee(VIDEOS['streetwear-ferreri'], 'Streetwear Drop', 'Fashion'),
-  toImageMarquee(IMAGES['studio-royal-temptation-emerald']),
-  toVideoMarquee(VIDEOS['luxury-jewelry'], 'Luxury Gold Jewelry', 'Jewellery'),
-  toImageMarquee(IMAGES['jewelry-heart-necklace-red-dress']),
-  toVideoMarquee(VIDEOS['men-perfume'], 'Mens Luxury Cologne', 'Perfume'),
-  toImageMarquee(IMAGES['perfume-bottle-commercial']),
-  toVideoMarquee(VIDEOS['natural-facewash'], 'Natural Skincare Cleanser', 'Beauty'),
-  toImageMarquee(IMAGES['fashion-editorial-burgundy']),
+
+  // --------------------------------------------------------------------------
+  // 2. Jewellery (Top Video & Top Image)
+  // --------------------------------------------------------------------------
+  toVideoMarquee(VIDEOS['titan-watch-commercial'], 'Titan Luxury Watch', 'Jewellery'),
+  toImageMarquee(IMAGES['jewelry-gold-titan-raga-marble']),
+
+  // --------------------------------------------------------------------------
+  // 3. Perfume (Top Video & Top Image)
+  // --------------------------------------------------------------------------
+  toVideoMarquee(VIDEOS['women-perfume'], 'Womens Luxury Perfume', 'Perfume'),
+  toImageMarquee(IMAGES['perfume-fragrance-commercial']),
+
+  // --------------------------------------------------------------------------
+  // 4. Beauty (Top Video & Top Image)
+  // --------------------------------------------------------------------------
+  toVideoMarquee(VIDEOS['natural-facewash'], 'Botanical Skincare Cleanser', 'Beauty'),
+  toImageMarquee(IMAGES['beauty-botanical-skincare']),
+
+  // --------------------------------------------------------------------------
+  // 5. Studio (Top Video & Top Image)
+  // --------------------------------------------------------------------------
+  toVideoMarquee(VIDEOS['paris-runway'], 'Paris Fashion Runway', 'Studio'),
+  toImageMarquee(IMAGES['studio-midnight-muse']),
 ];

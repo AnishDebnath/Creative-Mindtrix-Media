@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Avatars from assets for the 100k+ Followers pill
-import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
-import brunetteImg from '@/assets/img/brunette_shirt_left_1790982842053.jpg';
-import avatarHipsterBeardImg from '@/assets/img/avatar_hipster_beard_1790979384816.jpg';
+// Authentic model avatars from assets for the 100k+ Followers pill
+import { IMAGES } from '@/data/images';
+
+const avatar1 = IMAGES['fashion-model-studio-pose'].src;
+const avatar2 = IMAGES['fashion-confident-red-tee'].src;
+const avatar3 = IMAGES['jewelry-elegant-necklace-portrait'].src;
 
 // Crisp, lightweight inline SVGs matching the reference image
 const CashIcon: React.FC = () => (
@@ -104,17 +106,17 @@ export const AudienceResultsSection: React.FC = () => {
               {/* Overlapping Avatars */}
               <div className="flex items-center -space-x-2">
                 <img
-                  src={avatarGreenCapImg}
+                  src={avatar1}
                   alt="Follower avatar 1"
                   className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
                 />
                 <img
-                  src={brunetteImg}
+                  src={avatar2}
                   alt="Follower avatar 2"
                   className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
                 />
                 <img
-                  src={avatarHipsterBeardImg}
+                  src={avatar3}
                   alt="Follower avatar 3"
                   className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
                 />

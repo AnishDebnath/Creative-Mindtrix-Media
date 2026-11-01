@@ -5,8 +5,6 @@ import { PHONE_FRIEND_CARD } from '@/data/mock';
 import { MARQUEE_PRODUCTS } from '@/data/marquee';
 import { Profile } from '@/types';
 
-import avatarHipsterBeardImg from '@/assets/img/avatar_hipster_beard_1790979384816.jpg';
-import avatarGreenCapImg from '@/assets/img/avatar_green_cap_1790979403136.jpg';
 import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
 import { VIDEOS } from '@/data/videos';
 import { IMAGES } from '@/data/images';
@@ -14,6 +12,8 @@ import { BrandsSection } from './Brands';
 
 const ferreriVideo = VIDEOS['streetwear-ferreri'].videoSrc;
 const ferreriImage = IMAGES['fashion-confident-red-tee'].src;
+const userAvatar = IMAGES['fashion-model-studio-pose'].src;
+const userAvatar2 = IMAGES['jewelry-elegant-necklace-portrait'].src;
 
 interface HeroSectionProps {
   onSelectProfile?: (profile: Profile) => void;
@@ -441,7 +441,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <div className="w-8 sm:w-9 h-8 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-white/25 shadow-sm">
                   <img
-                    src={avatarHipsterBeardImg}
+                    src={userAvatar}
                     alt="User"
                     className="w-full h-full object-cover"
                   />
@@ -462,7 +462,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <div className="w-8 sm:w-9 h-8 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-[#ebdce7] shadow-sm">
                   <img
-                    src={avatarGreenCapImg}
+                    src={userAvatar2}
                     alt="User"
                     className="w-full h-full object-cover"
                   />
