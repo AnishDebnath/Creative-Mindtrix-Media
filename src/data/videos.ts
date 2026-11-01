@@ -35,7 +35,14 @@ export type VideoId =
   | 'jewelry-editorial'
   | 'luxury-jewelry'
   | 'technical-tee'
-  | 'viral-fashion';
+  | 'viral-fashion'
+  | 'gold-ring-commercial'
+  | 'titan-watch-commercial'
+  | 'luxury-watch-showcase'
+  | 'ganesha-ring-showcase'
+  | 'gold-ring-studio'
+  | 'gold-ring-ad'
+  | 'gold-watch-production';
 
 export interface TopHeroVideoItem {
   id: string;
@@ -191,6 +198,48 @@ export const VIDEOS: Record<VideoId, ShowcaseVideoItem> = {
     'Fashion',
     'Dynamic aesthetic street trends setting modern culture 🔥'
   ),
+  'gold-ring-commercial': createVideoItem(
+    'gold-ring-commercial',
+    'gold-ring-commercial-camera-sequence.mp4',
+    'Luxury',
+    'Sculpted 22k gold ring cinematic commercial sequence ✨'
+  ),
+  'titan-watch-commercial': createVideoItem(
+    'titan-watch-commercial',
+    'titan-gold-watch-commercial.mp4',
+    'Luxury',
+    'Titan luxury gold watch crafted with timeless elegance ⌚'
+  ),
+  'luxury-watch-showcase': createVideoItem(
+    'luxury-watch-showcase',
+    'luxury-gold-watch-commercial-showcase.mp4',
+    'Luxury',
+    'High-precision gold watch commercial studio showcase ⚡'
+  ),
+  'ganesha-ring-showcase': createVideoItem(
+    'ganesha-ring-showcase',
+    'gold-ganesha-ring-video-showcase.mp4',
+    'Luxury',
+    'Ornate sacred Ganesha gold ring handcrafted in 24k gold 🕉️'
+  ),
+  'gold-ring-studio': createVideoItem(
+    'gold-ring-studio',
+    'luxury-gold-ring-studio-showcase.mp4',
+    'Luxury',
+    'Fine gold jewellery studio light refractions and brilliance 💍'
+  ),
+  'gold-ring-ad': createVideoItem(
+    'gold-ring-ad',
+    'luxury-gold-ring-video-advertisement.mp4',
+    'Luxury',
+    'Signature luxury gold ring commercial video advertisement 💎'
+  ),
+  'gold-watch-production': createVideoItem(
+    'gold-watch-production',
+    'gold-watch-commercial-production.mp4',
+    'Luxury',
+    'Prestige gold chronograph timepiece commercial production 🏆'
+  ),
 };
 
 // ============================================================================
@@ -225,9 +274,11 @@ export const TOP_HERO_VIDEOS: TopHeroVideoItem[] = [
 ];
 
 // ============================================================================
-// 3. SHOWCASE GRID SECTION: Arranged 1 to 18 with categorized tabs
+// 3. SHOWCASE GRID SECTION: Videos 1 to 8 preserved, followed by shuffled blend
+// of newly added luxury videos and classic catalog.
 // ============================================================================
 export const SHOWCASE_GRID_VIDEOS: ShowcaseVideoItem[] = [
+  // First 8 videos (preserved sequence)
   VIDEOS['fashion-lookbook'],          // 1. Fashion
   VIDEOS['sukoon-wellness'],           // 2. Fashion
   VIDEOS['streetwear-ferreri'],        // 3. Fashion
@@ -236,14 +287,23 @@ export const SHOWCASE_GRID_VIDEOS: ShowcaseVideoItem[] = [
   VIDEOS['perfume-noir'],              // 6. Fashion
   VIDEOS['women-perfume'],             // 7. Beauty
   VIDEOS['luxury-jewelry'],            // 8. Luxury
-  VIDEOS['gourmet-food'],              // 9. Commercials
-  VIDEOS['viral-fashion'],             // 10. Fashion
-  VIDEOS['men-perfume'],               // 11. Beauty
-  VIDEOS['lipstick-spotlight'],        // 12. Beauty
-  VIDEOS['natural-facewash'],          // 13. Beauty
-  VIDEOS['lipstick-application'],      // 14. Beauty
-  VIDEOS['chrome-nails'],              // 15. Beauty
-  VIDEOS['minimalist-nails'],          // 16. Beauty
-  VIDEOS['paris-runway'],              // 17. Fashion
-  VIDEOS['industrial-automation'],     // 18. Commercials
+
+  // After 8th video: newly added videos shuffled with remaining catalog
+  VIDEOS['gold-ring-commercial'],      // 9. Luxury (New)
+  VIDEOS['gourmet-food'],              // 10. Commercials
+  VIDEOS['titan-watch-commercial'],    // 11. Luxury (New)
+  VIDEOS['viral-fashion'],             // 12. Fashion
+  VIDEOS['men-perfume'],               // 13. Beauty
+  VIDEOS['luxury-watch-showcase'],     // 14. Luxury (New)
+  VIDEOS['lipstick-spotlight'],        // 15. Beauty
+  VIDEOS['ganesha-ring-showcase'],     // 16. Luxury (New)
+  VIDEOS['natural-facewash'],          // 17. Beauty
+  VIDEOS['gold-ring-studio'],          // 18. Luxury (New)
+  VIDEOS['lipstick-application'],      // 19. Beauty
+  VIDEOS['gold-ring-ad'],              // 20. Luxury (New)
+  VIDEOS['chrome-nails'],              // 21. Beauty
+  VIDEOS['gold-watch-production'],     // 22. Luxury (New)
+  VIDEOS['minimalist-nails'],          // 23. Beauty
+  VIDEOS['paris-runway'],              // 24. Fashion
+  VIDEOS['industrial-automation'],     // 25. Commercials
 ];

@@ -144,6 +144,51 @@ export const IMAGES: Record<string, ShowcaseImageItem> = {
   // --------------------------------------------------------------------------
   // 2. Jewellery
   // --------------------------------------------------------------------------
+  // Latest added Jewellery assets (shown at upper side of category)
+  'jewelry-gold-titan-raga-marble': createImageItem(
+    'jewelry-gold-titan-raga-marble',
+    'gold-titan-raga-watch-marble-pedestal.jpg',
+    'Gold Titan Raga Watch on Marble',
+    'Jewellery'
+  ),
+  'jewelry-gold-titan-crystal-bracelet': createImageItem(
+    'jewelry-gold-titan-crystal-bracelet',
+    'gold-titan-watch-crystal-bracelet.jpg',
+    'Gold Titan Watch & Crystal Bracelet',
+    'Jewellery'
+  ),
+  'jewelry-luxury-gold-titan-raga': createImageItem(
+    'jewelry-luxury-gold-titan-raga',
+    'luxury-gold-titan-raga-watch.jpg',
+    'Luxury Gold Titan Raga Watch',
+    'Jewellery'
+  ),
+  'jewelry-ornate-ganesha-ring': createImageItem(
+    'jewelry-ornate-ganesha-ring',
+    'ornate-ganesha-gold-ring-warm-light.jpg',
+    'Ornate Ganesha Gold Ring',
+    'Jewellery'
+  ),
+  'jewelry-ornate-tilak-ring': createImageItem(
+    'jewelry-ornate-tilak-ring',
+    'ornate-gold-tilak-ring-burgundy-velvet.jpg',
+    'Ornate Gold Tilak Ring',
+    'Jewellery'
+  ),
+  'jewelry-royal-blue-trident-ring': createImageItem(
+    'jewelry-royal-blue-trident-ring',
+    'royal-blue-trident-gemstone-ring.jpg',
+    'Royal Blue Trident Gemstone Ring',
+    'Jewellery'
+  ),
+  'jewelry-titan-gold-watch-golden-hour': createImageItem(
+    'jewelry-titan-gold-watch-golden-hour',
+    'titan-gold-watch-golden-hour.jpg',
+    'Titan Gold Watch at Golden Hour',
+    'Jewellery'
+  ),
+
+  // Classic Jewellery collection
   'jewelry-antique-collar-display': createImageItem(
     'jewelry-antique-collar-display',
     'antique-gold-collar-necklace-earrings-wooden-display.jpg',
