@@ -1,17 +1,5 @@
 import mindtrixLogo from '@/assets/Mindtrix-Media-Logo.jpeg';
-
-// ponytail: import all videos directly from src/assets/videos subfolders - no alternative media fallback
-const assetVideos = import.meta.glob<string>('../assets/videos/**/*.mp4', {
-  eager: true,
-  import: 'default',
-});
-
-const getAssetVideo = (fileName: string): string => {
-  const match = Object.entries(assetVideos).find(([path]) =>
-    path.endsWith(`/${fileName}`)
-  );
-  return match ? match[1] : '';
-};
+import { getCloudinaryVideoUrl, getCloudinaryVideoThumbnail } from '@/utils/cloudinary';
 
 export type VideoId =
   | 'women-perfume'
@@ -61,21 +49,23 @@ export interface ShowcaseVideoItem {
   avatar: string;
 }
 
-// Helper to construct showcase video items
+// Helper to construct showcase video items strictly from Cloudinary
 const createVideoItem = (
   id: VideoId,
   fileName: string,
   category: ShowcaseVideoItem['category'],
   quote: string
 ): ShowcaseVideoItem => {
-  const src = getAssetVideo(fileName);
+  const videoSrc = getCloudinaryVideoUrl(category, fileName);
+  const poster = getCloudinaryVideoThumbnail(fileName) || '';
+
   return {
     id,
     category,
-    image: '',
-    videoSrc: src,
-    streamSrc: src,
-    highResSrc: src,
+    image: poster,
+    videoSrc,
+    streamSrc: videoSrc,
+    highResSrc: videoSrc,
     quote,
     creator: 'Mindtrix Media',
     avatar: mindtrixLogo,

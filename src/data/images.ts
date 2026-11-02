@@ -1,18 +1,4 @@
-// ponytail: import all images directly from src/assets/images subfolders - no alternative media fallback
-const assetImages = import.meta.glob<string>(
-  '../assets/images/**/*.{jpg,jpeg,png,webp}',
-  {
-    eager: true,
-    import: 'default',
-  }
-);
-
-const getAssetImage = (fileName: string): string => {
-  const match = Object.entries(assetImages).find(([path]) =>
-    path.endsWith(`/${fileName}`)
-  );
-  return match ? match[1] : '';
-};
+import { getCloudinaryImageUrl } from '@/utils/cloudinary';
 
 export const IMAGE_CATEGORIES = [
   'All',
@@ -33,7 +19,7 @@ export interface ShowcaseImageItem {
   src: string;
 }
 
-// Helper to construct showcase image items
+// Helper to construct showcase image items strictly from Cloudinary
 const createImageItem = (
   id: string,
   fileName: string,
@@ -43,7 +29,7 @@ const createImageItem = (
   id,
   title,
   category,
-  src: getAssetImage(fileName),
+  src: getCloudinaryImageUrl(category, fileName),
 });
 
 // ============================================================================

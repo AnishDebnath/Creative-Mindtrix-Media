@@ -27,22 +27,27 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
     {
       id: 'reel-1',
       videoSrc: SHOWCASE_GRID_VIDEOS[0]?.videoSrc, // #1 Fashion Lookbook
+      poster: SHOWCASE_GRID_VIDEOS[0]?.image,
     },
     {
       id: 'reel-11',
       videoSrc: SHOWCASE_GRID_VIDEOS[10]?.videoSrc, // #11 Titan Watch Commercial
+      poster: SHOWCASE_GRID_VIDEOS[10]?.image,
     },
     {
       id: 'reel-4',
       videoSrc: SHOWCASE_GRID_VIDEOS[3]?.videoSrc, // #4 Jewelry Editorial
+      poster: SHOWCASE_GRID_VIDEOS[3]?.image,
     },
     {
       id: 'reel-7',
       videoSrc: SHOWCASE_GRID_VIDEOS[6]?.videoSrc, // #7 Women Perfume
+      poster: SHOWCASE_GRID_VIDEOS[6]?.image,
     },
     {
       id: 'reel-16',
       videoSrc: SHOWCASE_GRID_VIDEOS[15]?.videoSrc, // #16 Ganesha Ring Showcase
+      poster: SHOWCASE_GRID_VIDEOS[15]?.image,
     },
   ];
 
@@ -64,12 +69,12 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
   return (
     <section
       id="reels"
-      className="relative w-full py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-6"
+      className="relative w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden scroll-mt-6"
       style={{
         background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(248, 246, 253, 0.45) 50%, #eae3fb 100%)',
       }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-screen-xl mx-auto">
         <span id="community" className="sr-only" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
@@ -86,21 +91,21 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
             <SectionTag label="AI Reel Stage" className="mb-4 sm:mb-5" />
 
             {/* Headline matching MeetTheWorld right-side font size & 3-line cadence */}
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-[1.04] mb-4 sm:mb-5">
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.04] mb-4 sm:mb-5">
               AI PRODUCT REELS<br />
               BUILT TO CAPTURE<br />
               AND CONVERT.
             </h2>
 
             {/* Description matching MeetTheWorld right-side font size and proportion */}
-            <p className="text-neutral-700 text-base sm:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
+            <p className="text-neutral-700 text-sm md:text-base lg:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
               Short, high-impact AI product video reels engineered to capture attention, stop the scroll, and turn casual viewers into paying customers.
             </p>
 
             {/* Brand CTA Button matching MeetTheWorld right-side button size & style */}
             <button
               onClick={handleCtaClick}
-              className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
+              className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
             >
               <span>View All Product Reels</span>
               <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
@@ -157,16 +162,18 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                       if (!isActive) setActiveIndex(idx);
                     }}
                     style={{ zIndex }}
-                    className={`absolute w-[240px] sm:w-[280px] md:w-[310px] lg:w-[325px] aspect-[9/16] rounded-[26px] sm:rounded-[34px] md:rounded-[38px] overflow-hidden border border-white/80 bg-neutral-900 transition-all duration-500 ease-out ${transformClass}`}
+                    className={`absolute w-[215px] sm:w-[280px] md:w-[310px] lg:w-[325px] aspect-[9/16] rounded-[26px] sm:rounded-[34px] md:rounded-[38px] overflow-hidden border border-white/80 bg-neutral-900 transition-all duration-500 ease-out ${transformClass}`}
                   >
                     {/* Pure Video - Zero Overlays */}
                     {reel.videoSrc && (
                       <video
                         src={reel.videoSrc}
+                        poster={reel.poster}
                         autoPlay
                         loop
                         muted
                         playsInline
+                        preload="metadata"
                         className="w-full h-full object-cover"
                       />
                     )}

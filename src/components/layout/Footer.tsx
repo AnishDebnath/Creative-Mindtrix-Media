@@ -34,21 +34,21 @@ export const Footer: React.FC<FooterProps> = ({
 
   return (
     <>
-      <footer className="w-full bg-gradient-to-b from-transparent via-[#faf4f8]/30 to-[#f7edf5]/60 pt-14 pb-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+      <footer className="w-full bg-gradient-to-b from-transparent via-[#faf4f8]/30 to-[#f7edf5]/60 pt-12 md:pt-16 pb-8 md:pb-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+        <div className="max-w-screen-xl mx-auto">
 
           {/* Main Footer Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#e8d5df]/70 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-8 xl:gap-10 pb-10 md:pb-12 border-b border-[#e8d5df]/70 items-start">
 
             {/* Column 1: Brand & Identity (lg:col-span-5) */}
             <div className="lg:col-span-5 flex flex-col gap-4">
               <img
                 src={mindtrixLogo}
                 alt="Mindtrix Media"
-                className="h-9 sm:h-10 w-auto object-contain cursor-pointer self-start"
+                className="h-8 sm:h-10 md:h-11 w-auto object-contain cursor-pointer self-start"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               />
-              <p className="text-sm text-neutral-600 leading-relaxed max-w-sm">
+              <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-sm md:max-w-md">
                 Mindtrix Media is an AI creative production studio helping brands produce high-converting product advertisements, commercial video reels, and studio-grade visuals at scale.
               </p>
 
@@ -258,7 +258,7 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           {/* Sub-Footer Row */}
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-500 font-medium">
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs md:text-sm text-neutral-500 font-medium text-center sm:text-left">
             <p>
               © {new Date().getFullYear()} <span className="font-semibold text-neutral-800">Mindtrix Media</span>. All rights reserved.
             </p>

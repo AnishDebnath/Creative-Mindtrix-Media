@@ -102,13 +102,13 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[400px] bg-gradient-to-r from-[#dcc6d5]/20 via-[#cfc1ee]/20 to-[#eda970]/15 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* Clean Section Header */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-14">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 mb-12 sm:mb-14">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
 
           {/* Left Column: Big 2-Line Headline in uniform solid color */}
           <div>
             <SectionTag label="Creative Services" className="mb-3.5" />
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.1]">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.1]">
               WHAT WE <br />
               DELIVER
             </h2>
@@ -116,14 +116,14 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
 
           {/* Right Column: Description + Action CTA + Carousel Navigation Controls */}
           <div className="max-w-lg flex flex-col items-start gap-5">
-            <p className="text-neutral-700 text-base sm:text-lg leading-relaxed font-normal">
+            <p className="text-neutral-700 text-sm sm:text-lg leading-relaxed font-normal max-w-prose">
               {SERVICES_SECTION_HEADER.description}
             </p>
 
             <div className="flex flex-wrap items-center justify-between w-full gap-4 pt-3 border-t border-neutral-100">
               <button
                 onClick={onNavigateToReels}
-                className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
+                className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
               >
                 <span>{SERVICES_SECTION_HEADER.ctaText}</span>
                 <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
@@ -184,8 +184,6 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
         >
           {SLIDES.map((service, idx) => {
             const isCenter = idx === currentIndex;
-            // ponytail: only decode videos for visible neighbors to keep 60 FPS
-            const isNearCenter = Math.abs(idx - currentIndex) <= 1;
 
             return (
               <div
@@ -197,7 +195,7 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
                   }
                 }}
                 style={{ width: `${cardWidth}px` }}
-                className={`shrink-0 rounded-[32px] sm:rounded-[44px] ${service.cardGradient} border ${service.borderColor} ${service.shadowClass} p-3 sm:p-4 lg:p-5 overflow-hidden transition-all duration-300 cursor-pointer flex flex-col justify-center min-h-[520px] sm:min-h-[550px] lg:min-h-[560px] h-[520px] sm:h-[550px] lg:h-[560px] ${isCenter
+                className={`shrink-0 rounded-[32px] sm:rounded-[44px] ${service.cardGradient} border ${service.borderColor} ${service.shadowClass} p-3 sm:p-4 lg:p-5 overflow-hidden transition-all duration-300 cursor-pointer flex flex-col justify-center min-h-[580px] sm:min-h-[620px] lg:min-h-[560px] lg:h-[560px] ${isCenter
                   ? 'shadow-xl z-10'
                   : 'shadow-md hover:shadow-lg z-0'
                   }`}
@@ -267,24 +265,16 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
                             onClick={onNavigateToReels}
                             className="relative w-full max-w-[245px] aspect-[9/16] rounded-[22px] overflow-hidden shadow-xl border-[1.5px] border-white/90 bg-black cursor-pointer group"
                           >
-                            {isNearCenter ? (
-                              <video
+                            <video
                                 src={service.videoSrc}
                                 poster={service.posterSrc}
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
-                                preload="auto"
+                                preload="metadata"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                               />
-                            ) : (
-                              <img
-                                src={service.posterSrc}
-                                alt={service.title}
-                                className="w-full h-full object-cover"
-                              />
-                            )}
                           </div>
                         </div>
 

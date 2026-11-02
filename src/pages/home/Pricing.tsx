@@ -30,7 +30,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[550px] bg-gradient-to-r from-[#dcc6d5]/30 via-[#cfc1ee]/25 to-[#eda970]/25 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute -bottom-20 -right-20 w-[450px] h-[450px] bg-gradient-to-l from-[#eda970]/20 to-[#dcc6d5]/20 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
         {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
           className="text-center mb-12 sm:mb-16"
         >
           <SectionTag label="Transparent Pricing" className="mb-4" />
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-normal text-neutral-900 uppercase leading-[1.15] max-w-4xl mx-auto">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.15] max-w-4xl mx-auto">
             AFFORDABLE PLANS FOR<br className="hidden sm:block" /> VIRAL BRAND GROWTH
           </h2>
         </motion.div>

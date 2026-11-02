@@ -41,7 +41,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
       <div className="absolute -bottom-24 -right-20 w-96 h-96 bg-[#eda970]/25 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -top-24 -left-20 w-96 h-96 bg-[#3d2035]/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
           
           {/* LEFT: Two Large Rounded Cards in 3:4 Aspect Ratio with Floating Pill Badges */}
@@ -117,19 +117,19 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
             <SectionTag label="Our Mission" className="mb-4 sm:mb-5" />
 
             {/* Well-proportioned Headline - optimal balanced scale */}
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-[1.04] mb-4 sm:mb-5">
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.04] mb-4 sm:mb-5">
               WE MAKE REAL<br />PEOPLE YOUR BEST<br />MARKETING ASSET.
             </h2>
 
             {/* Well-proportioned Description - comfortable readability */}
-            <p className="text-neutral-700 text-base sm:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
+            <p className="text-neutral-700 text-sm md:text-base lg:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
               UGC grounded in performance data. We find the right creators and craft content that earns attention and converts into revenue.
             </p>
 
             {/* CTA Button matching website sections style */}
             <button
               onClick={handleCtaClick}
-              className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
+              className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
             >
               <span>See How We Do It</span>
               <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />

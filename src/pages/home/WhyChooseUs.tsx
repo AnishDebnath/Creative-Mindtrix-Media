@@ -12,8 +12,9 @@ import {
   Play,
   Share2,
 } from 'lucide-react';
-import howWeWorkVideo from '@/assets/how-we-work.mp4';
-import { IMAGES } from '@/data/images';
+import { getCloudinaryVideo } from '@/utils/cloudinary';
+
+const howWeWorkVideo = getCloudinaryVideo('how-we-work.mp4');
 
 interface WhyChooseUsSectionProps {
   onGetStarted?: () => void;
@@ -317,7 +318,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[550px] bg-gradient-to-r from-[#dcc6d5]/25 via-[#cfc1ee]/25 to-[#eda970]/20 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute -bottom-20 -right-20 w-[450px] h-[450px] bg-gradient-to-l from-[#3d2035]/10 via-[#dcc6d5]/20 to-[#eda970]/15 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -327,7 +328,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
           className="text-center mb-12 sm:mb-16 flex flex-col items-center"
         >
           <SectionTag label="Why Choose Us" className="mb-4" />
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.15]">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.15]">
             WHY THE FASTEST GROWING <br />
             BRANDS CHOOSE US.
           </h2>
@@ -444,12 +445,11 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="relative w-full h-full aspect-[9/16] rounded-[28px] sm:rounded-[32px] overflow-hidden flex flex-col justify-end p-6 sm:p-7 shadow-[0_20px_60px_-15px_rgba(61,32,53,0.35)] border border-[#ebdce7]/60 mx-auto lg:mx-0 select-none bg-black"
+              className="relative w-full max-w-sm sm:max-w-md lg:max-w-none aspect-[9/16] min-h-[460px] sm:min-h-[520px] lg:min-h-0 rounded-[28px] sm:rounded-[32px] overflow-hidden flex flex-col justify-end p-6 sm:p-7 shadow-[0_20px_60px_-15px_rgba(61,32,53,0.35)] border border-[#ebdce7]/60 mx-auto lg:mx-0 select-none bg-black"
             >
               {/* Clean 9:16 Video with Zero Hover Effect */}
               <video
                 src={howWeWorkVideo}
-                poster={IMAGES['studio-midnight-muse'].src}
                 autoPlay
                 loop
                 muted

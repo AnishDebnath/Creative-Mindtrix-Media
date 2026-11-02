@@ -44,7 +44,7 @@ const BrandLogoRender: React.FC<{ brand: BrandItem }> = ({ brand }) => {
     <img
       src={brand.logoUrl}
       alt={brand.name}
-      className="h-7 sm:h-8 md:h-10 w-auto max-w-[130px] sm:max-w-[155px] md:max-w-[175px] object-contain opacity-85 hover:opacity-100 transition-opacity duration-200 select-none pointer-events-none"
+      className="h-6 sm:h-8 md:h-10 w-auto max-w-[115px] sm:max-w-[155px] md:max-w-[175px] object-contain opacity-85 hover:opacity-100 transition-opacity duration-200 select-none pointer-events-none"
       loading="lazy"
     />
   );
@@ -56,11 +56,11 @@ export const BrandsSection: React.FC<{ className?: string }> = ({ className = ''
 
   return (
     <div className={`relative w-full bg-transparent overflow-hidden ${className}`}>
-      {/* Centered Constrained Width (not full width) */}
-      <div className="max-w-4xl sm:max-w-5xl mx-auto px-4 sm:px-6">
+      {/* Centered Constrained Width */}
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
         {/* Heading */}
-        <div className="text-center mb-7 sm:mb-9">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tight text-neutral-900">
+        <div className="text-center mb-6 sm:mb-9">
+          <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight text-neutral-900">
             Trusted by{' '}
             <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
               120+
@@ -77,7 +77,7 @@ export const BrandsSection: React.FC<{ className?: string }> = ({ className = ''
             WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
           }}
         >
-          <div className="animate-marquee flex gap-10 sm:gap-14 md:gap-16 items-center shrink-0">
+          <div className="animate-marquee flex gap-8 sm:gap-14 md:gap-16 items-center shrink-0">
             {displayBrands.map((brand, idx) => (
               <div
                 key={`${brand.id}-${idx}`}

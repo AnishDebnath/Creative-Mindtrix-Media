@@ -86,7 +86,7 @@ export const AudienceResultsSection: React.FC = () => {
       </div>
 
       {/* Main Orbital Content Container */}
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="relative max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
         <div className="relative min-h-[340px] sm:min-h-[400px] md:min-h-[460px] flex items-center justify-center">
 
           {/* 1. TOP CENTER: 100k+ Followers with 3 Overlapping Avatars */}
@@ -133,7 +133,7 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="absolute top-6 sm:top-10 md:top-12 left-2 sm:left-6 md:left-12 lg:left-16 z-20"
+            className="absolute top-4 sm:top-10 md:top-12 left-1 sm:left-6 md:left-12 lg:left-16 z-20"
           >
             <motion.div
               animate={{ y: [0, -8, 0] }}
@@ -154,7 +154,7 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute top-6 sm:top-10 md:top-12 right-2 sm:right-6 md:right-12 lg:right-16 z-20"
+            className="absolute top-4 sm:top-10 md:top-12 right-1 sm:right-6 md:right-12 lg:right-16 z-20"
           >
             <motion.div
               animate={{ y: [0, -7, 0] }}
@@ -177,7 +177,7 @@ export const AudienceResultsSection: React.FC = () => {
             transition={{ duration: 0.65, ease: 'easeOut' }}
             className="relative z-10 text-center px-4 max-w-5xl mx-auto py-16 sm:py-20 md:py-24"
           >
-            <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight text-neutral-900 leading-[1.16]">
+            <h2 className="font-sans text-2xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight text-neutral-900 leading-tight md:leading-[1.16]">
               And We Focus On{' '}
               <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
                 Results
@@ -194,7 +194,7 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="absolute -bottom-3 sm:bottom-1 md:bottom-4 left-[12%] sm:left-[18%] md:left-[22%] lg:left-[26%] z-20"
+            className="absolute -bottom-3 sm:bottom-1 md:bottom-4 left-[6%] sm:left-[18%] md:left-[22%] lg:left-[26%] z-20"
           >
             <motion.div
               animate={{ y: [0, -8, 0] }}
@@ -215,7 +215,7 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="absolute -bottom-3 sm:bottom-1 md:bottom-4 right-[12%] sm:right-[18%] md:right-[22%] lg:right-[26%] z-20"
+            className="absolute -bottom-3 sm:bottom-1 md:bottom-4 right-[6%] sm:right-[18%] md:right-[22%] lg:right-[26%] z-20"
           >
             <motion.div
               animate={{ y: [0, -7, 0] }}

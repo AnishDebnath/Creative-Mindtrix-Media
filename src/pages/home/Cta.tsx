@@ -46,7 +46,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between w-full pb-6"
+        className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 w-full pb-6 text-center md:text-left"
       >
         {/* Left: Domain Indicator */}
         <button
@@ -84,7 +84,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
       </div>
 
       {/* 2. Main Center CTA Banner */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
           {/* Massive 2-Line Stacked Headline */}
           <motion.h2
@@ -92,7 +92,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.55, ease: 'easeOut' }}
-            className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[88px] font-black tracking-normal text-neutral-900 uppercase leading-[1.3] mb-12 sm:mb-16"
+            className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[88px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.2] md:leading-[1.3] mb-8 sm:mb-12 md:mb-16"
           >
             SCALE YOUR BRAND<br />WITH AI CREATIVES.
           </motion.h2>
@@ -150,7 +150,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
                   />
                   <button
                     type="submit"
-                    className="px-6 sm:px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 cursor-pointer shrink-0"
+                    className="w-full sm:w-auto px-6 sm:px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 cursor-pointer shrink-0"
                   >
                     {isSuccess ? (
                       <span className="flex items-center gap-1.5 text-emerald-200">

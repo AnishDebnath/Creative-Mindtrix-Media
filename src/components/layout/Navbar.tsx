@@ -33,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header className="w-full pt-6 pb-4 px-4 sm:px-8 max-w-6xl mx-auto flex items-center justify-between text-neutral-900 text-sm">
+    <header className="w-full pt-4 md:pt-6 pb-3 md:pb-4 px-4 sm:px-8 md:px-8 lg:px-12 xl:px-20 max-w-screen-xl mx-auto flex items-center justify-between text-neutral-900 text-sm">
       {/* Left: Navigation Pills matching website theme (frosted glass capsule with animated pill) */}
       <nav className="inline-flex items-center p-1 bg-white/70 backdrop-blur-md rounded-full border border-[#e8d5df] shadow-[0_2px_12px_-3px_rgba(220,198,213,0.35)]">
         {navItems.map((item) => {
@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id, item.anchor)}
-              className={`relative px-4 sm:px-5 py-1.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition-colors duration-200 cursor-pointer select-none whitespace-nowrap ${
+              className={`relative px-3.5 sm:px-5 md:px-6 py-1.5 md:py-2 rounded-full text-xs sm:text-[13px] md:text-sm font-semibold tracking-wide transition-colors duration-200 cursor-pointer select-none whitespace-nowrap ${
                 isActive
                   ? 'text-white font-bold'
                   : 'text-neutral-600 hover:text-neutral-900'
@@ -65,13 +65,13 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Right: Mindtrix Media Logo (Click to go Home) */}
       <button
         onClick={() => handleNavClick('home')}
-        className="cursor-pointer transition-transform hover:scale-105"
+        className="cursor-pointer transition-transform hover:scale-105 shrink-0"
         title="Mindtrix Media"
       >
         <img
           src={mindtrixLogo}
           alt="Mindtrix Media"
-          className="h-10 sm:h-12 w-auto object-contain shrink-0"
+          className="h-8 sm:h-10 md:h-12 w-auto object-contain shrink-0"
         />
       </button>
     </header>

@@ -50,7 +50,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
   return (
     <section
       id="faq"
-      className="relative w-full py-14 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative w-full py-14 sm:py-16 md:py-20 px-4 md:px-8 lg:px-12 xl:px-20 overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #ffffff 0%, #faede5 45%, #f7edf5 100%)',
       }}
@@ -59,7 +59,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
       <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[500px] bg-gradient-to-r from-[#dcc6d5]/35 via-[#cfc1ee]/25 to-[#eda970]/30 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gradient-to-l from-[#3d2035]/12 via-[#dcc6d5]/20 to-[#eda970]/25 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-screen-xl mx-auto">
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-10 xl:gap-14">
           
           {/* Left Column: Heading, Description & CTA Buttons */}
@@ -72,7 +72,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
           >
             <SectionTag label="Common Questions" className="mb-3.5" />
             {/* Main Headline with Website Theme Gradient Accent */}
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-[1.08] text-neutral-900 mb-3.5">
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-tight md:leading-[1.08] text-neutral-900 mb-3.5">
               Got questions?
               <br />
               <span className="bg-gradient-to-r from-[#2f182a] via-[#542947] to-[#ed4f6c] bg-clip-text text-transparent">
@@ -81,7 +81,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
             </h2>
 
             {/* Description Paragraph */}
-            <p className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-6">
+            <p className="text-neutral-600 text-sm md:text-base leading-relaxed mb-6 max-w-prose">
               Common questions about how we work and what to expect. Everything you need to know before getting started with us.
             </p>
 

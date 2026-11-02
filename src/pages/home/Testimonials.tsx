@@ -95,7 +95,7 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section
       id="testimonials"
-      className="relative w-full py-20 sm:py-24 lg:py-28 px-4 sm:px-6 overflow-hidden"
+      className="relative w-full py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #eae3fb 0%, #faede5 50%, #f7edf5 100%)',
       }}
@@ -104,7 +104,7 @@ export const TestimonialsSection: React.FC = () => {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[550px] bg-gradient-to-r from-[#dcc6d5]/35 via-[#cfc1ee]/25 to-[#eda970]/30 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute -bottom-20 -right-20 w-[450px] h-[450px] bg-gradient-to-l from-[#3d2035]/12 via-[#dcc6d5]/20 to-[#eda970]/25 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto text-center">
+      <div className="max-w-screen-xl mx-auto text-center">
         {/* Big Bold Two-Line Headline */}
         <SectionTag label="Client Reviews" className="mb-4" />
         <motion.h2
@@ -112,7 +112,7 @@ export const TestimonialsSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black uppercase text-neutral-900 leading-[1.06] tracking-tight mb-5"
+          className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-black uppercase text-neutral-900 leading-tight md:leading-[1.06] tracking-tight mb-5"
         >
           BRANDS THAT CHOSE
           <br />
@@ -162,7 +162,7 @@ export const TestimonialsSection: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[285px] sm:w-[305px] md:w-[320px] rounded-[48px] bg-black p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[4px] border-[#18181a]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[270px] sm:w-[305px] md:w-[320px] rounded-[48px] bg-black p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[4px] border-[#18181a]"
         >
           {/* Inner Screen Canvas - Exact same height as Hero Section (595px / 630px) */}
           <div className="relative rounded-[42px] overflow-hidden bg-black text-white h-[595px] sm:h-[630px] flex flex-col justify-between shadow-inner select-none">
