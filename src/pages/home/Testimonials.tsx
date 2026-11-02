@@ -105,18 +105,28 @@ export const TestimonialsSection: React.FC = () => {
       <div className="absolute -bottom-20 -right-20 w-[450px] h-[450px] bg-gradient-to-l from-[#3d2035]/12 via-[#dcc6d5]/20 to-[#eda970]/25 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-screen-xl mx-auto text-center">
-        {/* Big Bold Two-Line Headline */}
+        {/* Big Bold Two-Line Headline - Signature Section Header Design */}
         <SectionTag label="Client Reviews" className="mb-4" />
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-black uppercase text-neutral-900 leading-tight md:leading-[1.06] tracking-tight mb-5"
+          className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black uppercase text-neutral-900 leading-tight md:leading-[1.1] tracking-tight mb-5"
         >
-          BRANDS THAT CHOSE
+          <span>BRANDS THAT CHOSE</span>
           <br />
-          REAL OVER PERFECT.
+          <span className="inline-flex items-center justify-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
+            {/* Highlight Pill Container for REAL - Styled in Website Theme */}
+            <span className="inline-block relative">
+              <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
+                  REAL
+                </span>
+              </span>
+            </span>
+            <span>OVER PERFECT.</span>
+          </span>
         </motion.h2>
 
         {/* Social Proof Avatars + Stars + Count in Theme Glass Pill */}

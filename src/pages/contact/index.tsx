@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   Star,
   Send,
-  ArrowRight,
   Check,
   ChevronDown
 } from 'lucide-react';
@@ -20,10 +19,7 @@ interface ContactPageProps {
   onNavigateToReels?: () => void;
 }
 
-export const ContactPage: React.FC<ContactPageProps> = ({
-  onNavigateToImages,
-  onNavigateToReels
-}) => {
+export const ContactPage: React.FC<ContactPageProps> = () => {
   // Form State (matching details from home bottom side form + per project / monthly + multiple services + requirements)
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -139,15 +135,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 </div>
               </div>
 
-              {/* Giant Typography Headline - Website Section Header Style */}
-              <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.1]">
+              {/* Section Headline - Balanced & Maintained Scale */}
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[62px] xl:text-[68px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.08]">
                 <span>LET'S BUILD</span>
                 <br />
                 <span>SOMETHING</span>
                 <br />
                 {/* Highlight Pill Container for GREAT. - Styled in Website Theme */}
-                <span className="inline-block relative mt-2 sm:mt-3">
-                  <span className="relative z-10 px-5 sm:px-7 py-1 sm:py-2 rounded-[22px] sm:rounded-[28px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                <span className="inline-block relative mt-1.5 sm:mt-2">
+                  <span className="relative z-10 px-4.5 sm:px-6 py-0.5 sm:py-1 rounded-[20px] sm:rounded-[26px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
                     <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
                       GREAT.
                     </span>
@@ -156,8 +152,65 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               </h1>
             </div>
 
+              {/* Contact Details (Email, Call, Office) - Refined, Clean & Premium */}
+              <div className="mt-8 sm:mt-10 flex flex-col gap-4.5 sm:gap-5">
+                {/* Email */}
+                <a
+                  href="mailto:mindtrixmediaindia@gmail.com"
+                  className="group inline-flex items-center gap-3.5 sm:gap-4 select-none w-fit"
+                >
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white border border-[#ebdce7] shadow-[0_2px_10px_-2px_rgba(61,32,53,0.08)] flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:border-[#3d2035]/30 group-hover:shadow-[0_4px_14px_-2px_rgba(61,32,53,0.12)] transition-all">
+                    <Mail className="w-5 h-5 text-[#3d2035] group-hover:text-[#ed4f6c] transition-colors" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-neutral-400 font-display leading-tight mb-0.5">
+                      EMAIL US
+                    </span>
+                    <span className="text-base sm:text-[17px] font-bold text-neutral-900 group-hover:text-[#ed4f6c] transition-colors tracking-tight break-all">
+                      mindtrixmediaindia@gmail.com
+                    </span>
+                  </div>
+                </a>
+
+                {/* Call */}
+                <div className="group inline-flex items-center gap-3.5 sm:gap-4 select-none w-fit">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white border border-[#ebdce7] shadow-[0_2px_10px_-2px_rgba(61,32,53,0.08)] flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:border-[#ed4f6c]/30 group-hover:shadow-[0_4px_14px_-2px_rgba(237,79,108,0.12)] transition-all">
+                    <Phone className="w-5 h-5 text-[#ed4f6c] group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-neutral-400 font-display leading-tight mb-0.5">
+                      CALL US
+                    </span>
+                    <div className="flex flex-wrap items-center gap-x-2 text-base sm:text-[17px] font-bold text-neutral-900 tracking-tight">
+                      <a href="tel:+918910092451" className="hover:text-[#ed4f6c] transition-colors">
+                        +91 89100 92451
+                      </a>
+                      <span className="text-neutral-300 font-normal text-sm">/</span>
+                      <a href="tel:+919073604457" className="hover:text-[#ed4f6c] transition-colors">
+                        +91 90736 04457
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Office */}
+                <div className="group inline-flex items-center gap-3.5 sm:gap-4 select-none w-fit">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white border border-[#ebdce7] shadow-[0_2px_10px_-2px_rgba(61,32,53,0.08)] flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:border-[#d97736]/30 group-hover:shadow-[0_4px_14px_-2px_rgba(217,119,54,0.12)] transition-all">
+                    <MapPin className="w-5 h-5 text-[#d97736] group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-neutral-400 font-display leading-tight mb-0.5">
+                      OFFICE
+                    </span>
+                    <span className="text-base sm:text-[17px] font-bold text-neutral-900 tracking-tight">
+                      Kolkata, India
+                    </span>
+                  </div>
+                </div>
+              </div>
+
             {/* Bottom: Trusted by creators and brands with Home-Page Brands Showcase Marquee Design */}
-            <div className="pt-8 sm:pt-10 mt-8 lg:mt-auto border-t border-[#ebdce7]/80 w-full overflow-hidden">
+            <div className="pt-8 sm:pt-10 mt-8 sm:mt-10 border-t border-[#ebdce7]/80 w-full overflow-hidden">
               {/* Heading matching home page brands showcase marquee */}
               <div className="mb-4 sm:mb-6">
                 <h3 className="text-base sm:text-xl md:text-2xl font-extrabold tracking-tight text-neutral-900">
@@ -464,120 +517,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       </section>
 
       {/* -------------------------------------------------------------------------- */}
-      {/* 2. FAQ SECTION SAME AS HOME PAGE                                           */}
+      {/* 2. FAQ SECTION SAME AS HOME PAGE (Final section before Footer)            */}
       {/* -------------------------------------------------------------------------- */}
-      <div className="w-full mb-16 md:mb-24">
+      <div className="w-full">
         <FaqSection
           onBookCall={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           onContactUs={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         />
       </div>
-
-      {/* -------------------------------------------------------------------------- */}
-      {/* 3. QUICK DIRECT CONTACT INFO TILES                                         */}
-      {/* -------------------------------------------------------------------------- */}
-      <section className="w-full max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 mb-16 md:mb-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-
-          {/* Tile 1: Email */}
-          <div className="p-6 sm:p-7 rounded-[26px] sm:rounded-[30px] bg-white border border-[#ebdce7] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-            <div>
-              <div className="w-11 h-11 rounded-2xl bg-[#ffd4e8]/60 text-[#3d2035] flex items-center justify-center mb-4">
-                <Mail className="w-5 h-5" />
-              </div>
-              <h3 className="text-base font-bold text-neutral-900 mb-1">Email Inquiries</h3>
-              <p className="text-xs text-neutral-500 mb-3">Direct response within 2 hours</p>
-              <a
-                href="mailto:mindtrixmediaindia@gmail.com"
-                className="text-sm font-semibold text-[#3d2035] hover:underline break-all"
-              >
-                mindtrixmediaindia@gmail.com
-              </a>
-            </div>
-            <div className="pt-4 mt-4 border-t border-neutral-100">
-              <span className="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Mon – Sat: 9AM – 8PM IST
-              </span>
-            </div>
-          </div>
-
-          {/* Tile 2: Phone & WhatsApp */}
-          <div className="p-6 sm:p-7 rounded-[26px] sm:rounded-[30px] bg-white border border-[#ebdce7] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-            <div>
-              <div className="w-11 h-11 rounded-2xl bg-[#eae3fb] text-[#6566ee] flex items-center justify-center mb-4">
-                <Phone className="w-5 h-5" />
-              </div>
-              <h3 className="text-base font-bold text-neutral-900 mb-1">Direct Call & WhatsApp</h3>
-              <p className="text-xs text-neutral-500 mb-3">Instant consultation & quotes</p>
-              <div className="flex flex-col gap-1 text-sm font-semibold text-[#3d2035]">
-                <a href="tel:+918910092451" className="hover:underline">
-                  +91 89100 92451
-                </a>
-                <a href="tel:+919073604457" className="hover:underline">
-                  +91 90736 04457
-                </a>
-              </div>
-            </div>
-            <div className="pt-4 mt-4 border-t border-neutral-100">
-              <span className="text-[11px] font-bold text-neutral-500">
-                WhatsApp active 24/7 for brand decks
-              </span>
-            </div>
-          </div>
-
-          {/* Tile 3: Studio Location */}
-          <div className="p-6 sm:p-7 rounded-[26px] sm:rounded-[30px] bg-white border border-[#ebdce7] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-            <div>
-              <div className="w-11 h-11 rounded-2xl bg-[#fef5ee] text-[#d97736] flex items-center justify-center mb-4">
-                <MapPin className="w-5 h-5" />
-              </div>
-              <h3 className="text-base font-bold text-neutral-900 mb-1">Creative Production Studio</h3>
-              <p className="text-xs text-neutral-500 mb-3">Physical samples & shoot staging</p>
-              <p className="text-sm font-semibold text-neutral-900 leading-snug">
-                Kolkata, West Bengal, India
-              </p>
-            </div>
-            <div className="pt-4 mt-4 border-t border-neutral-100">
-              <span className="text-[11px] font-bold text-[#d97736]">
-                Serving Global Clients in USA, UK & India
-              </span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------------------- */}
-      {/* 4. BOTTOM REDIRECT BAR                                                     */}
-      {/* -------------------------------------------------------------------------- */}
-      <section className="w-full max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
-        <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#eda970] font-display block mb-1">
-              Want to see our work first?
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-display font-extrabold tracking-tight">
-              Explore 74+ Images & 25+ Video Reels.
-            </h3>
-          </div>
-          <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
-            <button
-              onClick={onNavigateToImages}
-              className="px-5 py-3 rounded-full bg-white hover:bg-neutral-100 text-[#3d2035] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-md active:scale-95 flex items-center gap-1.5"
-            >
-              <span>View Images</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-            <button
-              onClick={onNavigateToReels}
-              className="px-5 py-3 rounded-full bg-white/15 hover:bg-white/25 text-white border border-white/25 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 flex items-center gap-1.5"
-            >
-              <span>Watch Reels</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-      </section>
 
     </div>
   );

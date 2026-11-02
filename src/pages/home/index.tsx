@@ -9,8 +9,6 @@ import { CommunitySection } from './Community';
 import { TestimonialsSection } from './Testimonials';
 import { PricingSection } from './Pricing';
 import { FaqSection } from './Faq';
-import { BottomShowcaseSection } from './BottomShowcase';
-import { CtaSection } from './Cta';
 
 const noop = () => { };
 
@@ -71,25 +69,10 @@ export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToCo
       {/* Pricing Section (Per Project & Monthly Subscription) */}
       <PricingSection onSelectPlan={() => scrollToId('cta')} />
 
-      {/* FAQ Section */}
+      {/* FAQ Section (Final section before Footer) */}
       <FaqSection
-        onBookCall={onNavigateToContact || (() => scrollToId('cta'))}
-        onContactUs={onNavigateToContact || (() => scrollToId('cta'))}
-      />
-
-      {/* Bottom Profile Floating Showcase */}
-      <BottomShowcaseSection
-        onSelectProfile={noop}
-        onSendReaction={noop}
-        onNavigateToImages={onNavigateToImages}
-      />
-
-      {/* CTA Section */}
-      <CtaSection
-        onJoinWaitlist={noop}
-        onSubscribe={noop}
-        onScrollToAbout={() => scrollToId('stand-for')}
-        onNavigateToImages={onNavigateToImages}
+        onBookCall={onNavigateToContact || (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
+        onContactUs={onNavigateToContact || (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
       />
     </div>
   );

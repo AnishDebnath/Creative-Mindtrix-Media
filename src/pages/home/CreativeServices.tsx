@@ -108,9 +108,17 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
           {/* Left Column: Big 2-Line Headline in uniform solid color */}
           <div>
             <SectionTag label="Creative Services" className="mb-3.5" />
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.1]">
-              WHAT WE <br />
-              DELIVER
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.1]">
+              <span>WHAT WE</span>
+              <br />
+              {/* Highlight Pill Container for DELIVER. - Styled in Website Theme */}
+              <span className="inline-block relative mt-1 sm:mt-1.5">
+                <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                  <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
+                    DELIVER.
+                  </span>
+                </span>
+              </span>
             </h2>
           </div>
 

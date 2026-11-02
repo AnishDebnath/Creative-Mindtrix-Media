@@ -59,7 +59,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
       <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[500px] bg-gradient-to-r from-[#dcc6d5]/35 via-[#cfc1ee]/25 to-[#eda970]/30 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gradient-to-l from-[#3d2035]/12 via-[#dcc6d5]/20 to-[#eda970]/25 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-4xl lg:max-w-[920px] mx-auto">
+      <div className="max-w-4xl lg:max-w-[960px] mx-auto">
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-10">
           
           {/* Left Column: Heading, Description & CTA Buttons */}
@@ -68,15 +68,23 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="w-full lg:w-[44%] max-w-[390px] flex flex-col items-start shrink-0"
+            className="w-full lg:w-[46%] max-w-[430px] flex flex-col items-start shrink-0"
           >
             <SectionTag label="Common Questions" className="mb-3.5" />
-            {/* Main Headline with Website Theme Gradient Accent */}
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight leading-tight md:leading-[1.08] text-neutral-900 mb-3.5">
-              Got questions?
+            {/* Main Headline with Signature Section Header Design */}
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal leading-tight md:leading-[1.1] text-neutral-900 mb-3.5 uppercase">
+              <span>GOT QUESTIONS?</span>
               <br />
-              <span className="bg-gradient-to-r from-[#2f182a] via-[#542947] to-[#ed4f6c] bg-clip-text text-transparent">
-                We&apos;ve Got Answers.
+              <span className="inline-flex items-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
+                <span>WE&apos;VE GOT</span>
+                {/* Highlight Pill Container for ANSWERS. - Styled in Website Theme */}
+                <span className="inline-block relative">
+                  <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                    <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
+                      ANSWERS.
+                    </span>
+                  </span>
+                </span>
               </span>
             </h2>
 

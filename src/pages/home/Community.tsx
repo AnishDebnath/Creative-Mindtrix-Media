@@ -91,10 +91,22 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
             <SectionTag label="AI Reel Stage" className="mb-4 sm:mb-5" />
 
             {/* Headline matching MeetTheWorld right-side font size & 3-line cadence */}
-            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.04] mb-4 sm:mb-5">
-              AI PRODUCT REELS<br />
-              BUILT TO CAPTURE<br />
-              AND CONVERT.
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.06] mb-4 sm:mb-5">
+              <span>AI PRODUCT REELS</span>
+              <br />
+              <span>BUILT TO CAPTURE</span>
+              <br />
+              <span className="inline-flex items-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
+                <span>AND</span>
+                {/* Highlight Pill Container for CONVERT. - Styled in Website Theme */}
+                <span className="inline-block relative">
+                  <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                    <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
+                      CONVERT.
+                    </span>
+                  </span>
+                </span>
+              </span>
             </h2>
 
             {/* Description matching MeetTheWorld right-side font size and proportion */}

@@ -40,8 +40,20 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
           className="text-center mb-12 sm:mb-16"
         >
           <SectionTag label="Transparent Pricing" className="mb-4" />
-          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.15] max-w-4xl mx-auto">
-            AFFORDABLE PLANS FOR<br className="hidden sm:block" /> VIRAL BRAND GROWTH
+          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.15] max-w-4xl mx-auto">
+            <span>AFFORDABLE PLANS FOR</span>
+            <br />
+            <span className="inline-flex items-center justify-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
+              <span>VIRAL BRAND</span>
+              {/* Highlight Pill Container for GROWTH - Styled in Website Theme */}
+              <span className="inline-block relative">
+                <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                  <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
+                    GROWTH.
+                  </span>
+                </span>
+              </span>
+            </span>
           </h2>
         </motion.div>
 
