@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { SectionTag } from '@/components/ui/SectionTag';
-import { VIDEOS } from '@/data/videos';
+import { SHOWCASE_GRID_VIDEOS } from '@/data/videos';
 
 interface CommunitySectionProps {
   onOpenVideoChat?: () => void;
@@ -22,32 +22,32 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
     }
   };
 
-  // 9:16 video cards for the carousel (clean with zero overlays)
+  // 9:16 video cards using videos 1, 11, 4, 7, 16 from the videos page (clean with zero overlays)
   const REEL_CARDS = [
     {
-      id: 'reel-facewash',
-      videoSrc: VIDEOS['natural-facewash']?.videoSrc,
+      id: 'reel-1',
+      videoSrc: SHOWCASE_GRID_VIDEOS[0]?.videoSrc, // #1 Fashion Lookbook
     },
     {
-      id: 'reel-runway',
-      videoSrc: VIDEOS['paris-runway']?.videoSrc,
+      id: 'reel-11',
+      videoSrc: SHOWCASE_GRID_VIDEOS[10]?.videoSrc, // #11 Titan Watch Commercial
     },
     {
-      id: 'reel-streetwear',
-      videoSrc: VIDEOS['streetwear-ferreri']?.videoSrc,
+      id: 'reel-4',
+      videoSrc: SHOWCASE_GRID_VIDEOS[3]?.videoSrc, // #4 Jewelry Editorial
     },
     {
-      id: 'reel-perfume',
-      videoSrc: VIDEOS['women-perfume']?.videoSrc,
+      id: 'reel-7',
+      videoSrc: SHOWCASE_GRID_VIDEOS[6]?.videoSrc, // #7 Women Perfume
     },
     {
-      id: 'reel-lipstick',
-      videoSrc: VIDEOS['lipstick-spotlight']?.videoSrc,
+      id: 'reel-16',
+      videoSrc: SHOWCASE_GRID_VIDEOS[15]?.videoSrc, // #16 Ganesha Ring Showcase
     },
   ];
 
-  // Default active center card (index 1)
-  const [activeIndex, setActiveIndex] = useState(1);
+  // Default active center card (index 0: Video #1)
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   // Automatically cycle to show other cards
