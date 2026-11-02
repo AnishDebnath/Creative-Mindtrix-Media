@@ -5,15 +5,17 @@ import { Footer } from '@/components/layout/Footer';
 import { HomePage } from '@/pages/home';
 import { ImagesPage } from '@/pages/images';
 import { ReelsPage } from '@/pages/videos';
+import { ContactPage } from '@/pages/contact';
 import { scrollToId } from '@/utils/scroll';
 
-const noop = () => {};
+const noop = () => { };
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'images' | 'reels'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'images' | 'reels' | 'contact'>('home');
 
-  const navigateTo = (page: 'home' | 'images' | 'reels') => {
+  const navigateTo = (page: 'home' | 'images' | 'reels' | 'contact') => {
     setCurrentPage(page);
+    window.location.hash = page === 'home' ? '' : page;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -21,7 +23,9 @@ export default function App() {
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase();
-      if (hash.includes('images')) {
+      if (hash.includes('contact')) {
+        setCurrentPage('contact');
+      } else if (hash.includes('images')) {
         setCurrentPage('images');
       } else if (hash.includes('reels') || hash.includes('videos')) {
         setCurrentPage('reels');
@@ -59,6 +63,7 @@ export default function App() {
               <HomePage
                 onNavigateToImages={() => navigateTo('images')}
                 onNavigateToReels={() => navigateTo('reels')}
+                onNavigateToContact={() => navigateTo('contact')}
               />
             </motion.div>
           )}
@@ -92,6 +97,21 @@ export default function App() {
               />
             </motion.div>
           )}
+
+          {currentPage === 'contact' && (
+            <motion.div
+              key="contact"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28, ease: 'easeInOut' }}
+            >
+              <ContactPage
+                onNavigateToImages={() => navigateTo('images')}
+                onNavigateToReels={() => navigateTo('reels')}
+              />
+            </motion.div>
+          )}
         </AnimatePresence>
       </main>
 
@@ -101,6 +121,7 @@ export default function App() {
         onOpenLegal={noop}
         onNavigateToImages={() => navigateTo('images')}
         onNavigateToReels={() => navigateTo('reels')}
+        onNavigateToContact={() => navigateTo('contact')}
       />
     </div>
   );

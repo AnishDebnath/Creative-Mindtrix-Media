@@ -17,9 +17,10 @@ const noop = () => { };
 interface HomePageProps {
   onNavigateToImages: () => void;
   onNavigateToReels: () => void;
+  onNavigateToContact?: () => void;
 }
 
-export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProps) {
+export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToContact }: HomePageProps) {
   return (
     <div className="w-full">
       {/* Hero Section (including top Marquee, Centerpiece, and Brands Showcase) */}
@@ -72,8 +73,8 @@ export function HomePage({ onNavigateToImages, onNavigateToReels }: HomePageProp
 
       {/* FAQ Section */}
       <FaqSection
-        onBookCall={() => scrollToId('cta')}
-        onContactUs={() => scrollToId('cta')}
+        onBookCall={onNavigateToContact || (() => scrollToId('cta'))}
+        onContactUs={onNavigateToContact || (() => scrollToId('cta'))}
       />
 
       {/* Bottom Profile Floating Showcase */}

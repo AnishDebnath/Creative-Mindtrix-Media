@@ -1,0 +1,623 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  CheckCircle2,
+  Star,
+  Send,
+  ArrowRight,
+  Check,
+  ChevronDown
+} from 'lucide-react';
+import { IMAGES } from '@/data/images';
+import { BRAND_LOGOS } from '@/pages/home/Brands';
+
+interface ContactPageProps {
+  onNavigateToImages?: () => void;
+  onNavigateToReels?: () => void;
+}
+
+export const ContactPage: React.FC<ContactPageProps> = ({
+  onNavigateToImages,
+  onNavigateToReels
+}) => {
+  // Form State (matching details from home bottom side form + per project / monthly + multiple services + requirements)
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [projectModel, setProjectModel] = useState<'Per Project' | 'Monthly Subscription'>('Per Project');
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [requirements, setRequirements] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close custom multi-select dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Engagement model options instead of platform
+  const PROJECT_MODELS: Array<{ id: 'Per Project' | 'Monthly Subscription'; label: string; desc: string }> = [
+    { id: 'Per Project', label: 'Per Project', desc: 'Single delivery' },
+    { id: 'Monthly Subscription', label: 'Monthly Subscription', desc: 'Continuous reels' }
+  ];
+
+  // Service options tailored to Mindtrix Media website information with full scrollable options
+  const SERVICES = [
+    'AI Product Commercials',
+    'Social Media Video Reels',
+    'Studio & Product Photography',
+    'Brand Ad Campaigns',
+    'Viral TikTok & Shorts Ads',
+    'UGC Performance Video Ads',
+    '3D Product Visuals & Staging',
+    'Other Custom Creatives'
+  ];
+
+  // ponytail: repeat brands for seamless continuous loop marquee on contact page
+  const displayBrands = [...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS];
+
+  const toggleService = (srv: string) => {
+    setSelectedServices((prev) =>
+      prev.includes(srv) ? prev.filter((s) => s !== srv) : [...prev, srv]
+    );
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !phone) return;
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 800);
+  };
+
+  const resetForm = () => {
+    setName('');
+    setPhone('');
+    setEmail('');
+    setProjectModel('Per Project');
+    setSelectedServices([]);
+    setRequirements('');
+    setIsSubmitted(false);
+  };
+
+  // Creator avatars for top-left social proof
+  const avatarList = [
+    IMAGES['fashion-model-studio-pose']?.src,
+    IMAGES['fashion-confident-red-tee']?.src,
+    IMAGES['jewelry-elegant-necklace-portrait']?.src,
+    IMAGES['fashion-deep-red-studio']?.src,
+  ].filter(Boolean);
+
+  return (
+    <div className="w-full min-h-screen py-10 md:py-14 lg:py-16">
+      {/* -------------------------------------------------------------------------- */}
+      {/* 1. HERO SPLIT SECTION: EXACT REFERENCE LAYOUT WITH WEBSITE THEME           */}
+      {/* -------------------------------------------------------------------------- */}
+      <section className="w-full max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 mb-16 md:mb-24 lg:mb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-stretch">
+
+          {/* LEFT COLUMN: HERO TEXT & AUTHORITY PROOF (SAME AS PROVIDED IMAGE LAYOUT, NO SUB-HEADING) */}
+          <div className="lg:col-span-6 flex flex-col justify-between py-2 sm:py-4">
+
+            <div>
+              {/* Top Creator Proof Badge */}
+              <div className="flex items-center gap-3 mb-6 sm:mb-8 select-none">
+                <div className="flex items-center -space-x-2.5">
+                  {avatarList.map((src, i) => (
+                    <img
+                      key={i}
+                      src={src}
+                      alt="Creator"
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover shadow-xs"
+                    />
+                  ))}
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1 text-[#f59e0b]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#f59e0b] text-[#f59e0b]" />
+                    ))}
+                  </div>
+                  <span className="text-xs sm:text-[13px] font-semibold text-neutral-700 tracking-tight mt-0.5">
+                    Grown over 120+ creators
+                  </span>
+                </div>
+              </div>
+
+              {/* Giant Typography Headline - Website Section Header Style */}
+              <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.1]">
+                <span>LET'S BUILD</span>
+                <br />
+                <span>SOMETHING</span>
+                <br />
+                {/* Highlight Pill Container for GREAT. - Styled in Website Theme */}
+                <span className="inline-block relative mt-2 sm:mt-3">
+                  <span className="relative z-10 px-5 sm:px-7 py-1 sm:py-2 rounded-[22px] sm:rounded-[28px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                    <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
+                      GREAT.
+                    </span>
+                  </span>
+                </span>
+              </h1>
+            </div>
+
+            {/* Bottom: Trusted by creators and brands with Home-Page Brands Showcase Marquee Design */}
+            <div className="pt-8 sm:pt-10 mt-8 lg:mt-auto border-t border-[#ebdce7]/80 w-full overflow-hidden">
+              {/* Heading matching home page brands showcase marquee */}
+              <div className="mb-4 sm:mb-6">
+                <h3 className="text-base sm:text-xl md:text-2xl font-extrabold tracking-tight text-neutral-900">
+                  Trusted by{' '}
+                  <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
+                    120+
+                  </span>{' '}
+                  creators and brands
+                </h3>
+              </div>
+
+              {/* Transparent Logo Track with Both Sides Fade Effect exactly same as home page */}
+              <div
+                className="relative w-full overflow-hidden flex items-center py-2 sm:py-2.5"
+                style={{
+                  maskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
+                }}
+              >
+                <div className="animate-marquee flex gap-8 sm:gap-14 md:gap-16 items-center shrink-0">
+                  {displayBrands.map((brand, idx) => (
+                    <div
+                      key={`${brand.id}-${idx}`}
+                      className="shrink-0 flex items-center justify-center cursor-pointer select-none"
+                      title={brand.name}
+                    >
+                      <img
+                        src={brand.logoUrl}
+                        alt={brand.name}
+                        className="h-6 sm:h-8 md:h-10 w-auto max-w-[115px] sm:max-w-[155px] md:max-w-[175px] object-contain opacity-85 hover:opacity-100 transition-opacity duration-200 select-none pointer-events-none"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* RIGHT COLUMN: CARD-BEHIND-CARD ARCHITECTURE */}
+          <div className="lg:col-span-6 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="w-full rounded-[36px] sm:rounded-[44px] overflow-hidden bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] shadow-[0_25px_70px_-15px_rgba(61,32,53,0.22)] border border-[#ebdce7]"
+            >
+              {/* Behind Card Header (Reduced and maintained sleek height) */}
+              <div className="px-6 sm:px-7 pt-4 sm:pt-4.5 pb-3.5 sm:pb-4 text-white select-none">
+                <h2 className="text-xl sm:text-2xl font-display font-black tracking-tight text-white leading-tight">
+                  Share your details with us.
+                </h2>
+              </div>
+
+              {/* Front White Form Card (Overlays on top with its own rounded-t border radius) */}
+              <div className="w-full rounded-t-[28px] sm:rounded-t-[34px] bg-white p-5 sm:p-7 shadow-sm relative z-10">
+                <AnimatePresence mode="wait">
+                  {isSubmitted ? (
+                    <motion.div
+                      key="success"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="py-12 px-4 flex flex-col items-center justify-center text-center"
+                    >
+                      <div className="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center text-emerald-600 mb-4 shadow-sm">
+                        <CheckCircle2 className="w-9 h-9" />
+                      </div>
+                      <h3 className="text-2xl font-display font-black text-neutral-900 tracking-tight mb-2">
+                        Message Sent Successfully!
+                      </h3>
+                      <p className="text-neutral-600 text-sm max-w-sm mb-6 leading-relaxed">
+                        Thank you, <strong className="text-neutral-900">{name}</strong>. We've received your project requirements for <span className="font-semibold text-[#3d2035]">{projectModel}</span> and our production lead will reach out to <strong className="text-neutral-900">{email}</strong> shortly.
+                      </p>
+                      <button
+                        onClick={resetForm}
+                        className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                      >
+                        Send Another Inquiry
+                      </button>
+                    </motion.div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-5">
+
+                      {/* 1. Your Name / Brand (matching home bottom form) */}
+                      <div>
+                        <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-1.5">
+                          Your Name / Brand<span className="text-rose-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="e.g. John Doe / MyBrand"
+                          className="w-full px-4 py-3 sm:py-3.5 rounded-xl bg-neutral-100/80 border border-neutral-200/80 text-sm text-neutral-900 placeholder-neutral-400 focus:bg-white focus:border-[#3d2035] focus:ring-2 focus:ring-[#3d2035]/10 outline-none transition-all font-medium"
+                        />
+                      </div>
+
+                      {/* 2. Phone / WhatsApp (matching home bottom form) */}
+                      <div>
+                        <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-1.5">
+                          Phone / WhatsApp<span className="text-rose-500">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="+91 98765 43210 or with country code"
+                          className="w-full px-4 py-3 sm:py-3.5 rounded-xl bg-neutral-100/80 border border-neutral-200/80 text-sm text-neutral-900 placeholder-neutral-400 focus:bg-white focus:border-[#3d2035] focus:ring-2 focus:ring-[#3d2035]/10 outline-none transition-all font-medium"
+                        />
+                      </div>
+
+                      {/* 3. Business Email (matching home bottom form) */}
+                      <div>
+                        <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-1.5">
+                          Business Email<span className="text-rose-500">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="hello@yourbrand.com"
+                          className="w-full px-4 py-3 sm:py-3.5 rounded-xl bg-neutral-100/80 border border-neutral-200/80 text-sm text-neutral-900 placeholder-neutral-400 focus:bg-white focus:border-[#3d2035] focus:ring-2 focus:ring-[#3d2035]/10 outline-none transition-all font-medium"
+                        />
+                      </div>
+
+                      {/* 4. Plan / Engagement Type: Per Project or Monthly (instead of platforms) */}
+                      <div>
+                        <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-2">
+                          Engagement Type
+                        </label>
+                        <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                          {PROJECT_MODELS.map((model) => {
+                            const isSelected = projectModel === model.id;
+                            return (
+                              <button
+                                key={model.id}
+                                type="button"
+                                onClick={() => setProjectModel(model.id)}
+                                className={`px-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer flex items-center justify-center gap-2 select-none border ${
+                                  isSelected
+                                    ? 'bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white shadow-sm border-[#3d2035]'
+                                    : 'bg-neutral-100/90 hover:bg-neutral-200/70 text-neutral-700 border-neutral-200/80'
+                                }`}
+                              >
+                                <span
+                                  className={`w-4 h-4 rounded-full border flex items-center justify-center transition-colors shrink-0 ${
+                                    isSelected
+                                      ? 'border-[#eda970] bg-[#eda970] text-[#3d2035]'
+                                      : 'border-neutral-300 bg-white'
+                                  }`}
+                                >
+                                  {isSelected && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                                </span>
+                                <span className="whitespace-nowrap">{model.label}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* 5. Services Needed (Custom Multi-Select Dropdown based on Website Theme) */}
+                      <div>
+                        <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-1.5">
+                          Services Needed <span className="text-neutral-400 font-normal">(select multiple)</span>
+                        </label>
+                        <div ref={dropdownRef} className="relative">
+                          {/* Trigger Button */}
+                          <button
+                            type="button"
+                            onClick={() => setIsDropdownOpen((prev) => !prev)}
+                            className={`w-full px-4 py-3 sm:py-3.5 rounded-xl bg-neutral-100/80 border text-sm text-neutral-900 transition-all font-medium cursor-pointer flex items-center justify-between text-left select-none ${
+                              isDropdownOpen
+                                ? 'bg-white border-[#3d2035] ring-2 ring-[#3d2035]/10 shadow-xs'
+                                : 'border-neutral-200/80 hover:bg-neutral-100/90'
+                            }`}
+                          >
+                            <div className="flex-1 flex items-center gap-1.5 pr-2 min-w-0 overflow-hidden flex-wrap">
+                              {selectedServices.length === 0 ? (
+                                <span className="text-neutral-400 font-normal">Choose services needed...</span>
+                              ) : (
+                                selectedServices.map((srv) => (
+                                  <span
+                                    key={srv}
+                                    className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-[#3d2035] text-white text-xs font-semibold shadow-xs"
+                                  >
+                                    <span>{srv}</span>
+                                    <span
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        toggleService(srv);
+                                      }}
+                                      className="hover:text-[#eda970] transition-colors cursor-pointer text-xs font-bold leading-none ml-0.5"
+                                      title="Remove"
+                                    >
+                                      ×
+                                    </span>
+                                  </span>
+                                ))
+                              )}
+                            </div>
+
+                            <ChevronDown
+                              className={`w-4 h-4 text-neutral-500 shrink-0 transition-transform duration-200 ${
+                                isDropdownOpen ? 'rotate-180 text-[#3d2035]' : ''
+                              }`}
+                            />
+                          </button>
+
+                          {/* Custom Dropdown Popover */}
+                          <AnimatePresence>
+                            {isDropdownOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, y: -6, scale: 0.98 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: -6, scale: 0.98 }}
+                                transition={{ duration: 0.16, ease: 'easeOut' }}
+                                className="absolute left-0 right-0 top-full mt-2 z-50 rounded-2xl bg-white border border-[#ebdce7] shadow-[0_20px_50px_-10px_rgba(61,32,53,0.22)] p-1.5"
+                              >
+                                <div
+                                  className="space-y-0.5 max-h-48 overflow-y-auto pr-1"
+                                  style={{
+                                    scrollbarWidth: 'thin',
+                                    scrollbarColor: '#3d2035 #f5ecf3',
+                                  }}
+                                >
+                                  {SERVICES.map((srv) => {
+                                    const isSelected = selectedServices.includes(srv);
+                                    return (
+                                      <button
+                                        key={srv}
+                                        type="button"
+                                        onClick={() => toggleService(srv)}
+                                        className={`w-full px-3 py-2 rounded-xl text-xs sm:text-[13px] font-semibold transition-all flex items-center justify-between cursor-pointer select-none text-left ${
+                                          isSelected
+                                            ? 'bg-[#3d2035]/5 text-[#3d2035]'
+                                            : 'text-neutral-700 hover:bg-neutral-50'
+                                        }`}
+                                      >
+                                        <span className="flex items-center gap-2.5">
+                                          <span
+                                            className={`w-4 h-4 rounded-md border flex items-center justify-center transition-colors shrink-0 ${
+                                              isSelected
+                                                ? 'border-[#3d2035] bg-[#3d2035] text-white'
+                                                : 'border-neutral-300 bg-white'
+                                            }`}
+                                          >
+                                            {isSelected && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                                          </span>
+                                          <span>{srv}</span>
+                                        </span>
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      </div>
+
+                      {/* 6. Project Requirements / Details */}
+                      <div>
+                        <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-1.5">
+                          Project Requirements / Details <span className="text-neutral-400 font-normal">(optional)</span>
+                        </label>
+                        <textarea
+                          rows={3}
+                          value={requirements}
+                          onChange={(e) => setRequirements(e.target.value)}
+                          placeholder="Tell us about your products, requirements, deliverables timeline..."
+                          className="w-full px-4 py-3 rounded-xl bg-neutral-100/80 border border-neutral-200/80 text-sm text-neutral-900 placeholder-neutral-400 focus:bg-white focus:border-[#3d2035] focus:ring-2 focus:ring-[#3d2035]/10 outline-none transition-all font-medium resize-none"
+                        />
+                      </div>
+
+                      {/* 8. Submit Button in Website Theme */}
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-3.5 sm:py-4 rounded-xl font-display font-bold text-sm tracking-wider uppercase bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white shadow-lg shadow-[#3d2035]/25 hover:shadow-xl transition-all active:scale-[0.99] cursor-pointer flex items-center justify-center gap-2 select-none border border-white/10"
+                      >
+                        {isSubmitting ? (
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        ) : (
+                          <>
+                            <span>Send message</span>
+                            <Send className="w-4 h-4 ml-1 text-[#eda970]" />
+                          </>
+                        )}
+                      </button>
+
+                    </form>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* -------------------------------------------------------------------------- */}
+      {/* 2. QUICK DIRECT CONTACT INFO TILES                                         */}
+      {/* -------------------------------------------------------------------------- */}
+      <section className="w-full max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 mb-16 md:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+
+          {/* Tile 1: Email */}
+          <div className="p-6 sm:p-7 rounded-[26px] sm:rounded-[30px] bg-white border border-[#ebdce7] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <div className="w-11 h-11 rounded-2xl bg-[#ffd4e8]/60 text-[#3d2035] flex items-center justify-center mb-4">
+                <Mail className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-neutral-900 mb-1">Email Inquiries</h3>
+              <p className="text-xs text-neutral-500 mb-3">Direct response within 2 hours</p>
+              <a
+                href="mailto:mindtrixmediaindia@gmail.com"
+                className="text-sm font-semibold text-[#3d2035] hover:underline break-all"
+              >
+                mindtrixmediaindia@gmail.com
+              </a>
+            </div>
+            <div className="pt-4 mt-4 border-t border-neutral-100">
+              <span className="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Mon – Sat: 9AM – 8PM IST
+              </span>
+            </div>
+          </div>
+
+          {/* Tile 2: Phone & WhatsApp */}
+          <div className="p-6 sm:p-7 rounded-[26px] sm:rounded-[30px] bg-white border border-[#ebdce7] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <div className="w-11 h-11 rounded-2xl bg-[#eae3fb] text-[#6566ee] flex items-center justify-center mb-4">
+                <Phone className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-neutral-900 mb-1">Direct Call & WhatsApp</h3>
+              <p className="text-xs text-neutral-500 mb-3">Instant consultation & quotes</p>
+              <div className="flex flex-col gap-1 text-sm font-semibold text-[#3d2035]">
+                <a href="tel:+918910092451" className="hover:underline">
+                  +91 89100 92451
+                </a>
+                <a href="tel:+919073604457" className="hover:underline">
+                  +91 90736 04457
+                </a>
+              </div>
+            </div>
+            <div className="pt-4 mt-4 border-t border-neutral-100">
+              <span className="text-[11px] font-bold text-neutral-500">
+                WhatsApp active 24/7 for brand decks
+              </span>
+            </div>
+          </div>
+
+          {/* Tile 3: Studio Location */}
+          <div className="p-6 sm:p-7 rounded-[26px] sm:rounded-[30px] bg-white border border-[#ebdce7] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <div className="w-11 h-11 rounded-2xl bg-[#fef5ee] text-[#d97736] flex items-center justify-center mb-4">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-neutral-900 mb-1">Creative Production Studio</h3>
+              <p className="text-xs text-neutral-500 mb-3">Physical samples & shoot staging</p>
+              <p className="text-sm font-semibold text-neutral-900 leading-snug">
+                Kolkata, West Bengal, India
+              </p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-neutral-100">
+              <span className="text-[11px] font-bold text-[#d97736]">
+                Serving Global Clients in USA, UK & India
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* -------------------------------------------------------------------------- */}
+      {/* 3. FAQ SECTION: QUICK CONFIDENCE BUILDERS                                  */}
+      {/* -------------------------------------------------------------------------- */}
+      <section className="w-full max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 mb-16 md:mb-20">
+        <div className="max-w-2xl mx-auto text-center mb-10 sm:mb-12">
+          <span className="px-3.5 py-1 rounded-full bg-[#3d2035]/10 text-[#3d2035] text-xs font-bold uppercase tracking-wider font-display mb-2.5 inline-block">
+            Frequently Asked
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-display font-black text-neutral-950 tracking-tight">
+            Everything you need to know.
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
+          {[
+            {
+              q: 'How fast do you deliver completed video reels?',
+              a: 'Standard video reels and ad campaign assets are delivered within 48 to 72 hours following project scope confirmation.'
+            },
+            {
+              q: 'Do we need to ship physical product samples?',
+              a: 'For digital AI commercials and photo enhancements, high-res photos are often sufficient. For physical studio shoots, products can be dispatched directly to our Kolkata studio.'
+            },
+            {
+              q: 'Can you post directly to our social channels?',
+              a: 'Yes! We offer full turnkey delivery including platform-specific scheduling, hashtags, and format optimization across Instagram, YouTube, TikTok, and Meta.'
+            },
+            {
+              q: 'What is included in the creative deliverables?',
+              a: 'You receive full raw 4K visual assets, 9:16 vertical reels optimized for social algorithms, platform copy recommendations, and complete commercial usage rights.'
+            }
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="p-5 sm:p-6 rounded-2xl bg-white/90 border border-[#ebdce7] shadow-xs hover:border-[#3d2035]/30 transition-all"
+            >
+              <h4 className="text-sm font-bold text-neutral-900 mb-2 flex items-start gap-2">
+                <span className="w-5 h-5 rounded-full bg-[#3d2035] text-white text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                  Q
+                </span>
+                <span>{item.q}</span>
+              </h4>
+              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pl-7">
+                {item.a}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* -------------------------------------------------------------------------- */}
+      {/* 4. BOTTOM REDIRECT BAR                                                     */}
+      {/* -------------------------------------------------------------------------- */}
+      <section className="w-full max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
+        <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#eda970] font-display block mb-1">
+              Want to see our work first?
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-display font-extrabold tracking-tight">
+              Explore 74+ Images & 25+ Video Reels.
+            </h3>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
+            <button
+              onClick={onNavigateToImages}
+              className="px-5 py-3 rounded-full bg-white hover:bg-neutral-100 text-[#3d2035] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-md active:scale-95 flex items-center gap-1.5"
+            >
+              <span>View Images</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+            <button
+              onClick={onNavigateToReels}
+              className="px-5 py-3 rounded-full bg-white/15 hover:bg-white/25 text-white border border-white/25 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:scale-95 flex items-center gap-1.5"
+            >
+              <span>Watch Reels</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+};

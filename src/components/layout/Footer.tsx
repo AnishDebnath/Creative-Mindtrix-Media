@@ -13,11 +13,13 @@ interface FooterProps {
   onOpenLegal?: (title: string) => void;
   onNavigateToImages?: () => void;
   onNavigateToReels?: () => void;
+  onNavigateToContact?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onNavigateToImages,
-  onNavigateToReels
+  onNavigateToReels,
+  onNavigateToContact
 }) => {
   const [activeLegal, setActiveLegal] = useState<'privacy' | 'terms' | null>(null);
 
@@ -163,6 +165,14 @@ export const Footer: React.FC<FooterProps> = ({
                     className="hover:text-black hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>Video Reels</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={onNavigateToContact}
+                    className="hover:text-black hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>Contact Us</span>
                   </button>
                 </li>
                 <li>

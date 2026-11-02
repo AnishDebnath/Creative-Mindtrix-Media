@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import mindtrixLogo from '@/assets/logo.png';
 
 interface NavbarProps {
-  currentPage?: 'home' | 'images' | 'reels';
-  onNavigate?: (page: 'home' | 'images' | 'reels') => void;
+  currentPage?: 'home' | 'images' | 'reels' | 'contact';
+  onNavigate?: (page: 'home' | 'images' | 'reels' | 'contact') => void;
   onOpenLogin?: () => void;
   onOpenVideoChat?: () => void;
   onScrollTo?: (id: string) => void;
@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onNavigate,
   onScrollTo
 }) => {
-  const handleNavClick = (page: 'home' | 'images' | 'reels', anchorId?: string) => {
+  const handleNavClick = (page: 'home' | 'images' | 'reels' | 'contact', anchorId?: string) => {
     if (onNavigate) {
       onNavigate(page);
     }
@@ -26,10 +26,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     }
   };
 
-  const navItems: Array<{ id: 'home' | 'images' | 'reels'; label: string; anchor?: string }> = [
+  const navItems: Array<{ id: 'home' | 'images' | 'reels' | 'contact'; label: string; anchor?: string }> = [
     { id: 'home', label: 'Home', anchor: 'hero' },
     { id: 'images', label: 'Images' },
     { id: 'reels', label: 'Reels' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   return (
