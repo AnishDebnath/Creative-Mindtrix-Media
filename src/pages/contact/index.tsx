@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { IMAGES } from '@/data/images';
 import { BRAND_LOGOS } from '@/pages/home/Brands';
+import { FaqSection } from '@/pages/home/Faq';
 
 interface ContactPageProps {
   onNavigateToImages?: () => void;
@@ -205,9 +206,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               transition={{ duration: 0.5, delay: 0.15 }}
               className="w-full rounded-[36px] sm:rounded-[44px] overflow-hidden bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] shadow-[0_25px_70px_-15px_rgba(61,32,53,0.22)] border border-[#ebdce7]"
             >
-              {/* Behind Card Header (Reduced and maintained sleek height) */}
-              <div className="px-6 sm:px-7 pt-4 sm:pt-4.5 pb-3.5 sm:pb-4 text-white select-none">
-                <h2 className="text-xl sm:text-2xl font-display font-black tracking-tight text-white leading-tight">
+              {/* Behind Card Header matching reference image layout & clean font */}
+              <div className="px-6 sm:px-7 pt-4.5 sm:pt-5 pb-4 sm:pb-4.5 text-white select-none">
+                <h2 className="text-xl sm:text-[22px] font-bold tracking-tight text-white leading-tight">
                   Share your details with us.
                 </h2>
               </div>
@@ -463,7 +464,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       </section>
 
       {/* -------------------------------------------------------------------------- */}
-      {/* 2. QUICK DIRECT CONTACT INFO TILES                                         */}
+      {/* 2. FAQ SECTION SAME AS HOME PAGE                                           */}
+      {/* -------------------------------------------------------------------------- */}
+      <div className="w-full mb-16 md:mb-24">
+        <FaqSection
+          onBookCall={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onContactUs={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        />
+      </div>
+
+      {/* -------------------------------------------------------------------------- */}
+      {/* 3. QUICK DIRECT CONTACT INFO TILES                                         */}
       {/* -------------------------------------------------------------------------- */}
       <section className="w-full max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 mb-16 md:mb-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
@@ -533,56 +544,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------------------- */}
-      {/* 3. FAQ SECTION: QUICK CONFIDENCE BUILDERS                                  */}
-      {/* -------------------------------------------------------------------------- */}
-      <section className="w-full max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 mb-16 md:mb-20">
-        <div className="max-w-2xl mx-auto text-center mb-10 sm:mb-12">
-          <span className="px-3.5 py-1 rounded-full bg-[#3d2035]/10 text-[#3d2035] text-xs font-bold uppercase tracking-wider font-display mb-2.5 inline-block">
-            Frequently Asked
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-display font-black text-neutral-950 tracking-tight">
-            Everything you need to know.
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
-          {[
-            {
-              q: 'How fast do you deliver completed video reels?',
-              a: 'Standard video reels and ad campaign assets are delivered within 48 to 72 hours following project scope confirmation.'
-            },
-            {
-              q: 'Do we need to ship physical product samples?',
-              a: 'For digital AI commercials and photo enhancements, high-res photos are often sufficient. For physical studio shoots, products can be dispatched directly to our Kolkata studio.'
-            },
-            {
-              q: 'Can you post directly to our social channels?',
-              a: 'Yes! We offer full turnkey delivery including platform-specific scheduling, hashtags, and format optimization across Instagram, YouTube, TikTok, and Meta.'
-            },
-            {
-              q: 'What is included in the creative deliverables?',
-              a: 'You receive full raw 4K visual assets, 9:16 vertical reels optimized for social algorithms, platform copy recommendations, and complete commercial usage rights.'
-            }
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="p-5 sm:p-6 rounded-2xl bg-white/90 border border-[#ebdce7] shadow-xs hover:border-[#3d2035]/30 transition-all"
-            >
-              <h4 className="text-sm font-bold text-neutral-900 mb-2 flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#3d2035] text-white text-[10px] flex items-center justify-center shrink-0 mt-0.5">
-                  Q
-                </span>
-                <span>{item.q}</span>
-              </h4>
-              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pl-7">
-                {item.a}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
 

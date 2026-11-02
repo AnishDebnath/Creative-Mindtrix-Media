@@ -59,8 +59,8 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
       <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[500px] bg-gradient-to-r from-[#dcc6d5]/35 via-[#cfc1ee]/25 to-[#eda970]/30 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gradient-to-l from-[#3d2035]/12 via-[#dcc6d5]/20 to-[#eda970]/25 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-screen-xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-10 xl:gap-14">
+      <div className="max-w-4xl lg:max-w-[920px] mx-auto">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-10">
           
           {/* Left Column: Heading, Description & CTA Buttons */}
           <motion.div
@@ -68,11 +68,11 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="w-full lg:w-[46%] max-w-[440px] flex flex-col items-start shrink-0"
+            className="w-full lg:w-[44%] max-w-[390px] flex flex-col items-start shrink-0"
           >
             <SectionTag label="Common Questions" className="mb-3.5" />
             {/* Main Headline with Website Theme Gradient Accent */}
-            <h2 className="font-display text-3xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-tight md:leading-[1.08] text-neutral-900 mb-3.5">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight leading-tight md:leading-[1.08] text-neutral-900 mb-3.5">
               Got questions?
               <br />
               <span className="bg-gradient-to-r from-[#2f182a] via-[#542947] to-[#ed4f6c] bg-clip-text text-transparent">
@@ -105,8 +105,8 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
             </div>
           </motion.div>
 
-          {/* Right Column: Compact Width FAQ Accordion matching screenshot proportions */}
-          <div className="w-full lg:w-[54%] max-w-[490px] flex flex-col gap-3 sm:gap-3.5">
+          {/* Right Column: Adjusted Width FAQ Question Accordion */}
+          <div className="w-full lg:w-[56%] max-w-[475px] flex flex-col gap-3 sm:gap-3.5">
             {FAQ_DATA.map((item, index) => {
               const isOpen = openIndex === index;
 
@@ -118,7 +118,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.05 }}
                   onClick={() => toggleItem(index)}
-                  className={`group rounded-2xl sm:rounded-[22px] p-4.5 sm:p-5 sm:px-6 transition-all duration-300 cursor-pointer ${
+                  className={`group rounded-2xl sm:rounded-[20px] p-4 sm:p-4.5 sm:px-5.5 transition-all duration-300 cursor-pointer ${
                     isOpen
                       ? 'bg-white border-2 border-[#542947]/40 shadow-[0_12px_36px_-8px_rgba(61,32,53,0.14)]'
                       : 'bg-white/95 backdrop-blur-xs border border-[#ebdce7] shadow-[0_4px_16px_rgba(61,32,53,0.04)] hover:shadow-[0_8px_24px_rgba(61,32,53,0.08)] hover:border-[#dcc6d5]'
