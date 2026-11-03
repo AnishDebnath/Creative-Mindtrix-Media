@@ -31,7 +31,7 @@ const ReviewCard: React.FC<{ card: TestimonialCardData }> = ({ card }) => {
         <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-neutral-100 ring-1.5 sm:ring-2 ring-white shadow-xs shrink-0">
           <img
             src={card.avatar}
-            alt={card.author}
+            alt={`${card.author} review testimonial avatar`}
             className="w-full h-full object-cover"
             loading="lazy"
           />
@@ -165,7 +165,7 @@ export const TestimonialsSection: React.FC = () => {
               <img
                 key={i}
                 src={avatar}
-                alt="Client"
+                alt={`Verified client ${i + 1} avatar`}
                 className="inline-block h-8 w-8 sm:h-9 sm:w-9 rounded-full ring-2 ring-white object-cover shadow-xs"
               />
             ))}
@@ -280,7 +280,7 @@ export const TestimonialsSection: React.FC = () => {
                   <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden ring-1.5 ring-white/90 shadow-xs shrink-0 bg-white p-[1px]">
                     <img
                       src={logoImg}
-                      alt="Mindtrix Media"
+                      alt="Mindtrix Media Instagram Story Logo"
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>

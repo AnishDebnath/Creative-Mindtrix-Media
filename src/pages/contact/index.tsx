@@ -128,7 +128,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     <img
                       key={i}
                       src={src}
-                      alt="Creator"
+                      alt={`Mindtrix Media Creator ${i + 1}`}
                       loading="lazy"
                       decoding="async"
                       className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover shadow-xs"
@@ -252,7 +252,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     >
                       <img
                         src={brand.logoUrl}
-                        alt={brand.name}
+                        alt={`${brand.name} partner logo`}
                         className="h-6 sm:h-8 md:h-10 w-auto max-w-[115px] sm:max-w-[155px] md:max-w-[175px] object-contain opacity-85 hover:opacity-100 transition-opacity duration-200 select-none pointer-events-none"
                         loading="lazy"
                         decoding="async"

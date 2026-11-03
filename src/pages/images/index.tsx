@@ -137,7 +137,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
             <SectionTag label="AI Product Imagery" className="mb-4 sm:mb-5" />
 
             {/* Main Headline with Signature Section Header Design - matching other sections across all devices */}
-            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.08] mb-4 sm:mb-5">
+            <h1 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.08] mb-4 sm:mb-5">
               <span>AI PRODUCT</span>
               <br />
               <span className="inline-flex items-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
@@ -151,7 +151,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
                 </span>
                 <span>& ADS</span>
               </span>
-            </h2>
+            </h1>
 
             {/* Subtitle */}
             <p className="text-neutral-700 text-sm md:text-base lg:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">

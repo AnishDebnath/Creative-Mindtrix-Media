@@ -374,7 +374,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       <div className="flex items-center gap-1 sm:gap-2 bg-white/50 backdrop-blur-md px-1.5 xs:px-2 sm:px-3 py-0.5 sm:py-1.5 rounded-full border border-white/60 shadow-sm flex-1 min-w-0">
                         <img
                           src={logoImg}
-                          alt="Mindtrix"
+                          alt="Mindtrix Media Creative Logo"
                           className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 rounded-full object-cover shrink-0 shadow-xs border border-white/60"
                         />
                         <div className="truncate">
@@ -442,7 +442,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="w-5 h-5 xs:w-6 xs:h-6 sm:w-9 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-white/25 shadow-sm">
                   <img
                     src={userAvatar}
-                    alt="User"
+                    alt="Client Case Study Avatar"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -463,7 +463,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="w-5 h-5 xs:w-6 xs:h-6 sm:w-9 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-[#ebdce7] shadow-sm">
                   <img
                     src={userAvatar2}
-                    alt="User"
+                    alt="Verified Creator Avatar"
                     className="w-full h-full object-cover"
                   />
                 </div>

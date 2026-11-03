@@ -8,6 +8,7 @@ import { ImagesPage } from '@/pages/images';
 import { ReelsPage } from '@/pages/videos';
 import { ContactPage } from '@/pages/contact';
 import { scrollToId } from '@/utils/scroll';
+import { updatePageSEO } from '@/utils/seo';
 
 const noop = () => { };
 
@@ -101,6 +102,21 @@ export default function App() {
       window.removeEventListener('hashchange', onPop);
     };
   }, []);
+
+  // Synchronize on-page SEO metadata (title, meta description, canonical, OG tags) with active route
+  useEffect(() => {
+    if (currentPage === 'home') {
+      if (currentPath === '/services') {
+        updatePageSEO('services');
+      } else if (currentPath === '/price' || currentPath === '/pricing') {
+        updatePageSEO('price');
+      } else {
+        updatePageSEO('home');
+      }
+    } else {
+      updatePageSEO(currentPage);
+    }
+  }, [currentPage, currentPath]);
 
   return (
     <div className="min-h-screen bg-landing-gradient relative text-neutral-900 selection:bg-indigo-100 flex flex-col justify-between">

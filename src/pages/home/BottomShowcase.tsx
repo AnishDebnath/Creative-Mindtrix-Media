@@ -59,7 +59,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
           const handleFirstGesture = () => {
             if (videoRef.current) {
               videoRef.current.muted = true;
-              videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+              videoRef.current.play().then(() => setIsPlaying(true)).catch(() => { });
             }
             window.removeEventListener('scroll', handleFirstGesture);
             window.removeEventListener('click', handleFirstGesture);
@@ -78,7 +78,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
     if (videoRef.current) {
       if (videoRef.current.paused) {
         videoRef.current.muted = true;
-        videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+        videoRef.current.play().then(() => setIsPlaying(true)).catch(() => { });
       } else {
         onNavigateToImages?.();
       }
@@ -154,7 +154,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
                 onLoadedData={(e) => {
                   const el = e.currentTarget;
                   el.muted = true;
-                  el.play().catch(() => {});
+                  el.play().catch(() => { });
                 }}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -211,7 +211,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             <div className="w-14 sm:w-20 md:w-22 h-14 sm:h-20 md:h-22 rounded-full ring-3 ring-white shadow-xl overflow-hidden bg-white flex items-center justify-center">
               <img
                 src={logoImg}
-                alt="Mindtrix Media"
+                alt="Mindtrix Media Creative Agency Logo"
                 className="w-full h-full object-cover"
               />
             </div>

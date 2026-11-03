@@ -136,7 +136,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
         <div className="w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 rounded-[4px] sm:rounded-[5px] overflow-hidden ring-1 ring-white/70 shadow-md bg-neutral-900 shrink-0 mt-0.5">
           <img
             src={vid.avatar || mindtrixLogo}
-            alt="Audio track"
+            alt={`${vid.creator || 'Mindtrix Media'} Audio Album Thumbnail`}
             className="w-full h-full object-cover"
           />
         </div>
@@ -150,7 +150,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
           <div className="w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 rounded-full overflow-hidden ring-1 ring-white/80 shadow-sm shrink-0 bg-neutral-800">
             <img
               src={vid.avatar || mindtrixLogo}
-              alt={vid.creator || 'Mindtrix Media'}
+              alt={`${vid.creator || 'Mindtrix Media'} creator profile`}
               className="w-full h-full object-cover"
             />
           </div>
@@ -258,7 +258,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                 <SectionTag label="AI Video Solutions" />
 
                 {/* Main Headline with Signature Section Header Design */}
-                <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.08]">
+                <h1 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.08]">
                   <span>AI VIDEO ADS</span>
                   <br />
                   <span className="inline-flex items-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
@@ -272,7 +272,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                       </span>
                     </span>
                   </span>
-                </h2>
+                </h1>
               </div>
 
               {/* Right Column: Clean description + Action Button filling the space naturally */}

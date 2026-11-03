@@ -55,7 +55,7 @@ export const LazyVideo: React.FC<LazyVideoProps> = ({
       {poster && (
         <img
           src={poster}
-          alt=""
+          alt={props.title || "Mindtrix Media video preview thumbnail"}
           loading="lazy"
           decoding="async"
           className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-300 ${
