@@ -64,7 +64,7 @@ export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToCo
       <Testimonials />
 
       {/* Pricing (Per Project & Monthly Subscription) */}
-      <Pricing onSelectPlan={() => scrollToId('cta')} />
+      <Pricing onSelectPlan={onNavigateToContact || (() => scrollToId('cta'))} />
 
       {/* FAQ */}
       <Faq

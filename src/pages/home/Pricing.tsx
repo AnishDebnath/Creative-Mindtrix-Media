@@ -39,13 +39,13 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="text-center mb-12 sm:mb-16"
         >
-          <SectionTag label="Transparent Pricing" className="mb-4" />
-          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.15] max-w-4xl mx-auto">
-            <span>AFFORDABLE PLANS FOR</span>
+          <SectionTag label="Pricing" className="mb-4" />
+          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black uppercase text-neutral-900 leading-tight md:leading-[1.1] tracking-tight max-w-4xl mx-auto">
+            <span>PLANS BUILT FOR</span>
             <br />
             <span className="inline-flex items-center justify-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
-              <span>VIRAL BRAND</span>
-              {/* Highlight Pill Container for GROWTH - Styled in Website Theme */}
+              <span>YOUR</span>
+              {/* Highlight Pill Container for GROWTH. - Styled in Website Theme */}
               <span className="inline-block relative">
                 <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
                   <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
@@ -59,7 +59,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
 
         {/* 2-Card Layout: Left (Crisp White Card) & Right (Rich Website Theme Noir Card) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-4xl mx-auto">
-          
+
           {/* Card 1 (Left): Crisp White Card */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -82,15 +82,17 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                 </div>
               </div>
 
-              {/* Row 2: Price & Period */}
+              {/* Row 2: Price & Period with Star Mark */}
               <div>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="font-display text-4xl sm:text-[46px] font-black text-neutral-900 tracking-tight leading-none">₹999</span>
+                <div className="flex items-baseline gap-1.5 flex-wrap">
+                  <span className="font-display text-4xl sm:text-[46px] font-black text-neutral-900 tracking-tight leading-none">
+                    ₹999<span className="text-[#ed4f6c] ml-0.5">*</span>
+                  </span>
                   <span className="text-xs sm:text-sm font-semibold text-neutral-500">/ project onward</span>
                 </div>
-                {/* Row 3: Tagline */}
-                <p className="text-xs sm:text-[13px] text-neutral-600 font-medium mt-2">
-                  Single video ads, product photo sets & pilot campaigns.
+                {/* Row 3: Tagline with Star Mark Explanation */}
+                <p className="text-[11.5px] sm:text-xs text-neutral-600 font-medium leading-relaxed mt-2">
+                  <span className="text-[#ed4f6c] font-bold mr-0.5">*</span>Starting price. Final quote set after concept, script & scope review.
                 </p>
               </div>
             </div>
@@ -103,8 +105,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <Film className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">1 AI Video Ad or Photo Set</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Tailored 4K visual for your brand.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Single Project Delivery</h4>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Pay only for the specific creative work you need.</p>
                 </div>
               </div>
 
@@ -114,8 +116,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <Wand2 className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Trend & Hook Research</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Angles designed to grab attention.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Concept & Scripting</h4>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Custom script, hooks, and creative direction.</p>
                 </div>
               </div>
 
@@ -125,8 +127,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <Layers className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">AI Retouching & Lighting</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Photorealistic studio finish.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Scene & Asset Setup</h4>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Lighting, background styling, and retouching.</p>
                 </div>
               </div>
 
@@ -136,8 +138,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Fast 24–48 Hr Delivery</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Ready-to-post in 9:16 and 16:9 formats.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Fast Ready Delivery</h4>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Turnaround aligned with your project timeline.</p>
                 </div>
               </div>
             </div>
@@ -175,15 +177,17 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                 </div>
               </div>
 
-              {/* Row 2: Price & Period */}
+              {/* Row 2: Price & Period with Star Mark */}
               <div>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="font-display text-4xl sm:text-[46px] font-black text-white tracking-tight leading-none">₹4,999</span>
+                <div className="flex items-baseline gap-1.5 flex-wrap">
+                  <span className="font-display text-4xl sm:text-[46px] font-black text-white tracking-tight leading-none">
+                    ₹4,999<span className="text-[#eda970] ml-0.5">*</span>
+                  </span>
                   <span className="text-xs sm:text-sm font-semibold text-white/80">/ month onward</span>
                 </div>
-                {/* Row 3: Tagline */}
-                <p className="text-xs sm:text-[13px] text-white/90 font-medium mt-2">
-                  Dedicated AI creative production every month.
+                {/* Row 3: Tagline with Star Mark Explanation */}
+                <p className="text-[11.5px] sm:text-xs text-white/90 font-medium leading-relaxed mt-2">
+                  <span className="text-[#eda970] font-bold mr-0.5">*</span>Starting monthly retainer. Final quote set by project count & content volume.
                 </p>
               </div>
             </div>
@@ -196,8 +200,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <Zap className="w-4 h-4 fill-[#eda970]" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">6–8 Viral Video Reels / Mo</h4>
-                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Fresh content to keep your brand active.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Multiple Projects Coverage</h4>
+                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Designed for brands managing continuous campaigns.</p>
                 </div>
               </div>
 
@@ -207,8 +211,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <InfinityIcon className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Weekly Trend Research</h4>
-                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Data-backed hooks for social algorithms.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Custom Content Quantity</h4>
+                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Set monthly volume of reels & images you need.</p>
                 </div>
               </div>
 
@@ -218,8 +222,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <TrendingUp className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Multi-Platform Formats</h4>
-                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Ready for Instagram, TikTok & Meta.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Ongoing Trend Strategy</h4>
+                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Weekly fresh hooks, concepts & multi-channel assets.</p>
                 </div>
               </div>
 
@@ -229,8 +233,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <Shield className="w-4 h-4 fill-[#eda970]/30" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Priority WhatsApp Support</h4>
-                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Fast delivery with dedicated manager.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Dedicated Pipeline Support</h4>
+                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Priority revisions and direct team communication.</p>
                 </div>
               </div>
             </div>
