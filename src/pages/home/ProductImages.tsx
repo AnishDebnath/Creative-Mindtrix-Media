@@ -3,37 +3,26 @@ import { motion } from 'framer-motion';
 import { Heart, MessageCircle, Eye, ChevronRight } from 'lucide-react';
 import { SectionTag } from '@/components/ui/SectionTag';
 import { IMAGES } from '@/data/images';
-import { Profile } from '@/types';
 
 // ponytail: 15th image from jewellery category & 12th image from perfume category
 const jewelryImage = IMAGES['jewelry-pendant-hand-pose']?.src;
 const perfumeImage = IMAGES['perfume-flatlay-botanical']?.src;
 
-interface CreativeStudioProps {
-  onSelectProfile?: (profile: Profile) => void;
-  onSendReaction?: (emoji: string, profile: Profile) => void;
-  onDiscoverMore?: () => void;
+interface ProductImagesProps {
   onNavigateToImages?: () => void;
-  onNavigateToReels?: () => void;
 }
 
-export const CreativeStudio: React.FC<CreativeStudioProps> = ({
+export const ProductImages: React.FC<ProductImagesProps> = ({
   onNavigateToImages,
-  onDiscoverMore,
-  onNavigateToReels,
 }) => {
   const handleCtaClick = () => {
     if (onNavigateToImages) {
       onNavigateToImages();
-    } else if (onDiscoverMore) {
-      onDiscoverMore();
-    } else if (onNavigateToReels) {
-      onNavigateToReels();
     }
   };
 
   return (
-    <section className="relative w-full py-12 sm:py-16 md:py-20 overflow-hidden">
+    <section id="images" className="relative w-full py-12 sm:py-16 md:py-20 overflow-hidden">
       {/* Distinct Ambient Background Strip (Previous Signature Theme) */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#dcc6d5]/60 via-[#ebdce7]/50 via-[#cfc1ee]/40 to-[#eda970]/50 border-y border-white/80 pointer-events-none" />
 
@@ -69,7 +58,7 @@ export const CreativeStudio: React.FC<CreativeStudioProps> = ({
                 >
                   <img
                     src={jewelryImage}
-                    alt="Luxury Jewellery Photography"
+                    alt="Luxury Jewellery Product Photography"
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -98,7 +87,7 @@ export const CreativeStudio: React.FC<CreativeStudioProps> = ({
                 >
                   <img
                     src={perfumeImage}
-                    alt="Botanical Perfume Flat Lay"
+                    alt="Botanical Perfume Product Photography"
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -118,38 +107,36 @@ export const CreativeStudio: React.FC<CreativeStudioProps> = ({
             className="order-1 lg:order-2 lg:col-span-5 flex flex-col items-start justify-center text-left"
           >
             {/* Website Theme SectionTag */}
-            <SectionTag label="Creative Studio" className="mb-4 sm:mb-5" />
+            <SectionTag label="Product Images" className="mb-4 sm:mb-5" />
 
             {/* Well-proportioned Headline - Signature Section Header Design */}
             <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.06] mb-4 sm:mb-5">
-              <span>WE TURN SIMPLE</span>
+              <span>STUDIO GRADE</span>
               <br />
               <span className="inline-flex items-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
-                <span>PRODUCTS INTO</span>
-                {/* Highlight Pill Container for VIRAL ADS - Styled in Website Theme */}
+                <span>AI PRODUCT</span>
+                {/* Highlight Pill Container for VISUALS - Styled in Website Theme */}
                 <span className="inline-block relative">
                   <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
                     <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
-                      VIRAL ADS
+                      VISUALS.
                     </span>
                   </span>
                 </span>
               </span>
-              <br />
-              <span>THAT DRIVE SALES.</span>
             </h2>
 
-            {/* Well-proportioned Description - comfortable readability */}
+            {/* Well-proportioned Description */}
             <p className="text-neutral-700 text-sm md:text-base lg:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
-              Studio AI product photos and viral video reels engineered to turn viewers into buyers.
+              Photorealistic product photography, lifestyle backdrops, and e-commerce visuals engineered to convert browsers into buyers.
             </p>
 
-            {/* CTA Button matching website sections style */}
+            {/* CTA Button redirecting to Images page */}
             <button
               onClick={handleCtaClick}
               className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
             >
-              <span>Explore Services</span>
+              <span>View Product Images</span>
               <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
             </button>
           </motion.div>

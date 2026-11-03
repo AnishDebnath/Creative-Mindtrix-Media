@@ -4,7 +4,7 @@ import { SocialPlatforms } from './SocialPlatforms';
 import { AudienceResults } from './AudienceResults';
 import { Services } from './Services';
 import { Process } from './Process';
-import { CreativeStudio } from './CreativeStudio';
+import { ProductImages } from './ProductImages';
 import { ProductReels } from './ProductReels';
 import { Testimonials } from './Testimonials';
 import { Pricing } from './Pricing';
@@ -49,11 +49,8 @@ export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToCo
         onViewCaseStudies={onNavigateToReels}
       />
 
-      {/* Creative Studio */}
-      <CreativeStudio
-        onSelectProfile={noop}
-        onSendReaction={noop}
-        onDiscoverMore={onNavigateToImages}
+      {/* Product Images Showcase */}
+      <ProductImages
         onNavigateToImages={onNavigateToImages}
       />
 
