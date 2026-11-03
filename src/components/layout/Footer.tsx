@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({
               <img
                 src={whiteLogo}
                 alt="Mindtrix Media"
-                className="h-7 sm:h-9 md:h-12 w-auto object-contain cursor-pointer self-start transition-transform hover:scale-105"
+                className="h-10 sm:h-10 md:h-12 w-auto object-contain cursor-pointer self-start transition-transform hover:scale-105"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               />
               <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-sm md:max-w-md">
