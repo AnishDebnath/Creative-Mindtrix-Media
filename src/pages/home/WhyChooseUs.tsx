@@ -313,7 +313,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
   onViewCaseStudies,
 }) => {
   return (
-    <section id="why-us" className="relative w-full bg-white py-20 sm:py-24 md:py-28 overflow-hidden">
+    <section id="why-us" className="relative w-full bg-white py-12 sm:py-16 md:py-20 overflow-hidden">
       {/* Website Theme Ambient Radial Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[550px] bg-gradient-to-r from-[#dcc6d5]/25 via-[#cfc1ee]/25 to-[#eda970]/20 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute -bottom-20 -right-20 w-[450px] h-[450px] bg-gradient-to-l from-[#3d2035]/10 via-[#dcc6d5]/20 to-[#eda970]/15 rounded-full blur-3xl pointer-events-none -z-10" />

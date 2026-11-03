@@ -33,7 +33,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
   };
 
   return (
-    <section className="relative w-full py-20 sm:py-28 md:py-32 overflow-hidden">
+    <section className="relative w-full py-12 sm:py-16 md:py-20 overflow-hidden">
       {/* Distinct Ambient Background Strip (Previous Signature Theme) */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#dcc6d5]/60 via-[#ebdce7]/50 via-[#cfc1ee]/40 to-[#eda970]/50 border-y border-white/80 pointer-events-none" />
 

@@ -100,12 +100,22 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
   ].filter(Boolean);
 
   return (
-    <div className="w-full min-h-screen py-10 md:py-14 lg:py-16">
+    <div className="w-full min-h-screen pt-0 pb-0">
       {/* -------------------------------------------------------------------------- */}
       {/* 1. HERO SPLIT SECTION: EXACT REFERENCE LAYOUT WITH WEBSITE THEME           */}
       {/* -------------------------------------------------------------------------- */}
-      <section className="w-full max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 mb-16 md:mb-24 lg:mb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-stretch">
+      <section
+        className="relative w-full pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20 overflow-hidden"
+        style={{
+          background: 'linear-gradient(180deg, rgba(235, 220, 231, 0.45) 0%, rgba(250, 237, 229, 0.35) 30%, rgba(234, 227, 251, 0.2) 60%, #ffffff 90%, #ffffff 100%)',
+        }}
+      >
+        {/* Subtle Ambient Radial Glows in Website Palette */}
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[500px] bg-gradient-to-r from-[#dcc6d5]/30 via-[#cfc1ee]/20 to-[#eda970]/25 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gradient-to-l from-[#3d2035]/10 via-[#dcc6d5]/15 to-[#eda970]/20 rounded-full blur-3xl pointer-events-none -z-10" />
+
+        <div className="w-full max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-stretch">
 
           {/* LEFT COLUMN: HERO TEXT & AUTHORITY PROOF (SAME AS PROVIDED IMAGE LAYOUT, NO SUB-HEADING) */}
           <div className="lg:col-span-6 flex flex-col justify-between py-2 sm:py-4">
@@ -513,6 +523,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
             </motion.div>
           </div>
 
+        </div>
         </div>
       </section>
 

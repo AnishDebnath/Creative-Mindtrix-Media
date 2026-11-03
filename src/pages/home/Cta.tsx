@@ -1,177 +1,164 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { SectionTag } from '@/components/ui/SectionTag';
+import { TOP_HERO_VIDEOS } from '@/data/videos';
+import { scrollToId } from '@/utils/scroll';
 
 interface CtaSectionProps {
-  onJoinWaitlist?: () => void;
-  onSubscribe?: (email: string) => void;
-  onScrollToAbout?: () => void;
-  onNavigateToImages?: () => void;
+  onExploreServices?: () => void;
+  onContactUs?: () => void;
+  onNavigateToReels?: () => void;
 }
 
-export const CtaSection: React.FC<CtaSectionProps> = ({
-  onSubscribe,
-  onScrollToAbout
-}) => {
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false);
+// 4 showcase video cards fanning out at the bottom, cut off halfway at the bottom edge (zero overlays)
+const CTA_CARDS = [
+  {
+    id: 'card-1',
+    src: TOP_HERO_VIDEOS[0]?.src || '',
+    poster: TOP_HERO_VIDEOS[0]?.poster || '',
+    transform: 'translateX(-145%) translateY(30%) rotate(-9deg)',
+    zIndex: 1,
+  },
+  {
+    id: 'card-2',
+    src: TOP_HERO_VIDEOS[4]?.src || '',
+    poster: TOP_HERO_VIDEOS[4]?.poster || '',
+    transform: 'translateX(-48%) translateY(16%) rotate(-3deg)',
+    zIndex: 3,
+  },
+  {
+    id: 'card-3',
+    src: TOP_HERO_VIDEOS[1]?.src || '',
+    poster: TOP_HERO_VIDEOS[1]?.poster || '',
+    transform: 'translateX(48%) translateY(16%) rotate(3deg)',
+    zIndex: 3,
+  },
+  {
+    id: 'card-4',
+    src: TOP_HERO_VIDEOS[2]?.src || '',
+    poster: TOP_HERO_VIDEOS[2]?.poster || '',
+    transform: 'translateX(145%) translateY(30%) rotate(9deg)',
+    zIndex: 1,
+  },
+];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim() || !email.includes('@')) return;
-    onSubscribe?.(email.trim());
-    setIsSuccess(true);
-    setName('');
-    setPhone('');
-    setEmail('');
-    setTimeout(() => setIsSuccess(false), 6000);
+export const CtaSection: React.FC<CtaSectionProps> = ({
+  onExploreServices,
+  onContactUs,
+  onNavigateToReels,
+}) => {
+  const handleExploreServices = () => {
+    if (onExploreServices) {
+      onExploreServices();
+    } else {
+      scrollToId('services');
+    }
   };
 
   return (
     <section
       id="cta"
-      className="relative w-full pt-16 pb-28 overflow-visible scroll-mt-6"
+      className="relative w-full pt-10 sm:pt-12 md:pt-14 pb-0 overflow-hidden"
       style={{
-        backgroundImage:
-          'linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.7) 55%, rgba(255,255,255,0) 100%)',
-        backgroundSize: '100% 320px',
-        backgroundRepeat: 'no-repeat'
+        background: 'linear-gradient(180deg, #f7edf5 0%, #faede5 40%, #eae3fb 75%, #ebdce7 100%)',
       }}
     >
-      {/* 1. Top Sub-Bar Row */}
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-40px' }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 w-full pb-6 text-center md:text-left"
-      >
-        {/* Left: Domain Indicator */}
-        <button
-          onClick={onScrollToAbout}
-          className="text-xs sm:text-sm font-bold text-neutral-900 hover:text-black transition-colors cursor-pointer shrink-0"
+      {/* Website Theme Ambient Radial Glows (Open background, seamless with previous sections) */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[550px] bg-gradient-to-r from-[#dcc6d5]/30 via-[#cfc1ee]/25 to-[#eda970]/25 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gradient-to-l from-[#3d2035]/10 via-[#dcc6d5]/20 to-[#eda970]/20 rounded-full blur-3xl pointer-events-none -z-10" />
+
+      {/* Main Content (Directly in open background, nicely balanced section rhythm) */}
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 text-center flex flex-col items-center relative z-10">
+        
+        {/* 1. Section Tag */}
+        <SectionTag label="Get Started" className="mb-3.5 sm:mb-4" />
+
+        {/* 2. Headline in Signature Website Header Style */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.15] max-w-4xl mx-auto"
         >
-          About Services
-        </button>
+          <span>TURN YOUR AMBITIOUS</span>
+          <br />
+          <span className="inline-flex items-center justify-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
+            <span>BRAND INTO A</span>
+            {/* Highlight Pill Container for SENSATION. - Styled in Website Theme */}
+            <span className="inline-block relative">
+              <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
+                  SENSATION.
+                </span>
+              </span>
+            </span>
+          </span>
+        </motion.h2>
 
-        {/* Center: Headline */}
-        <h3 className="font-display text-lg sm:text-2xl md:text-[26px] lg:text-[28px] font-black tracking-normal text-neutral-900 uppercase text-center px-4">
-          AI PRODUCT ADVERTISING & CREATIVE SOLUTIONS TO GROW YOUR BUSINESS
-        </h3>
-
-        {/* Right: GET STARTED Pill Button */}
-        <button
-          onClick={() => {
-            const input = document.getElementById('cta-email-input');
-            input?.focus();
-          }}
-          className="px-5 sm:px-6 py-2 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-[11px] sm:text-xs font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap shrink-0"
+        {/* 3. Subtitle Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.45, delay: 0.1 }}
+          className="text-neutral-600 text-sm sm:text-base md:text-lg max-w-xl mx-auto mt-3.5 sm:mt-4 font-normal leading-relaxed"
         >
-          GET STARTED
-        </button>
-      </motion.div>
+          Join our global network of innovators and watch your digital presence grow rapidly.
+        </motion.p>
 
-      {/* Full-Width Segmented Horizontal Line */}
-      <div className="w-full flex items-center justify-between gap-3 sm:gap-4 mb-20 sm:mb-24 px-2 sm:px-4">
-        <div className="flex-1 h-[1.5px] bg-[#dcc6d5]/70" />
-        <div className="flex-1 h-[1.5px] bg-[#dcc6d5]/70" />
-        <div className="flex-1 h-[1.5px] bg-[#dcc6d5]/70" />
-        <div className="flex-1 h-[1.5px] bg-[#dcc6d5]/70" />
-        <div className="flex-1 h-[1.5px] bg-[#dcc6d5]/70" />
-        <div className="flex-1 h-[1.5px] bg-[#dcc6d5]/70" />
+        {/* 4. Action Buttons matching other sections (Faq, WhyChooseUs, etc.) */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.45, delay: 0.18 }}
+          className="flex items-center justify-center gap-3.5 flex-wrap mt-6 sm:mt-7"
+        >
+          <button
+            type="button"
+            onClick={handleExploreServices}
+            className="bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white px-7 py-3 rounded-full font-bold text-xs sm:text-sm shadow-[0_12px_28px_-6px_rgba(61,32,53,0.35)] hover:opacity-95 transition-all hover:scale-105 active:scale-95 cursor-pointer border border-white/10"
+          >
+            Explore Services
+          </button>
+
+          <button
+            type="button"
+            onClick={onContactUs}
+            className="bg-white text-neutral-800 border border-[#ebdce7] px-7 py-3 rounded-full font-bold text-xs sm:text-sm shadow-md hover:bg-neutral-50 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            Contact Us
+          </button>
+        </motion.div>
       </div>
 
-      {/* 2. Main Center CTA Banner */}
-      <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
-        <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
-          {/* Massive 2-Line Stacked Headline */}
-          <motion.h2
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.55, ease: 'easeOut' }}
-            className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[88px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.2] md:leading-[1.3] mb-8 sm:mb-12 md:mb-16"
-          >
-            SCALE YOUR BRAND<br />WITH AI CREATIVES.
-          </motion.h2>
-
-          {/* Master Tilted Capsule with 3 Separated Fields inside */}
-          <motion.form
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-            className="w-full max-w-3xl relative"
-          >
-
-            {/* Outer Frosted Glass Aura Ring with Exact Tilt Angle (-3.5deg) */}
-            <div className="bg-white/45 backdrop-blur-xl rounded-[36px] sm:rounded-full p-2.5 sm:p-3 shadow-[0_20px_50px_-10px_rgba(61,32,53,0.12)] border border-[#ebdce7]/80 transform -rotate-[3.5deg] hover:rotate-0 transition-all duration-300">
-
-              {/* Inner White Capsule Container */}
-              <div className="flex flex-col sm:flex-row items-center bg-white rounded-[30px] sm:rounded-full p-2 sm:p-1.5 shadow-sm divide-y sm:divide-y-0 sm:divide-x divide-[#ebdce7]">
-
-                {/* Field 1: Name */}
-                <div className="w-full sm:w-[28%] px-4 py-2 sm:py-2.5 flex items-center">
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Your Name / Brand"
-                    className="w-full text-xs sm:text-sm text-neutral-900 bg-transparent placeholder-neutral-400 font-medium focus:outline-none"
-                  />
-                </div>
-
-                {/* Field 2: Phone Number */}
-                <div className="w-full sm:w-[32%] px-4 py-2 sm:py-2.5 flex items-center">
-                  <input
-                    type="tel"
-                    required
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="Phone / WhatsApp"
-                    className="w-full text-xs sm:text-sm text-neutral-900 bg-transparent placeholder-neutral-400 font-medium focus:outline-none"
-                  />
-                </div>
-
-                {/* Field 3: Email Address + Action Button */}
-                <div className="w-full sm:w-[40%] pl-4 pr-1 py-1 flex items-center justify-between gap-2">
-                  <input
-                    id="cta-email-input"
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Business Email"
-                    className="w-full min-w-0 text-xs sm:text-sm text-neutral-900 bg-transparent placeholder-neutral-400 font-medium focus:outline-none"
-                  />
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto px-6 sm:px-7 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 cursor-pointer shrink-0"
-                  >
-                    {isSuccess ? (
-                      <span className="flex items-center gap-1.5 text-emerald-200">
-                        <Check className="w-4 h-4" /> SENT
-                      </span>
-                    ) : (
-                      'GET AI ADS'
-                    )}
-                  </button>
-                </div>
-
-              </div>
-
+      {/* 5. Bottom Video Cards: Generous gap after buttons, 4 clean cards emerging halfway from bottom edge */}
+      <div className="relative z-10 w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[330px] flex justify-center items-end pointer-events-none select-none px-2 sm:px-4 mt-10 sm:mt-14 md:mt-16 lg:mt-20">
+        <div className="relative flex items-end justify-center w-full max-w-[1040px] h-full">
+          {CTA_CARDS.map((card) => (
+            <div
+              key={card.id}
+              className="absolute pointer-events-auto w-[115px] sm:w-[155px] md:w-[195px] lg:w-[220px] aspect-[9/16] rounded-[20px] sm:rounded-[26px] overflow-hidden shadow-[0_20px_45px_rgba(47,24,42,0.22)] bg-neutral-900 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer group"
+              style={{
+                transform: card.transform,
+                zIndex: card.zIndex,
+              }}
+              onClick={onNavigateToReels}
+            >
+              {/* Clean Video Player with zero overlays */}
+              <video
+                src={card.src}
+                poster={card.poster}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
-
-            {isSuccess && (
-              <p className="text-xs sm:text-sm font-bold text-emerald-700 mt-4 animate-in fade-in">
-                🎉 Thank you! Our team will contact you shortly to discuss your product video and ad creative needs.
-              </p>
-            )}
-          </motion.form>
+          ))}
         </div>
       </div>
     </section>

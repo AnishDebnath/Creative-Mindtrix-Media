@@ -73,7 +73,7 @@ const LinkIcon: React.FC = () => (
 
 export const AudienceResultsSection: React.FC = () => {
   return (
-    <section className="relative w-full pt-12 sm:pt-16 md:pt-20 pb-16 sm:pb-20 md:pb-24 overflow-hidden bg-white">
+    <section className="relative w-full py-12 sm:py-14 md:py-16 overflow-hidden bg-white">
       {/* Soft Ethereal Ambient Glow in Website Theme Palette */}
       <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center">
         <div

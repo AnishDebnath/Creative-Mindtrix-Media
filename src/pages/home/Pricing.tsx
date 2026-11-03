@@ -24,7 +24,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
   return (
     <section
       id="pricing"
-      className="relative w-full bg-white py-20 sm:py-24 md:py-28 overflow-hidden"
+      className="relative w-full bg-white py-12 sm:py-16 md:py-20 overflow-hidden"
     >
       {/* Website Theme Ambient Radial Glows (Warm peach, blush mauve & soft lavender) */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[550px] bg-gradient-to-r from-[#dcc6d5]/30 via-[#cfc1ee]/25 to-[#eda970]/25 rounded-full blur-3xl pointer-events-none -z-10" />

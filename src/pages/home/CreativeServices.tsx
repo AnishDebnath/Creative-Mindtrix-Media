@@ -95,7 +95,7 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
   const activeIndex = currentIndex % CREATIVE_SERVICES.length;
 
   return (
-    <section id="services" className="relative w-full bg-white py-20 sm:py-24 md:py-28 scroll-mt-6 overflow-hidden">
+    <section id="services" className="relative w-full bg-white py-12 sm:py-16 md:py-20 scroll-mt-6 overflow-hidden">
       <span id="stand-for" className="sr-only" />
 
       {/* Subtle Ambient Radial Lighting */}

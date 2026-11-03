@@ -69,7 +69,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
   return (
     <section
       id="reels"
-      className="relative w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden scroll-mt-6"
+      className="relative w-full py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden scroll-mt-6"
       style={{
         background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(248, 246, 253, 0.45) 50%, #eae3fb 100%)',
       }}

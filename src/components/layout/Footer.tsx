@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import mindtrixLogo from '@/assets/logo.png';
+import whiteLogo from '@/assets/white-logo.png';
 import {
   Mail,
   Phone,
@@ -36,27 +36,29 @@ export const Footer: React.FC<FooterProps> = ({
 
   return (
     <>
-      <footer className="w-full bg-gradient-to-b from-transparent via-[#faf4f8]/30 to-[#f7edf5]/60 pt-12 md:pt-16 pb-8 md:pb-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-        <div className="max-w-screen-xl mx-auto">
+      {/* Footer styled with the exact button background color and curved top border radius */}
+      <footer className="relative w-full rounded-t-[32px] sm:rounded-t-[44px] md:rounded-t-[52px] bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white pt-12 md:pt-16 pb-8 md:pb-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 border-t border-white/15 shadow-[0_-15px_45px_rgba(61,32,53,0.35)] overflow-hidden">
+        <div className="max-w-screen-xl mx-auto relative z-10">
 
-          {/* Main Footer Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-8 xl:gap-10 pb-10 md:pb-12 border-b border-[#e8d5df]/70 items-start">
+          {/* Main Footer Grid - Preserving exact layout and content structure */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-8 xl:gap-10 pb-10 md:pb-12 border-b border-white/15 items-start">
 
             {/* Column 1: Brand & Identity (lg:col-span-5) */}
             <div className="lg:col-span-5 flex flex-col gap-4">
+              {/* ponytail: footer logo matches navbar logo size exactly */}
               <img
-                src={mindtrixLogo}
+                src={whiteLogo}
                 alt="Mindtrix Media"
-                className="h-8 sm:h-10 md:h-11 w-auto object-contain cursor-pointer self-start"
+                className="h-8 sm:h-10 md:h-12 w-auto object-contain cursor-pointer self-start transition-transform hover:scale-105"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               />
-              <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-sm md:max-w-md">
+              <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-sm md:max-w-md">
                 Mindtrix Media is an AI creative production studio helping brands produce high-converting product advertisements, commercial video reels, and studio-grade visuals at scale.
               </p>
 
               {/* Social Media Channels under About */}
               <div className="pt-1">
-                <span className="text-[11px] font-black tracking-wider uppercase text-neutral-400 font-display block mb-2.5">
+                <span className="text-[11px] font-black tracking-wider uppercase text-[#eda970] font-display block mb-2.5">
                   Follow Our Work
                 </span>
                 <div className="flex items-center gap-2.5">
@@ -65,7 +67,7 @@ export const Footer: React.FC<FooterProps> = ({
                     href="https://www.facebook.com/people/Mindtrix-Media/61579576556432/?rdid=dQqTQc6SOeyMFPh7&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BqXRrzU6g%2F"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-9 h-9 rounded-full bg-white hover:bg-[#1877f2]/10 border border-[#e8d5df] hover:border-[#1877f2]/50 shadow-xs flex items-center justify-center hover:scale-110 transition-all text-[#1877f2]"
+                    className="w-9 h-9 rounded-full bg-white hover:bg-neutral-100 border border-[#e8d5df] hover:border-[#1877f2]/50 shadow-xs flex items-center justify-center hover:scale-110 transition-all text-[#1877f2]"
                     title="Facebook"
                   >
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -78,7 +80,7 @@ export const Footer: React.FC<FooterProps> = ({
                     href="https://www.instagram.com/mindtrixmedia"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-9 h-9 rounded-full bg-white hover:bg-[#e1306c]/10 border border-[#e8d5df] hover:border-[#e1306c]/50 shadow-xs flex items-center justify-center hover:scale-110 transition-all text-[#e1306c]"
+                    className="w-9 h-9 rounded-full bg-white hover:bg-neutral-100 border border-[#e8d5df] hover:border-[#e1306c]/50 shadow-xs flex items-center justify-center hover:scale-110 transition-all text-[#e1306c]"
                     title="Instagram"
                   >
                     <svg className="w-4 h-4" viewBox="0 0 24 24">
@@ -100,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({
                     href="https://www.youtube.com/@Mindtrixmediaindia"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-9 h-9 rounded-full bg-white hover:bg-[#ff0000]/10 border border-[#e8d5df] hover:border-[#ff0000]/50 shadow-xs flex items-center justify-center hover:scale-110 transition-all text-[#ff0000]"
+                    className="w-9 h-9 rounded-full bg-white hover:bg-neutral-100 border border-[#e8d5df] hover:border-[#ff0000]/50 shadow-xs flex items-center justify-center hover:scale-110 transition-all text-[#ff0000]"
                     title="YouTube"
                   >
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -113,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({
                     href="https://x.com/Mindtrixmediain"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-9 h-9 rounded-full bg-white hover:bg-black/10 border border-[#e8d5df] hover:border-black/50 shadow-xs flex items-center justify-center hover:scale-110 transition-all text-neutral-900"
+                    className="w-9 h-9 rounded-full bg-white hover:bg-neutral-100 border border-[#e8d5df] hover:border-black/50 shadow-xs flex items-center justify-center hover:scale-110 transition-all text-neutral-900"
                     title="X (Twitter)"
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -126,7 +128,7 @@ export const Footer: React.FC<FooterProps> = ({
                     href="https://www.linkedin.com/company/mindtrix-media"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-9 h-9 rounded-full bg-white hover:bg-[#0077b5]/10 border border-[#e8d5df] hover:border-[#0077b5]/50 shadow-xs flex items-center justify-center hover:scale-110 transition-all text-[#0077b5]"
+                    className="w-9 h-9 rounded-full bg-white hover:bg-neutral-100 border border-[#e8d5df] hover:border-[#0077b5]/50 shadow-xs flex items-center justify-center hover:scale-110 transition-all text-[#0077b5]"
                     title="LinkedIn"
                   >
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -139,14 +141,14 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* Column 2: Navigation Links (lg:col-span-3) */}
             <div className="lg:col-span-3 flex flex-col gap-3.5">
-              <span className="text-[11px] font-black tracking-wider uppercase text-neutral-400 font-display">
+              <span className="text-[11px] font-black tracking-wider uppercase text-[#eda970] font-display">
                 Navigation
               </span>
-              <ul className="space-y-2.5 text-sm font-medium text-neutral-700">
+              <ul className="space-y-2.5 text-sm font-medium text-white/80">
                 <li>
                   <button
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="hover:text-black hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>Home</span>
                   </button>
@@ -154,7 +156,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <li>
                   <button
                     onClick={onNavigateToImages}
-                    className="hover:text-black hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>AI Product Images</span>
                   </button>
@@ -162,7 +164,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <li>
                   <button
                     onClick={onNavigateToReels}
-                    className="hover:text-black hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>Video Reels</span>
                   </button>
@@ -170,7 +172,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <li>
                   <button
                     onClick={onNavigateToContact}
-                    className="hover:text-black hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>Contact Us</span>
                   </button>
@@ -181,7 +183,7 @@ export const Footer: React.FC<FooterProps> = ({
                       const el = document.getElementById('services');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="hover:text-black hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>Creative Services</span>
                   </button>
@@ -192,7 +194,7 @@ export const Footer: React.FC<FooterProps> = ({
                       const el = document.getElementById('stand-for');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="hover:text-black hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>About Mindtrix</span>
                   </button>
@@ -203,7 +205,7 @@ export const Footer: React.FC<FooterProps> = ({
                       const el = document.getElementById('testimonials');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="hover:text-black hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>Client Reviews</span>
                   </button>
@@ -213,40 +215,40 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* Column 3: Contact Details (lg:col-span-4) */}
             <div className="lg:col-span-4 flex flex-col gap-4">
-              <span className="text-[11px] font-black tracking-wider uppercase text-neutral-400 font-display">
+              <span className="text-[11px] font-black tracking-wider uppercase text-[#eda970] font-display">
                 Contact & Connect
               </span>
 
-              <div className="space-y-3 text-sm text-neutral-800">
+              <div className="space-y-3 text-sm text-white/90">
                 {/* Email */}
                 <a
                   href="mailto:mindtrixmediaindia@gmail.com"
-                  className="flex items-center gap-3 text-neutral-800 hover:text-[#3d2035] transition-colors group"
+                  className="flex items-center gap-3 text-white/90 hover:text-[#eda970] transition-colors group"
                 >
-                  <span className="w-8 h-8 rounded-full bg-white border border-[#e8d5df] flex items-center justify-center shrink-0 shadow-xs group-hover:border-[#3d2035]/40 transition-colors">
-                    <Mail className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#3d2035] transition-colors" />
+                  <span className="w-8 h-8 rounded-full bg-white/15 border border-white/20 flex items-center justify-center shrink-0 shadow-xs group-hover:border-[#eda970]/50 transition-colors">
+                    <Mail className="w-3.5 h-3.5 text-[#eda970]" />
                   </span>
-                  <span className="font-semibold text-neutral-900 group-hover:text-[#3d2035] transition-colors break-all">
+                  <span className="font-semibold text-white group-hover:text-[#eda970] transition-colors break-all">
                     mindtrixmediaindia@gmail.com
                   </span>
                 </a>
 
                 {/* Phone Numbers */}
                 <div className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-white border border-[#e8d5df] flex items-center justify-center shrink-0 shadow-xs">
-                    <Phone className="w-3.5 h-3.5 text-neutral-600" />
+                  <span className="w-8 h-8 rounded-full bg-white/15 border border-white/20 flex items-center justify-center shrink-0 shadow-xs">
+                    <Phone className="w-3.5 h-3.5 text-[#eda970]" />
                   </span>
-                  <div className="flex flex-wrap items-center gap-x-2 text-sm font-semibold text-neutral-900">
+                  <div className="flex flex-wrap items-center gap-x-2 text-sm font-semibold text-white">
                     <a
                       href="tel:+918910092451"
-                      className="hover:text-[#3d2035] transition-colors"
+                      className="hover:text-[#eda970] transition-colors"
                     >
                       +91 89100 92451
                     </a>
-                    <span className="text-neutral-400 font-normal">/</span>
+                    <span className="text-white/40 font-normal">/</span>
                     <a
                       href="tel:+919073604457"
-                      className="hover:text-[#3d2035] transition-colors"
+                      className="hover:text-[#eda970] transition-colors"
                     >
                       +91 90736 04457
                     </a>
@@ -254,11 +256,11 @@ export const Footer: React.FC<FooterProps> = ({
                 </div>
 
                 {/* Location */}
-                <div className="flex items-center gap-3 text-neutral-800">
-                  <span className="w-8 h-8 rounded-full bg-white border border-[#e8d5df] flex items-center justify-center shrink-0 shadow-xs">
-                    <MapPin className="w-3.5 h-3.5 text-neutral-600" />
+                <div className="flex items-center gap-3 text-white/90">
+                  <span className="w-8 h-8 rounded-full bg-white/15 border border-white/20 flex items-center justify-center shrink-0 shadow-xs">
+                    <MapPin className="w-3.5 h-3.5 text-[#eda970]" />
                   </span>
-                  <span className="text-sm font-semibold text-neutral-900">
+                  <span className="text-sm font-semibold text-white">
                     Kolkata, India
                   </span>
                 </div>
@@ -268,21 +270,21 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           {/* Sub-Footer Row */}
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs md:text-sm text-neutral-500 font-medium text-center sm:text-left">
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs md:text-sm text-white/60 font-medium text-center sm:text-left">
             <p>
-              © {new Date().getFullYear()} <span className="font-semibold text-neutral-800">Mindtrix Media</span>. All rights reserved.
+              © {new Date().getFullYear()} <span className="font-semibold text-white">Mindtrix Media</span>. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setActiveLegal('terms')}
-                className="hover:text-neutral-900 transition-colors cursor-pointer"
+                className="hover:text-white transition-colors cursor-pointer text-white/70"
               >
                 Terms of Service
               </button>
-              <span>·</span>
+              <span className="text-white/40">·</span>
               <button
                 onClick={() => setActiveLegal('privacy')}
-                className="hover:text-neutral-900 transition-colors cursor-pointer"
+                className="hover:text-white transition-colors cursor-pointer text-white/70"
               >
                 Privacy Policy
               </button>
@@ -291,8 +293,6 @@ export const Footer: React.FC<FooterProps> = ({
 
         </div>
       </footer>
-
-
 
       {/* Clean Legal Modal matching blur backdrop theme */}
       <AnimatePresence>

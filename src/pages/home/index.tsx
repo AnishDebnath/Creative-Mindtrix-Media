@@ -69,7 +69,7 @@ export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToCo
       {/* Pricing Section (Per Project & Monthly Subscription) */}
       <PricingSection onSelectPlan={() => scrollToId('cta')} />
 
-      {/* FAQ Section (Final section before Footer) */}
+      {/* FAQ Section */}
       <FaqSection
         onBookCall={onNavigateToContact || (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
         onContactUs={onNavigateToContact || (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}

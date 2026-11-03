@@ -50,7 +50,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
   return (
     <section
       id="faq"
-      className="relative w-full py-14 sm:py-16 md:py-20 px-4 md:px-8 lg:px-12 xl:px-20 overflow-hidden"
+      className="relative w-full py-12 sm:py-16 md:py-20 px-4 md:px-8 lg:px-12 xl:px-20 overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #ffffff 0%, #faede5 45%, #f7edf5 100%)',
       }}

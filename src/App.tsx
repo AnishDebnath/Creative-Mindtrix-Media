@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { CtaSection } from '@/pages/home/Cta';
 import { HomePage } from '@/pages/home';
 import { ImagesPage } from '@/pages/images';
 import { ReelsPage } from '@/pages/videos';
@@ -114,6 +115,20 @@ export default function App() {
           )}
         </AnimatePresence>
       </main>
+
+      {/* Global CTA Section across all pages */}
+      <CtaSection
+        onExploreServices={() => {
+          if (currentPage !== 'home') {
+            navigateTo('home');
+            setTimeout(() => scrollToId('services'), 150);
+          } else {
+            scrollToId('services');
+          }
+        }}
+        onContactUs={() => navigateTo('contact')}
+        onNavigateToReels={() => navigateTo('reels')}
+      />
 
       {/* Footer */}
       <Footer

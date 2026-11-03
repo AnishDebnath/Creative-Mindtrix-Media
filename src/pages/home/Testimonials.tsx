@@ -95,7 +95,7 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section
       id="testimonials"
-      className="relative w-full py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden"
+      className="relative w-full py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #eae3fb 0%, #faede5 50%, #f7edf5 100%)',
       }}
