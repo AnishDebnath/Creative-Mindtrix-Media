@@ -1,14 +1,14 @@
 import { scrollToId } from '@/utils/scroll';
-import { HeroSection } from './Hero';
-import { SocialPlatformsSection } from './SocialPlatforms';
-import { AudienceResultsSection } from './AudienceResults';
-import { CreativeServicesSection } from './CreativeServices';
-import { WhyChooseUsSection } from './WhyChooseUs';
-import { MeetTheWorldSection } from './MeetTheWorld';
-import { CommunitySection } from './Community';
-import { TestimonialsSection } from './Testimonials';
-import { PricingSection } from './Pricing';
-import { FaqSection } from './Faq';
+import { Hero } from './Hero';
+import { SocialPlatforms } from './SocialPlatforms';
+import { AudienceResults } from './AudienceResults';
+import { Services } from './Services';
+import { WhyChooseUs } from './WhyChooseUs';
+import { CreativeStudio } from './CreativeStudio';
+import { ProductReels } from './ProductReels';
+import { Testimonials } from './Testimonials';
+import { Pricing } from './Pricing';
+import { Faq } from './Faq';
 
 const noop = () => { };
 
@@ -21,8 +21,8 @@ interface HomePageProps {
 export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToContact }: HomePageProps) {
   return (
     <div className="w-full">
-      {/* Hero Section (including top Marquee, Centerpiece, and Brands Showcase) */}
-      <HeroSection
+      {/* Hero (including top Marquee, Centerpiece, and Brands Showcase) */}
+      <Hero
         onSelectProfile={noop}
         onSendReaction={noop}
         onOpenVideoChat={onNavigateToReels}
@@ -30,47 +30,48 @@ export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToCo
         onNavigateToReels={onNavigateToReels}
       />
 
-      {/* Social Platforms Showcase Section */}
-      <SocialPlatformsSection />
+      {/* Social Platforms Showcase */}
+      <SocialPlatforms />
 
-      {/* Audience Results Showcase Section */}
-      <AudienceResultsSection />
+      {/* Audience Results Showcase */}
+      <AudienceResults />
 
-      {/* Creative Services Section */}
-      <CreativeServicesSection
+      {/* Services */}
+      <Services
         onNavigateToImages={onNavigateToImages}
         onNavigateToReels={onNavigateToReels}
+        onNavigateToContact={onNavigateToContact}
       />
 
-      {/* Why Choose Us Section */}
-      <WhyChooseUsSection
+      {/* Why Choose Us */}
+      <WhyChooseUs
         onGetStarted={() => scrollToId('cta')}
         onViewCaseStudies={onNavigateToReels}
       />
 
-      {/* Meet The World Section */}
-      <MeetTheWorldSection
+      {/* Creative Studio */}
+      <CreativeStudio
         onSelectProfile={noop}
         onSendReaction={noop}
         onDiscoverMore={onNavigateToImages}
         onNavigateToImages={onNavigateToImages}
       />
 
-      {/* The Mindtrix AI Reel Stage */}
-      <CommunitySection
+      {/* Product Reels */}
+      <ProductReels
         onOpenVideoChat={onNavigateToReels}
         onMeetCommunity={() => scrollToId('testimonials')}
         onNavigateToReels={onNavigateToReels}
       />
 
       {/* Testimonials */}
-      <TestimonialsSection />
+      <Testimonials />
 
-      {/* Pricing Section (Per Project & Monthly Subscription) */}
-      <PricingSection onSelectPlan={() => scrollToId('cta')} />
+      {/* Pricing (Per Project & Monthly Subscription) */}
+      <Pricing onSelectPlan={() => scrollToId('cta')} />
 
-      {/* FAQ Section */}
-      <FaqSection
+      {/* FAQ */}
+      <Faq
         onBookCall={onNavigateToContact || (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
         onContactUs={onNavigateToContact || (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
       />

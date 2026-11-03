@@ -56,35 +56,35 @@ export const STORY_REELS: StoryReel[] = [
 
 export const TOP_ROW_TESTIMONIALS: TestimonialCardData[] = [
   {
-    quote: "Our engagement tripled and our ad costs dropped. Turns out when content looks real, people actually click.",
+    quote: "We sent phone photos and got cinematic AI video ads in 48 hours. Meta ROAS jumped to 3.8x.",
     author: "James Adler",
     role: "Founder, Duskline",
     avatar: avatarJames,
     stars: 5,
   },
   {
-    quote: "I finally found an agency that gets speed and aesthetic. The weekly deliverables exceeded our expectations from day one.",
+    quote: "Their 4-step process is effortless. Viral reels delivered on schedule and tripled our engagement.",
     author: "Rachel Lin",
     role: "Head of Growth, Aura",
     avatar: avatarRachel,
     stars: 5,
   },
   {
-    quote: "Within 30 days we had more content than we'd made in a full year, and it was better content. The results exceeded our expectations.",
+    quote: "Replaced studio photoshoots with AI product images. Look 100% real and increased sales by 45%.",
     author: "Tom Nakamura",
     role: "CEO, Velour Co.",
     avatar: avatarTom,
     stars: 5,
   },
   {
-    quote: "We tried two agencies before this and got nothing but pitch decks and excuses. Real results happened fast.",
+    quote: "Mindtrix collected our samples, found winning hooks, and delivered 8 top-performing ads in weeks.",
     author: "Sara Kim",
     role: "CMO, Oraly",
     avatar: avatarSara,
     stars: 5,
   },
   {
-    quote: "Mindtrix Media streamlined our entire visual pipeline. High performance creative produced without the endless delays.",
+    quote: "The AI spokesperson ads look totally natural. Customers trust us faster and ad costs dropped.",
     author: "Marcus Vance",
     role: "Founder, Veloce Goods",
     avatar: avatarMarcus,
@@ -94,35 +94,35 @@ export const TOP_ROW_TESTIMONIALS: TestimonialCardData[] = [
 
 export const BOTTOM_ROW_TESTIMONIALS: TestimonialCardData[] = [
   {
-    quote: "Social media ad creative used to be shouting into a void. Now our ROAS is consistently 3.5x+ across paid campaigns.",
+    quote: "Fresh catalog graphics and social reels delivered every month with zero stress.",
     author: "Alicia Gomez",
     role: "Marketing Director, Lumina",
     avatar: avatarAlicia,
     stars: 5,
   },
   {
-    quote: "Mindtrix Media gave us a real strategy, real creators, and real results within 60 days, helping us grow faster with measurable impact.",
+    quote: "Their reels got over 1.2M views on Instagram and TikTok. Trend research was spot-on.",
     author: "Ethan Brooks",
-    role: "Wellness, Oralyn Skincare",
+    role: "Growth Lead, Oralyn",
     avatar: avatarEthan,
     stars: 5,
   },
   {
-    quote: "120+ video assets delivered in record time with zero compromise on visual finish. Our team can finally focus on scaling.",
+    quote: "From branding to 3D video ads, luxury production quality at an affordable price.",
     author: "Chloe Dubois",
     role: "Creative Lead, Maison",
     avatar: avatarChloe,
     stars: 5,
   },
   {
-    quote: "With Mindtrix Media, we saw structured strategy, quality creators, and strong results within two months.",
+    quote: "Finding converting creatives used to be hard. Mindtrix's AI production solved that for us.",
     author: "Noah Parker",
     role: "Brand Strategist, Mintwave",
     avatar: avatarNoah,
     stars: 5,
   },
   {
-    quote: "Our CTR increased by 84% in the first two weeks of running these reels. The conversion speak for itself.",
+    quote: "Our CTR jumped 84% in two weeks. Consistent AI video ads transformed our online store.",
     author: "Elena Rostova",
     role: "VP Ecommerce, SORA",
     avatar: avatarElena,

@@ -7,7 +7,7 @@ import { Profile } from '@/types';
 import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
 import { VIDEOS } from '@/data/videos';
 import { IMAGES } from '@/data/images';
-import { BrandsSection } from './Brands';
+import { Brands } from './Brands';
 import { LazyVideo } from '@/components/ui/LazyVideo';
 
 const ferreriVideo = VIDEOS['streetwear-ferreri'].videoSrc;
@@ -16,7 +16,7 @@ const ferreriImage = IMAGES['fashion-confident-red-tee'].src;
 const userAvatar = IMAGES['fashion-model-studio-pose'].src;
 const userAvatar2 = IMAGES['jewelry-elegant-necklace-portrait'].src;
 
-interface HeroSectionProps {
+interface HeroProps {
   onSelectProfile?: (profile: Profile) => void;
   onSendReaction?: (emoji: string, profile: Profile) => void;
   onOpenVideoChat?: () => void;
@@ -24,7 +24,7 @@ interface HeroSectionProps {
   onNavigateToReels?: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({
+export const Hero: React.FC<HeroProps> = ({
   onNavigateToImages,
   onNavigateToReels
 }) => {
@@ -477,7 +477,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* Brands Showcase directly on the continuous Hero background */}
-        <BrandsSection className="mt-4 sm:mt-6 md:mt-8 relative z-10" />
+        <Brands className="mt-4 sm:mt-6 md:mt-8 relative z-10" />
       </div>
     </section>
   );

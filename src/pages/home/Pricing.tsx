@@ -15,12 +15,12 @@ import {
   Star,
 } from 'lucide-react';
 
-interface PricingSectionProps {
+interface PricingProps {
   onSelectPlan?: (planId: string) => void;
 }
 
 // ponytail: Left card in crisp white, Right card in rich website theme plum-noir (no heavy violet), matching website peach/rose/lavender/noir palette
-export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) => {
+export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
   return (
     <section
       id="pricing"
@@ -90,7 +90,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                 </div>
                 {/* Row 3: Tagline */}
                 <p className="text-xs sm:text-[13px] text-neutral-600 font-medium mt-2">
-                  Ideal for single video ads, Instagram reels & pilot campaigns.
+                  Single video ads, product photo sets & pilot campaigns.
                 </p>
               </div>
             </div>
@@ -103,8 +103,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                   <Film className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">1 High-Impact AI Video Ad</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Cinematic 4K product reel tailored to your brand.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">1 AI Video Ad or Photo Set</h4>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Tailored 4K visual for your brand.</p>
                 </div>
               </div>
 
@@ -114,8 +114,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                   <Wand2 className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Custom Script & AI Voiceover</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Viral hook structure with studio-grade sound.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Trend & Hook Research</h4>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Angles designed to grab attention.</p>
                 </div>
               </div>
 
@@ -125,8 +125,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                   <Layers className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Hyper-Realistic AI Model</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Photorealistic digital actor showcasing your product.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">AI Retouching & Lighting</h4>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Photorealistic studio finish.</p>
                 </div>
               </div>
 
@@ -137,7 +137,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Fast 24–48 Hr Delivery</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Ready-to-post 9:16 vertical & 16:9 widescreen format.</p>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Ready-to-post in 9:16 and 16:9 formats.</p>
                 </div>
               </div>
             </div>
@@ -183,7 +183,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                 </div>
                 {/* Row 3: Tagline */}
                 <p className="text-xs sm:text-[13px] text-white/90 font-medium mt-2">
-                  Consistent viral flow & dedicated AI creative production every month.
+                  Dedicated AI creative production every month.
                 </p>
               </div>
             </div>
@@ -197,7 +197,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">6–8 Viral Video Reels / Mo</h4>
-                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Continuous stream of fresh, trend-aligned creative assets.</p>
+                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Fresh content to keep your brand active.</p>
                 </div>
               </div>
 
@@ -207,8 +207,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                   <InfinityIcon className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Scriptwriting & Hook Research</h4>
-                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Creative storyboarding tailored to viral social algorithms.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Weekly Trend Research</h4>
+                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Data-backed hooks for social algorithms.</p>
                 </div>
               </div>
 
@@ -218,8 +218,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                   <TrendingUp className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Exclusive Brand AI Model</h4>
-                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Consistent digital actor persona across all campaigns.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Multi-Platform Formats</h4>
+                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Ready for Instagram, TikTok & Meta.</p>
                 </div>
               </div>
 
@@ -229,8 +229,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                   <Shield className="w-4 h-4 fill-[#eda970]/30" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Priority Turnaround & VIP Support</h4>
-                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Fast delivery with direct WhatsApp & dedicated manager support.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Priority WhatsApp Support</h4>
+                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Fast delivery with dedicated manager.</p>
                 </div>
               </div>
             </div>

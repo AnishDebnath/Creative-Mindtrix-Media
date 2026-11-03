@@ -71,7 +71,7 @@ const LinkIcon: React.FC = () => (
   </svg>
 );
 
-export const AudienceResultsSection: React.FC = () => {
+export const AudienceResults: React.FC = () => {
   return (
     <section className="relative w-full py-12 sm:py-14 md:py-16 overflow-hidden bg-white">
       {/* Soft Ethereal Ambient Glow in Website Theme Palette */}

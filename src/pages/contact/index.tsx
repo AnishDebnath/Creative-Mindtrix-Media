@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { IMAGES } from '@/data/images';
 import { BRAND_LOGOS } from '@/pages/home/Brands';
-import { FaqSection } from '@/pages/home/Faq';
+import { Faq } from '@/pages/home/Faq';
 
 interface ContactPageProps {
   onNavigateToImages?: () => void;
@@ -51,14 +51,14 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
   // Service options tailored to Mindtrix Media website information with full scrollable options
   const SERVICES = [
-    'AI Product Commercials',
-    'Social Media Video Reels',
-    'Studio & Product Photography',
-    'Brand Ad Campaigns',
-    'Viral TikTok & Shorts Ads',
-    'UGC Performance Video Ads',
-    '3D Product Visuals & Staging',
-    'Other Custom Creatives'
+    'AI-Powered Product Advertising',
+    'Product Photography & AI Image Creation',
+    'Social Media Reels & Video Content',
+    'Digital Advertising Creatives',
+    'AI Spokesperson & UGC-Style Videos',
+    'E-commerce Product Content',
+    'Brand Identity & Graphic Design',
+    'Brand Campaign & Creative Strategy',
   ];
 
   // ponytail: repeat brands for seamless continuous loop marquee on contact page
@@ -142,7 +142,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     ))}
                   </div>
                   <span className="text-xs sm:text-[13px] font-semibold text-neutral-700 tracking-tight mt-0.5">
-                    Grown over 120+ creators
+                    Trusted by 120+ growing brands & creators
                   </span>
                 </div>
               </div>
@@ -499,7 +499,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                           rows={3}
                           value={requirements}
                           onChange={(e) => setRequirements(e.target.value)}
-                          placeholder="Tell us about your products, requirements, deliverables timeline..."
+                          placeholder="Tell us about your products and goals..."
                           className="w-full px-4 py-3 rounded-xl bg-neutral-100/80 border border-neutral-200/80 text-sm text-neutral-900 placeholder-neutral-400 focus:bg-white focus:border-[#3d2035] focus:ring-2 focus:ring-[#3d2035]/10 outline-none transition-all font-medium resize-none"
                         />
                       </div>
@@ -535,7 +535,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
       {/* 2. FAQ SECTION SAME AS HOME PAGE (Final section before Footer)            */}
       {/* -------------------------------------------------------------------------- */}
       <div className="w-full">
-        <FaqSection
+        <Faq
           onBookCall={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           onContactUs={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         />

@@ -5,13 +5,13 @@ import { SectionTag } from '@/components/ui/SectionTag';
 import { LazyVideo } from '@/components/ui/LazyVideo';
 import { SHOWCASE_GRID_VIDEOS } from '@/data/videos';
 
-interface CommunitySectionProps {
+interface ProductReelsProps {
   onOpenVideoChat?: () => void;
   onMeetCommunity?: () => void;
   onNavigateToReels?: () => void;
 }
 
-export const CommunitySection: React.FC<CommunitySectionProps> = ({
+export const ProductReels: React.FC<ProductReelsProps> = ({
   onNavigateToReels,
   onOpenVideoChat,
 }) => {
@@ -91,7 +91,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
             {/* Website Theme SectionTag */}
             <SectionTag label="AI Reel Stage" className="mb-4 sm:mb-5" />
 
-            {/* Headline matching MeetTheWorld right-side font size & 3-line cadence */}
+            {/* Headline matching CreativeStudio right-side font size & 3-line cadence */}
             <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.06] mb-4 sm:mb-5">
               <span>AI PRODUCT REELS</span>
               <br />
@@ -110,12 +110,12 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
               </span>
             </h2>
 
-            {/* Description matching MeetTheWorld right-side font size and proportion */}
+            {/* Description matching CreativeStudio right-side font size and proportion */}
             <p className="text-neutral-700 text-sm md:text-base lg:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
               Short, high-impact AI product video reels engineered to capture attention, stop the scroll, and turn casual viewers into paying customers.
             </p>
 
-            {/* Brand CTA Button matching MeetTheWorld right-side button size & style */}
+            {/* Brand CTA Button matching CreativeStudio right-side button size & style */}
             <button
               onClick={handleCtaClick}
               className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"

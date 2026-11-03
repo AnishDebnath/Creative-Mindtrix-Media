@@ -49,7 +49,7 @@ const ReviewCard: React.FC<{ card: TestimonialCardData }> = ({ card }) => {
   );
 };
 
-export const TestimonialsSection: React.FC = () => {
+export const Testimonials: React.FC = () => {
   const [activeStoryIndex, setActiveStoryIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isMuted, setIsMuted] = useState(true);

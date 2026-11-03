@@ -10,33 +10,37 @@ interface FaqItem {
 
 const FAQ_DATA: FaqItem[] = [
   {
-    question: "Which platforms do you work with?",
-    answer: "We work across all major social platforms, including Instagram, TikTok, YouTube, and X. Every asset is natively formatted with optimized aspect ratios, retention hooks, and platform-specific audio strategies.",
+    question: "What creative services do you provide?",
+    answer: "We offer 8 services: AI Product Ads, Product Photography, Video Reels, Ad Creatives, AI Presenters, E-commerce Visuals, Brand Design, and Campaign Strategy.",
   },
   {
-    question: "How long before we see results?",
-    answer: "Most brands see measurable increases in engagement, clicks, and ROAS within the first 14 to 30 days of running our AI ads and high-converting reels.",
+    question: "How does your 4-step process work?",
+    answer: "1. Collect media & samples. 2. Research winning trends. 3. Produce AI videos and photos. 4. Deliver or post directly to your channels.",
   },
   {
-    question: "Do you offer custom plans?",
-    answer: "Yes, absolutely. In addition to our Per Project and Monthly Growth tiers, we customize tailored visual packages for enterprise brands with specific high-volume production needs.",
+    question: "How fast do you deliver?",
+    answer: "Single projects are delivered in 24 to 48 hours. Monthly clients receive fresh creative batches every week.",
   },
   {
-    question: "What services do you offer?",
-    answer: "We deliver full-cycle creative production: AI commercial product photography, viral TikTok & Instagram reels, UGC-style performance video ads, scriptwriting, kinetic editing, and multi-platform publishing.",
+    question: "Do I need expensive cameras or gear?",
+    answer: "No. Simple smartphone photos or clips work great. Our AI enhances lighting, backgrounds, and motion.",
   },
   {
-    question: "How do we get started?",
-    answer: "Simply book a discovery call or choose your tier. We will onboard your brand assets, map out your first creative batch, and deliver your initial batch of studio-grade reels within 48 to 72 hours.",
+    question: "Which formats and platforms do you support?",
+    answer: "All major formats: 9:16 vertical reels for Instagram, TikTok, and Shorts, 1:1 square feeds, and 16:9 ads.",
+  },
+  {
+    question: "Can I test with a single project first?",
+    answer: "Yes! Book a single project starting at ₹999, then upgrade to a monthly plan whenever you are ready.",
   },
 ];
 
-interface FaqSectionProps {
+interface FaqProps {
   onBookCall?: () => void;
   onContactUs?: () => void;
 }
 
-export const FaqSection: React.FC<FaqSectionProps> = ({
+export const Faq: React.FC<FaqProps> = ({
   onBookCall,
   onContactUs,
 }) => {

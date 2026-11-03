@@ -9,7 +9,7 @@ import { Profile } from '@/types';
 const jewelryImage = IMAGES['jewelry-pendant-hand-pose']?.src;
 const perfumeImage = IMAGES['perfume-flatlay-botanical']?.src;
 
-interface MeetTheWorldSectionProps {
+interface CreativeStudioProps {
   onSelectProfile?: (profile: Profile) => void;
   onSendReaction?: (emoji: string, profile: Profile) => void;
   onDiscoverMore?: () => void;
@@ -17,7 +17,7 @@ interface MeetTheWorldSectionProps {
   onNavigateToReels?: () => void;
 }
 
-export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
+export const CreativeStudio: React.FC<CreativeStudioProps> = ({
   onNavigateToImages,
   onDiscoverMore,
   onNavigateToReels,
@@ -118,30 +118,30 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
             className="order-1 lg:order-2 lg:col-span-5 flex flex-col items-start justify-center text-left"
           >
             {/* Website Theme SectionTag */}
-            <SectionTag label="Our Mission" className="mb-4 sm:mb-5" />
+            <SectionTag label="Creative Studio" className="mb-4 sm:mb-5" />
 
             {/* Well-proportioned Headline - Signature Section Header Design */}
             <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.06] mb-4 sm:mb-5">
-              <span>WE MAKE REAL</span>
+              <span>WE TURN SIMPLE</span>
               <br />
               <span className="inline-flex items-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
-                {/* Highlight Pill Container for PEOPLE - Styled in Website Theme */}
+                <span>PRODUCTS INTO</span>
+                {/* Highlight Pill Container for VIRAL ADS - Styled in Website Theme */}
                 <span className="inline-block relative">
                   <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
                     <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
-                      PEOPLE
+                      VIRAL ADS
                     </span>
                   </span>
                 </span>
-                <span>YOUR BEST</span>
               </span>
               <br />
-              <span>MARKETING ASSET.</span>
+              <span>THAT DRIVE SALES.</span>
             </h2>
 
             {/* Well-proportioned Description - comfortable readability */}
             <p className="text-neutral-700 text-sm md:text-base lg:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
-              UGC grounded in performance data. We find the right creators and craft content that earns attention and converts into revenue.
+              Studio AI product photos and viral video reels engineered to turn viewers into buyers.
             </p>
 
             {/* CTA Button matching website sections style */}
@@ -149,7 +149,7 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
               onClick={handleCtaClick}
               className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
             >
-              <span>See How We Do It</span>
+              <span>Explore Services</span>
               <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
             </button>
           </motion.div>

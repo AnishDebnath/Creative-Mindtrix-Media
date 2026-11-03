@@ -51,7 +51,7 @@ const BrandLogoRender: React.FC<{ brand: BrandItem }> = ({ brand }) => {
   );
 };
 
-export const BrandsSection: React.FC<{ className?: string }> = ({ className = '' }) => {
+export const Brands: React.FC<{ className?: string }> = ({ className = '' }) => {
   // ponytail: repeat array 4 times for seamless continuous marquee loop
   const displayBrands = [...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS];
 
@@ -66,7 +66,7 @@ export const BrandsSection: React.FC<{ className?: string }> = ({ className = ''
             <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
               120+
             </span>{' '}
-            creators and brands
+            Brands & Creators
           </h3>
         </div>
 
@@ -95,4 +95,4 @@ export const BrandsSection: React.FC<{ className?: string }> = ({ className = ''
   );
 };
 
-export default BrandsSection;
+export default Brands;

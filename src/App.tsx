@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { CtaSection } from '@/pages/home/Cta';
+import { Cta } from '@/pages/home/Cta';
 import { HomePage } from '@/pages/home';
 import { ImagesPage } from '@/pages/images';
 import { ReelsPage } from '@/pages/videos';
@@ -196,8 +196,8 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* Global CTA Section across all pages */}
-      <CtaSection
+      {/* Global CTA across all pages */}
+      <Cta
         onExploreServices={() => navigateTo('home', 'services', '/services')}
         onContactUs={() => navigateTo('contact', undefined, '/contact')}
         onNavigateToReels={() => navigateTo('reels', undefined, '/videos')}

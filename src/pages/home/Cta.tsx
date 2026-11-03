@@ -5,7 +5,7 @@ import { LazyVideo } from '@/components/ui/LazyVideo';
 import { TOP_HERO_VIDEOS } from '@/data/videos';
 import { scrollToId } from '@/utils/scroll';
 
-interface CtaSectionProps {
+interface CtaProps {
   onExploreServices?: () => void;
   onContactUs?: () => void;
   onNavigateToReels?: () => void;
@@ -47,7 +47,7 @@ const CTA_CARDS = [
   },
 ];
 
-export const CtaSection: React.FC<CtaSectionProps> = ({
+export const Cta: React.FC<CtaProps> = ({
   onExploreServices,
   onContactUs,
   onNavigateToReels,
@@ -109,7 +109,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
           transition={{ duration: 0.45, delay: 0.1 }}
           className="text-neutral-600 text-sm sm:text-base md:text-lg max-w-xl mx-auto mt-3.5 sm:mt-4 font-normal leading-relaxed"
         >
-          Join our global network of innovators and watch your digital presence grow rapidly.
+          Send us your product media today and get high-converting AI ads fast.
         </motion.p>
 
         {/* 4. Action Buttons matching other sections (Faq, WhyChooseUs, etc.) */}

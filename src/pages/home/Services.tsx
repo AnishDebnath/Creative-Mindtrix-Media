@@ -5,15 +5,17 @@ import { SectionTag } from '@/components/ui/SectionTag';
 import { LazyVideo } from '@/components/ui/LazyVideo';
 import { CREATIVE_SERVICES, SERVICES_SECTION_HEADER } from '@/data/services';
 
-interface CreativeServicesSectionProps {
+interface ServicesProps {
   onNavigateToReels?: () => void;
   onNavigateToImages?: () => void;
+  onNavigateToContact?: () => void;
 }
 
 // ponytail: Duplicate 3x for zero-glitch infinite center loop with silent reset
 const SLIDES = [...CREATIVE_SERVICES, ...CREATIVE_SERVICES, ...CREATIVE_SERVICES];
 
-export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = ({
+export const Services: React.FC<ServicesProps> = ({
+  onNavigateToContact,
   onNavigateToReels,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,6 +24,7 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
   const [currentIndex, setCurrentIndex] = useState(CREATIVE_SERVICES.length);
   const [isInstant, setIsInstant] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Responsive carousel dimensions
   const [containerWidth, setContainerWidth] = useState(1200);
@@ -93,6 +96,15 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
     setCurrentIndex((prev) => prev - 1);
   };
 
+  // ponytail: Auto-advance one card by one every 2.4s, paused on hover
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => prev + 1);
+    }, 2400);
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   const activeIndex = currentIndex % CREATIVE_SERVICES.length;
 
   return (
@@ -108,15 +120,15 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
 
           {/* Left Column: Big 2-Line Headline in uniform solid color */}
           <div>
-            <SectionTag label="Creative Services" className="mb-3.5" />
+            <SectionTag label="Services" className="mb-3.5" />
             <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.1]">
-              <span>WHAT WE</span>
+              <span>OUR CREATIVE</span>
               <br />
-              {/* Highlight Pill Container for DELIVER. - Styled in Website Theme */}
+              {/* Highlight Pill Container for SERVICES. - Styled in Website Theme */}
               <span className="inline-block relative mt-1 sm:mt-1.5">
                 <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
                   <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
-                    DELIVER.
+                    SERVICES.
                   </span>
                 </span>
               </span>
@@ -131,7 +143,7 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
 
             <div className="flex flex-wrap items-center justify-between w-full gap-4 pt-3 border-t border-neutral-100">
               <button
-                onClick={onNavigateToReels}
+                onClick={onNavigateToContact || onNavigateToReels}
                 className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
               >
                 <span>{SERVICES_SECTION_HEADER.ctaText}</span>
@@ -171,6 +183,8 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
       {/* Endless Centered Horizontal Cards Carousel */}
       <div
         ref={containerRef}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
         className="relative w-full overflow-hidden pt-4 pb-20 sm:pb-24"
       >
         <motion.div

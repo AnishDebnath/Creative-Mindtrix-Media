@@ -155,7 +155,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
 
             {/* Subtitle */}
             <p className="text-neutral-700 text-sm md:text-base lg:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
-              Studio-quality AI product imagery and lifestyle visuals created for e-commerce stores, Amazon listings, and social campaigns.
+              Studio AI product photos and lifestyle visuals for Amazon, Shopify, and social ads.
             </p>
 
             {/* Action Button */}

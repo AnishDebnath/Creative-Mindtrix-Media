@@ -17,7 +17,7 @@ import { getCloudinaryVideo } from '@/utils/cloudinary';
 
 const howWeWorkVideo = getCloudinaryVideo('how-we-work.mp4');
 
-interface WhyChooseUsSectionProps {
+interface WhyChooseUsProps {
   onGetStarted?: () => void;
   onViewCaseStudies?: () => void;
 }
@@ -309,7 +309,7 @@ const DeliverPostShowcase: React.FC = () => (
   </div>
 );
 
-export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
+export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
   onGetStarted,
   onViewCaseStudies,
 }) => {
@@ -372,7 +372,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
                   Collect Media & Samples
                 </h3>
                 <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed font-normal">
-                  At first, we collect your product images, video sample data, and creative assets.
+                  Send us your product photos, raw clips, or samples to get started.
                 </p>
               </div>
             </motion.div>
@@ -396,7 +396,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
                   Market & Trend Research
                 </h3>
                 <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed font-normal">
-                  Then we market research what is best for the current situation to find what converts.
+                  We research viral trends and winning hooks that get buyers to click.
                 </p>
               </div>
             </motion.div>
@@ -420,7 +420,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
                   Make & Produce Creatives
                 </h3>
                 <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed font-normal">
-                  Then we make high-impact AI product video reels, commercial visuals, and viral ads.
+                  We produce high-impact AI video ads, product photos, and reels.
                 </p>
               </div>
             </motion.div>
@@ -444,7 +444,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
                   Deliver & Post Directly
                 </h3>
                 <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed font-normal">
-                  Then we deliver and post directly to your websites and social media channels.
+                  We deliver 4K ready-to-post files or post them directly to your channels.
                 </p>
               </div>
             </motion.div>

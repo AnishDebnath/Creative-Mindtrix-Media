@@ -41,7 +41,7 @@ const InstagramIcon: React.FC = () => (
   </svg>
 );
 
-export const SocialPlatformsSection: React.FC = () => {
+export const SocialPlatforms: React.FC = () => {
   return (
     <section className="relative w-full pt-1 sm:pt-3 md:pt-4 pb-8 sm:pb-10 md:pb-12 overflow-hidden bg-white">
       {/* Soft Ethereal Website Theme Ambient Glow in Background */}
