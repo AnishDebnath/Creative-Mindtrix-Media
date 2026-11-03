@@ -60,7 +60,7 @@ export const BrandsSection: React.FC<{ className?: string }> = ({ className = ''
       {/* Centered Constrained Width */}
       <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
         {/* Heading */}
-        <div className="text-center mb-6 sm:mb-9">
+        <div className="text-center mb-3 sm:mb-4.5">
           <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight text-neutral-900">
             Trusted by{' '}
             <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">

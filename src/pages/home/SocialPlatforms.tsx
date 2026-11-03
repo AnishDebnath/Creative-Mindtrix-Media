@@ -43,7 +43,7 @@ const InstagramIcon: React.FC = () => (
 
 export const SocialPlatformsSection: React.FC = () => {
   return (
-    <section className="relative w-full py-10 sm:py-12 md:py-14 overflow-hidden bg-white">
+    <section className="relative w-full pt-1 sm:pt-3 md:pt-4 pb-8 sm:pb-10 md:pb-12 overflow-hidden bg-white">
       {/* Soft Ethereal Website Theme Ambient Glow in Background */}
       <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center">
         <div
@@ -57,7 +57,7 @@ export const SocialPlatformsSection: React.FC = () => {
 
       {/* Main Orbital Content Container */}
       <div className="relative max-w-screen-xl mx-auto px-3 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-        <div className="relative min-h-[300px] sm:min-h-[380px] md:min-h-[460px] flex items-center justify-center">
+        <div className="relative min-h-[250px] sm:min-h-[380px] md:min-h-[460px] flex items-center justify-center">
 
           {/* 1. TOP CENTER: YouTube */}
           <motion.div
@@ -65,7 +65,7 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="absolute -top-2 sm:top-2 md:top-4 left-1/2 -translate-x-1/2 z-20"
+            className="absolute top-2 sm:-top-2 md:top-4 left-1/2 -translate-x-1/2 z-20"
           >
             <motion.a
               href="https://www.youtube.com"
@@ -87,7 +87,7 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="absolute top-3 sm:top-8 md:top-12 left-1.5 sm:left-6 md:left-14 lg:left-20 z-20"
+            className="absolute top-7 xs:top-9 sm:top-10 md:top-12 left-11 xs:left-14 sm:left-8 md:left-14 lg:left-20 z-20"
           >
             <motion.a
               href="https://x.com"
@@ -109,7 +109,7 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute top-3 sm:top-8 md:top-16 right-1.5 sm:right-6 md:right-14 lg:right-20 z-20"
+            className="absolute top-7 xs:top-9 sm:top-12 md:top-16 right-11 xs:right-14 sm:right-8 md:right-14 lg:right-20 z-20"
           >
             <motion.a
               href="https://www.linkedin.com"
@@ -131,7 +131,7 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, ease: 'easeOut' }}
-            className="relative z-10 text-center px-3 sm:px-4 max-w-3xl mx-auto py-12 sm:py-16 md:py-24"
+            className="relative z-10 text-center px-3 sm:px-4 max-w-3xl mx-auto py-8 sm:py-16 md:py-24"
           >
             <h2 className="font-sans text-xl sm:text-3xl md:text-5xl lg:text-[58px] font-extrabold tracking-tight text-neutral-900 leading-tight md:leading-[1.14]">
               We Work Across All
@@ -149,7 +149,7 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="absolute -bottom-2 sm:bottom-2 md:bottom-5 left-[3%] sm:left-[16%] md:left-[22%] lg:left-[26%] z-20"
+            className="absolute bottom-2 sm:bottom-2 md:bottom-5 left-[16%] xs:left-[19%] sm:left-[18%] md:left-[22%] lg:left-[26%] z-20"
           >
             <motion.a
               href="https://www.facebook.com"
@@ -171,7 +171,7 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="absolute -bottom-2 sm:bottom-2 md:bottom-5 right-[3%] sm:right-[16%] md:right-[22%] lg:right-[26%] z-20"
+            className="absolute bottom-2 sm:bottom-2 md:bottom-5 right-[16%] xs:right-[19%] sm:right-[18%] md:right-[22%] lg:right-[26%] z-20"
           >
             <motion.a
               href="https://www.instagram.com"

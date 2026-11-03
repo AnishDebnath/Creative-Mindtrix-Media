@@ -95,7 +95,7 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="absolute -top-3 sm:top-2 md:top-4 left-1/2 -translate-x-1/2 z-20"
+            className="absolute -top-4 xs:-top-3 sm:top-2 md:top-4 left-1/2 -translate-x-1/2 z-20"
           >
             <motion.div
               animate={{ y: [0, -7, 0] }}
@@ -139,7 +139,7 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="absolute top-3 sm:top-8 md:top-12 left-1 sm:left-6 md:left-12 lg:left-16 z-20"
+            className="absolute top-12 xs:top-14 sm:top-8 md:top-12 left-11 xs:left-14 sm:left-6 md:left-12 lg:left-16 z-20"
           >
             <motion.div
               animate={{ y: [0, -8, 0] }}
@@ -160,7 +160,7 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute top-3 sm:top-8 md:top-12 right-1 sm:right-6 md:right-12 lg:right-16 z-20"
+            className="absolute top-12 xs:top-14 sm:top-8 md:top-12 right-11 xs:right-14 sm:right-6 md:right-12 lg:right-16 z-20"
           >
             <motion.div
               animate={{ y: [0, -7, 0] }}
@@ -200,7 +200,7 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="absolute -bottom-2 sm:bottom-1 md:bottom-4 left-[3%] sm:left-[16%] md:left-[22%] lg:left-[26%] z-20"
+            className="absolute bottom-6 xs:bottom-8 sm:bottom-1 md:bottom-4 left-[16%] xs:left-[19%] sm:left-[16%] md:left-[22%] lg:left-[26%] z-20"
           >
             <motion.div
               animate={{ y: [0, -8, 0] }}
@@ -221,7 +221,7 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="absolute -bottom-2 sm:bottom-1 md:bottom-4 right-[3%] sm:right-[16%] md:right-[22%] lg:right-[26%] z-20"
+            className="absolute bottom-6 xs:bottom-8 sm:bottom-1 md:bottom-4 right-[16%] xs:right-[19%] sm:right-[16%] md:right-[22%] lg:right-[26%] z-20"
           >
             <motion.div
               animate={{ y: [0, -7, 0] }}

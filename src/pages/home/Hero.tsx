@@ -118,7 +118,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       id="hero"
-      className="relative w-full pt-1 sm:pt-3 pb-8 sm:pb-12 md:pb-14 overflow-hidden"
+      className="relative w-full pt-1 sm:pt-3 pb-3 sm:pb-5 md:pb-6 overflow-hidden"
       style={{
         backgroundImage: `
           linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 55%, #ffffff 100%),
@@ -477,7 +477,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* Brands Showcase directly on the continuous Hero background */}
-        <BrandsSection className="mt-8 sm:mt-12 md:mt-14 relative z-10" />
+        <BrandsSection className="mt-4 sm:mt-6 md:mt-8 relative z-10" />
       </div>
     </section>
   );
