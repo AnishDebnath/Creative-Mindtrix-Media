@@ -12,12 +12,13 @@ import {
   TrendingUp,
   Play,
   Share2,
+  ChevronRight,
 } from 'lucide-react';
 import { getCloudinaryVideo } from '@/utils/cloudinary';
 
 const howWeWorkVideo = getCloudinaryVideo('how-we-work.mp4');
 
-interface WhyChooseUsProps {
+interface ProcessProps {
   onGetStarted?: () => void;
   onViewCaseStudies?: () => void;
 }
@@ -309,43 +310,56 @@ const DeliverPostShowcase: React.FC = () => (
   </div>
 );
 
-export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
+export const Process: React.FC<ProcessProps> = ({
   onGetStarted,
   onViewCaseStudies,
 }) => {
   return (
-    <section id="why-us" className="relative w-full bg-white py-12 sm:py-16 md:py-20 overflow-hidden">
+    <section id="process" className="relative w-full bg-white py-12 sm:py-16 md:py-20 overflow-hidden">
+      <span id="why-us" className="sr-only" />
       {/* Website Theme Ambient Radial Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[550px] bg-gradient-to-r from-[#dcc6d5]/25 via-[#cfc1ee]/25 to-[#eda970]/20 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute -bottom-20 -right-20 w-[450px] h-[450px] bg-gradient-to-l from-[#3d2035]/10 via-[#dcc6d5]/20 to-[#eda970]/15 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="text-center mb-12 sm:mb-16 flex flex-col items-center"
-        >
-          <SectionTag label="Why Choose Us" className="mb-4" />
-          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.15]">
-            <span>WHY THE FASTEST GROWING</span>
-            <br />
-            <span className="inline-flex items-center justify-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
-              <span>BRANDS</span>
-              {/* Highlight Pill Container for CHOOSE - Styled in Website Theme */}
-              <span className="inline-block relative">
-                <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
-                  <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
-                    CHOOSE
+        {/* Section Header: 2-column layout matching Services section style */}
+        <div className="mb-12 sm:mb-14">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
+            {/* Left Column: Big 2-Line Headline with Highlight Container */}
+            <div>
+              <SectionTag label="Process" className="mb-3.5" />
+              <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.1]">
+                <span>HOW WE WORK</span>
+                <br />
+                {/* Highlight Pill Container for WITH CLIENTS. - Styled in Website Theme */}
+                <span className="inline-block relative mt-1 sm:mt-1.5">
+                  <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                    <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
+                      WITH CLIENTS.
+                    </span>
                   </span>
                 </span>
-              </span>
-              <span>US.</span>
-            </span>
-          </h2>
-        </motion.div>
+              </h2>
+            </div>
+
+            {/* Right Column: Description + Action CTA Button matching Services header */}
+            <div className="max-w-lg flex flex-col items-start gap-5">
+              <p className="text-neutral-700 text-sm sm:text-lg leading-relaxed font-normal max-w-prose">
+                From product samples to viral ad creatives — a seamless 4-step workflow built for high conversion.
+              </p>
+
+              <div className="flex items-center w-full pt-3 border-t border-neutral-100">
+                <button
+                  onClick={onGetStarted}
+                  className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
+                >
+                  <span>START YOUR PROJECT</span>
+                  <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Bento Grid: 4 Process Steps on Left (8 cols) + 9:16 Feature Video Card on Right (4 cols) with tight gap */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">

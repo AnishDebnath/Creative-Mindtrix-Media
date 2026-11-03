@@ -3,7 +3,7 @@ import { Hero } from './Hero';
 import { SocialPlatforms } from './SocialPlatforms';
 import { AudienceResults } from './AudienceResults';
 import { Services } from './Services';
-import { WhyChooseUs } from './WhyChooseUs';
+import { Process } from './Process';
 import { CreativeStudio } from './CreativeStudio';
 import { ProductReels } from './ProductReels';
 import { Testimonials } from './Testimonials';
@@ -43,8 +43,8 @@ export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToCo
         onNavigateToContact={onNavigateToContact}
       />
 
-      {/* Why Choose Us */}
-      <WhyChooseUs
+      {/* Process (Client Workflow Bento) */}
+      <Process
         onGetStarted={() => scrollToId('cta')}
         onViewCaseStudies={onNavigateToReels}
       />
