@@ -148,16 +148,17 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
               </div>
 
               {/* Section Headline - Balanced & Maintained Scale */}
-              <h1 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.08]">
+              <h1 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.08]">
                 <span>LET'S BUILD</span>
                 <br />
-                <span>SOMETHING</span>
-                <br />
-                {/* Highlight Pill Container for GREAT. - Styled in Website Theme */}
-                <span className="inline-block relative mt-1.5 sm:mt-2">
-                  <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[26px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
-                    <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
-                      GREAT.
+                <span className="inline-flex items-center flex-wrap gap-x-2.5 sm:gap-x-3.5 gap-y-1.5 mt-1 sm:mt-1.5">
+                  <span>SOMETHING</span>
+                  {/* Highlight Pill Container for GREAT. - Styled in Website Theme */}
+                  <span className="inline-block relative">
+                    <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                      <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
+                        GREAT.
+                      </span>
                     </span>
                   </span>
                 </span>
