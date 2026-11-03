@@ -68,6 +68,30 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
   // As user scrolls and cards line up, category texts smoothly fade into view.
   const categoryTextOpacity = Math.max(0, Math.min(1, (scrollFactor - 0.2) / 0.6));
 
+  const renderImageCard = (img: (typeof SHOWCASE_GRID_IMAGES)[number], catName: string) => (
+    <div
+      key={img.id}
+      onClick={() => setSelectedImage(img.src)}
+      className="group relative w-full rounded-[18px] sm:rounded-[24px] md:rounded-[28px] overflow-hidden bg-neutral-900/60 shadow-sm hover:shadow-xl cursor-pointer transform hover:-translate-y-1.5 transition-all duration-300"
+    >
+      <img
+        src={img.src}
+        alt={img.title || `${catName} AI Photography - Mindtrix Media`}
+        className="w-full h-auto block object-cover transition-transform duration-700 group-hover:scale-105"
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 sm:p-3.5 md:p-4 flex flex-col justify-end pointer-events-none">
+        <span className="text-[10px] font-bold tracking-wider uppercase text-[#eda970]">
+          {img.category}
+        </span>
+        <p className="text-white text-xs sm:text-sm font-semibold line-clamp-2 leading-snug">
+          {img.title}
+        </p>
+      </div>
+    </div>
+  );
+
   return (
     <div
       className="relative w-full overflow-hidden"
@@ -112,8 +136,8 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
             {/* Section Tag */}
             <SectionTag label="AI Product Imagery" />
 
-            {/* Main Headline */}
-            <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-normal text-neutral-900 uppercase leading-[1.05]">
+            {/* Main Headline matching video page section header font size */}
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-normal text-neutral-900 uppercase leading-[1.05]">
               AI Product<br />
               Photography & Ads
             </h2>
@@ -214,8 +238,29 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
                     </span>
                   </div>
 
-                  {/* 4-Column Responsive Masonry Grid for this Category */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 items-start">
+                  {/* Mobile 2-Column Continuous Masonry: Smooth Top Scroll Staggered Effect matching other devices */}
+                  <div className="flex md:hidden gap-3.5 sm:gap-4 items-start">
+                    {[0, 1].map((colIndex) => {
+                      const columnImages = categoryImages.filter((_, idx) => idx % 2 === colIndex);
+                      return (
+                        <div
+                          key={colIndex}
+                          className="flex-1 flex flex-col gap-3.5 sm:gap-4 will-change-transform"
+                          style={{
+                            transform: isTopCategory
+                              ? `translate3d(0, -${colIndex * 70 * (1 - scrollFactor)}px, 0)`
+                              : 'none',
+                            zIndex: 10 + colIndex,
+                          }}
+                        >
+                          {columnImages.map((img) => renderImageCard(img, category))}
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Desktop 4-Column Animated Masonry */}
+                  <div className="hidden md:grid md:grid-cols-4 gap-4 md:gap-5 items-start">
                     {[0, 1, 2, 3].map((colIndex) => {
                       const columnImages = categoryImages.filter((_, idx) => idx % 4 === colIndex);
                       return (
@@ -229,29 +274,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
                             zIndex: 10 + colIndex,
                           }}
                         >
-                          {columnImages.map((img) => (
-                            <div
-                              key={img.id}
-                              onClick={() => setSelectedImage(img.src)}
-                              className="group relative w-full rounded-[20px] sm:rounded-[28px] overflow-hidden bg-neutral-900/60 shadow-sm hover:shadow-xl cursor-pointer transform hover:-translate-y-1.5 transition-all duration-300"
-                            >
-                              <img
-                                src={img.src}
-                                alt={img.title || `${category} AI Photography - Mindtrix Media`}
-                                className="w-full h-auto block object-cover transition-transform duration-700 group-hover:scale-105"
-                                loading="lazy"
-                                decoding="async"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3.5 sm:p-4 flex flex-col justify-end pointer-events-none">
-                                <span className="text-[10px] font-bold tracking-wider uppercase text-[#eda970]">
-                                  {img.category}
-                                </span>
-                                <p className="text-white text-xs sm:text-sm font-semibold line-clamp-2 leading-snug">
-                                  {img.title}
-                                </p>
-                              </div>
-                            </div>
-                          ))}
+                          {columnImages.map((img) => renderImageCard(img, category))}
                         </div>
                       );
                     })}
