@@ -93,7 +93,7 @@ export const Testimonials: React.FC = () => {
       ([entry]) => {
         setIsInView(entry.isIntersecting);
         if (entry.isIntersecting) {
-          videoRef.current?.play().catch(() => {});
+          videoRef.current?.play().catch(() => { });
         } else {
           videoRef.current?.pause();
         }
@@ -109,7 +109,7 @@ export const Testimonials: React.FC = () => {
     setProgress(0);
     if (videoRef.current && isInView) {
       videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   }, [activeStoryIndex, isInView]);
 
@@ -128,7 +128,7 @@ export const Testimonials: React.FC = () => {
 
       <div className="max-w-screen-xl mx-auto text-center">
         {/* Big Bold Two-Line Headline - Signature Section Header Design */}
-        <SectionTag label="Client Reviews" className="mb-4" />
+        <SectionTag label="Testimonials" className="mb-4" />
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -136,18 +136,18 @@ export const Testimonials: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black uppercase text-neutral-900 leading-tight md:leading-[1.1] tracking-tight mb-5"
         >
-          <span>BRANDS THAT CHOSE</span>
+          <span>WHAT OUR CLIENTS</span>
           <br />
           <span className="inline-flex items-center justify-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
-            {/* Highlight Pill Container for REAL - Styled in Website Theme */}
+            <span>SAY</span>
+            {/* Highlight Pill Container for ABOUT US. - Styled in Website Theme */}
             <span className="inline-block relative">
               <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
                 <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
-                  REAL
+                  ABOUT US.
                 </span>
               </span>
             </span>
-            <span>OVER PERFECT.</span>
           </span>
         </motion.h2>
 
@@ -179,7 +179,7 @@ export const Testimonials: React.FC = () => {
               ))}
             </div>
             <span className="text-xs sm:text-sm font-semibold text-neutral-800 tracking-tight">
-              4.9/5 from 120+ brands
+              4.8/5 from 10+ brands
             </span>
           </div>
         </motion.div>
@@ -198,7 +198,7 @@ export const Testimonials: React.FC = () => {
         >
           {/* Inner Screen Canvas - Proportional height across screen sizes */}
           <div className="relative rounded-[34px] xs:rounded-[38px] sm:rounded-[38px] md:rounded-[42px] overflow-hidden bg-black text-white h-[530px] xs:h-[600px] sm:h-[530px] md:h-[630px] flex flex-col justify-between shadow-inner select-none">
-            
+
             {/* Full-bleed Active Reel Video - Only decodes when section is near viewport */}
             <video
               key={currentStory.id}
@@ -234,7 +234,7 @@ export const Testimonials: React.FC = () => {
 
             {/* TOP ZONE: Dynamic Island Notch + 3 Instagram Story Timer Bars + Profile Header */}
             <div className="relative z-20 flex flex-col gap-2 sm:gap-2.5 pt-2.5 sm:pt-3 px-2.5 sm:px-3.5 pointer-events-none">
-              
+
               {/* Dynamic Island Notch - Proportionally scaled */}
               <div className="w-[74px] xs:w-[84px] sm:w-[86px] h-[18px] xs:h-[21px] sm:h-[23px] bg-black rounded-full flex items-center justify-between px-2 xs:px-2.5 sm:px-2.5 shadow-sm mx-auto mb-1">
                 <div className="w-1.5 xs:w-2 sm:w-2.5 h-1.5 xs:h-2 sm:h-2.5 rounded-full bg-[#111116] border border-neutral-800 flex items-center justify-center">
@@ -264,8 +264,8 @@ export const Testimonials: React.FC = () => {
                           idx < activeStoryIndex
                             ? '100%'
                             : idx === activeStoryIndex
-                            ? `${progress}%`
-                            : '0%',
+                              ? `${progress}%`
+                              : '0%',
                         transitionDuration: idx === activeStoryIndex ? '120ms' : '0ms',
                       }}
                     />
