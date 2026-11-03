@@ -148,7 +148,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
                 loop
                 muted
                 playsInline
-                preload="auto"
+                preload="metadata"
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
                 onLoadedData={(e) => {

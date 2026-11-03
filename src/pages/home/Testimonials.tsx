@@ -83,17 +83,39 @@ export const TestimonialsSection: React.FC = () => {
     }
   };
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          videoRef.current?.play().catch(() => {});
+        } else {
+          videoRef.current?.pause();
+        }
+      },
+      { rootMargin: '200px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   // Ensure autoplay on story change
   useEffect(() => {
     setProgress(0);
-    if (videoRef.current) {
+    if (videoRef.current && isInView) {
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});
     }
-  }, [activeStoryIndex]);
+  }, [activeStoryIndex, isInView]);
 
   return (
     <section
+      ref={sectionRef}
       id="testimonials"
       className="relative w-full py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden"
       style={{
@@ -177,15 +199,16 @@ export const TestimonialsSection: React.FC = () => {
           {/* Inner Screen Canvas - Exact same height as Hero Section (595px / 630px) */}
           <div className="relative rounded-[42px] overflow-hidden bg-black text-white h-[595px] sm:h-[630px] flex flex-col justify-between shadow-inner select-none">
             
-            {/* Full-bleed Active Reel Video */}
+            {/* Full-bleed Active Reel Video - Only decodes when section is near viewport */}
             <video
               key={currentStory.id}
               ref={videoRef}
-              src={currentStory.video}
+              src={isInView ? currentStory.video : undefined}
               poster={currentStory.poster}
               autoPlay
               muted={isMuted}
               playsInline
+              preload={isInView ? 'metadata' : 'none'}
               onTimeUpdate={handleTimeUpdate}
               onEnded={handleNextStory}
               className="absolute inset-0 w-full h-full object-cover z-0"

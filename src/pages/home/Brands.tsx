@@ -46,6 +46,7 @@ const BrandLogoRender: React.FC<{ brand: BrandItem }> = ({ brand }) => {
       alt={brand.name}
       className="h-6 sm:h-8 md:h-10 w-auto max-w-[115px] sm:max-w-[155px] md:max-w-[175px] object-contain opacity-85 hover:opacity-100 transition-opacity duration-200 select-none pointer-events-none"
       loading="lazy"
+      decoding="async"
     />
   );
 };

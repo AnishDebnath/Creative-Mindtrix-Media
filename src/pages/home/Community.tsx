@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { SectionTag } from '@/components/ui/SectionTag';
+import { LazyVideo } from '@/components/ui/LazyVideo';
 import { SHOWCASE_GRID_VIDEOS } from '@/data/videos';
 
 interface CommunitySectionProps {
@@ -176,16 +177,15 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                     style={{ zIndex }}
                     className={`absolute w-[215px] sm:w-[280px] md:w-[310px] lg:w-[325px] aspect-[9/16] rounded-[26px] sm:rounded-[34px] md:rounded-[38px] overflow-hidden border border-white/80 bg-neutral-900 transition-all duration-500 ease-out ${transformClass}`}
                   >
-                    {/* Pure Video - Zero Overlays */}
+                    {/* Pure Video - Lazy loaded with Zero Overlays */}
                     {reel.videoSrc && (
-                      <video
+                      <LazyVideo
                         src={reel.videoSrc}
                         poster={reel.poster}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        preload="metadata"
                         className="w-full h-full object-cover"
                       />
                     )}

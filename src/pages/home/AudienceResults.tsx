@@ -108,16 +108,22 @@ export const AudienceResultsSection: React.FC = () => {
                 <img
                   src={avatar1}
                   alt="Follower avatar 1"
+                  loading="lazy"
+                  decoding="async"
                   className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
                 />
                 <img
                   src={avatar2}
                   alt="Follower avatar 2"
+                  loading="lazy"
+                  decoding="async"
                   className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
                 />
                 <img
                   src={avatar3}
                   alt="Follower avatar 3"
+                  loading="lazy"
+                  decoding="async"
                   className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
                 />
               </div>

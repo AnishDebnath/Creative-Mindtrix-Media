@@ -56,16 +56,19 @@ const createVideoItem = (
   category: ShowcaseVideoItem['category'],
   quote: string
 ): ShowcaseVideoItem => {
-  const videoSrc = getCloudinaryVideoUrl(category, fileName);
+  // ponytail: eco-optimized 480p H.264 stream (~0.88MB) for 0ms lag-free instant playback
+  const streamSrc = getCloudinaryVideoUrl(category, fileName, { width: 480, quality: 'eco' });
+  // ponytail: crisp 720p H.264 stream (~1.7MB) for modal lightbox display
+  const highResSrc = getCloudinaryVideoUrl(category, fileName, { width: 720, quality: 'good' }) || streamSrc;
   const poster = getCloudinaryVideoThumbnail(fileName) || '';
 
   return {
     id,
     category,
     image: poster,
-    videoSrc,
-    streamSrc: videoSrc,
-    highResSrc: videoSrc,
+    videoSrc: streamSrc,
+    streamSrc,
+    highResSrc,
     quote,
     creator: 'Mindtrix Media',
     avatar: mindtrixLogo,
@@ -234,27 +237,27 @@ export const VIDEOS: Record<VideoId, ShowcaseVideoItem> = {
 export const TOP_HERO_VIDEOS: TopHeroVideoItem[] = [
   {
     id: 'jewelry-editorial',
-    src: VIDEOS['jewelry-editorial'].videoSrc,
+    src: VIDEOS['jewelry-editorial'].streamSrc || VIDEOS['jewelry-editorial'].videoSrc,
     poster: VIDEOS['jewelry-editorial'].image,
   },
   {
     id: 'fashion-lookbook',
-    src: VIDEOS['fashion-lookbook'].videoSrc,
+    src: VIDEOS['fashion-lookbook'].streamSrc || VIDEOS['fashion-lookbook'].videoSrc,
     poster: VIDEOS['fashion-lookbook'].image,
   },
   {
     id: 'men-perfume',
-    src: VIDEOS['men-perfume'].videoSrc,
+    src: VIDEOS['men-perfume'].streamSrc || VIDEOS['men-perfume'].videoSrc,
     poster: VIDEOS['men-perfume'].image,
   },
   {
     id: 'technical-tee',
-    src: VIDEOS['technical-tee'].videoSrc,
+    src: VIDEOS['technical-tee'].streamSrc || VIDEOS['technical-tee'].videoSrc,
     poster: VIDEOS['technical-tee'].image,
   },
   {
     id: 'women-perfume',
-    src: VIDEOS['women-perfume'].videoSrc,
+    src: VIDEOS['women-perfume'].streamSrc || VIDEOS['women-perfume'].videoSrc,
     poster: VIDEOS['women-perfume'].image,
   },
 ];

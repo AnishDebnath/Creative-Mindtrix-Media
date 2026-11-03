@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, X, ArrowUpRight, Check, ChevronLeft, ChevronRight, Heart, MessageCircle, Repeat2, Send, MoreHorizontal } from 'lucide-react';
 import mindtrixLogo from '@/assets/Mindtrix-Media-Logo.jpeg';
 import { SectionTag } from '@/components/ui/SectionTag';
+import { LazyVideo } from '@/components/ui/LazyVideo';
 import {
   SHOWCASE_GRID_VIDEOS as VIDEO_ITEMS,
   VIDEO_CATEGORIES as CATEGORIES,
@@ -18,9 +19,7 @@ interface ReelCardProps {
 const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  // Start with ultra-light low-quality stream for 0ms instant startup without lag
-  const [currentSrc, setCurrentSrc] = useState<string>(vid.streamSrc);
-  const isUpgradedRef = useRef(false);
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -34,43 +33,19 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
           if (!video) return;
 
           if (entry.isIntersecting) {
+            setIsInView(true);
             video.play().catch(() => { });
-
-            // Progressively upgrade to crisp high-res quality seamlessly while preserving playback time
-            if (!isUpgradedRef.current && vid.highResSrc && vid.highResSrc !== currentSrc) {
-              const upgradeTimer = setTimeout(() => {
-                const highResVideo = document.createElement('video');
-                highResVideo.preload = 'auto';
-                highResVideo.src = vid.highResSrc;
-                highResVideo.oncanplay = () => {
-                  if (videoRef.current) {
-                    const currentTime = videoRef.current.currentTime;
-                    setCurrentSrc(vid.highResSrc);
-                    // seamless time sync on next frame
-                    requestAnimationFrame(() => {
-                      if (videoRef.current) {
-                        videoRef.current.currentTime = currentTime;
-                        videoRef.current.play().catch(() => { });
-                      }
-                    });
-                    isUpgradedRef.current = true;
-                  }
-                };
-              }, 1200);
-
-              return () => clearTimeout(upgradeTimer);
-            }
           } else {
             video.pause();
           }
         });
       },
-      { rootMargin: '150px 0px', threshold: 0.15 }
+      { rootMargin: '200px 0px', threshold: 0.1 }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [vid.highResSrc, currentSrc]);
+  }, []);
 
   return (
     <div
@@ -81,13 +56,13 @@ const ReelCard: React.FC<ReelCardProps> = ({ vid, onSelect }) => {
       {/* Direct Cloudinary video playback with middle frame poster thumbnail */}
       <video
         ref={videoRef}
-        src={currentSrc}
+        src={isInView ? vid.streamSrc : undefined}
         poster={vid.image}
         autoPlay
         loop
         muted
         playsInline
-        preload="metadata"
+        preload={isInView ? "metadata" : "none"}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
 
@@ -320,14 +295,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                     zIndex: 1
                   }}
                 >
-                  <video
+                  <LazyVideo
                     src={HERO_FAN_REELS[0].src}
                     poster={HERO_FAN_REELS[0].poster}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="metadata"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -340,14 +314,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                     zIndex: 2
                   }}
                 >
-                  <video
+                  <LazyVideo
                     src={HERO_FAN_REELS[1].src}
                     poster={HERO_FAN_REELS[1].poster}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="metadata"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -360,14 +333,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                     zIndex: 5
                   }}
                 >
-                  <video
+                  <LazyVideo
                     src={HERO_FAN_REELS[2].src}
                     poster={HERO_FAN_REELS[2].poster}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="metadata"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -380,14 +352,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                     zIndex: 2
                   }}
                 >
-                  <video
+                  <LazyVideo
                     src={HERO_FAN_REELS[3].src}
                     poster={HERO_FAN_REELS[3].poster}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="metadata"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -400,14 +371,13 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                     zIndex: 1
                   }}
                 >
-                  <video
+                  <LazyVideo
                     src={HERO_FAN_REELS[4].src}
                     poster={HERO_FAN_REELS[4].poster}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="metadata"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -546,7 +516,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
                   <div className="relative aspect-[9/16] w-full rounded-[28px] sm:rounded-[32px] overflow-hidden bg-black flex items-center justify-center">
                     <video
                       key={activeVideo.id}
-                      src={activeVideo.videoSrc}
+                      src={activeVideo.highResSrc || activeVideo.videoSrc}
                       poster={activeVideo.image}
                       autoPlay
                       controls

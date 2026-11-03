@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SectionTag } from '@/components/ui/SectionTag';
+import { LazyVideo } from '@/components/ui/LazyVideo';
 import {
   Film,
   Image as ImageIcon,
@@ -459,15 +460,17 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               transition={{ duration: 0.5, delay: 0.25 }}
               className="relative w-full max-w-sm sm:max-w-md lg:max-w-none aspect-[9/16] min-h-[460px] sm:min-h-[520px] lg:min-h-0 rounded-[28px] sm:rounded-[32px] overflow-hidden flex flex-col justify-end p-6 sm:p-7 shadow-[0_20px_60px_-15px_rgba(61,32,53,0.35)] border border-[#ebdce7]/60 mx-auto lg:mx-0 select-none bg-black"
             >
-              {/* Clean 9:16 Video with Zero Hover Effect */}
-              <video
-                src={howWeWorkVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+              {/* Clean 9:16 Video with Zero Hover Effect & lazy loading */}
+              <div className="absolute inset-0 w-full h-full">
+                <LazyVideo
+                  src={howWeWorkVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
               {/* Gentle bottom-only gradient for button contrast */}
               <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/70 via-black/35 to-transparent pointer-events-none" />

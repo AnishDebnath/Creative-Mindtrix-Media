@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SectionTag } from '@/components/ui/SectionTag';
+import { LazyVideo } from '@/components/ui/LazyVideo';
 import { CREATIVE_SERVICES, SERVICES_SECTION_HEADER } from '@/data/services';
 
 interface CreativeServicesSectionProps {
@@ -273,14 +274,13 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
                             onClick={onNavigateToReels}
                             className="relative w-full max-w-[245px] aspect-[9/16] rounded-[22px] overflow-hidden shadow-xl border-[1.5px] border-white/90 bg-black cursor-pointer group"
                           >
-                            <video
+                            <LazyVideo
                                 src={service.videoSrc}
                                 poster={service.posterSrc}
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
-                                preload="metadata"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                               />
                           </div>

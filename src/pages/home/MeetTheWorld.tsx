@@ -70,6 +70,8 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                   <img
                     src={jewelryImage}
                     alt="Luxury Jewellery Photography"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
@@ -97,6 +99,8 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
                   <img
                     src={perfumeImage}
                     alt="Botanical Perfume Flat Lay"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>

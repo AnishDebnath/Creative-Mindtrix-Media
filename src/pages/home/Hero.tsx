@@ -8,6 +8,7 @@ import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
 import { VIDEOS } from '@/data/videos';
 import { IMAGES } from '@/data/images';
 import { BrandsSection } from './Brands';
+import { LazyVideo } from '@/components/ui/LazyVideo';
 
 const ferreriVideo = VIDEOS['streetwear-ferreri'].videoSrc;
 const ferreriPoster = VIDEOS['streetwear-ferreri'].image;
@@ -206,14 +207,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   {/* ponytail: clean cards with zero overlays for both videos and images */}
                   <div className="relative w-full h-full rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-md group-hover:shadow-xl bg-neutral-900 border border-white/60 transition-shadow">
                     {isVideo ? (
-                      <video
+                      <LazyVideo
                         src={product.videoSrc}
                         poster={product.src}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        preload="metadata"
                         draggable={false}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
                       />
@@ -224,6 +224,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         draggable={false}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
                         loading="lazy"
+                        decoding="async"
                       />
                     )}
                   </div>
@@ -399,7 +400,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       onClick={onNavigateToReels}
                       className="relative w-[92%] max-w-[250px] aspect-[9/16] rounded-[24px] overflow-hidden shadow-xl border-[1.5px] border-white/90 bg-black cursor-pointer group"
                     >
-                      <video
+                      <LazyVideo
                         src={ferreriVideo}
                         poster={ferreriPoster}
                         autoPlay

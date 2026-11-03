@@ -214,7 +214,10 @@ export const getCloudinaryImageUrl = (categoryOrFolder: string, fileName: string
   const folderPath = `${folder}/${clean}`;
   const relativePath = CLOUDINARY_IMAGE_PATHS[clean] || CLOUDINARY_IMAGE_PATHS[folderPath];
   if (relativePath) {
-    return `${IMAGE_BASE_URL}/${relativePath}`;
+    if (relativePath.startsWith('f_auto')) {
+      return `${IMAGE_BASE_URL}/${relativePath}`;
+    }
+    return `${IMAGE_BASE_URL}/f_auto,q_auto/${relativePath}`;
   }
   return '';
 };
@@ -226,7 +229,7 @@ export const getCloudinaryImageUrl = (categoryOrFolder: string, fileName: string
 export const getCloudinaryVideoUrl = (
   categoryOrFolder: string,
   fileName: string,
-  options?: { optimize?: boolean; width?: number; quality?: 'low' | 'eco' | 'good' | 'auto' }
+  options?: { optimize?: boolean; width?: number; quality?: 'low' | 'eco' | 'good' | 'auto'; raw?: boolean }
 ): string => {
   if (!VIDEO_BASE_URL || !fileName) return '';
   const clean = fileName.replace(/^\/+/, '');
@@ -234,12 +237,12 @@ export const getCloudinaryVideoUrl = (
   const folderPath = `${folder}/${clean}`;
   const relativePath = CLOUDINARY_VIDEO_PATHS[clean] || CLOUDINARY_VIDEO_PATHS[folderPath];
   if (relativePath) {
-    if (options?.optimize) {
-      const q = options.quality || 'eco';
-      const w = options.width || 480;
-      return `${VIDEO_BASE_URL}/q_auto:${q},w_${w},c_limit,vc_h264/${relativePath}`;
+    if (options?.raw) {
+      return `${VIDEO_BASE_URL}/${relativePath}`;
     }
-    return `${VIDEO_BASE_URL}/${relativePath}`;
+    const q = options?.quality || 'eco';
+    const w = options?.width || 480;
+    return `${VIDEO_BASE_URL}/q_auto:${q},w_${w},c_limit,vc_h264/${relativePath}`;
   }
   return '';
 };
@@ -256,7 +259,10 @@ export const getCloudinaryImage = (imagePath: string): string => {
 
   const relativePath = CLOUDINARY_IMAGE_PATHS[clean] || CLOUDINARY_IMAGE_PATHS[fileName];
   if (relativePath) {
-    return `${IMAGE_BASE_URL}/${relativePath}`;
+    if (relativePath.startsWith('f_auto')) {
+      return `${IMAGE_BASE_URL}/${relativePath}`;
+    }
+    return `${IMAGE_BASE_URL}/f_auto,q_auto/${relativePath}`;
   }
 
   return '';
@@ -267,7 +273,7 @@ export const getCloudinaryImage = (imagePath: string): string => {
  */
 export const getCloudinaryVideo = (
   videoPath: string,
-  options?: { optimize?: boolean; width?: number; quality?: 'low' | 'eco' | 'good' | 'auto' }
+  options?: { optimize?: boolean; width?: number; quality?: 'low' | 'eco' | 'good' | 'auto'; raw?: boolean }
 ): string => {
   if (!VIDEO_BASE_URL || !videoPath) return '';
   if (/^(https?:|\/\/|data:)/.test(videoPath)) return videoPath;
@@ -277,12 +283,12 @@ export const getCloudinaryVideo = (
 
   const relativePath = CLOUDINARY_VIDEO_PATHS[clean] || CLOUDINARY_VIDEO_PATHS[fileName];
   if (relativePath) {
-    if (options?.optimize) {
-      const q = options.quality || 'eco';
-      const w = options.width || 480;
-      return `${VIDEO_BASE_URL}/q_auto:${q},w_${w},c_limit,vc_h264/${relativePath}`;
+    if (options?.raw) {
+      return `${VIDEO_BASE_URL}/${relativePath}`;
     }
-    return `${VIDEO_BASE_URL}/${relativePath}`;
+    const q = options?.quality || 'eco';
+    const w = options?.width || 480;
+    return `${VIDEO_BASE_URL}/q_auto:${q},w_${w},c_limit,vc_h264/${relativePath}`;
   }
 
   return '';

@@ -240,6 +240,7 @@ export const ImagesPage: React.FC<ImagesPageProps> = () => {
                                 alt={img.title || `${category} AI Photography - Mindtrix Media`}
                                 className="w-full h-auto block object-cover transition-transform duration-700 group-hover:scale-105"
                                 loading="lazy"
+                                decoding="async"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3.5 sm:p-4 flex flex-col justify-end pointer-events-none">
                                 <span className="text-[10px] font-bold tracking-wider uppercase text-[#eda970]">

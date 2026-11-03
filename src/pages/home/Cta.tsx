@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SectionTag } from '@/components/ui/SectionTag';
+import { LazyVideo } from '@/components/ui/LazyVideo';
 import { TOP_HERO_VIDEOS } from '@/data/videos';
 import { scrollToId } from '@/utils/scroll';
 
@@ -146,15 +147,14 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
               }}
               onClick={onNavigateToReels}
             >
-              {/* Clean Video Player with zero overlays */}
-              <video
+              {/* Clean Video Player with lazy loading and zero overlays */}
+              <LazyVideo
                 src={card.src}
                 poster={card.poster}
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="metadata"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
