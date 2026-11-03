@@ -44,13 +44,13 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
       <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
           
-          {/* LEFT: Two Large Rounded Cards in 3:4 Aspect Ratio with Floating Pill Badges */}
+          {/* LEFT ON DESKTOP, AFTER TEXT ON MOBILE: Two Large Rounded Cards in 3:4 Aspect Ratio with Floating Pill Badges */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="lg:col-span-7 flex items-center justify-center w-full"
+            className="order-2 lg:order-1 lg:col-span-7 flex items-center justify-center w-full"
           >
             <div className="relative flex items-center gap-4 sm:gap-5 md:gap-6 w-full max-w-[620px] pt-4 pb-4">
               
@@ -109,13 +109,13 @@ export const MeetTheWorldSection: React.FC<MeetTheWorldSectionProps> = ({
             </div>
           </motion.div>
 
-          {/* RIGHT: Typography, Description, and CTA Button Styled with Website Theme */}
+          {/* RIGHT ON DESKTOP, BEFORE IMAGES ON MOBILE: Typography, Description, and CTA Button */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-            className="lg:col-span-5 flex flex-col items-start justify-center text-left"
+            className="order-1 lg:order-2 lg:col-span-5 flex flex-col items-start justify-center text-left"
           >
             {/* Website Theme SectionTag */}
             <SectionTag label="Our Mission" className="mb-4 sm:mb-5" />
