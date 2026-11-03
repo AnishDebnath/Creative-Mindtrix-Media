@@ -252,11 +252,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
 
         {/* Edge-to-Edge Visual Composition Area */}
-        <div className="relative w-full min-h-[600px] sm:min-h-[680px] lg:min-h-[740px] flex items-center justify-center">
+        <div className="relative w-full min-h-[420px] xs:min-h-[480px] sm:min-h-[620px] lg:min-h-[740px] flex items-center justify-center">
           {/* Background Typography "CREATIVE" Anchored at the Bottom Side */}
           {/* ponytail: keep text 90-95% legible throughout with a gentle 15% feather blend at the base */}
           <div
-            className="absolute inset-x-0 bottom-0 z-0 flex items-end justify-center pointer-events-none select-none overflow-hidden h-[300px] sm:h-[360px] md:h-[400px] lg:h-[440px]"
+            className="absolute inset-x-0 bottom-0 z-0 flex items-end justify-center pointer-events-none select-none overflow-hidden h-[180px] xs:h-[220px] sm:h-[320px] md:h-[400px] lg:h-[440px]"
             style={{
               maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 78%, rgba(0,0,0,0.7) 88%, rgba(0,0,0,0) 100%)',
               WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 78%, rgba(0,0,0,0.7) 88%, rgba(0,0,0,0) 100%)',
@@ -292,8 +292,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Centerpiece Container with Slim iPhone & Floating Accents */}
-          <div className="relative z-10 flex items-center justify-center w-full max-w-screen-xl px-4 md:px-8 lg:px-12 xl:px-20">
-            {/* Relative Frame */}
+          <div className="relative z-10 flex items-center justify-center w-full max-w-screen-xl px-2 sm:px-4 md:px-8 lg:px-12 xl:px-20">
+            {/* Relative Frame with exact proportional scaling on all screen sizes */}
             <div className="relative flex items-center justify-center">
               {/* 1. Top-Left Floating 5-Star Badge */}
               <motion.div
@@ -301,10 +301,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="absolute top-10 sm:top-28 md:top-35 -left-1 sm:-left-16 md:-left-20 z-30 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] px-3 sm:px-4 py-1.5 rounded-full shadow-[0_12px_30px_-5px_rgba(61,32,53,0.4)] border border-white/20 flex items-center gap-1 text-white transform -rotate-8 scale-90 sm:scale-100 transition-transform duration-300 hover:rotate-0"
+                className="absolute top-20 xs:top-24 sm:top-24 md:top-35 -left-14 xs:-left-18 sm:-left-22 md:-left-20 z-30 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] px-2 xs:px-2.5 sm:px-4 py-0.5 xs:py-1 sm:py-1.5 rounded-full shadow-[0_12px_30px_-5px_rgba(61,32,53,0.4)] border border-white/20 flex items-center gap-0.5 sm:gap-1 text-white transform -rotate-8 transition-transform duration-300 hover:rotate-0"
               >
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 sm:w-4 h-3 sm:h-4 fill-[#eda970] text-[#eda970]" />
+                  <Star key={i} className="w-2.5 xs:w-3 sm:w-4 h-2.5 xs:h-3 sm:h-4 fill-[#eda970] text-[#eda970]" />
                 ))}
               </motion.div>
 
@@ -314,14 +314,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.2 }}
-                className="absolute bottom-3 sm:bottom-6 -left-2 sm:-left-36 md:-left-44 lg:-left-48 z-20 w-24 sm:w-38 md:w-42 bg-white rounded-xl sm:rounded-2xl p-1.5 sm:p-2.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white transform -rotate-6 scale-85 sm:scale-100 origin-bottom-left hover:rotate-0 transition-transform duration-300"
+                className="absolute bottom-3 xs:bottom-4 sm:bottom-6 -left-16 xs:-left-22 sm:-left-36 md:-left-44 lg:-left-48 z-20 w-20 xs:w-24 sm:w-36 md:w-42 bg-white rounded-lg xs:rounded-xl sm:rounded-2xl p-1 xs:p-1.5 sm:p-2.5 shadow-[0_18px_40px_-10px_rgba(0,0,0,0.25)] border border-white transform -rotate-6 origin-bottom-left hover:rotate-0 transition-transform duration-300"
               >
                 {/* AI-Powered Badge in Plum-Noir */}
-                <div className="absolute -top-2 -left-2 sm:-left-5 z-30 px-1.5 sm:px-3 py-0.5 sm:py-1 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white font-display text-[8px] sm:text-[11px] font-bold rounded-full shadow-lg shadow-[#3d2035]/30 border border-white/20 whitespace-nowrap transition-all transform rotate-[-20deg] hover:rotate-0 flex items-center gap-1">
-                  <Sparkles className="w-2 sm:w-3 h-2 sm:h-3 text-[#eda970]" /> AI Ads
+                <div className="absolute -top-1.5 -left-1.5 sm:-left-5 z-30 px-1 xs:px-1.5 sm:px-3 py-0.5 sm:py-1 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white font-display text-[6.5px] xs:text-[8px] sm:text-[11px] font-bold rounded-full shadow-lg shadow-[#3d2035]/30 border border-white/20 whitespace-nowrap transition-all transform rotate-[-20deg] hover:rotate-0 flex items-center gap-0.5 sm:gap-1">
+                  <Sparkles className="w-1.5 xs:w-2 sm:w-3 h-1.5 xs:h-2 sm:h-3 text-[#eda970]" /> AI Ads
                 </div>
                 {/* Photo in original natural aspect ratio (2:3) */}
-                <div className="aspect-[2/3] w-full rounded-lg overflow-hidden mb-1 sm:mb-1.5 bg-neutral-100">
+                <div className="aspect-[2/3] w-full rounded-md sm:rounded-lg overflow-hidden mb-0.5 sm:mb-1.5 bg-neutral-100">
                   <img
                     src={ferreriImage}
                     alt="Ferreri Streetwear Collection"
@@ -329,7 +329,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   />
                 </div>
                 {/* Stats Bar */}
-                <div className="flex items-center justify-between text-[8px] sm:text-[10px] font-bold text-neutral-600 px-0.5 sm:px-1">
+                <div className="flex items-center justify-between text-[6.5px] xs:text-[7.5px] sm:text-[10px] font-bold text-neutral-600 px-0.5 sm:px-1">
                   <span className="flex items-center gap-0.5">❤️ 34k</span>
                   <span className="flex items-center gap-0.5">💬 1.2k</span>
                   <span className="flex items-center gap-0.5">🚀 5.6k</span>
@@ -342,52 +342,52 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65, ease: 'easeOut' }}
-                className="relative z-25 w-[225px] xs:w-[255px] sm:w-[295px] md:w-[320px] rounded-[38px] sm:rounded-[48px] bg-black p-[4px] sm:p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[3px] sm:border-[4px] border-[#18181a]"
+                className="relative z-25 w-[160px] xs:w-[195px] sm:w-[260px] md:w-[320px] rounded-[28px] xs:rounded-[34px] sm:rounded-[44px] md:rounded-[48px] bg-black p-[3px] sm:p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[2.5px] sm:border-[4px] border-[#18181a]"
               >
                 {/* Inner Screen Canvas */}
-                <div className="relative rounded-[32px] sm:rounded-[42px] overflow-hidden bg-gradient-to-b from-[#ebdce7] via-[#eae3fb] via-[#e5e1fc] to-[#faede5] text-neutral-900 flex flex-col h-[480px] xs:h-[530px] sm:h-[595px] md:h-[630px] shadow-inner justify-between p-2.5 sm:p-3.5">
+                <div className="relative rounded-[24px] xs:rounded-[30px] sm:rounded-[38px] md:rounded-[42px] overflow-hidden bg-gradient-to-b from-[#ebdce7] via-[#eae3fb] via-[#e5e1fc] to-[#faede5] text-neutral-900 flex flex-col h-[340px] xs:h-[415px] sm:h-[530px] md:h-[630px] shadow-inner justify-between p-1.5 xs:p-2 sm:p-3 md:p-3.5">
 
                   {/* ZONE 1: TOP PART */}
-                  <div className="flex flex-col gap-2 sm:gap-2.5 z-20 w-full">
+                  <div className="flex flex-col gap-1.5 sm:gap-2.5 z-20 w-full">
                     {/* Status Bar */}
-                    <div className="w-[92%] max-w-[250px] mx-auto flex items-center justify-between text-[10px] sm:text-[11px] font-bold text-neutral-800">
+                    <div className="w-[94%] max-w-[250px] mx-auto flex items-center justify-between text-[8px] xs:text-[9px] sm:text-[11px] font-bold text-neutral-800">
                       <span>9:41</span>
 
                       {/* Dynamic Island Notch */}
-                      <div className="w-[74px] sm:w-[86px] h-[20px] sm:h-[23px] bg-black rounded-full flex items-center justify-between px-2 sm:px-2.5 shadow-sm">
-                        <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#111116] border border-neutral-800 flex items-center justify-center">
-                          <div className="w-1 h-1 rounded-full bg-[#0a0a14]" />
+                      <div className="w-[52px] xs:w-[62px] sm:w-[86px] h-[14px] xs:h-[17px] sm:h-[23px] bg-black rounded-full flex items-center justify-between px-1.5 xs:px-2 sm:px-2.5 shadow-sm">
+                        <div className="w-1.5 xs:w-2 sm:w-2.5 h-1.5 xs:h-2 sm:h-2.5 rounded-full bg-[#111116] border border-neutral-800 flex items-center justify-center">
+                          <div className="w-0.5 xs:w-1 sm:w-1 h-0.5 xs:h-1 sm:h-1 rounded-full bg-[#0a0a14]" />
                         </div>
-                        <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#0d0d18] border border-neutral-800" />
+                        <div className="w-1 xs:w-1.5 sm:w-2 h-1 xs:h-1.5 sm:h-2 rounded-full bg-[#0d0d18] border border-neutral-800" />
                       </div>
 
-                      <div className="flex items-center gap-1 sm:gap-1.5 text-xs">
+                      <div className="flex items-center gap-0.5 sm:gap-1.5 text-[9px] sm:text-xs">
                         <span>📶</span>
-                        <div className="w-4 sm:w-4.5 h-2 sm:h-2.5 border border-neutral-800 rounded-sm p-0.5 flex items-center">
+                        <div className="w-3 xs:w-3.5 sm:w-4.5 h-1.5 xs:h-2 sm:h-2.5 border border-neutral-800 rounded-xs sm:rounded-sm p-0.5 flex items-center">
                           <div className="h-full w-full bg-neutral-900 rounded-[1px]" />
                         </div>
                       </div>
                     </div>
 
                     {/* Header Pill */}
-                    <div className="w-[92%] max-w-[250px] mx-auto flex items-center justify-between gap-1.5 sm:gap-2 pt-0.5">
-                      <div className="flex items-center gap-1.5 sm:gap-2 bg-white/50 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/60 shadow-sm flex-1 min-w-0">
+                    <div className="w-[94%] max-w-[250px] mx-auto flex items-center justify-between gap-1 sm:gap-2 pt-0.5">
+                      <div className="flex items-center gap-1 sm:gap-2 bg-white/50 backdrop-blur-md px-1.5 xs:px-2 sm:px-3 py-0.5 sm:py-1.5 rounded-full border border-white/60 shadow-sm flex-1 min-w-0">
                         <img
                           src={logoImg}
                           alt="Mindtrix"
-                          className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover shrink-0 shadow-xs border border-white/60"
+                          className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 rounded-full object-cover shrink-0 shadow-xs border border-white/60"
                         />
                         <div className="truncate">
-                          <div className="text-[10px] sm:text-[11px] font-bold leading-none text-neutral-900 truncate">Mindtrix Media Creative</div>
-                          <div className="text-[8px] sm:text-[9px] text-neutral-600 leading-none mt-0.5 flex items-center gap-0.5 font-medium truncate">
-                            <Zap className="w-2.5 h-2.5 text-[#eda970] fill-[#eda970] shrink-0" /> AI Product Ads
+                          <div className="text-[7.5px] xs:text-[8.5px] sm:text-[11px] font-bold leading-none text-neutral-900 truncate">Mindtrix Media Creative</div>
+                          <div className="text-[6.5px] xs:text-[7.5px] sm:text-[9px] text-neutral-600 leading-none mt-0.5 flex items-center gap-0.5 font-medium truncate">
+                            <Zap className="w-2 xs:w-2.5 sm:w-2.5 h-2 xs:h-2.5 sm:h-2.5 text-[#eda970] fill-[#eda970] shrink-0" /> AI Product Ads
                           </div>
                         </div>
                       </div>
 
                       <button
                         onClick={onNavigateToReels}
-                        className="px-2 sm:px-2.5 py-1 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white flex items-center justify-center text-[9px] sm:text-[10px] font-bold border border-white/20 shadow-xs shrink-0 cursor-pointer hover:opacity-95"
+                        className="px-1.5 xs:px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white flex items-center justify-center text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-bold border border-white/20 shadow-xs shrink-0 cursor-pointer hover:opacity-95"
                       >
                         Reels
                       </button>
@@ -395,10 +395,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   </div>
 
                   {/* ZONE 2: CENTER VIDEO PART (CLEAN WITH NO OVERLAYS) */}
-                  <div className="flex items-center justify-center my-auto py-1 z-10 w-full">
+                  <div className="flex items-center justify-center my-auto py-0.5 xs:py-1 z-10 w-full">
                     <div
                       onClick={onNavigateToReels}
-                      className="relative w-[92%] max-w-[250px] aspect-[9/16] rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-xl border-[1.5px] border-white/90 bg-black cursor-pointer group"
+                      className="relative w-[92%] max-w-[250px] aspect-[9/16] rounded-[16px] xs:rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-xl border-[1.5px] border-white/90 bg-black cursor-pointer group"
                     >
                       <LazyVideo
                         src={ferreriVideo}
@@ -413,18 +413,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   </div>
 
                   {/* ZONE 3: BOTTOM PART */}
-                  <div className="flex flex-col items-center gap-2 sm:gap-2.5 z-20 pb-0.5 w-full">
-                    <div className="py-1 sm:py-1.5 px-3 sm:px-3.5 bg-white/50 backdrop-blur-md rounded-full flex items-center justify-between border border-white/60 text-neutral-700 shadow-sm w-[90%] max-w-[220px]">
-                      <div className="flex items-center gap-1 sm:gap-1.5 text-white font-bold text-[10px] sm:text-[11px] bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] px-3 sm:px-3.5 py-0.5 sm:py-1 rounded-full shadow-xs border border-white/15">
-                        <Home className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
+                  <div className="flex flex-col items-center gap-1 xs:gap-1.5 sm:gap-2.5 z-20 pb-0.5 w-full">
+                    <div className="py-0.5 xs:py-1 sm:py-1.5 px-2 xs:px-2.5 sm:px-3.5 bg-white/50 backdrop-blur-md rounded-full flex items-center justify-between border border-white/60 text-neutral-700 shadow-sm w-[92%] max-w-[220px]">
+                      <div className="flex items-center gap-0.5 sm:gap-1.5 text-white font-bold text-[7.5px] xs:text-[8.5px] sm:text-[11px] bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] px-2 xs:px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full shadow-xs border border-white/15">
+                        <Home className="w-2.5 xs:w-3 sm:w-3.5 h-2.5 xs:h-3 sm:h-3.5" />
                         <span>Home</span>
                       </div>
-                      <button onClick={onNavigateToImages} className="text-neutral-600 hover:text-neutral-900 text-[10px] sm:text-[11px] font-bold px-1 sm:px-1.5 transition-colors">Images</button>
-                      <button onClick={onNavigateToReels} className="text-neutral-600 hover:text-neutral-900 text-[10px] sm:text-[11px] font-bold px-1 sm:px-1.5 transition-colors">Reels</button>
+                      <button onClick={onNavigateToImages} className="text-neutral-600 hover:text-neutral-900 text-[7.5px] xs:text-[8.5px] sm:text-[11px] font-bold px-1 sm:px-1.5 transition-colors">Images</button>
+                      <button onClick={onNavigateToReels} className="text-neutral-600 hover:text-neutral-900 text-[7.5px] xs:text-[8.5px] sm:text-[11px] font-bold px-1 sm:px-1.5 transition-colors">Reels</button>
                     </div>
 
                     <div className="flex justify-center pt-0.5">
-                      <div className="w-20 sm:w-24 h-1 bg-neutral-900/90 rounded-full" />
+                      <div className="w-14 xs:w-18 sm:w-24 h-0.5 sm:h-1 bg-neutral-900/90 rounded-full" />
                     </div>
                   </div>
 
@@ -437,9 +437,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="absolute top-12 sm:top-32 md:top-40 -right-2 sm:-right-32 md:-right-36 lg:-right-38 z-30 bg-gradient-to-br from-[#2f182a] via-[#3d2035] to-[#542947] rounded-2xl sm:rounded-3xl py-1.5 sm:py-2 px-2.5 sm:px-3.5 shadow-[0_18px_40px_-10px_rgba(61,32,53,0.45)] border border-white/20 w-32 sm:w-52 flex items-center gap-2 sm:gap-2.5 transform rotate-[5deg] scale-85 sm:scale-100 origin-top-right hover:rotate-0 transition-transform duration-300 text-white"
+                className="absolute top-22 xs:top-26 sm:top-28 md:top-40 -right-16 xs:-right-22 sm:-right-32 md:-right-36 lg:-right-38 z-30 bg-gradient-to-br from-[#2f182a] via-[#3d2035] to-[#542947] rounded-xl xs:rounded-2xl sm:rounded-3xl py-1 xs:py-1.5 sm:py-2 px-1.5 xs:px-2.5 sm:px-3.5 shadow-[0_18px_40px_-10px_rgba(61,32,53,0.45)] border border-white/20 w-24 xs:w-28 sm:w-46 md:w-52 flex items-center gap-1.5 sm:gap-2.5 transform rotate-[5deg] origin-top-right hover:rotate-0 transition-transform duration-300 text-white"
               >
-                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-white/25 shadow-sm">
+                <div className="w-5 h-5 xs:w-6 xs:h-6 sm:w-9 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-white/25 shadow-sm">
                   <img
                     src={userAvatar}
                     alt="User"
@@ -447,8 +447,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-[9px] sm:text-xs font-bold text-white truncate">3.8x Higher ROAS</div>
-                  <div className="text-[7.5px] sm:text-[9px] text-[#eda970] font-medium truncate">In 48 hours</div>
+                  <div className="text-[7.5px] xs:text-[8.5px] sm:text-xs font-bold text-white truncate">3.8x Higher ROAS</div>
+                  <div className="text-[6px] xs:text-[7px] sm:text-[9px] text-[#eda970] font-medium truncate">In 48 hours</div>
                 </div>
               </motion.div>
 
@@ -458,9 +458,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.25 }}
-                className="absolute bottom-8 sm:bottom-24 md:bottom-28 -right-2 sm:-right-26 md:-right-30 lg:-right-34 z-30 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl py-1.5 sm:py-2 px-2.5 sm:px-3.5 shadow-[0_18px_40px_-10px_rgba(61,32,53,0.15)] border border-[#ebdce7] w-32 sm:w-52 flex items-center gap-2 sm:gap-2.5 transform -rotate-[5deg] scale-85 sm:scale-100 origin-bottom-right hover:rotate-0 transition-transform duration-300"
+                className="absolute bottom-20 xs:bottom-24 sm:bottom-20 md:bottom-28 -right-14 xs:-right-20 sm:-right-26 md:-right-30 lg:-right-34 z-30 bg-white/95 backdrop-blur-md rounded-xl xs:rounded-2xl sm:rounded-3xl py-1 xs:py-1.5 sm:py-2 px-1.5 xs:px-2.5 sm:px-3.5 shadow-[0_18px_40px_-10px_rgba(61,32,53,0.15)] border border-[#ebdce7] w-24 xs:w-28 sm:w-46 md:w-52 flex items-center gap-1.5 sm:gap-2.5 transform -rotate-[5deg] origin-bottom-right hover:rotate-0 transition-transform duration-300"
               >
-                <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-[#ebdce7] shadow-sm">
+                <div className="w-5 h-5 xs:w-6 xs:h-6 sm:w-9 sm:h-9 rounded-full overflow-hidden bg-neutral-200 shrink-0 border border-[#ebdce7] shadow-sm">
                   <img
                     src={userAvatar2}
                     alt="User"
@@ -468,8 +468,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-[9px] sm:text-xs font-bold text-neutral-900 truncate">100% AI Generated</div>
-                  <div className="text-[7.5px] sm:text-[9px] text-[#3d2035] font-semibold truncate">Meta & IG Ready</div>
+                  <div className="text-[7.5px] xs:text-[8.5px] sm:text-xs font-bold text-neutral-900 truncate">100% AI Generated</div>
+                  <div className="text-[6px] xs:text-[7px] sm:text-[9px] text-[#3d2035] font-semibold truncate">Meta & IG Ready</div>
                 </div>
               </motion.div>
             </div>

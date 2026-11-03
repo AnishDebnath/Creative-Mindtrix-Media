@@ -194,10 +194,10 @@ export const TestimonialsSection: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[225px] xs:w-[255px] sm:w-[295px] md:w-[320px] rounded-[38px] sm:rounded-[48px] bg-black p-[4px] sm:p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[3px] sm:border-[4px] border-[#18181a]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[160px] xs:w-[195px] sm:w-[260px] md:w-[320px] rounded-[28px] xs:rounded-[34px] sm:rounded-[44px] md:rounded-[48px] bg-black p-[3px] sm:p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[2.5px] sm:border-[4px] border-[#18181a]"
         >
           {/* Inner Screen Canvas - Proportional height across screen sizes */}
-          <div className="relative rounded-[32px] sm:rounded-[42px] overflow-hidden bg-black text-white h-[480px] xs:h-[530px] sm:h-[595px] md:h-[630px] flex flex-col justify-between shadow-inner select-none">
+          <div className="relative rounded-[24px] xs:rounded-[30px] sm:rounded-[38px] md:rounded-[42px] overflow-hidden bg-black text-white h-[340px] xs:h-[415px] sm:h-[530px] md:h-[630px] flex flex-col justify-between shadow-inner select-none">
             
             {/* Full-bleed Active Reel Video - Only decodes when section is near viewport */}
             <video
@@ -236,11 +236,11 @@ export const TestimonialsSection: React.FC = () => {
             <div className="relative z-20 flex flex-col gap-2 sm:gap-2.5 pt-2.5 sm:pt-3 px-2.5 sm:px-3.5 pointer-events-none">
               
               {/* Dynamic Island Notch - Same dimensions as Hero Section */}
-              <div className="w-[74px] sm:w-[86px] h-[20px] sm:h-[23px] bg-black rounded-full flex items-center justify-between px-2 sm:px-2.5 shadow-sm mx-auto mb-1">
-                <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#111116] border border-neutral-800 flex items-center justify-center">
-                  <div className="w-1 h-1 rounded-full bg-[#0a0a14]" />
+              <div className="w-[52px] xs:w-[62px] sm:w-[86px] h-[14px] xs:h-[17px] sm:h-[23px] bg-black rounded-full flex items-center justify-between px-1.5 xs:px-2 sm:px-2.5 shadow-sm mx-auto mb-1">
+                <div className="w-1.5 xs:w-2 sm:w-2.5 h-1.5 xs:h-2 sm:h-2.5 rounded-full bg-[#111116] border border-neutral-800 flex items-center justify-center">
+                  <div className="w-0.5 xs:w-1 sm:w-1 h-0.5 xs:h-1 sm:h-1 rounded-full bg-[#0a0a14]" />
                 </div>
-                <div className="w-2 h-2 rounded-full bg-[#0d0d18] border border-neutral-800" />
+                <div className="w-1 xs:w-1.5 sm:w-2 h-1 xs:h-1.5 sm:h-2 rounded-full bg-[#0d0d18] border border-neutral-800" />
               </div>
 
               {/* 3 Top View Timer Bars (Instagram Story Style) */}
