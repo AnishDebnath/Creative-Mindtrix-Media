@@ -5,21 +5,20 @@ import { SectionTag } from '@/components/ui/SectionTag';
 import { LazyVideo } from '@/components/ui/LazyVideo';
 import { SHOWCASE_GRID_VIDEOS } from '@/data/videos';
 
-interface ProductReelsProps {
-  onOpenVideoChat?: () => void;
-  onMeetCommunity?: () => void;
+interface ProductVideosProps {
+  onNavigateToVideos?: () => void;
   onNavigateToReels?: () => void;
 }
 
-export const ProductReels: React.FC<ProductReelsProps> = ({
+export const ProductVideos: React.FC<ProductVideosProps> = ({
+  onNavigateToVideos,
   onNavigateToReels,
-  onOpenVideoChat,
 }) => {
   const handleCtaClick = () => {
-    if (onNavigateToReels) {
+    if (onNavigateToVideos) {
+      onNavigateToVideos();
+    } else if (onNavigateToReels) {
       onNavigateToReels();
-    } else if (onOpenVideoChat) {
-      onOpenVideoChat();
     }
   };
 
@@ -69,18 +68,19 @@ export const ProductReels: React.FC<ProductReelsProps> = ({
 
   return (
     <section
-      id="reels"
+      id="videos"
       className="relative w-full py-10 sm:py-16 md:py-20 px-3 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden scroll-mt-6"
       style={{
         background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(248, 246, 253, 0.45) 50%, #eae3fb 100%)',
       }}
     >
       <div className="max-w-screen-xl mx-auto">
+        <span id="reels" className="sr-only" />
         <span id="community" className="sr-only" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
 
-          {/* LEFT: About Us Tag, Display Headline, Description, and Circular-Arrow CTA */}
+          {/* LEFT: Tag, Display Headline, Description, and CTA Button */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -88,18 +88,16 @@ export const ProductReels: React.FC<ProductReelsProps> = ({
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="lg:col-span-5 flex flex-col items-start justify-center text-left"
           >
-            {/* Website Theme SectionTag */}
-            <SectionTag label="AI Reel Stage" className="mb-4 sm:mb-5" />
+            {/* Section Tag */}
+            <SectionTag label="Product Videos" className="mb-4 sm:mb-5" />
 
-            {/* Headline matching CreativeStudio right-side font size & 3-line cadence */}
+            {/* Headline matching ProductImages font size & cadence */}
             <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.06] mb-4 sm:mb-5">
-              <span>AI PRODUCT REELS</span>
-              <br />
-              <span>BUILT TO CAPTURE</span>
+              <span>VIRAL PRODUCT</span>
               <br />
               <span className="inline-flex items-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
-                <span>AND</span>
-                {/* Highlight Pill Container for CONVERT. - Styled in Website Theme */}
+                <span>REELS THAT</span>
+                {/* Highlight Pill Container for CONVERT - Styled in Website Theme */}
                 <span className="inline-block relative">
                   <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
                     <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
@@ -110,17 +108,17 @@ export const ProductReels: React.FC<ProductReelsProps> = ({
               </span>
             </h2>
 
-            {/* Description matching CreativeStudio right-side font size and proportion */}
+            {/* Description matching Services & Process clarity */}
             <p className="text-neutral-700 text-sm md:text-base lg:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
-              Short, high-impact AI product video reels engineered to capture attention, stop the scroll, and turn casual viewers into paying customers.
+              High-converting 9:16 vertical video reels and AI commercials crafted for Instagram, Facebook, and YouTube to turn views into sales.
             </p>
 
-            {/* Brand CTA Button matching CreativeStudio right-side button size & style */}
+            {/* Brand CTA Button redirecting to Videos page */}
             <button
               onClick={handleCtaClick}
               className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
             >
-              <span>View All Product Reels</span>
+              <span>EXPLORE ALL VIDEOS</span>
               <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
             </button>
           </motion.div>
@@ -200,11 +198,10 @@ export const ProductReels: React.FC<ProductReelsProps> = ({
                 <button
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
-                  className={`transition-all duration-300 cursor-pointer ${
-                    activeIndex === idx
-                      ? 'w-7 h-2 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] shadow-sm shadow-[#3d2035]/30'
-                      : 'w-2 h-2 rounded-full bg-[#3d2035]/25 hover:bg-[#3d2035]/50'
-                  }`}
+                  className={`transition-all duration-300 cursor-pointer ${activeIndex === idx
+                    ? 'w-7 h-2 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] shadow-sm shadow-[#3d2035]/30'
+                    : 'w-2 h-2 rounded-full bg-[#3d2035]/25 hover:bg-[#3d2035]/50'
+                    }`}
                   aria-label={`Go to reel slide ${idx + 1}`}
                 />
               ))}

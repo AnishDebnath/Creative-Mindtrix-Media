@@ -5,7 +5,7 @@ import { AudienceResults } from './AudienceResults';
 import { Services } from './Services';
 import { Process } from './Process';
 import { ProductImages } from './ProductImages';
-import { ProductReels } from './ProductReels';
+import { ProductVideos } from './ProductVideos';
 import { Testimonials } from './Testimonials';
 import { Pricing } from './Pricing';
 import { Faq } from './Faq';
@@ -54,10 +54,9 @@ export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToCo
         onNavigateToImages={onNavigateToImages}
       />
 
-      {/* Product Reels */}
-      <ProductReels
-        onOpenVideoChat={onNavigateToReels}
-        onMeetCommunity={() => scrollToId('testimonials')}
+      {/* Product Videos Showcase */}
+      <ProductVideos
+        onNavigateToVideos={onNavigateToReels}
         onNavigateToReels={onNavigateToReels}
       />
 

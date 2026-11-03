@@ -32,7 +32,7 @@ export const ProductImages: React.FC<ProductImagesProps> = ({
 
       <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
-          
+
           {/* LEFT ON DESKTOP, AFTER TEXT ON MOBILE: Two Large Rounded Cards in 3:4 Aspect Ratio with Floating Pill Badges */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -42,7 +42,7 @@ export const ProductImages: React.FC<ProductImagesProps> = ({
             className="order-2 lg:order-1 lg:col-span-7 flex items-center justify-center w-full"
           >
             <div className="relative flex items-center gap-4 sm:gap-5 md:gap-6 w-full max-w-[620px] pt-4 pb-4">
-              
+
               {/* Card 1 (Left): Aspect 3:4 with Top-Left Heart Badge & Seam-Bridging Chat Badge */}
               <div className="relative w-1/2 -translate-y-5 sm:-translate-y-7 md:-translate-y-9">
                 {/* Top-Left Floating Badge: ❤️ 12M (Sleek Obsidian Glass Sticker - Differentiated from SectionTag) */}
@@ -106,16 +106,16 @@ export const ProductImages: React.FC<ProductImagesProps> = ({
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
             className="order-1 lg:order-2 lg:col-span-5 flex flex-col items-start justify-center text-left"
           >
-            {/* Website Theme SectionTag */}
+            {/* Section Tag */}
             <SectionTag label="Product Images" className="mb-4 sm:mb-5" />
 
-            {/* Well-proportioned Headline - Signature Section Header Design */}
+            {/* Main Headline with Signature Theme Highlight */}
             <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-black tracking-normal text-neutral-900 uppercase leading-tight md:leading-[1.06] mb-4 sm:mb-5">
               <span>STUDIO GRADE</span>
               <br />
               <span className="inline-flex items-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
                 <span>AI PRODUCT</span>
-                {/* Highlight Pill Container for VISUALS - Styled in Website Theme */}
+                {/* Highlight Pill Container for PHOTOS - Styled in Website Theme */}
                 <span className="inline-block relative">
                   <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
                     <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
@@ -126,17 +126,17 @@ export const ProductImages: React.FC<ProductImagesProps> = ({
               </span>
             </h2>
 
-            {/* Well-proportioned Description */}
+            {/* Description matching Services & Process clarity */}
             <p className="text-neutral-700 text-sm md:text-base lg:text-[17px] leading-relaxed font-normal max-w-lg mb-7 sm:mb-8">
-              Photorealistic product photography, lifestyle backdrops, and e-commerce visuals engineered to convert browsers into buyers.
+              E-commerce studio photos, lifestyle shoots, and premium product flat-lays tailored to boost your online store conversions.
             </p>
 
-            {/* CTA Button redirecting to Images page */}
+            {/* Action CTA Button redirecting to Images page */}
             <button
               onClick={handleCtaClick}
               className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
             >
-              <span>View Product Images</span>
+              <span>EXPLORE ALL IMAGES</span>
               <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
             </button>
           </motion.div>
