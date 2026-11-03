@@ -142,23 +142,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         className="relative w-full overflow-hidden py-2 sm:py-3 my-0 flex items-center justify-center cursor-pointer"
         title="Click to explore AI Images & Reels or drag to browse"
       >
-        {/* Giant Typography Background: MINDTRIX watermark */}
+        {/* Giant Typography Background: MINDTRIX watermark spanning screen edge-to-edge */}
         <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-35">
           <svg
-            viewBox="0 0 1550 320"
-            className="w-full h-full object-fill scale-y-110"
+            viewBox="0 0 1000 200"
+            className="w-full h-full scale-y-110"
             preserveAspectRatio="none"
           >
             <text
-              x="50%"
+              x="0"
               y="50%"
-              textAnchor="middle"
               dominantBaseline="central"
+              textLength="1000"
+              lengthAdjust="spacingAndGlyphs"
               fill="#111111"
               fontFamily="'Anton', 'Oswald', 'Impact', sans-serif"
               fontWeight="900"
-              fontSize="340"
-              letterSpacing="10"
+              fontSize="195"
             >
               MINDTRIX
             </text>

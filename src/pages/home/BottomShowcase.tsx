@@ -89,23 +89,23 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
 
   return (
     <section className="relative w-full py-12 sm:py-20 md:py-28 px-3 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden bg-white">
-      {/* Giant Typography Watermark: MINDTRIX */}
+      {/* Giant Typography Watermark: MINDTRIX spanning screen edge-to-edge */}
       <div className="absolute inset-0 flex items-start justify-center select-none pointer-events-none z-0">
         <svg
-          viewBox="0 0 1600 360"
-          className="w-full h-[40%] sm:h-[60%] object-fill opacity-80"
+          viewBox="0 0 1000 200"
+          className="w-full h-[40%] sm:h-[60%] opacity-80"
           preserveAspectRatio="none"
         >
           <text
-            x="50%"
-            y="52%"
-            textAnchor="middle"
+            x="0"
+            y="50%"
             dominantBaseline="central"
+            textLength="1000"
+            lengthAdjust="spacingAndGlyphs"
             fill="#f1f3f5"
             fontFamily="'Anton', 'Oswald', 'Impact', sans-serif"
-            fontWeight="500"
-            fontSize="330"
-            letterSpacing="10"
+            fontWeight="600"
+            fontSize="195"
           >
             MINDTRIX
           </text>
