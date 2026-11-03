@@ -13,22 +13,22 @@ import {
 
 const ReviewCard: React.FC<{ card: TestimonialCardData }> = ({ card }) => {
   return (
-    <div className="bg-white/95 backdrop-blur-xs rounded-[20px] sm:rounded-[22px] p-4 sm:p-5 md:p-6 shadow-[0_12px_36px_-12px_rgba(61,32,53,0.1),0_4px_12px_-2px_rgba(237,169,112,0.06)] border border-[#ebdce7]/85 w-[250px] sm:w-[310px] md:w-[350px] shrink-0 text-left transition-transform duration-300 hover:-translate-y-1">
+    <div className="bg-white/95 backdrop-blur-xs rounded-[18px] sm:rounded-[22px] p-3.5 sm:p-5 md:p-6 shadow-[0_12px_36px_-12px_rgba(61,32,53,0.1),0_4px_12px_-2px_rgba(237,169,112,0.06)] border border-[#ebdce7]/85 w-[210px] xs:w-[230px] sm:w-[310px] md:w-[350px] shrink-0 text-left transition-transform duration-300 hover:-translate-y-1">
       {/* 5 Filled Golden Peach Stars */}
-      <div className="flex text-[#eda970] gap-1 mb-2.5 sm:mb-3.5">
+      <div className="flex text-[#eda970] gap-0.5 sm:gap-1 mb-2 sm:mb-3.5">
         {[...Array(card.stars || 5)].map((_, i) => (
-          <Star key={i} className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-[#eda970] text-[#eda970]" />
+          <Star key={i} className="w-3 sm:w-4 h-3 sm:h-4 fill-[#eda970] text-[#eda970]" />
         ))}
       </div>
 
       {/* Quote */}
-      <p className="text-neutral-700 text-xs sm:text-[13px] md:text-[13.5px] leading-relaxed font-normal mb-4 sm:mb-5 min-h-[52px] sm:min-h-[64px]">
+      <p className="text-neutral-700 text-[11.5px] sm:text-[13px] md:text-[13.5px] leading-relaxed font-normal mb-3 sm:mb-5 min-h-[44px] sm:min-h-[64px]">
         {card.quote}
       </p>
 
       {/* Author info */}
-      <div className="flex items-center gap-2.5 sm:gap-3 pt-1">
-        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-neutral-100 ring-2 ring-white shadow-xs shrink-0">
+      <div className="flex items-center gap-2 sm:gap-3 pt-0.5 sm:pt-1">
+        <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-neutral-100 ring-1.5 sm:ring-2 ring-white shadow-xs shrink-0">
           <img
             src={card.avatar}
             alt={card.author}
@@ -40,7 +40,7 @@ const ReviewCard: React.FC<{ card: TestimonialCardData }> = ({ card }) => {
           <h4 className="font-bold text-neutral-900 text-xs sm:text-[13.5px] leading-tight truncate">
             {card.author}
           </h4>
-          <p className="text-neutral-500 text-[10px] sm:text-xs font-medium truncate mt-0.5">
+          <p className="text-neutral-500 text-[9.5px] sm:text-xs font-medium truncate mt-0.5">
             {card.role}
           </p>
         </div>
@@ -151,13 +151,13 @@ export const TestimonialsSection: React.FC = () => {
           </span>
         </motion.h2>
 
-        {/* Social Proof Avatars + Stars + Count in Theme Glass Pill */}
+        {/* Social Proof Avatars (upside on mobile) + Rating Badge (bottom side on mobile) */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="flex items-center justify-center gap-3 mb-12 sm:mb-16"
+          className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 mb-10 sm:mb-16"
         >
           {/* Overlapping circular avatars */}
           <div className="flex -space-x-2.5 overflow-hidden p-0.5">
@@ -185,19 +185,19 @@ export const TestimonialsSection: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Cards Area with Mask and Centered Phone Mockup */}
-      <div className="relative w-full max-w-[1440px] mx-auto min-h-[640px] sm:min-h-[680px] flex items-center justify-center">
+      {/* Cards Area with Mask and Phone Mockup (Separate in-flow on mobile, centered overlay on desktop) */}
+      <div className="relative w-full max-w-[1440px] mx-auto flex flex-col items-center md:min-h-[680px] md:justify-center">
 
-        {/* Center Phone Mockup (exact same size and chassis architecture as Hero Section) */}
+        {/* Phone Mockup (show after that part on mobile, centered overlay on desktop) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 20 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[160px] xs:w-[195px] sm:w-[260px] md:w-[320px] rounded-[28px] xs:rounded-[34px] sm:rounded-[44px] md:rounded-[48px] bg-black p-[3px] sm:p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[2.5px] sm:border-[4px] border-[#18181a]"
+          className="relative mx-auto mb-8 sm:mb-10 md:mb-0 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-30 w-[260px] xs:w-[295px] sm:w-[260px] md:w-[320px] rounded-[38px] xs:rounded-[44px] sm:rounded-[44px] md:rounded-[48px] bg-black p-[3.5px] sm:p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[2.5px] sm:border-[4px] border-[#18181a]"
         >
           {/* Inner Screen Canvas - Proportional height across screen sizes */}
-          <div className="relative rounded-[24px] xs:rounded-[30px] sm:rounded-[38px] md:rounded-[42px] overflow-hidden bg-black text-white h-[340px] xs:h-[415px] sm:h-[530px] md:h-[630px] flex flex-col justify-between shadow-inner select-none">
+          <div className="relative rounded-[34px] xs:rounded-[38px] sm:rounded-[38px] md:rounded-[42px] overflow-hidden bg-black text-white h-[530px] xs:h-[600px] sm:h-[530px] md:h-[630px] flex flex-col justify-between shadow-inner select-none">
             
             {/* Full-bleed Active Reel Video - Only decodes when section is near viewport */}
             <video
@@ -235,8 +235,8 @@ export const TestimonialsSection: React.FC = () => {
             {/* TOP ZONE: Dynamic Island Notch + 3 Instagram Story Timer Bars + Profile Header */}
             <div className="relative z-20 flex flex-col gap-2 sm:gap-2.5 pt-2.5 sm:pt-3 px-2.5 sm:px-3.5 pointer-events-none">
               
-              {/* Dynamic Island Notch - Same dimensions as Hero Section */}
-              <div className="w-[52px] xs:w-[62px] sm:w-[86px] h-[14px] xs:h-[17px] sm:h-[23px] bg-black rounded-full flex items-center justify-between px-1.5 xs:px-2 sm:px-2.5 shadow-sm mx-auto mb-1">
+              {/* Dynamic Island Notch - Proportionally scaled */}
+              <div className="w-[74px] xs:w-[84px] sm:w-[86px] h-[18px] xs:h-[21px] sm:h-[23px] bg-black rounded-full flex items-center justify-between px-2 xs:px-2.5 sm:px-2.5 shadow-sm mx-auto mb-1">
                 <div className="w-1.5 xs:w-2 sm:w-2.5 h-1.5 xs:h-2 sm:h-2.5 rounded-full bg-[#111116] border border-neutral-800 flex items-center justify-center">
                   <div className="w-0.5 xs:w-1 sm:w-1 h-0.5 xs:h-1 sm:h-1 rounded-full bg-[#0a0a14]" />
                 </div>
@@ -276,7 +276,7 @@ export const TestimonialsSection: React.FC = () => {
               {/* Story Account Header Bar with Mindtrix Media Logo and Name */}
               <div className="flex items-center justify-between px-1 pt-0.5 pointer-events-auto">
                 {/* Brand Logo + Name + Verified Badge */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 min-w-0">
                   <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden ring-1.5 ring-white/90 shadow-xs shrink-0 bg-white p-[1px]">
                     <img
                       src={logoImg}
@@ -284,8 +284,8 @@ export const TestimonialsSection: React.FC = () => {
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-bold text-xs sm:text-[13px] text-white tracking-tight drop-shadow-sm">
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <span className="font-bold text-xs sm:text-[13px] text-white tracking-tight drop-shadow-sm truncate">
                       mindtrix.media
                     </span>
                     {/* Blue Verified Badge */}
@@ -294,7 +294,7 @@ export const TestimonialsSection: React.FC = () => {
                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                       </svg>
                     </div>
-                    <span className="text-[11px] text-white/75 font-medium ml-0.5">
+                    <span className="text-[11px] text-white/75 font-medium ml-0.5 shrink-0">
                       {currentStory.time}
                     </span>
                   </div>
@@ -308,7 +308,7 @@ export const TestimonialsSection: React.FC = () => {
                     toggleMute();
                   }}
                   aria-label={isMuted ? "Unmute reel" : "Mute reel"}
-                  className="w-7 h-7 rounded-full bg-gradient-to-r from-[#2f182a]/80 via-[#3d2035]/80 to-[#542947]/80 hover:opacity-90 backdrop-blur-md flex items-center justify-center text-white/95 transition-all cursor-pointer border border-[#eda970]/30 shadow-xs"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r from-[#2f182a]/80 via-[#3d2035]/80 to-[#542947]/80 hover:opacity-90 backdrop-blur-md flex items-center justify-center text-white/95 transition-all cursor-pointer border border-[#eda970]/30 shadow-xs shrink-0 ml-1.5"
                 >
                   {isMuted ? (
                     <VolumeX className="w-3.5 h-3.5" />
