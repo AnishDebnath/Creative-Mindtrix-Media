@@ -5,31 +5,37 @@ import mindtrixLogo from '@/assets/logo.png';
 
 interface NavbarProps {
   currentPage?: 'home' | 'images' | 'reels' | 'contact';
-  onNavigate?: (page: 'home' | 'images' | 'reels' | 'contact') => void;
+  currentPath?: string;
+  onNavigate?: (
+    page: 'home' | 'images' | 'reels' | 'contact',
+    anchorId?: string,
+    targetPath?: string
+  ) => void;
   onOpenLogin?: () => void;
   onOpenVideoChat?: () => void;
   onScrollTo?: (id: string) => void;
 }
 
-// ponytail: Lean navigation menu items matching website theme
+// ponytail: Lean navigation menu items matching website theme with clean URL paths
 const NAV_ITEMS = [
-  { id: 'home', label: 'Home', page: 'home' as const, anchor: 'hero' },
-  { id: 'images', label: 'Images', page: 'images' as const },
-  { id: 'videos', label: 'Videos', page: 'reels' as const },
-  { id: 'services', label: 'Services', page: 'home' as const, anchor: 'services' },
-  { id: 'price', label: 'Price', page: 'home' as const, anchor: 'pricing' },
-  { id: 'contact', label: 'Contact Us', page: 'contact' as const },
+  { id: 'home', label: 'Home', page: 'home' as const, anchor: 'hero', path: '/' },
+  { id: 'images', label: 'Images', page: 'images' as const, path: '/images' },
+  { id: 'videos', label: 'Videos', page: 'reels' as const, path: '/videos' },
+  { id: 'services', label: 'Services', page: 'home' as const, anchor: 'services', path: '/services' },
+  { id: 'price', label: 'Price', page: 'home' as const, anchor: 'pricing', path: '/price' },
+  { id: 'contact', label: 'Contact Us', page: 'contact' as const, path: '/contact' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
   currentPage = 'home',
+  currentPath = '/',
   onNavigate,
   onScrollTo
 }) => {
   const [activeItem, setActiveItem] = useState<string>('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
-  // Sync activeItem when page changes
+  // Sync activeItem when page or path changes
   useEffect(() => {
     if (currentPage === 'images') {
       setActiveItem('images');
@@ -38,11 +44,15 @@ export const Navbar: React.FC<NavbarProps> = ({
     } else if (currentPage === 'contact') {
       setActiveItem('contact');
     } else if (currentPage === 'home') {
-      if (!['services', 'price'].includes(activeItem)) {
+      if (currentPath === '/services') {
+        setActiveItem('services');
+      } else if (currentPath === '/price' || currentPath === '/pricing') {
+        setActiveItem('price');
+      } else if (!['services', 'price'].includes(activeItem)) {
         setActiveItem('home');
       }
     }
-  }, [currentPage]);
+  }, [currentPage, currentPath]);
 
   // Close mobile menu on desktop resize
   useEffect(() => {
@@ -66,25 +76,53 @@ export const Navbar: React.FC<NavbarProps> = ({
     }
   }, [isMobileMenuOpen]);
 
-  // When on home page, track which section is currently viewed on scroll
+  // When on home page, track which section is currently viewed on scroll and sync URL path
   useEffect(() => {
     if (currentPage !== 'home') return;
 
+    let ticking = false;
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const servicesEl = document.getElementById('services');
-      const pricingEl = document.getElementById('pricing');
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        if (currentPage !== 'home') return;
 
-      const pricingTop = pricingEl ? pricingEl.offsetTop - 240 : Infinity;
-      const servicesTop = servicesEl ? servicesEl.offsetTop - 240 : Infinity;
+        const scrollY = window.scrollY;
+        const servicesEl = document.getElementById('services');
+        const pricingEl = document.getElementById('pricing');
 
-      if (scrollY >= pricingTop) {
-        setActiveItem('price');
-      } else if (scrollY >= servicesTop) {
-        setActiveItem('services');
-      } else {
-        setActiveItem('home');
-      }
+        const pricingTop = pricingEl
+          ? pricingEl.getBoundingClientRect().top + window.scrollY - 300
+          : Infinity;
+        const servicesTop = servicesEl
+          ? servicesEl.getBoundingClientRect().top + window.scrollY - 300
+          : Infinity;
+
+        let newActive = 'home';
+        let newPath = '/';
+
+        if (scrollY >= pricingTop) {
+          newActive = 'price';
+          newPath = '/price';
+        } else if (scrollY >= servicesTop) {
+          newActive = 'services';
+          newPath = '/services';
+        } else {
+          newActive = 'home';
+          newPath = '/';
+        }
+
+        setActiveItem(newActive);
+
+        // Keep URL path in sync with section view on home page without polluting browser history
+        if (
+          window.location.pathname !== newPath &&
+          ['/', '/services', '/price', '/pricing'].includes(window.location.pathname)
+        ) {
+          window.history.replaceState({ page: 'home', path: newPath }, '', newPath);
+        }
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -99,13 +137,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     if (itemId) {
       setActiveItem(itemId);
     }
-    if (page !== currentPage) {
-      if (onNavigate) {
-        onNavigate(page);
-      }
-      if (anchorId && onScrollTo) {
-        setTimeout(() => onScrollTo(anchorId), 150);
-      }
+    const matchedItem = NAV_ITEMS.find((n) => n.id === itemId);
+    const targetPath = matchedItem ? matchedItem.path : (page === 'home' ? '/' : `/${page}`);
+
+    if (onNavigate) {
+      onNavigate(page, anchorId, targetPath);
     } else if (anchorId && onScrollTo) {
       onScrollTo(anchorId);
     } else {
@@ -215,8 +251,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <button
                     key={item.id}
                     onClick={() => {
-                      handleNavClick(item.page, item.anchor, item.id);
                       setIsMobileMenuOpen(false);
+                      if (typeof document !== 'undefined') {
+                        document.body.style.overflow = '';
+                      }
+                      handleNavClick(item.page, item.anchor, item.id);
                     }}
                     className={`w-full px-3.5 py-2.5 rounded-xl text-left text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center justify-between active:scale-[0.98] ${
                       isActive

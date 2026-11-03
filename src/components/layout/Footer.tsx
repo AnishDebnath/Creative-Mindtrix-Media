@@ -11,15 +11,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface FooterProps {
   onOpenDownload?: (platform: 'ios' | 'android' | 'all') => void;
   onOpenLegal?: (title: string) => void;
+  onNavigateToHome?: () => void;
   onNavigateToImages?: () => void;
   onNavigateToReels?: () => void;
   onNavigateToContact?: () => void;
+  onNavigateToServices?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
+  onNavigateToHome,
   onNavigateToImages,
   onNavigateToReels,
-  onNavigateToContact
+  onNavigateToContact,
+  onNavigateToServices
 }) => {
   const [activeLegal, setActiveLegal] = useState<'privacy' | 'terms' | null>(null);
 
@@ -50,7 +54,10 @@ export const Footer: React.FC<FooterProps> = ({
                 src={whiteLogo}
                 alt="Mindtrix Media"
                 className="h-10 sm:h-10 md:h-12 w-auto object-contain cursor-pointer self-start transition-transform hover:scale-105"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                onClick={() => {
+                  if (onNavigateToHome) onNavigateToHome();
+                  else window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               />
               <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-sm md:max-w-md">
                 Mindtrix Media is an AI creative production studio helping brands produce high-converting product advertisements, commercial video reels, and studio-grade visuals at scale.
@@ -147,7 +154,10 @@ export const Footer: React.FC<FooterProps> = ({
               <ul className="space-y-2.5 text-sm font-medium text-white/80">
                 <li>
                   <button
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    onClick={() => {
+                      if (onNavigateToHome) onNavigateToHome();
+                      else window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                     className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>Home</span>
@@ -180,8 +190,12 @@ export const Footer: React.FC<FooterProps> = ({
                 <li>
                   <button
                     onClick={() => {
-                      const el = document.getElementById('services');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      if (onNavigateToServices) {
+                        onNavigateToServices();
+                      } else {
+                        const el = document.getElementById('services');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }
                     }}
                     className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
