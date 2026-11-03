@@ -86,8 +86,8 @@ export const AudienceResultsSection: React.FC = () => {
       </div>
 
       {/* Main Orbital Content Container */}
-      <div className="relative max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
-        <div className="relative min-h-[340px] sm:min-h-[400px] md:min-h-[460px] flex items-center justify-center">
+      <div className="relative max-w-screen-xl mx-auto px-3 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+        <div className="relative min-h-[300px] sm:min-h-[380px] md:min-h-[460px] flex items-center justify-center">
 
           {/* 1. TOP CENTER: 100k+ Followers with 3 Overlapping Avatars */}
           <motion.div
@@ -101,7 +101,7 @@ export const AudienceResultsSection: React.FC = () => {
               animate={{ y: [0, -7, 0] }}
               transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
               whileHover={{ scale: 1.08 }}
-              className="flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-gradient-to-br from-[#2f182a] via-[#3d2035] to-[#542947] text-white rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.35),0_3px_10px_rgba(61,32,53,0.15)] border border-white/20 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(61,32,53,0.5)]"
+              className="flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 bg-gradient-to-br from-[#2f182a] via-[#3d2035] to-[#542947] text-white rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.35),0_3px_10px_rgba(61,32,53,0.15)] border border-white/20 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(61,32,53,0.5)]"
             >
               {/* Overlapping Avatars */}
               <div className="flex items-center -space-x-2">
@@ -110,24 +110,24 @@ export const AudienceResultsSection: React.FC = () => {
                   alt="Follower avatar 1"
                   loading="lazy"
                   decoding="async"
-                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
+                  className="w-5 h-5 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
                 />
                 <img
                   src={avatar2}
                   alt="Follower avatar 2"
                   loading="lazy"
                   decoding="async"
-                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
+                  className="w-5 h-5 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
                 />
                 <img
                   src={avatar3}
                   alt="Follower avatar 3"
                   loading="lazy"
                   decoding="async"
-                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
+                  className="w-5 h-5 sm:w-7 sm:h-7 rounded-full object-cover border-2 border-white shadow-xs"
                 />
               </div>
-              <span className="font-sans font-bold text-xs sm:text-sm text-white tracking-tight whitespace-nowrap">
+              <span className="font-sans font-bold text-[11px] sm:text-sm text-white tracking-tight whitespace-nowrap">
                 100k+ Followers
               </span>
             </motion.div>
@@ -139,16 +139,16 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="absolute top-4 sm:top-10 md:top-12 left-1 sm:left-6 md:left-12 lg:left-16 z-20"
+            className="absolute top-3 sm:top-8 md:top-12 left-1 sm:left-6 md:left-12 lg:left-16 z-20"
           >
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
               whileHover={{ scale: 1.08, rotate: 0 }}
-              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform -rotate-12 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
+              className="flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-5 py-2 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform -rotate-12 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
             >
               <CashIcon />
-              <span className="font-sans font-bold text-xs sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
+              <span className="font-sans font-bold text-[11px] sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
                 $80K Sales
               </span>
             </motion.div>
@@ -160,16 +160,16 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute top-4 sm:top-10 md:top-12 right-1 sm:right-6 md:right-12 lg:right-16 z-20"
+            className="absolute top-3 sm:top-8 md:top-12 right-1 sm:right-6 md:right-12 lg:right-16 z-20"
           >
             <motion.div
               animate={{ y: [0, -7, 0] }}
               transition={{ duration: 3.9, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
               whileHover={{ scale: 1.08, rotate: 0 }}
-              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform rotate-12 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
+              className="flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-5 py-2 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform rotate-12 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
             >
               <HeartIcon />
-              <span className="font-sans font-bold text-xs sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
+              <span className="font-sans font-bold text-[11px] sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
                 500k+ Likes
               </span>
             </motion.div>
@@ -181,9 +181,9 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, ease: 'easeOut' }}
-            className="relative z-10 text-center px-4 max-w-5xl mx-auto py-16 sm:py-20 md:py-24"
+            className="relative z-10 text-center px-3 sm:px-4 max-w-5xl mx-auto py-12 sm:py-16 md:py-24"
           >
-            <h2 className="font-sans text-2xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight text-neutral-900 leading-tight md:leading-[1.16]">
+            <h2 className="font-sans text-xl sm:text-3xl md:text-5xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight text-neutral-900 leading-tight md:leading-[1.16]">
               And We Focus On{' '}
               <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
                 Results
@@ -200,16 +200,16 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="absolute -bottom-3 sm:bottom-1 md:bottom-4 left-[6%] sm:left-[18%] md:left-[22%] lg:left-[26%] z-20"
+            className="absolute -bottom-2 sm:bottom-1 md:bottom-4 left-[3%] sm:left-[16%] md:left-[22%] lg:left-[26%] z-20"
           >
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4.1, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
               whileHover={{ scale: 1.08, rotate: 0 }}
-              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform rotate-8 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
+              className="flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-5 py-2 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform rotate-8 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
             >
               <ChatIcon />
-              <span className="font-sans font-bold text-xs sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
+              <span className="font-sans font-bold text-[11px] sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
                 10k Replies
               </span>
             </motion.div>
@@ -221,16 +221,16 @@ export const AudienceResultsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="absolute -bottom-3 sm:bottom-1 md:bottom-4 right-[6%] sm:right-[18%] md:right-[22%] lg:right-[26%] z-20"
+            className="absolute -bottom-2 sm:bottom-1 md:bottom-4 right-[3%] sm:right-[16%] md:right-[22%] lg:right-[26%] z-20"
           >
             <motion.div
               animate={{ y: [0, -7, 0] }}
               transition={{ duration: 3.7, repeat: Infinity, ease: 'easeInOut', delay: 1.6 }}
               whileHover={{ scale: 1.08, rotate: 0 }}
-              className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform -rotate-8 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
+              className="flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-5 py-2 sm:py-3 bg-white/95 backdrop-blur-md rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.08),0_3px_10px_rgba(61,32,53,0.03)] border border-[#ebdce7] transform -rotate-8 cursor-pointer select-none transition-shadow hover:shadow-[0_20px_42px_-6px_rgba(0,0,0,0.16)]"
             >
               <LinkIcon />
-              <span className="font-sans font-bold text-xs sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
+              <span className="font-sans font-bold text-[11px] sm:text-sm text-neutral-800 tracking-tight whitespace-nowrap">
                 70k Clicks
               </span>
             </motion.div>

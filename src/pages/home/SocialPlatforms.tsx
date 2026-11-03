@@ -56,8 +56,8 @@ export const SocialPlatformsSection: React.FC = () => {
       </div>
 
       {/* Main Orbital Content Container */}
-      <div className="relative max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20">
-        <div className="relative min-h-[340px] sm:min-h-[400px] md:min-h-[460px] flex items-center justify-center">
+      <div className="relative max-w-screen-xl mx-auto px-3 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+        <div className="relative min-h-[300px] sm:min-h-[380px] md:min-h-[460px] flex items-center justify-center">
 
           {/* 1. TOP CENTER: YouTube */}
           <motion.div
@@ -74,7 +74,7 @@ export const SocialPlatformsSection: React.FC = () => {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
               whileHover={{ scale: 1.12, rotate: 0 }}
-              className="w-14 h-14 sm:w-20 sm:h-20 md:w-[86px] md:h-[86px] rounded-[20px] sm:rounded-[26px] md:rounded-[28px] bg-[#FF0000] flex items-center justify-center shadow-[0_20px_45px_-8px_rgba(255,0,0,0.55)] border border-white/30 transform -rotate-2 cursor-pointer transition-shadow hover:shadow-[0_24px_50px_-6px_rgba(255,0,0,0.7)] block"
+              className="w-12 h-12 sm:w-18 sm:h-18 md:w-[86px] md:h-[86px] rounded-[18px] sm:rounded-[24px] md:rounded-[28px] bg-[#FF0000] flex items-center justify-center shadow-[0_16px_36px_-8px_rgba(255,0,0,0.55)] border border-white/30 transform -rotate-2 cursor-pointer transition-shadow hover:shadow-[0_24px_50px_-6px_rgba(255,0,0,0.7)] block"
               title="YouTube"
             >
               <YouTubeIcon />
@@ -87,7 +87,7 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="absolute top-4 sm:top-10 md:top-12 left-1 sm:left-8 md:left-14 lg:left-20 z-20"
+            className="absolute top-3 sm:top-8 md:top-12 left-1.5 sm:left-6 md:left-14 lg:left-20 z-20"
           >
             <motion.a
               href="https://x.com"
@@ -96,7 +96,7 @@ export const SocialPlatformsSection: React.FC = () => {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
               whileHover={{ scale: 1.12, rotate: 0 }}
-              className="w-14 h-14 sm:w-20 sm:h-20 md:w-[86px] md:h-[86px] rounded-[20px] sm:rounded-[26px] md:rounded-[28px] bg-black flex items-center justify-center shadow-[0_20px_45px_-8px_rgba(0,0,0,0.45)] border border-white/20 transform -rotate-12 cursor-pointer transition-shadow hover:shadow-[0_24px_50px_-6px_rgba(0,0,0,0.6)] block"
+              className="w-12 h-12 sm:w-18 sm:h-18 md:w-[86px] md:h-[86px] rounded-[18px] sm:rounded-[24px] md:rounded-[28px] bg-black flex items-center justify-center shadow-[0_16px_36px_-8px_rgba(0,0,0,0.45)] border border-white/20 transform -rotate-12 cursor-pointer transition-shadow hover:shadow-[0_24px_50px_-6px_rgba(0,0,0,0.6)] block"
               title="X (Twitter)"
             >
               <XTwitterIcon />
@@ -109,7 +109,7 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute top-4 sm:top-12 md:top-16 right-1 sm:right-8 md:right-14 lg:right-20 z-20"
+            className="absolute top-3 sm:top-8 md:top-16 right-1.5 sm:right-6 md:right-14 lg:right-20 z-20"
           >
             <motion.a
               href="https://www.linkedin.com"
@@ -118,7 +118,7 @@ export const SocialPlatformsSection: React.FC = () => {
               animate={{ y: [0, -7, 0] }}
               transition={{ duration: 3.9, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
               whileHover={{ scale: 1.12, rotate: 0 }}
-              className="w-14 h-14 sm:w-20 sm:h-20 md:w-[86px] md:h-[86px] rounded-[20px] sm:rounded-[26px] md:rounded-[28px] bg-[#0A66C2] flex items-center justify-center shadow-[0_20px_45px_-8px_rgba(10,102,194,0.65)] border border-white/40 transform rotate-12 cursor-pointer transition-shadow hover:shadow-[0_24px_50px_-6px_rgba(10,102,194,0.85)] block"
+              className="w-12 h-12 sm:w-18 sm:h-18 md:w-[86px] md:h-[86px] rounded-[18px] sm:rounded-[24px] md:rounded-[28px] bg-[#0A66C2] flex items-center justify-center shadow-[0_16px_36px_-8px_rgba(10,102,194,0.65)] border border-white/40 transform rotate-12 cursor-pointer transition-shadow hover:shadow-[0_24px_50px_-6px_rgba(10,102,194,0.85)] block"
               title="LinkedIn"
             >
               <LinkedInIcon />
@@ -131,9 +131,9 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, ease: 'easeOut' }}
-            className="relative z-10 text-center px-4 max-w-3xl mx-auto py-16 sm:py-20 md:py-24"
+            className="relative z-10 text-center px-3 sm:px-4 max-w-3xl mx-auto py-12 sm:py-16 md:py-24"
           >
-            <h2 className="font-sans text-2xl sm:text-4xl md:text-5xl lg:text-[60px] font-extrabold tracking-tight text-neutral-900 leading-tight md:leading-[1.14]">
+            <h2 className="font-sans text-xl sm:text-3xl md:text-5xl lg:text-[58px] font-extrabold tracking-tight text-neutral-900 leading-tight md:leading-[1.14]">
               We Work Across All
               <br />
               <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
@@ -149,7 +149,7 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="absolute -bottom-3 sm:bottom-2 md:bottom-5 left-[6%] sm:left-[18%] md:left-[22%] lg:left-[26%] z-20"
+            className="absolute -bottom-2 sm:bottom-2 md:bottom-5 left-[3%] sm:left-[16%] md:left-[22%] lg:left-[26%] z-20"
           >
             <motion.a
               href="https://www.facebook.com"
@@ -158,7 +158,7 @@ export const SocialPlatformsSection: React.FC = () => {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4.1, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
               whileHover={{ scale: 1.12, rotate: 0 }}
-              className="w-14 h-14 sm:w-20 sm:h-20 md:w-[86px] md:h-[86px] rounded-[20px] sm:rounded-[26px] md:rounded-[28px] bg-[#1877F2] flex items-center justify-center shadow-[0_20px_45px_-8px_rgba(24,119,242,0.55)] border border-white/20 transform rotate-8 cursor-pointer transition-shadow hover:shadow-[0_24px_50px_-6px_rgba(24,119,242,0.75)] block"
+              className="w-12 h-12 sm:w-18 sm:h-18 md:w-[86px] md:h-[86px] rounded-[18px] sm:rounded-[24px] md:rounded-[28px] bg-[#1877F2] flex items-center justify-center shadow-[0_16px_36px_-8px_rgba(24,119,242,0.55)] border border-white/20 transform rotate-8 cursor-pointer transition-shadow hover:shadow-[0_24px_50px_-6px_rgba(24,119,242,0.75)] block"
               title="Facebook"
             >
               <FacebookIcon />
@@ -171,7 +171,7 @@ export const SocialPlatformsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="absolute -bottom-3 sm:bottom-2 md:bottom-5 right-[6%] sm:right-[18%] md:right-[22%] lg:right-[26%] z-20"
+            className="absolute -bottom-2 sm:bottom-2 md:bottom-5 right-[3%] sm:right-[16%] md:right-[22%] lg:right-[26%] z-20"
           >
             <motion.a
               href="https://www.instagram.com"
@@ -180,7 +180,7 @@ export const SocialPlatformsSection: React.FC = () => {
               animate={{ y: [0, -7, 0] }}
               transition={{ duration: 3.7, repeat: Infinity, ease: 'easeInOut', delay: 1.6 }}
               whileHover={{ scale: 1.12, rotate: 0 }}
-              className="w-14 h-14 sm:w-20 sm:h-20 md:w-[86px] md:h-[86px] rounded-[20px] sm:rounded-[26px] md:rounded-[28px] flex items-center justify-center shadow-[0_20px_45px_-8px_rgba(225,48,108,0.55)] border border-white/30 transform -rotate-8 cursor-pointer transition-shadow hover:shadow-[0_24px_50px_-6px_rgba(225,48,108,0.75)] block"
+              className="w-12 h-12 sm:w-18 sm:h-18 md:w-[86px] md:h-[86px] rounded-[18px] sm:rounded-[24px] md:rounded-[28px] flex items-center justify-center shadow-[0_16px_36px_-8px_rgba(225,48,108,0.55)] border border-white/30 transform -rotate-8 cursor-pointer transition-shadow hover:shadow-[0_24px_50px_-6px_rgba(225,48,108,0.75)] block"
               style={{
                 background:
                   'radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)',

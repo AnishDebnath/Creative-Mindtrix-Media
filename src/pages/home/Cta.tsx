@@ -17,28 +17,32 @@ const CTA_CARDS = [
     id: 'card-1',
     src: TOP_HERO_VIDEOS[0]?.src || '',
     poster: TOP_HERO_VIDEOS[0]?.poster || '',
-    transform: 'translateX(-145%) translateY(30%) rotate(-9deg)',
+    mobileTransform: 'translateX(-120%) translateY(28%) rotate(-7deg)',
+    desktopTransform: 'translateX(-145%) translateY(30%) rotate(-9deg)',
     zIndex: 1,
   },
   {
     id: 'card-2',
     src: TOP_HERO_VIDEOS[4]?.src || '',
     poster: TOP_HERO_VIDEOS[4]?.poster || '',
-    transform: 'translateX(-48%) translateY(16%) rotate(-3deg)',
+    mobileTransform: 'translateX(-40%) translateY(14%) rotate(-2deg)',
+    desktopTransform: 'translateX(-48%) translateY(16%) rotate(-3deg)',
     zIndex: 3,
   },
   {
     id: 'card-3',
     src: TOP_HERO_VIDEOS[1]?.src || '',
     poster: TOP_HERO_VIDEOS[1]?.poster || '',
-    transform: 'translateX(48%) translateY(16%) rotate(3deg)',
+    mobileTransform: 'translateX(40%) translateY(14%) rotate(2deg)',
+    desktopTransform: 'translateX(48%) translateY(16%) rotate(3deg)',
     zIndex: 3,
   },
   {
     id: 'card-4',
     src: TOP_HERO_VIDEOS[2]?.src || '',
     poster: TOP_HERO_VIDEOS[2]?.poster || '',
-    transform: 'translateX(145%) translateY(30%) rotate(9deg)',
+    mobileTransform: 'translateX(120%) translateY(28%) rotate(7deg)',
+    desktopTransform: 'translateX(145%) translateY(30%) rotate(9deg)',
     zIndex: 1,
   },
 ];
@@ -135,14 +139,14 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
       </div>
 
       {/* 5. Bottom Video Cards: Generous gap after buttons, 4 clean cards emerging halfway from bottom edge */}
-      <div className="relative z-10 w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[330px] flex justify-center items-end pointer-events-none select-none px-2 sm:px-4 mt-10 sm:mt-14 md:mt-16 lg:mt-20">
+      <div className="relative z-10 w-full h-[175px] xs:h-[220px] sm:h-[260px] md:h-[300px] lg:h-[330px] flex justify-center items-end pointer-events-none select-none px-2 sm:px-4 mt-8 sm:mt-14 md:mt-16 lg:mt-20">
         <div className="relative flex items-end justify-center w-full max-w-[1040px] h-full">
           {CTA_CARDS.map((card) => (
             <div
               key={card.id}
-              className="absolute pointer-events-auto w-[115px] sm:w-[155px] md:w-[195px] lg:w-[220px] aspect-[9/16] rounded-[20px] sm:rounded-[26px] overflow-hidden shadow-[0_20px_45px_rgba(47,24,42,0.22)] bg-neutral-900 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer group"
+              className="absolute pointer-events-auto w-[90px] xs:w-[125px] sm:w-[155px] md:w-[195px] lg:w-[220px] aspect-[9/16] rounded-[16px] sm:rounded-[26px] overflow-hidden shadow-[0_20px_45px_rgba(47,24,42,0.22)] bg-neutral-900 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer group"
               style={{
-                transform: card.transform,
+                transform: typeof window !== 'undefined' && window.innerWidth < 640 ? card.mobileTransform : card.desktopTransform,
                 zIndex: card.zIndex,
               }}
               onClick={onNavigateToReels}

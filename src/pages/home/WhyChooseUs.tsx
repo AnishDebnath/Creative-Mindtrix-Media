@@ -348,10 +348,10 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
         </motion.div>
 
         {/* Bento Grid: 4 Process Steps on Left (8 cols) + 9:16 Feature Video Card on Right (4 cols) with tight gap */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
 
           {/* Left Area: 4 Steps of How We Work (2x2 Grid, 8 Columns on desktop for perfect balance) */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
 
             {/* STEP 1: Collect Media & Samples (Theme: Peach & Sunset / Lavender) */}
             <motion.div
@@ -359,16 +359,16 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.05 }}
-              className="bg-gradient-to-br from-[#fdf4ed] via-[#f8edf5] to-[#f1ecfc] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#eda970]/40 shadow-[0_24px_50px_-12px_rgba(237,169,112,0.18)] hover:shadow-[0_28px_60px_-12px_rgba(237,169,112,0.28)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="bg-gradient-to-br from-[#fdf4ed] via-[#f8edf5] to-[#f1ecfc] rounded-[22px] sm:rounded-[32px] p-4 sm:p-6 border border-[#eda970]/40 shadow-[0_24px_50px_-12px_rgba(237,169,112,0.18)] hover:shadow-[0_28px_60px_-12px_rgba(237,169,112,0.28)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
               {/* Visual Showcase - Reduced top & side outer padding */}
-              <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
+              <div className="-mt-1.5 sm:-mt-2.5 -mx-1.5 sm:-mx-2.5 mb-3.5 sm:mb-4">
                 <CollectMediaShowcase />
               </div>
 
               {/* Card Details: NO Number Counting */}
               <div>
-                <h3 className="text-lg sm:text-[20px] font-bold text-neutral-900 tracking-tight leading-snug mb-1.5">
+                <h3 className="text-base sm:text-lg md:text-[20px] font-bold text-neutral-900 tracking-tight leading-snug mb-1 sm:mb-1.5">
                   Collect Media & Samples
                 </h3>
                 <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed font-normal">
@@ -383,16 +383,16 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.1 }}
-              className="bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#ebdce7] shadow-[0_24px_50px_-12px_rgba(61,32,53,0.1)] hover:shadow-[0_28px_60px_-12px_rgba(61,32,53,0.16)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="bg-gradient-to-br from-[#f3effb] via-[#f9edf5] to-[#fef5ee] rounded-[22px] sm:rounded-[32px] p-4 sm:p-6 border border-[#ebdce7] shadow-[0_24px_50px_-12px_rgba(61,32,53,0.1)] hover:shadow-[0_28px_60px_-12px_rgba(61,32,53,0.16)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
               {/* Visual Showcase - Reduced top & side outer padding */}
-              <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
+              <div className="-mt-1.5 sm:-mt-2.5 -mx-1.5 sm:-mx-2.5 mb-3.5 sm:mb-4">
                 <MarketResearchShowcase />
               </div>
 
               {/* Card Details: NO Number Counting */}
               <div>
-                <h3 className="text-lg sm:text-[20px] font-bold text-neutral-900 tracking-tight leading-snug mb-1.5">
+                <h3 className="text-base sm:text-lg md:text-[20px] font-bold text-neutral-900 tracking-tight leading-snug mb-1 sm:mb-1.5">
                   Market & Trend Research
                 </h3>
                 <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed font-normal">
@@ -407,16 +407,16 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.15 }}
-              className="bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#dcc6d5] shadow-[0_24px_50px_-12px_rgba(61,32,53,0.1)] hover:shadow-[0_28px_60px_-12px_rgba(61,32,53,0.16)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="bg-gradient-to-br from-[#f8edf5] via-[#f2ebfc] to-[#fdf4ed] rounded-[22px] sm:rounded-[32px] p-4 sm:p-6 border border-[#dcc6d5] shadow-[0_24px_50px_-12px_rgba(61,32,53,0.1)] hover:shadow-[0_28px_60px_-12px_rgba(61,32,53,0.16)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
               {/* Visual Showcase - Reduced top & side outer padding */}
-              <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
+              <div className="-mt-1.5 sm:-mt-2.5 -mx-1.5 sm:-mx-2.5 mb-3.5 sm:mb-4">
                 <MakeProduceShowcase />
               </div>
 
               {/* Card Details: NO Number Counting */}
               <div>
-                <h3 className="text-lg sm:text-[20px] font-bold text-neutral-900 tracking-tight leading-snug mb-1.5">
+                <h3 className="text-base sm:text-lg md:text-[20px] font-bold text-neutral-900 tracking-tight leading-snug mb-1 sm:mb-1.5">
                   Make & Produce Creatives
                 </h3>
                 <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed font-normal">
@@ -431,16 +431,16 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: 0.2 }}
-              className="bg-gradient-to-br from-[#faf6f8] via-[#f5eef4] to-[#faede5] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 border border-[#ebdce7] shadow-[0_20px_50px_-15px_rgba(61,32,53,0.12)] hover:shadow-[0_24px_60px_-15px_rgba(61,32,53,0.18)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="bg-gradient-to-br from-[#faf6f8] via-[#f5eef4] to-[#faede5] rounded-[22px] sm:rounded-[32px] p-4 sm:p-6 border border-[#ebdce7] shadow-[0_20px_50px_-15px_rgba(61,32,53,0.12)] hover:shadow-[0_24px_60px_-15px_rgba(61,32,53,0.18)] transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
               {/* Visual Showcase - Reduced top & side outer padding */}
-              <div className="-mt-2 sm:-mt-2.5 -mx-2 sm:-mx-2.5 mb-4">
+              <div className="-mt-1.5 sm:-mt-2.5 -mx-1.5 sm:-mx-2.5 mb-3.5 sm:mb-4">
                 <DeliverPostShowcase />
               </div>
 
               {/* Card Details: NO Number Counting */}
               <div>
-                <h3 className="text-lg sm:text-[20px] font-bold text-neutral-900 tracking-tight leading-snug mb-1.5">
+                <h3 className="text-base sm:text-lg md:text-[20px] font-bold text-neutral-900 tracking-tight leading-snug mb-1 sm:mb-1.5">
                   Deliver & Post Directly
                 </h3>
                 <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed font-normal">
@@ -458,7 +458,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="relative w-full max-w-sm sm:max-w-md lg:max-w-none aspect-[9/16] min-h-[460px] sm:min-h-[520px] lg:min-h-0 rounded-[28px] sm:rounded-[32px] overflow-hidden flex flex-col justify-end p-6 sm:p-7 shadow-[0_20px_60px_-15px_rgba(61,32,53,0.35)] border border-[#ebdce7]/60 mx-auto lg:mx-0 select-none bg-black"
+              className="relative w-full max-w-sm sm:max-w-md lg:max-w-none aspect-[9/16] min-h-[380px] sm:min-h-[480px] lg:min-h-0 rounded-[22px] sm:rounded-[32px] overflow-hidden flex flex-col justify-end p-5 sm:p-7 shadow-[0_20px_60px_-15px_rgba(61,32,53,0.35)] border border-[#ebdce7]/60 mx-auto lg:mx-0 select-none bg-black"
             >
               {/* Clean 9:16 Video with Zero Hover Effect & lazy loading */}
               <div className="absolute inset-0 w-full h-full">

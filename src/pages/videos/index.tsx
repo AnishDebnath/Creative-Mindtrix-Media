@@ -284,12 +284,12 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
             </div>
 
             {/* Bottom Side: Fanned-out Cards emerging from bottom edge in 9:16 vertical reels ratio */}
-            <div className="relative z-10 w-full h-[230px] sm:h-[280px] md:h-[330px] lg:h-[360px] flex justify-center items-end pointer-events-none select-none px-2 sm:px-4">
+            <div className="relative z-10 w-full h-[190px] xs:h-[230px] sm:h-[280px] md:h-[330px] lg:h-[360px] flex justify-center items-end pointer-events-none select-none px-2 sm:px-4">
               <div className="relative flex items-end justify-center w-full max-w-[1040px] h-full">
 
                 {/* Card 1: Far Left (-16deg, 9:16 aspect ratio) */}
                 <div
-                  className="absolute pointer-events-auto w-[115px] sm:w-[150px] md:w-[180px] lg:w-[200px] aspect-[9/16] rounded-[16px] sm:rounded-[22px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
+                  className="absolute pointer-events-auto w-[95px] xs:w-[115px] sm:w-[150px] md:w-[180px] lg:w-[200px] aspect-[9/16] rounded-[14px] sm:rounded-[22px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
                   style={{
                     transform: 'translateX(-155%) translateY(32%) rotate(-16deg)',
                     zIndex: 1
@@ -308,7 +308,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
 
                 {/* Card 2: Mid Left (-8deg, 9:16 aspect ratio) */}
                 <div
-                  className="absolute pointer-events-auto w-[125px] sm:w-[165px] md:w-[195px] lg:w-[215px] aspect-[9/16] rounded-[18px] sm:rounded-[24px] overflow-hidden shadow-[0_18px_40px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
+                  className="absolute pointer-events-auto w-[105px] xs:w-[125px] sm:w-[165px] md:w-[195px] lg:w-[215px] aspect-[9/16] rounded-[16px] sm:rounded-[24px] overflow-hidden shadow-[0_18px_40px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
                   style={{
                     transform: 'translateX(-78%) translateY(24%) rotate(-8deg)',
                     zIndex: 2
@@ -327,7 +327,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
 
                 {/* Card 3: Center Dominant Card (0deg, 9:16 aspect ratio) */}
                 <div
-                  className="absolute pointer-events-auto w-[135px] sm:w-[175px] md:w-[210px] lg:w-[230px] aspect-[9/16] rounded-[20px] sm:rounded-[26px] overflow-hidden shadow-[0_25px_50px_rgba(0,0,0,0.4)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
+                  className="absolute pointer-events-auto w-[115px] xs:w-[135px] sm:w-[175px] md:w-[210px] lg:w-[230px] aspect-[9/16] rounded-[18px] sm:rounded-[26px] overflow-hidden shadow-[0_25px_50px_rgba(0,0,0,0.4)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
                   style={{
                     transform: 'translateX(0%) translateY(16%) rotate(0deg)',
                     zIndex: 5
@@ -346,7 +346,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
 
                 {/* Card 4: Mid Right (+8deg, 9:16 aspect ratio) */}
                 <div
-                  className="absolute pointer-events-auto w-[125px] sm:w-[165px] md:w-[195px] lg:w-[215px] aspect-[9/16] rounded-[18px] sm:rounded-[24px] overflow-hidden shadow-[0_18px_40px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
+                  className="absolute pointer-events-auto w-[105px] xs:w-[125px] sm:w-[165px] md:w-[195px] lg:w-[215px] aspect-[9/16] rounded-[16px] sm:rounded-[24px] overflow-hidden shadow-[0_18px_40px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
                   style={{
                     transform: 'translateX(78%) translateY(24%) rotate(8deg)',
                     zIndex: 2
@@ -365,7 +365,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = () => {
 
                 {/* Card 5: Far Right (+16deg, 9:16 aspect ratio) */}
                 <div
-                  className="absolute pointer-events-auto w-[115px] sm:w-[150px] md:w-[180px] lg:w-[200px] aspect-[9/16] rounded-[16px] sm:rounded-[22px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
+                  className="absolute pointer-events-auto w-[95px] xs:w-[115px] sm:w-[150px] md:w-[180px] lg:w-[200px] aspect-[9/16] rounded-[14px] sm:rounded-[22px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.35)] bg-neutral-900 transition-transform duration-300 hover:-translate-y-3"
                   style={{
                     transform: 'translateX(155%) translateY(32%) rotate(16deg)',
                     zIndex: 1

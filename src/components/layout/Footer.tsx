@@ -37,19 +37,19 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <>
       {/* Footer styled with the exact button background color and curved top border radius */}
-      <footer className="relative w-full rounded-t-[32px] sm:rounded-t-[44px] md:rounded-t-[52px] bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white pt-12 md:pt-16 pb-8 md:pb-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 border-t border-white/15 shadow-[0_-15px_45px_rgba(61,32,53,0.35)] overflow-hidden">
+      <footer className="relative w-full rounded-t-[28px] sm:rounded-t-[44px] md:rounded-t-[52px] bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white pt-10 md:pt-16 pb-8 md:pb-12 px-3 sm:px-6 md:px-8 lg:px-12 xl:px-20 border-t border-white/15 shadow-[0_-15px_45px_rgba(61,32,53,0.35)] overflow-hidden">
         <div className="max-w-screen-xl mx-auto relative z-10">
 
           {/* Main Footer Grid - Preserving exact layout and content structure */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-8 xl:gap-10 pb-10 md:pb-12 border-b border-white/15 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-10 pb-8 md:pb-12 border-b border-white/15 items-start">
 
             {/* Column 1: Brand & Identity (lg:col-span-5) */}
-            <div className="lg:col-span-5 flex flex-col gap-4">
+            <div className="md:col-span-1 lg:col-span-5 flex flex-col gap-3.5 sm:gap-4">
               {/* ponytail: footer logo matches navbar logo size exactly */}
               <img
                 src={whiteLogo}
                 alt="Mindtrix Media"
-                className="h-8 sm:h-10 md:h-12 w-auto object-contain cursor-pointer self-start transition-transform hover:scale-105"
+                className="h-7 sm:h-9 md:h-12 w-auto object-contain cursor-pointer self-start transition-transform hover:scale-105"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               />
               <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-sm md:max-w-md">
@@ -140,7 +140,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             {/* Column 2: Navigation Links (lg:col-span-3) */}
-            <div className="lg:col-span-3 flex flex-col gap-3.5">
+            <div className="md:col-span-1 lg:col-span-3 flex flex-col gap-3.5">
               <span className="text-[11px] font-black tracking-wider uppercase text-[#eda970] font-display">
                 Navigation
               </span>
@@ -214,7 +214,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             {/* Column 3: Contact Details (lg:col-span-4) */}
-            <div className="lg:col-span-4 flex flex-col gap-4">
+            <div className="md:col-span-2 lg:col-span-4 flex flex-col gap-4">
               <span className="text-[11px] font-black tracking-wider uppercase text-[#eda970] font-display">
                 Contact & Connect
               </span>

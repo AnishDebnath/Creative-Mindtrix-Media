@@ -36,15 +36,15 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
 
         let w = 920;
         if (window.innerWidth < 640) {
-          w = Math.min(Math.round(cWidth * 0.88), 380);
+          w = Math.min(Math.round(cWidth * 0.94), 380);
         } else if (window.innerWidth < 768) {
-          w = Math.round(cWidth * 0.82);
+          w = Math.round(cWidth * 0.84);
         } else if (window.innerWidth < 1024) {
-          w = Math.round(cWidth * 0.72);
+          w = Math.round(cWidth * 0.74);
         } else if (window.innerWidth < 1440) {
-          w = Math.min(Math.round(cWidth * 0.62), 880);
+          w = Math.min(Math.round(cWidth * 0.64), 880);
         } else {
-          w = Math.min(Math.round(cWidth * 0.52), 960);
+          w = Math.min(Math.round(cWidth * 0.54), 960);
         }
         setCardWidth(w);
         setGap(window.innerWidth < 640 ? 12 : 18);
@@ -242,22 +242,22 @@ export const CreativeServicesSection: React.FC<CreativeServicesSectionProps> = (
                   </div>
 
                   {/* Mobile Mockup Div Box (Right Side) */}
-                  <div className="lg:col-span-6 w-full rounded-[24px] sm:rounded-[32px] bg-white/85 backdrop-blur-md border border-white/90 shadow-sm pt-8 sm:pt-10 px-2 sm:px-4 pb-0 flex justify-center items-end overflow-hidden relative h-full min-h-[460px] sm:min-h-[500px] order-2">
+                  <div className="lg:col-span-6 w-full rounded-[24px] sm:rounded-[32px] bg-white/85 backdrop-blur-md border border-white/90 shadow-sm pt-6 sm:pt-10 px-2 sm:px-4 pb-0 flex justify-center items-end overflow-hidden relative h-full min-h-[390px] sm:min-h-[460px] lg:min-h-[500px] order-2">
                     {/* EXACT SAME iPhone Chassis as HeroSection */}
-                    <div className="relative z-25 w-[265px] sm:w-[285px] md:w-[300px] rounded-[48px] bg-black p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.45),0_0_0_1px_rgba(255,255,255,0.15)] border-[4px] border-[#18181a] -mb-16 sm:-mb-20">
+                    <div className="relative z-25 w-[220px] xs:w-[245px] sm:w-[285px] md:w-[300px] rounded-[38px] sm:rounded-[48px] bg-black p-[4px] sm:p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.45),0_0_0_1px_rgba(255,255,255,0.15)] border-[3px] sm:border-[4px] border-[#18181a] -mb-16 sm:-mb-20">
                       {/* Inner Screen Canvas */}
-                      <div className="relative rounded-[42px] overflow-hidden bg-gradient-to-b from-[#ebdce7] via-[#eae3fb] via-[#e5e1fc] to-[#faede5] text-neutral-900 flex flex-col pt-3 pb-3 shadow-inner">
+                      <div className="relative rounded-[32px] sm:rounded-[42px] overflow-hidden bg-gradient-to-b from-[#ebdce7] via-[#eae3fb] via-[#e5e1fc] to-[#faede5] text-neutral-900 flex flex-col pt-2.5 sm:pt-3 pb-3 shadow-inner">
 
                         {/* Top Status Bar (Dynamic Island, 9:41, signal, battery) */}
-                        <div className="w-[92%] max-w-[250px] mx-auto flex items-center justify-between text-[11px] font-bold text-neutral-800 z-20 mb-2">
+                        <div className="w-[92%] max-w-[250px] mx-auto flex items-center justify-between text-[10px] sm:text-[11px] font-bold text-neutral-800 z-20 mb-2">
                           <span>9:41</span>
 
                           {/* Dynamic Island Notch */}
-                          <div className="w-[86px] h-[23px] bg-black rounded-full flex items-center justify-between px-2.5 shadow-sm">
-                            <div className="w-2.5 h-2.5 rounded-full bg-[#111116] border border-neutral-800 flex items-center justify-center">
+                          <div className="w-[74px] sm:w-[86px] h-[20px] sm:h-[23px] bg-black rounded-full flex items-center justify-between px-2 sm:px-2.5 shadow-sm">
+                            <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#111116] border border-neutral-800 flex items-center justify-center">
                               <div className="w-1 h-1 rounded-full bg-[#0a0a14]" />
                             </div>
-                            <div className="w-2 h-2 rounded-full bg-[#0d0d18] border border-neutral-800" />
+                            <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#0d0d18] border border-neutral-800" />
                           </div>
 
                           <div className="flex items-center gap-1.5 text-xs">

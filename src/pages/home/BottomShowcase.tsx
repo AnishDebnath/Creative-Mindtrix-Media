@@ -88,7 +88,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
   };
 
   return (
-    <section className="relative w-full py-20 sm:py-28 px-4 md:px-8 lg:px-12 xl:px-20 overflow-hidden bg-white">
+    <section className="relative w-full py-12 sm:py-20 md:py-28 px-3 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden bg-white">
       {/* Giant Typography Watermark: MINDTRIX */}
       <div className="absolute inset-0 flex items-start justify-center select-none pointer-events-none z-0">
         <svg
@@ -113,7 +113,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
       </div>
 
       {/* Center Interactive Showcase Composition */}
-      <div className="relative max-w-screen-xl mx-auto z-10 flex items-center justify-center min-h-[440px] sm:min-h-[500px]">
+      <div className="relative max-w-screen-xl mx-auto z-10 flex items-center justify-center min-h-[360px] sm:min-h-[460px] md:min-h-[500px]">
 
         {/* Relative Anchor Frame */}
         <div className="relative flex items-center justify-center">
@@ -124,7 +124,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="absolute -top-6 sm:-top-4 -left-8 sm:-left-56 md:-left-72 lg:-left-80 z-20 bg-gradient-to-br from-[#2f182a] via-[#3d2035] to-[#542947] text-white px-3.5 sm:px-6 py-1.5 sm:py-2.5 rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.4)] border border-white/20 text-xs sm:text-[15px] font-semibold whitespace-nowrap transform -rotate-[7deg] hover:rotate-0 transition-transform duration-300"
+            className="absolute -top-5 sm:-top-4 -left-3 xs:-left-8 sm:-left-48 md:-left-64 lg:-left-80 z-20 bg-gradient-to-br from-[#2f182a] via-[#3d2035] to-[#542947] text-white px-3 sm:px-6 py-1.5 sm:py-2.5 rounded-full shadow-[0_16px_36px_-6px_rgba(61,32,53,0.4)] border border-white/20 text-[11px] sm:text-[15px] font-semibold whitespace-nowrap transform -rotate-[7deg] scale-90 sm:scale-100 origin-top-left hover:rotate-0 transition-transform duration-300"
           >
             Create better product ads with AI 🚀
           </motion.div>
@@ -136,10 +136,10 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="relative w-[260px] sm:w-[350px] md:w-[370px] aspect-square bg-white rounded-[40px] sm:rounded-[46px] p-1.5 sm:p-2 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.22)] border border-white cursor-pointer transform rotate-[3deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300 group"
+            className="relative w-[225px] xs:w-[260px] sm:w-[330px] md:w-[370px] aspect-square bg-white rounded-[32px] sm:rounded-[46px] p-1.5 sm:p-2 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.22)] border border-white cursor-pointer transform rotate-[3deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300 group"
           >
             {/* Inner Video Container */}
-            <div className="relative w-full h-full rounded-[32px] sm:rounded-[38px] overflow-hidden bg-black shadow-inner">
+            <div className="relative w-full h-full rounded-[26px] sm:rounded-[38px] overflow-hidden bg-black shadow-inner">
               <video
                 ref={videoRef}
                 src={introVideo}
@@ -191,7 +191,7 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="absolute -top-6 sm:-top-4 -right-8 sm:-right-56 md:-right-72 lg:-right-80 z-20 bg-white px-3.5 sm:px-6 py-1.5 sm:py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-white text-neutral-800 text-xs sm:text-[15px] font-semibold whitespace-nowrap transform rotate-[7deg] hover:rotate-0 transition-transform duration-300"
+            className="absolute -top-5 sm:-top-4 -right-3 xs:-right-8 sm:-right-48 md:-right-64 lg:-right-80 z-20 bg-white px-3 sm:px-6 py-1.5 sm:py-2.5 rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-white text-neutral-800 text-[11px] sm:text-[15px] font-semibold whitespace-nowrap transform rotate-[7deg] scale-90 sm:scale-100 origin-top-right hover:rotate-0 transition-transform duration-300"
           >
             Ready for your next campaign? ✨
           </motion.div>
@@ -202,13 +202,13 @@ export const BottomShowcaseSection: React.FC<BottomShowcaseSectionProps> = ({
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="absolute top-36 sm:top-40 -right-20 sm:-right-32 md:-right-40 lg:-right-48 z-20 flex items-center"
+            className="absolute top-28 sm:top-40 -right-4 sm:-right-24 md:-right-36 lg:-right-44 z-20 flex items-center scale-85 sm:scale-100"
           >
             {/* Green Dot pinned on the left */}
-            <span className="w-3.5 h-3.5 rounded-full bg-[#22c55e] ring-2 ring-white shadow-sm z-30 -mr-2" />
+            <span className="w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-[#22c55e] ring-2 ring-white shadow-sm z-30 -mr-2" />
 
             {/* Round Avatar */}
-            <div className="w-18 sm:w-22 h-18 sm:h-22 rounded-full ring-3 ring-white shadow-xl overflow-hidden bg-white flex items-center justify-center">
+            <div className="w-14 sm:w-20 md:w-22 h-14 sm:h-20 md:h-22 rounded-full ring-3 ring-white shadow-xl overflow-hidden bg-white flex items-center justify-center">
               <img
                 src={logoImg}
                 alt="Mindtrix Media"

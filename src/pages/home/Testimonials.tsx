@@ -13,22 +13,22 @@ import {
 
 const ReviewCard: React.FC<{ card: TestimonialCardData }> = ({ card }) => {
   return (
-    <div className="bg-white/95 backdrop-blur-xs rounded-[22px] p-5 sm:p-6 shadow-[0_12px_36px_-12px_rgba(61,32,53,0.1),0_4px_12px_-2px_rgba(237,169,112,0.06)] border border-[#ebdce7]/85 w-[290px] sm:w-[330px] md:w-[350px] shrink-0 text-left transition-transform duration-300 hover:-translate-y-1">
+    <div className="bg-white/95 backdrop-blur-xs rounded-[20px] sm:rounded-[22px] p-4 sm:p-5 md:p-6 shadow-[0_12px_36px_-12px_rgba(61,32,53,0.1),0_4px_12px_-2px_rgba(237,169,112,0.06)] border border-[#ebdce7]/85 w-[250px] sm:w-[310px] md:w-[350px] shrink-0 text-left transition-transform duration-300 hover:-translate-y-1">
       {/* 5 Filled Golden Peach Stars */}
-      <div className="flex text-[#eda970] gap-1 mb-3.5">
+      <div className="flex text-[#eda970] gap-1 mb-2.5 sm:mb-3.5">
         {[...Array(card.stars || 5)].map((_, i) => (
-          <Star key={i} className="w-4 h-4 fill-[#eda970] text-[#eda970]" />
+          <Star key={i} className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-[#eda970] text-[#eda970]" />
         ))}
       </div>
 
       {/* Quote */}
-      <p className="text-neutral-700 text-[13px] sm:text-[13.5px] leading-relaxed font-normal mb-5 min-h-[64px]">
+      <p className="text-neutral-700 text-xs sm:text-[13px] md:text-[13.5px] leading-relaxed font-normal mb-4 sm:mb-5 min-h-[52px] sm:min-h-[64px]">
         {card.quote}
       </p>
 
       {/* Author info */}
-      <div className="flex items-center gap-3 pt-1">
-        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-neutral-100 ring-2 ring-white shadow-xs shrink-0">
+      <div className="flex items-center gap-2.5 sm:gap-3 pt-1">
+        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-neutral-100 ring-2 ring-white shadow-xs shrink-0">
           <img
             src={card.avatar}
             alt={card.author}
@@ -40,7 +40,7 @@ const ReviewCard: React.FC<{ card: TestimonialCardData }> = ({ card }) => {
           <h4 className="font-bold text-neutral-900 text-xs sm:text-[13.5px] leading-tight truncate">
             {card.author}
           </h4>
-          <p className="text-neutral-500 text-[11px] sm:text-xs font-medium truncate mt-0.5">
+          <p className="text-neutral-500 text-[10px] sm:text-xs font-medium truncate mt-0.5">
             {card.role}
           </p>
         </div>
@@ -194,10 +194,10 @@ export const TestimonialsSection: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[270px] sm:w-[305px] md:w-[320px] rounded-[48px] bg-black p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[4px] border-[#18181a]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[225px] xs:w-[255px] sm:w-[295px] md:w-[320px] rounded-[38px] sm:rounded-[48px] bg-black p-[4px] sm:p-[5px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.15)] border-[3px] sm:border-[4px] border-[#18181a]"
         >
-          {/* Inner Screen Canvas - Exact same height as Hero Section (595px / 630px) */}
-          <div className="relative rounded-[42px] overflow-hidden bg-black text-white h-[595px] sm:h-[630px] flex flex-col justify-between shadow-inner select-none">
+          {/* Inner Screen Canvas - Proportional height across screen sizes */}
+          <div className="relative rounded-[32px] sm:rounded-[42px] overflow-hidden bg-black text-white h-[480px] xs:h-[530px] sm:h-[595px] md:h-[630px] flex flex-col justify-between shadow-inner select-none">
             
             {/* Full-bleed Active Reel Video - Only decodes when section is near viewport */}
             <video
@@ -229,15 +229,15 @@ export const TestimonialsSection: React.FC = () => {
             </div>
 
             {/* Subtle Vignette Overlays for Story UI Readability */}
-            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/70 via-black/35 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-28 sm:h-32 bg-gradient-to-b from-black/70 via-black/35 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-24 sm:h-28 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10 pointer-events-none" />
 
             {/* TOP ZONE: Dynamic Island Notch + 3 Instagram Story Timer Bars + Profile Header */}
-            <div className="relative z-20 flex flex-col gap-2.5 pt-3 px-3.5 pointer-events-none">
+            <div className="relative z-20 flex flex-col gap-2 sm:gap-2.5 pt-2.5 sm:pt-3 px-2.5 sm:px-3.5 pointer-events-none">
               
               {/* Dynamic Island Notch - Same dimensions as Hero Section */}
-              <div className="w-[86px] h-[23px] bg-black rounded-full flex items-center justify-between px-2.5 shadow-sm mx-auto mb-1">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#111116] border border-neutral-800 flex items-center justify-center">
+              <div className="w-[74px] sm:w-[86px] h-[20px] sm:h-[23px] bg-black rounded-full flex items-center justify-between px-2 sm:px-2.5 shadow-sm mx-auto mb-1">
+                <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#111116] border border-neutral-800 flex items-center justify-center">
                   <div className="w-1 h-1 rounded-full bg-[#0a0a14]" />
                 </div>
                 <div className="w-2 h-2 rounded-full bg-[#0d0d18] border border-neutral-800" />

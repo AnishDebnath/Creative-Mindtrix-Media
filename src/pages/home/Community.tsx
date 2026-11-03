@@ -70,7 +70,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
   return (
     <section
       id="reels"
-      className="relative w-full py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden scroll-mt-6"
+      className="relative w-full py-10 sm:py-16 md:py-20 px-3 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden scroll-mt-6"
       style={{
         background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(248, 246, 253, 0.45) 50%, #eae3fb 100%)',
       }}
@@ -137,7 +137,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
             <div
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
-              className="relative w-full max-w-[560px] md:max-w-[620px] h-[460px] sm:h-[530px] md:h-[580px] lg:h-[600px] flex items-center justify-center overflow-visible select-none"
+              className="relative w-full max-w-[560px] md:max-w-[620px] h-[370px] xs:h-[440px] sm:h-[530px] md:h-[580px] lg:h-[600px] flex items-center justify-center overflow-visible select-none"
             >
               {REEL_CARDS.map((reel, idx) => {
                 const count = REEL_CARDS.length;
@@ -154,17 +154,17 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                   transformClass = 'translate-x-0 scale-100 opacity-100 z-30 shadow-[0_25px_60px_-15px_rgba(47,24,42,0.3)]';
                   zIndex = 30;
                 } else if (isLeft) {
-                  transformClass = '-translate-x-[48%] sm:-translate-x-[52%] scale-[0.88] opacity-50 blur-[1.5px] z-10 cursor-pointer hover:opacity-75';
+                  transformClass = '-translate-x-[42%] sm:-translate-x-[52%] scale-[0.88] opacity-50 blur-[1.5px] z-10 cursor-pointer hover:opacity-75';
                   zIndex = 10;
                 } else if (isRight) {
-                  transformClass = 'translate-x-[48%] sm:translate-x-[52%] scale-[0.88] opacity-50 blur-[1.5px] z-10 cursor-pointer hover:opacity-75';
+                  transformClass = 'translate-x-[42%] sm:translate-x-[52%] scale-[0.88] opacity-50 blur-[1.5px] z-10 cursor-pointer hover:opacity-75';
                   zIndex = 10;
                 } else if (isFarLeft) {
-                  transformClass = '-translate-x-[72%] scale-75 opacity-0 pointer-events-none blur-[2px] z-0';
+                  transformClass = '-translate-x-[68%] sm:-translate-x-[72%] scale-75 opacity-0 pointer-events-none blur-[2px] z-0';
                   zIndex = 0;
                 } else {
                   // Far right / offscreen queue: glides in smoothly from right
-                  transformClass = 'translate-x-[72%] scale-75 opacity-0 pointer-events-none blur-[2px] z-0';
+                  transformClass = 'translate-x-[68%] sm:translate-x-[72%] scale-75 opacity-0 pointer-events-none blur-[2px] z-0';
                   zIndex = 0;
                 }
 
@@ -175,7 +175,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({
                       if (!isActive) setActiveIndex(idx);
                     }}
                     style={{ zIndex }}
-                    className={`absolute w-[215px] sm:w-[280px] md:w-[310px] lg:w-[325px] aspect-[9/16] rounded-[26px] sm:rounded-[34px] md:rounded-[38px] overflow-hidden border border-white/80 bg-neutral-900 transition-all duration-500 ease-out ${transformClass}`}
+                    className={`absolute w-[165px] xs:w-[200px] sm:w-[270px] md:w-[310px] lg:w-[325px] aspect-[9/16] rounded-[22px] sm:rounded-[34px] md:rounded-[38px] overflow-hidden border border-white/80 bg-neutral-900 transition-all duration-500 ease-out ${transformClass}`}
                   >
                     {/* Pure Video - Lazy loaded with Zero Overlays */}
                     {reel.videoSrc && (

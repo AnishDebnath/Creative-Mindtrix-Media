@@ -148,14 +148,14 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
               </div>
 
               {/* Section Headline - Balanced & Maintained Scale */}
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[62px] xl:text-[68px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.08]">
+              <h1 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.08]">
                 <span>LET'S BUILD</span>
                 <br />
                 <span>SOMETHING</span>
                 <br />
                 {/* Highlight Pill Container for GREAT. - Styled in Website Theme */}
                 <span className="inline-block relative mt-1.5 sm:mt-2">
-                  <span className="relative z-10 px-4.5 sm:px-6 py-0.5 sm:py-1 rounded-[20px] sm:rounded-[26px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
+                  <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[26px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
                     <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
                       GREAT.
                     </span>
@@ -270,17 +270,17 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="w-full rounded-[36px] sm:rounded-[44px] overflow-hidden bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] shadow-[0_25px_70px_-15px_rgba(61,32,53,0.22)] border border-[#ebdce7]"
+              className="w-full rounded-[28px] sm:rounded-[38px] md:rounded-[44px] overflow-hidden bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] shadow-[0_25px_70px_-15px_rgba(61,32,53,0.22)] border border-[#ebdce7]"
             >
               {/* Behind Card Header matching reference image layout & clean font */}
-              <div className="px-6 sm:px-7 pt-4.5 sm:pt-5 pb-4 sm:pb-4.5 text-white select-none">
-                <h2 className="text-xl sm:text-[22px] font-bold tracking-tight text-white leading-tight">
+              <div className="px-4.5 sm:px-7 pt-4 sm:pt-5 pb-3.5 sm:pb-4.5 text-white select-none">
+                <h2 className="text-lg sm:text-[22px] font-bold tracking-tight text-white leading-tight">
                   Share your details with us.
                 </h2>
               </div>
 
               {/* Front White Form Card (Overlays on top with its own rounded-t border radius) */}
-              <div className="w-full rounded-t-[28px] sm:rounded-t-[34px] bg-white p-5 sm:p-7 shadow-sm relative z-10">
+              <div className="w-full rounded-t-[24px] sm:rounded-t-[34px] bg-white p-4 sm:p-7 shadow-sm relative z-10">
                 <AnimatePresence mode="wait">
                   {isSubmitted ? (
                     <motion.div
