@@ -62,11 +62,11 @@ export const Brands: React.FC<{ className?: string }> = ({ className = '' }) => 
         {/* Heading */}
         <div className="text-center mb-3 sm:mb-4.5">
           <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight text-neutral-900">
-            Trusted by{' '}
+            We Are Working With{' '}
             <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
-              120+
+              10+
             </span>{' '}
-            Brands & Creators
+            Brands
           </h3>
         </div>
 
