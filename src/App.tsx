@@ -175,6 +175,7 @@ export default function App() {
               <ReelsPage
                 onBackToHome={() => navigateTo('home', undefined, '/')}
                 onNavigateToImages={() => navigateTo('images', undefined, '/images')}
+                onNavigateToContact={() => navigateTo('contact', undefined, '/contact')}
               />
             </motion.div>
           )}
