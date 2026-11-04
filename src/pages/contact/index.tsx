@@ -536,7 +536,6 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
       {/* -------------------------------------------------------------------------- */}
       <div className="w-full">
         <Faq
-          onBookCall={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           onContactUs={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         />
       </div>

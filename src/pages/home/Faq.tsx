@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SectionTag } from '@/components/ui/SectionTag';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, X } from 'lucide-react';
+import { Plus, X, ChevronRight } from 'lucide-react';
 
 interface FaqItem {
   question: string;
@@ -10,38 +10,36 @@ interface FaqItem {
 
 const FAQ_DATA: FaqItem[] = [
   {
-    question: "What creative services do you provide?",
-    answer: "We offer 8 services: AI Product Ads, Product Photography, Video Reels, Ad Creatives, AI Presenters, E-commerce Visuals, Brand Design, and Campaign Strategy.",
+    question: "What AI product creative services do you offer?",
+    answer: "We create cinematic AI product commercial video ads, 9:16 vertical video reels, photorealistic studio photography, 3D e-commerce lifestyle imagery, and social ad creatives.",
   },
   {
-    question: "How does your 4-step process work?",
-    answer: "1. Collect media & samples. 2. Research winning trends. 3. Produce AI videos and photos. 4. Deliver or post directly to your channels.",
+    question: "How do your AI product commercial video ads work?",
+    answer: "You send basic smartphone product photos or samples. We craft high-converting hooks, generate photorealistic lighting and environments, and deliver 4K video ads engineered for sales.",
   },
   {
-    question: "How fast do you deliver?",
-    answer: "Single projects are delivered in 24 to 48 hours. Monthly clients receive fresh creative batches every week.",
+    question: "Can AI product photography replace traditional studio shoots?",
+    answer: "Yes. Our AI product photos deliver high-end studio lighting, marble flat-lays, and realistic model lifestyle shots at a fraction of photoshoot costs, ready for Shopify and Amazon.",
   },
   {
-    question: "Do I need expensive cameras or gear?",
-    answer: "No. Simple smartphone photos or clips work great. Our AI enhances lighting, backgrounds, and motion.",
+    question: "Which formats and platforms are supported for product reels?",
+    answer: "We optimize all video deliverables in 9:16 vertical for Instagram Reels, TikTok, and YouTube Shorts, as well as 1:1 feed square and 16:9 widescreen for Meta and Google Ads.",
   },
   {
-    question: "Which formats and platforms do you support?",
-    answer: "All major formats: 9:16 vertical reels for Instagram, TikTok, and Shorts, 1:1 square feeds, and 16:9 ads.",
+    question: "How fast is delivery for custom product video and photo projects?",
+    answer: "Single project deliverables are completed in 24 to 48 hours. Monthly retainer clients receive fresh batches of video reels and images continuously every week.",
   },
   {
-    question: "Can I test with a single project first?",
-    answer: "Yes! Book a single project starting at ₹999, then upgrade to a monthly plan whenever you are ready.",
+    question: "How is pricing decided for per-project and monthly plans?",
+    answer: "Pricing starts from ₹999 for single projects and ₹4,999/mo for retainers. Final pricing is customized based on your product concept, script complexity, and content volume.",
   },
 ];
 
 interface FaqProps {
-  onBookCall?: () => void;
   onContactUs?: () => void;
 }
 
 export const Faq: React.FC<FaqProps> = ({
-  onBookCall,
   onContactUs,
 }) => {
   // Default first card open just like the reference screenshot
@@ -49,6 +47,14 @@ export const Faq: React.FC<FaqProps> = ({
 
   const toggleItem = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
+  const handleRedirect = () => {
+    if (onContactUs) {
+      onContactUs();
+    } else {
+      window.location.href = '/contact';
+    }
   };
 
   return (
@@ -66,7 +72,7 @@ export const Faq: React.FC<FaqProps> = ({
       <div className="max-w-4xl lg:max-w-[960px] mx-auto">
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-10">
           
-          {/* Left Column: Heading, Description & CTA Buttons */}
+          {/* Left Column: Heading, Description & Single CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +80,7 @@ export const Faq: React.FC<FaqProps> = ({
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className="w-full lg:w-[46%] max-w-[430px] flex flex-col items-start shrink-0"
           >
-            <SectionTag label="Common Questions" className="mb-3.5" />
+            <SectionTag label="Frequently Asked Questions" className="mb-3.5" />
             {/* Main Headline with Signature Section Header Design */}
             <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal leading-tight md:leading-[1.1] text-neutral-900 mb-3.5 uppercase">
               <span>GOT QUESTIONS?</span>
@@ -94,25 +100,18 @@ export const Faq: React.FC<FaqProps> = ({
 
             {/* Description Paragraph */}
             <p className="text-neutral-600 text-sm md:text-base leading-relaxed mb-6 max-w-prose">
-              Common questions about how we work and what to expect. Everything you need to know before getting started with us.
+              Everything you need to know about our AI product commercials, studio photography, video reels, and delivery process.
             </p>
 
-            {/* CTA Buttons matching website theme */}
-            <div className="flex items-center gap-3.5 flex-wrap">
+            {/* Single CTA Button redirecting to Contact page */}
+            <div>
               <button
                 type="button"
-                onClick={onBookCall}
-                className="bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white px-7 py-3 rounded-full font-bold text-xs sm:text-sm shadow-[0_12px_28px_-6px_rgba(61,32,53,0.35)] hover:opacity-95 transition-all hover:scale-105 active:scale-95 cursor-pointer border border-white/10"
+                onClick={handleRedirect}
+                className="group inline-flex items-center gap-2 px-6 sm:px-7 md:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
               >
-                Book A Call
-              </button>
-
-              <button
-                type="button"
-                onClick={onContactUs}
-                className="bg-white text-neutral-800 border border-[#ebdce7] px-7 py-3 rounded-full font-bold text-xs sm:text-sm shadow-md hover:bg-neutral-50 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-              >
-                Contact Us
+                <span>HAVE MORE QUESTIONS? CONTACT US</span>
+                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
               </button>
             </div>
           </motion.div>

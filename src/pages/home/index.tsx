@@ -68,7 +68,6 @@ export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToCo
 
       {/* FAQ */}
       <Faq
-        onBookCall={onNavigateToContact || (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
         onContactUs={onNavigateToContact || (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
       />
     </div>
