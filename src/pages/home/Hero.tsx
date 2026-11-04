@@ -246,7 +246,7 @@ export const Hero: React.FC<HeroProps> = ({
           className="text-center mb-8 sm:mb-12 px-4 md:px-8 lg:px-12 xl:px-20 max-w-screen-xl mx-auto"
         >
           <h1 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[60px] font-black tracking-normal text-[#111111] uppercase leading-tight sm:leading-[1.2] md:leading-[1.3] max-w-5xl mx-auto">
-            AI PRODUCT ADS. VIRAL REELS. E-COMMERCE VISUALS.
+            SCALE YOUR BRAND WITH AI PRODUCT ADS & VIRAL REELS
           </h1>
         </motion.div>
 

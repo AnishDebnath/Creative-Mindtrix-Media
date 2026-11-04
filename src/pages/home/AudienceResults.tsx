@@ -184,7 +184,7 @@ export const AudienceResults: React.FC = () => {
             className="relative z-10 text-center px-3 sm:px-4 max-w-5xl mx-auto py-12 sm:py-16 md:py-24"
           >
             <h2 className="font-sans text-xl sm:text-3xl md:text-5xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight text-neutral-900 leading-tight md:leading-[1.16]">
-              And We Focus On{' '}
+              We Focus On{' '}
               <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
                 Results
               </span>{' '}
