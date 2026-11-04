@@ -4,6 +4,7 @@ import { SectionTag } from '@/components/ui/SectionTag';
 import { LazyVideo } from '@/components/ui/LazyVideo';
 import { TOP_HERO_VIDEOS } from '@/data/videos';
 import { scrollToId } from '@/utils/scroll';
+import { ChevronRight } from 'lucide-react';
 
 interface CtaProps {
   onExploreServices?: () => void;
@@ -60,6 +61,14 @@ export const Cta: React.FC<CtaProps> = ({
     }
   };
 
+  const handleContactUs = () => {
+    if (onContactUs) {
+      onContactUs();
+    } else {
+      window.location.href = '/contact';
+    }
+  };
+
   return (
     <section
       id="cta"
@@ -74,7 +83,7 @@ export const Cta: React.FC<CtaProps> = ({
 
       {/* Main Content (Directly in open background, nicely balanced section rhythm) */}
       <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 xl:px-20 text-center flex flex-col items-center relative z-10">
-        
+
         {/* 1. Section Tag */}
         <SectionTag label="Get Started" className="mb-3.5 sm:mb-4" />
 
@@ -86,15 +95,15 @@ export const Cta: React.FC<CtaProps> = ({
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-black tracking-normal text-neutral-900 uppercase leading-tight sm:leading-[1.15] max-w-4xl mx-auto"
         >
-          <span>TURN YOUR AMBITIOUS</span>
+          <span>READY TO SCALE</span>
           <br />
           <span className="inline-flex items-center justify-center flex-wrap gap-x-2.5 sm:gap-x-3.5 mt-1 sm:mt-1.5">
-            <span>BRAND INTO A</span>
-            {/* Highlight Pill Container for SENSATION. - Styled in Website Theme */}
+            <span>YOUR</span>
+            {/* Highlight Pill Container for BRAND? - Styled in Website Theme */}
             <span className="inline-block relative">
               <span className="relative z-10 px-4 sm:px-6 py-0.5 sm:py-1 rounded-[18px] sm:rounded-[24px] bg-gradient-to-r from-[#faede5] via-[#f7edf5] to-[#eae3fb] shadow-sm inline-block transform -rotate-1 border border-[#ebdce7]">
                 <span className="bg-gradient-to-r from-[#3d2035] via-[#ed4f6c] to-[#d97736] bg-clip-text text-transparent font-black">
-                  SENSATION.
+                  BRAND?
                 </span>
               </span>
             </span>
@@ -109,10 +118,10 @@ export const Cta: React.FC<CtaProps> = ({
           transition={{ duration: 0.45, delay: 0.1 }}
           className="text-neutral-600 text-sm sm:text-base md:text-lg max-w-xl mx-auto mt-3.5 sm:mt-4 font-normal leading-relaxed"
         >
-          Send us your product media today and get high-converting AI ads fast.
+          Get high-converting product video commercials, studio photography, and viral reels designed to boost your brand sales and engagement.
         </motion.p>
 
-        {/* 4. Action Buttons matching other sections (Faq, WhyChooseUs, etc.) */}
+        {/* 4. Action Buttons matching signature website buttons */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -122,18 +131,19 @@ export const Cta: React.FC<CtaProps> = ({
         >
           <button
             type="button"
-            onClick={handleExploreServices}
-            className="bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white px-7 py-3 rounded-full font-bold text-xs sm:text-sm shadow-[0_12px_28px_-6px_rgba(61,32,53,0.35)] hover:opacity-95 transition-all hover:scale-105 active:scale-95 cursor-pointer border border-white/10"
+            onClick={handleContactUs}
+            className="group inline-flex items-center gap-2 px-7 sm:px-8 py-3 bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md shadow-[#3d2035]/25 border border-white/15 cursor-pointer whitespace-nowrap"
           >
-            Explore Services
+            <span>START YOUR PROJECT</span>
+            <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-[#eda970]" />
           </button>
 
           <button
             type="button"
-            onClick={onContactUs}
-            className="bg-white text-neutral-800 border border-[#ebdce7] px-7 py-3 rounded-full font-bold text-xs sm:text-sm shadow-md hover:bg-neutral-50 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            onClick={handleExploreServices}
+            className="inline-flex items-center gap-2 px-7 sm:px-8 py-3 bg-white text-neutral-800 border border-[#ebdce7] hover:bg-neutral-50 font-display text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-full transition-all active:scale-95 shadow-md hover:shadow-lg cursor-pointer whitespace-nowrap"
           >
-            Contact Us
+            <span>EXPLORE SERVICES</span>
           </button>
         </motion.div>
       </div>
