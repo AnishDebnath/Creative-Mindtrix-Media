@@ -27,6 +27,19 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   const [activeLegal, setActiveLegal] = useState<'privacy' | 'terms' | null>(null);
 
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      if (onNavigateToHome) onNavigateToHome();
+      setTimeout(() => {
+        const target = document.getElementById(id);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }, 150);
+    }
+  };
+
   // Lock background scroll when legal modal is open
   React.useEffect(() => {
     if (activeLegal) {
@@ -60,7 +73,7 @@ export const Footer: React.FC<FooterProps> = ({
                 }}
               />
               <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-sm md:max-w-md">
-                Mindtrix Media is an AI creative production studio helping brands produce high-converting product advertisements, commercial video reels, and studio-grade visuals at scale.
+                Mindtrix Media is an AI product creative studio helping brands create high-converting commercial video ads, studio-grade photography, and viral reels with rapid 24–48 hour turnaround.
               </p>
 
               {/* Social Media Channels under About */}
@@ -146,7 +159,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
             </div>
 
-            {/* Column 2: Navigation Links (lg:col-span-3) */}
+            {/* Column 2: Navigation Links (lg:col-span-3) - Matching Navbar items */}
             <div className="md:col-span-1 lg:col-span-3 flex flex-col gap-3.5">
               <span className="text-[11px] font-black tracking-wider uppercase text-[#eda970] font-display">
                 Navigation
@@ -168,7 +181,7 @@ export const Footer: React.FC<FooterProps> = ({
                     onClick={onNavigateToImages}
                     className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
-                    <span>AI Product Images</span>
+                    <span>Images</span>
                   </button>
                 </li>
                 <li>
@@ -176,7 +189,26 @@ export const Footer: React.FC<FooterProps> = ({
                     onClick={onNavigateToReels}
                     className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
-                    <span>Video Reels</span>
+                    <span>Videos</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      if (onNavigateToServices) onNavigateToServices();
+                      else scrollToSection('services');
+                    }}
+                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>Services</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection('pricing')}
+                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>Price</span>
                   </button>
                 </li>
                 <li>
@@ -185,43 +217,6 @@ export const Footer: React.FC<FooterProps> = ({
                     className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>Contact Us</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      if (onNavigateToServices) {
-                        onNavigateToServices();
-                      } else {
-                        const el = document.getElementById('services');
-                        if (el) el.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
-                  >
-                    <span>Creative Services</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      const el = document.getElementById('stand-for');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
-                  >
-                    <span>About Mindtrix</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      const el = document.getElementById('testimonials');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 cursor-pointer"
-                  >
-                    <span>Client Reviews</span>
                   </button>
                 </li>
               </ul>
