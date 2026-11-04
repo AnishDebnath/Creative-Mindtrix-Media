@@ -289,7 +289,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = ({
               {/* Right Column: Clean description + Action Button filling the space naturally */}
               <div className="max-w-md flex flex-col items-start lg:items-end gap-4 shrink-0">
                 <p className="text-neutral-800 text-sm sm:text-base leading-relaxed font-normal lg:text-right">
-                  Replace expensive video production crews with high-converting AI commercial video ads, 9:16 viral reels, and product animations for Meta, TikTok, and YouTube.
+                  Replace expensive video production crews with high-converting AI commercial video ads, 9:16 viral reels, and product animations for Instagram, Facebook and YouTube.
                 </p>
 
                 <button
