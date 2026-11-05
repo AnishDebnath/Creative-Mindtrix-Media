@@ -38,6 +38,16 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     description: 'Partner with Mindtrix Media for AI product advertising, commercial video reels, and studio photography. Reach out to discuss deliverables, scope, and timeline.',
     canonical: 'https://creative.mindtrixmedia.com/contact',
   },
+  terms: {
+    title: 'Terms and Conditions — Mindtrix Media',
+    description: 'Read the terms of service, commercial usage rights, and project guidelines for Mindtrix Media AI creative and commercial video advertising services.',
+    canonical: 'https://creative.mindtrixmedia.com/terms',
+  },
+  privacy: {
+    title: 'Privacy Policy — Mindtrix Media',
+    description: 'Learn how Mindtrix Media collects, protects, and handles brand information, media assets, and client data.',
+    canonical: 'https://creative.mindtrixmedia.com/privacy',
+  },
 };
 
 export function updatePageSEO(key: string): void {

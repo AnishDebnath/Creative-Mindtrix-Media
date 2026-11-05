@@ -7,18 +7,28 @@ import { HomePage } from '@/pages/home';
 import { ImagesPage } from '@/pages/images';
 import { ReelsPage } from '@/pages/videos';
 import { ContactPage } from '@/pages/contact';
+import { TermsPage } from '@/pages/terms';
+import { PrivacyPage } from '@/pages/privacy';
 import { scrollToId } from '@/utils/scroll';
 import { updatePageSEO } from '@/utils/seo';
 
-// Helper to parse current URL route (handles both clean paths like /services and legacy/fallback hashes like #services)
+type AppPage = 'home' | 'images' | 'reels' | 'contact' | 'terms' | 'privacy';
+
+// Helper to parse current URL route (handles clean paths, fallbacks, and legacy hashes)
 function parseRoute(): {
-  page: 'home' | 'images' | 'reels' | 'contact';
+  page: AppPage;
   sectionId?: string;
   cleanPath: string;
 } {
   const rawPath = window.location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
   const rawHash = window.location.hash.toLowerCase().replace(/^#\/?/, '');
 
+  if (rawPath === '/terms' || rawPath === '/terms-and-conditions' || rawHash === 'terms' || rawHash === 'terms-and-conditions') {
+    return { page: 'terms', cleanPath: '/terms' };
+  }
+  if (rawPath === '/privacy' || rawPath === '/privacy-policy' || rawHash === 'privacy' || rawHash === 'privacy-policy') {
+    return { page: 'privacy', cleanPath: '/privacy' };
+  }
   if (rawPath === '/contact' || rawHash === 'contact') {
     return { page: 'contact', cleanPath: '/contact' };
   }
@@ -38,11 +48,11 @@ function parseRoute(): {
 }
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'images' | 'reels' | 'contact'>('home');
+  const [currentPage, setCurrentPage] = useState<AppPage>('home');
   const [currentPath, setCurrentPath] = useState<string>('/');
 
   const navigateTo = useCallback((
-    page: 'home' | 'images' | 'reels' | 'contact',
+    page: AppPage,
     sectionId?: string,
     targetPath?: string
   ) => {
@@ -51,6 +61,8 @@ export default function App() {
       if (page === 'images') resolvedPath = '/images';
       else if (page === 'reels') resolvedPath = '/videos';
       else if (page === 'contact') resolvedPath = '/contact';
+      else if (page === 'terms') resolvedPath = '/terms';
+      else if (page === 'privacy') resolvedPath = '/privacy';
       else if (sectionId === 'services') resolvedPath = '/services';
       else if (sectionId === 'pricing' || sectionId === 'price') resolvedPath = '/price';
       else resolvedPath = '/';
@@ -182,6 +194,30 @@ export default function App() {
               <ContactPage />
             </motion.div>
           )}
+
+          {currentPage === 'terms' && (
+            <motion.div
+              key="terms"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28, ease: 'easeInOut' }}
+            >
+              <TermsPage />
+            </motion.div>
+          )}
+
+          {currentPage === 'privacy' && (
+            <motion.div
+              key="privacy"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28, ease: 'easeInOut' }}
+            >
+              <PrivacyPage />
+            </motion.div>
+          )}
         </AnimatePresence>
       </main>
 
@@ -199,6 +235,8 @@ export default function App() {
         onNavigateToReels={() => navigateTo('reels', undefined, '/videos')}
         onNavigateToContact={() => navigateTo('contact', undefined, '/contact')}
         onNavigateToServices={() => navigateTo('home', 'services', '/services')}
+        onNavigateToTerms={() => navigateTo('terms', undefined, '/terms')}
+        onNavigateToPrivacy={() => navigateTo('privacy', undefined, '/privacy')}
       />
     </div>
   );

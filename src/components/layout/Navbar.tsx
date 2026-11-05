@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import mindtrixLogo from '@/assets/logo.png';
 
+export type NavPage = 'home' | 'images' | 'reels' | 'contact' | 'terms' | 'privacy';
+
 interface NavbarProps {
-  currentPage?: 'home' | 'images' | 'reels' | 'contact';
+  currentPage?: NavPage;
   currentPath?: string;
   onNavigate?: (
-    page: 'home' | 'images' | 'reels' | 'contact',
+    page: NavPage,
     anchorId?: string,
     targetPath?: string
   ) => void;

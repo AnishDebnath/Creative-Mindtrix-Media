@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import whiteLogo from '@/assets/white-logo.png';
 import {
   Mail,
   Phone,
   MapPin,
-  X
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface FooterProps {
   onNavigateToHome?: () => void;
@@ -14,6 +12,8 @@ interface FooterProps {
   onNavigateToReels?: () => void;
   onNavigateToContact?: () => void;
   onNavigateToServices?: () => void;
+  onNavigateToTerms?: () => void;
+  onNavigateToPrivacy?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
@@ -21,10 +21,10 @@ export const Footer: React.FC<FooterProps> = ({
   onNavigateToImages,
   onNavigateToReels,
   onNavigateToContact,
-  onNavigateToServices
+  onNavigateToServices,
+  onNavigateToTerms,
+  onNavigateToPrivacy,
 }) => {
-  const [activeLegal, setActiveLegal] = useState<'privacy' | 'terms' | null>(null);
-
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -38,22 +38,9 @@ export const Footer: React.FC<FooterProps> = ({
     }
   };
 
-  // Lock background scroll when legal modal is open
-  React.useEffect(() => {
-    if (activeLegal) {
-      const original = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      return () => {
-        document.body.style.overflow = original;
-      };
-    }
-  }, [activeLegal]);
-
   return (
-    <>
-      {/* Footer styled with the exact button background color and curved top border radius */}
-      <footer className="relative w-full rounded-t-[28px] sm:rounded-t-[44px] md:rounded-t-[52px] bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white pt-10 md:pt-16 pb-8 md:pb-12 px-3 sm:px-6 md:px-8 lg:px-12 xl:px-20 border-t border-white/15 shadow-[0_-15px_45px_rgba(61,32,53,0.35)] overflow-hidden">
-        <div className="max-w-screen-xl mx-auto relative z-10">
+    <footer className="relative w-full rounded-t-[28px] sm:rounded-t-[44px] md:rounded-t-[52px] bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-white pt-10 md:pt-16 pb-8 md:pb-12 px-3 sm:px-6 md:px-8 lg:px-12 xl:px-20 border-t border-white/15 shadow-[0_-15px_45px_rgba(61,32,53,0.35)] overflow-hidden">
+      <div className="max-w-screen-xl mx-auto relative z-10">
 
           {/* Main Footer Grid - Preserving exact layout and content structure */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-10 pb-8 md:pb-12 border-b border-white/15 items-start">
@@ -282,107 +269,33 @@ export const Footer: React.FC<FooterProps> = ({
               © {new Date().getFullYear()} <span className="font-semibold text-white">Mindtrix Media</span>. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => setActiveLegal('terms')}
+              <a
+                href="/terms"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigateToTerms) onNavigateToTerms();
+                  else window.location.href = '/terms';
+                }}
                 className="hover:text-white transition-colors cursor-pointer text-white/70"
               >
-                Terms of Service
-              </button>
+                Terms &amp; Conditions
+              </a>
               <span className="text-white/40">·</span>
-              <button
-                onClick={() => setActiveLegal('privacy')}
+              <a
+                href="/privacy"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigateToPrivacy) onNavigateToPrivacy();
+                  else window.location.href = '/privacy';
+                }}
                 className="hover:text-white transition-colors cursor-pointer text-white/70"
               >
                 Privacy Policy
-              </button>
+              </a>
             </div>
           </div>
 
         </div>
       </footer>
-
-      {/* Clean Legal Modal matching blur backdrop theme */}
-      <AnimatePresence>
-        {activeLegal && (
-          <motion.div
-            key="legal-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
-            onClick={() => setActiveLegal(null)}
-          >
-            <motion.div
-              key="legal-modal-card"
-              initial={{ opacity: 0, scale: 0.94, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 15 }}
-              transition={{ type: 'spring', damping: 28, stiffness: 350 }}
-              className="relative max-w-lg w-full max-h-[82vh] overflow-hidden rounded-[28px] sm:rounded-[32px] bg-white shadow-2xl border border-[#e8d5df] flex flex-col"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center justify-between px-6 sm:px-7 pt-6 pb-4 border-b border-neutral-100">
-                <h3 className="font-display text-xl sm:text-2xl font-black uppercase text-neutral-900">
-                  {activeLegal === 'privacy' ? 'Privacy Policy' : 'Terms of Service'}
-                </h3>
-                <button
-                  onClick={() => setActiveLegal(null)}
-                  className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-700 flex items-center justify-center transition-colors cursor-pointer"
-                  title="Close"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              <div className="p-6 sm:p-7 overflow-y-auto space-y-4 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
-                {activeLegal === 'privacy' ? (
-                  <>
-                    <p>
-                      <strong>1. Overview:</strong> Mindtrix Media is committed to protecting the privacy of our clients and site visitors. This Privacy Policy details how we handle information collected through our website, AI creative services, and automated advertising solutions.
-                    </p>
-                    <p>
-                      <strong>2. Information Collection:</strong> When you submit an inquiry, waitlist request, or collaborate with us on advertising campaigns, we collect contact information such as name, email address, phone number, and brand specifications solely for business communication and campaign execution.
-                    </p>
-                    <p>
-                      <strong>3. Media & Assets:</strong> Product photos, videos, and brand guidelines uploaded by clients are used strictly to generate requested AI advertising creatives and are never sold or shared with third parties.
-                    </p>
-                    <p>
-                      <strong>4. Security:</strong> We deploy modern encryption and standard data protection practices to safeguard all client communication and campaign data.
-                    </p>
-                    <p className="text-neutral-400 text-xs pt-2">Last updated: 2026. For questions, reach out at privacy@mindtrixmedia.com.</p>
-                  </>
-                ) : (
-                  <>
-                    <p>
-                      <strong>1. Agreement to Terms:</strong> By accessing Mindtrix Media or commissioning our AI product advertising, commercial video production, or creative services, you agree to comply with and be bound by these Terms of Service.
-                    </p>
-                    <p>
-                      <strong>2. Creative Services:</strong> Mindtrix Media produces high-quality AI product visuals, 3D renderings, and video reels. Final deliverables are provided under exclusive commercial usage rights to the client upon full payment.
-                    </p>
-                    <p>
-                      <strong>3. Client Responsibilities:</strong> Clients represent that they own or have obtained the necessary rights to all product assets, trademarks, and logos submitted for creative generation.
-                    </p>
-                    <p>
-                      <strong>4. Limitation of Liability:</strong> Mindtrix Media provides services to optimize advertising performance. We do not guarantee specific numerical ad conversions or third-party platform algorithm performance.
-                    </p>
-                    <p className="text-neutral-400 text-xs pt-2">Last updated: 2026. For inquiries, contact legal@mindtrixmedia.com.</p>
-                  </>
-                )}
-              </div>
-
-              <div className="px-6 sm:px-7 py-4 bg-neutral-50 border-t border-neutral-100 flex justify-end">
-                <button
-                  onClick={() => setActiveLegal(null)}
-                  className="px-5 py-2 bg-neutral-900 hover:bg-black text-white text-xs font-bold rounded-full transition-all cursor-pointer"
-                >
-                  Understood
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
   );
 };
