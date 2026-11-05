@@ -44,5 +44,8 @@ export default defineConfig(({ mode }) => {
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: disableHmr ? null : {},
     },
+    build: {
+      chunkSizeWarningLimit: 1000,
+    },
   };
 });
