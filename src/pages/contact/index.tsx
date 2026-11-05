@@ -27,6 +27,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
   const [projectModel, setProjectModel] = useState<'Per Project' | 'Monthly Subscription'>('Per Project');
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [requirements, setRequirements] = useState('');
+  const [formError, setFormError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -65,15 +66,27 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
   const displayBrands = [...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS];
 
   const toggleService = (srv: string) => {
-    setSelectedServices((prev) =>
-      prev.includes(srv) ? prev.filter((s) => s !== srv) : [...prev, srv]
-    );
+    setSelectedServices((prev) => {
+      const next = prev.includes(srv) ? prev.filter((s) => s !== srv) : [...prev, srv];
+      if (next.length > 0 && formError.includes('service')) {
+        setFormError('');
+      }
+      return next;
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !phone) return;
+    if (!name || !phone) {
+      setFormError('Please fill in your name and phone number.');
+      return;
+    }
+    if (selectedServices.length === 0) {
+      setFormError('Please select at least one service needed.');
+      return;
+    }
 
+    setFormError('');
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
@@ -88,6 +101,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
     setProjectModel('Per Project');
     setSelectedServices([]);
     setRequirements('');
+    setFormError('');
     setIsSubmitted(false);
   };
 
@@ -298,7 +312,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                           Message Sent Successfully!
                         </h3>
                         <p className="text-neutral-600 text-sm max-w-sm mb-6 leading-relaxed">
-                          Thank you, <strong className="text-neutral-900">{name}</strong>. We've received your project requirements for <span className="font-semibold text-[#3d2035]">{projectModel}</span> and our production lead will reach out to <strong className="text-neutral-900">{email}</strong> shortly.
+                          Thank you, <strong className="text-neutral-900">{name}</strong>. We've received your project requirements for <span className="font-semibold text-[#3d2035]">{projectModel}</span> and our production lead will reach out to <strong className="text-neutral-900">{email || phone}</strong> shortly.
                         </p>
                         <button
                           onClick={resetForm}
@@ -340,14 +354,13 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                           />
                         </div>
 
-                        {/* 3. Business Email (matching home bottom form) */}
+                        {/* 3. Business Email (optional) */}
                         <div>
                           <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-1.5">
-                            Business Email<span className="text-rose-500">*</span>
+                            Email Address <span className="text-neutral-400 font-normal">(optional)</span>
                           </label>
                           <input
                             type="email"
-                            required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="hello@yourbrand.com"
@@ -355,10 +368,10 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                           />
                         </div>
 
-                        {/* 4. Plan / Engagement Type: Per Project or Monthly (instead of platforms) */}
+                        {/* 4. Plan Selection (Default Selected) */}
                         <div>
                           <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-2">
-                            Engagement Type
+                            Select Plan<span className="text-rose-500">*</span>
                           </label>
                           <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
                             {PROJECT_MODELS.map((model) => {
@@ -388,10 +401,11 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                           </div>
                         </div>
 
-                        {/* 5. Services Needed (Custom Multi-Select Dropdown based on Website Theme) */}
+                        {/* 5. Services Needed (Compulsory Multi-Select Dropdown) */}
                         <div>
                           <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-1.5">
-                            Services Needed <span className="text-neutral-400 font-normal">(select multiple)</span>
+                            Services Needed<span className="text-rose-500">*</span>{' '}
+                            <span className="text-neutral-400 font-normal">(select one or more)</span>
                           </label>
                           <div ref={dropdownRef} className="relative">
                             {/* Trigger Button */}
@@ -400,7 +414,9 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                               onClick={() => setIsDropdownOpen((prev) => !prev)}
                               className={`w-full px-4 py-3 sm:py-3.5 rounded-xl bg-neutral-100/80 border text-sm text-neutral-900 transition-all font-medium cursor-pointer flex items-center justify-between text-left select-none ${isDropdownOpen
                                 ? 'bg-white border-[#3d2035] ring-2 ring-[#3d2035]/10 shadow-xs'
-                                : 'border-neutral-200/80 hover:bg-neutral-100/90'
+                                : selectedServices.length === 0 && formError.includes('service')
+                                  ? 'border-rose-400 bg-rose-50/30'
+                                  : 'border-neutral-200/80 hover:bg-neutral-100/90'
                                 }`}
                             >
                               <div className="flex-1 flex items-center gap-1.5 pr-2 min-w-0 overflow-hidden flex-wrap">
@@ -497,6 +513,13 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                             className="w-full px-4 py-3 rounded-xl bg-neutral-100/80 border border-neutral-200/80 text-sm text-neutral-900 placeholder-neutral-400 focus:bg-white focus:border-[#3d2035] focus:ring-2 focus:ring-[#3d2035]/10 outline-none transition-all font-medium resize-none"
                           />
                         </div>
+
+                        {/* Form Error Banner if compulsory fields missing */}
+                        {formError && (
+                          <div className="px-3.5 py-2.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-600 text-xs font-semibold text-center animate-shake">
+                            {formError}
+                          </div>
+                        )}
 
                         {/* 8. Submit Button in Website Theme */}
                         <button
