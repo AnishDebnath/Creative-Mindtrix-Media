@@ -8,7 +8,7 @@ import { ProductImages } from './ProductImages';
 import { ProductVideos } from './ProductVideos';
 import { Testimonials } from './Testimonials';
 import { Pricing } from './Pricing';
-import { Faq } from './Faq';
+import { Faq } from '@/components/sections/Faq';
 
 const noop = () => { };
 

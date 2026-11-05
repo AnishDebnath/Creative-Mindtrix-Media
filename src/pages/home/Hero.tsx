@@ -7,7 +7,7 @@ import { Profile } from '@/types';
 import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
 import { VIDEOS } from '@/data/videos';
 import { IMAGES } from '@/data/images';
-import { Brands } from './Brands';
+import { Brands } from '@/components/sections/Brands';
 import { LazyVideo } from '@/components/ui/LazyVideo';
 
 const ferreriVideo = VIDEOS['streetwear-ferreri'].videoSrc;

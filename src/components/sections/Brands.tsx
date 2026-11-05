@@ -7,38 +7,45 @@ export interface BrandItem {
   logoUrl: string;
 }
 
-// ponytail: brand logos from Cloudinary "mindtrix media" -> "brand logo" folder
+// Brand logos from Cloudinary "mindtrix media" -> "brand logo" folder
 export const BRAND_LOGOS: BrandItem[] = [
   {
     id: 'tph',
     name: 'The Photographer House',
-    logoUrl: getCloudinaryImage('tph.png') || 'https://res.cloudinary.com/mindtrix-media/image/upload/f_auto,q_auto,e_trim/tph_gfjmyo.png',
+    logoUrl:
+      getCloudinaryImage('tph.png') ||
+      'https://res.cloudinary.com/mindtrix-media/image/upload/f_auto,q_auto,e_trim/tph_gfjmyo.png',
   },
   {
     id: 'charu',
     name: 'Charu Enterprise',
-    logoUrl: getCloudinaryImage('charu.png') || 'https://res.cloudinary.com/mindtrix-media/image/upload/f_auto,q_auto,e_trim/charu_ypwood.png',
+    logoUrl:
+      getCloudinaryImage('charu.png') ||
+      'https://res.cloudinary.com/mindtrix-media/image/upload/f_auto,q_auto,e_trim/charu_ypwood.png',
   },
   {
     id: 'gconnect',
     name: 'G Connect',
-    logoUrl: getCloudinaryImage('gconnect.png') || 'https://res.cloudinary.com/mindtrix-media/image/upload/f_auto,q_auto,e_trim/gconnect_gpyufu.png',
+    logoUrl:
+      getCloudinaryImage('gconnect.png') ||
+      'https://res.cloudinary.com/mindtrix-media/image/upload/f_auto,q_auto,e_trim/gconnect_gpyufu.png',
   },
   {
     id: 'crh',
     name: 'Camere Rental House',
-    logoUrl: getCloudinaryImage('crh.png') || 'https://res.cloudinary.com/mindtrix-media/image/upload/f_auto,q_auto,e_trim/crh_ctephp.png',
+    logoUrl:
+      getCloudinaryImage('crh.png') ||
+      'https://res.cloudinary.com/mindtrix-media/image/upload/f_auto,q_auto,e_trim/crh_ctephp.png',
   },
   {
     id: 'gold',
     name: 'Rajkiya Jewellers',
-    logoUrl: getCloudinaryImage('gold.png') || 'https://res.cloudinary.com/mindtrix-media/image/upload/f_auto,q_auto,e_trim/gold_zfz6i0.png',
+    logoUrl:
+      getCloudinaryImage('gold.png') ||
+      'https://res.cloudinary.com/mindtrix-media/image/upload/f_auto,q_auto,e_trim/gold_zfz6i0.png',
   },
 ];
 
-/**
- * Render brand logo image with refined, elegant size and subtle hover effect
- */
 const BrandLogoRender: React.FC<{ brand: BrandItem }> = ({ brand }) => {
   return (
     <img
@@ -52,7 +59,7 @@ const BrandLogoRender: React.FC<{ brand: BrandItem }> = ({ brand }) => {
 };
 
 export const Brands: React.FC<{ className?: string }> = ({ className = '' }) => {
-  // ponytail: repeat array 4 times for seamless continuous marquee loop
+  // Repeat array 4 times for seamless continuous marquee loop
   const displayBrands = [...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS];
 
   return (
@@ -74,8 +81,10 @@ export const Brands: React.FC<{ className?: string }> = ({ className = '' }) => 
         <div
           className="relative w-full overflow-hidden flex items-center py-2 sm:py-2.5"
           style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
+            maskImage:
+              'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
+            WebkitMaskImage:
+              'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
           }}
         >
           <div className="animate-marquee flex gap-8 sm:gap-14 md:gap-16 items-center shrink-0">
@@ -96,3 +105,4 @@ export const Brands: React.FC<{ className?: string }> = ({ className = '' }) => 
 };
 
 export default Brands;
+
