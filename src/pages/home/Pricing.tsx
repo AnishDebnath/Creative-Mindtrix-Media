@@ -8,8 +8,6 @@ import {
   Wand2,
   Layers,
   CheckCircle2,
-  Zap,
-  Infinity as InfinityIcon,
   TrendingUp,
   Shield,
   Star,
@@ -78,7 +76,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                 </div>
                 <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] text-[#3d2035] text-[11px] sm:text-xs font-bold border border-white/80 shadow-2xs">
                   <Star className="w-3.5 h-3.5 fill-[#d97736] text-[#d97736]" />
-                  <span>Single Sprint</span>
+                  <span>Base Plan</span>
                 </div>
               </div>
 
@@ -88,11 +86,13 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <span className="font-display text-4xl sm:text-[46px] font-black text-neutral-900 tracking-tight leading-none">
                     ₹999<span className="text-[#ed4f6c] ml-0.5">*</span>
                   </span>
-                  <span className="text-xs sm:text-sm font-semibold text-neutral-500">/ project onward</span>
+                  <span className="text-xs sm:text-sm font-semibold text-neutral-500">/ base starting price</span>
                 </div>
                 {/* Row 3: Tagline with Star Mark Explanation */}
-                <p className="text-[11.5px] sm:text-xs text-neutral-600 font-medium leading-relaxed mt-2">
-                  <span className="text-[#ed4f6c] font-bold mr-0.5">*</span>Starting price. Final quote set after concept, script & scope review.
+                <p className="text-[11px] sm:text-xs text-neutral-600 font-medium leading-normal mt-2">
+                  <span className="text-[#ed4f6c] font-bold mr-0.5">*</span>Includes <span className="font-bold text-neutral-900">10s video (9:16 or 16:9)</span>.
+                  <br className="hidden sm:block" />
+                  Final price depends on video length, concept, script & scope.
                 </p>
               </div>
             </div>
@@ -105,8 +105,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <Film className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Single Project Delivery</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Pay only for the specific creative work you need.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">10-Sec Video Included</h4>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Base deliverable in 9:16 vertical or 16:9 widescreen ratio.</p>
                 </div>
               </div>
 
@@ -117,7 +117,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Concept & Scripting</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Custom script, hooks, and creative direction.</p>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Final price depends on video length, concept, script & scope.</p>
                 </div>
               </div>
 
@@ -128,7 +128,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Scene & Asset Setup</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Lighting, background styling, and retouching.</p>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Lighting, background styling, retouching & audio sync.</p>
                 </div>
               </div>
 
@@ -139,7 +139,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-xs sm:text-[13px] font-bold text-neutral-900 leading-snug">Fast Ready Delivery</h4>
-                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">Turnaround aligned with your project timeline.</p>
+                  <p className="text-[11px] text-neutral-500 font-normal leading-tight mt-0.5">24–48 hr delivery tailored to your campaign launch.</p>
                 </div>
               </div>
             </div>
@@ -183,11 +183,13 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   <span className="font-display text-4xl sm:text-[46px] font-black text-white tracking-tight leading-none">
                     ₹4,999<span className="text-[#eda970] ml-0.5">*</span>
                   </span>
-                  <span className="text-xs sm:text-sm font-semibold text-white/80">/ month onward</span>
+                  <span className="text-xs sm:text-sm font-semibold text-white/80">/ base monthly price</span>
                 </div>
                 {/* Row 3: Tagline with Star Mark Explanation */}
-                <p className="text-[11.5px] sm:text-xs text-white/90 font-medium leading-relaxed mt-2">
-                  <span className="text-[#eda970] font-bold mr-0.5">*</span>Starting monthly retainer. Final quote set by project count & content volume.
+                <p className="text-[11px] sm:text-xs text-white/90 font-medium leading-normal mt-2">
+                  <span className="text-[#eda970] font-bold mr-0.5">*</span>Delivers <span className="font-bold text-white">6–7 videos per month (10s each)</span>.
+                  <br className="hidden sm:block" />
+                  Final price depends on video length, concept, script & scope.
                 </p>
               </div>
             </div>
@@ -197,22 +199,22 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
               {/* Feature 1 */}
               <div className="flex items-center gap-3.5">
                 <div className="w-10 h-10 rounded-xl bg-white/15 border border-white/15 text-[#eda970] flex items-center justify-center shrink-0 shadow-xs">
-                  <Zap className="w-4 h-4 fill-[#eda970]" />
+                  <Film className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Multiple Projects Coverage</h4>
-                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Designed for brands managing continuous campaigns.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">6–7 Videos Delivered Monthly</h4>
+                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Delivers 6–7 videos (10s duration each) per month.</p>
                 </div>
               </div>
 
               {/* Feature 2 */}
               <div className="flex items-center gap-3.5">
                 <div className="w-10 h-10 rounded-xl bg-white/15 border border-white/15 text-[#eda970] flex items-center justify-center shrink-0 shadow-xs">
-                  <InfinityIcon className="w-4 h-4" />
+                  <Wand2 className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Custom Content Quantity</h4>
-                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Set monthly volume of reels & images you need.</p>
+                  <h4 className="text-xs sm:text-[13px] font-bold text-white leading-snug">Concept & Scripting</h4>
+                  <p className="text-[11px] text-white/80 font-normal leading-tight mt-0.5">Final price depends on video length, concept, script & scope.</p>
                 </div>
               </div>
 
