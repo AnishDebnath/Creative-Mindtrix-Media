@@ -9,8 +9,6 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface FooterProps {
-  onOpenDownload?: (platform: 'ios' | 'android' | 'all') => void;
-  onOpenLegal?: (title: string) => void;
   onNavigateToHome?: () => void;
   onNavigateToImages?: () => void;
   onNavigateToReels?: () => void;

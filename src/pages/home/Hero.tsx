@@ -2,7 +2,6 @@ import React, { useMemo, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Sparkles, Home, Zap } from 'lucide-react';
 import { MARQUEE_PRODUCTS } from '@/data/marquee';
-import { Profile } from '@/types';
 
 import logoImg from '@/assets/Mindtrix-Media-Logo.jpeg';
 import { VIDEOS } from '@/data/videos';
@@ -17,16 +16,13 @@ const userAvatar = IMAGES['fashion-model-studio-pose'].src;
 const userAvatar2 = IMAGES['jewelry-elegant-necklace-portrait'].src;
 
 interface HeroProps {
-  onSelectProfile?: (profile: Profile) => void;
-  onSendReaction?: (emoji: string, profile: Profile) => void;
-  onOpenVideoChat?: () => void;
   onNavigateToImages?: () => void;
   onNavigateToReels?: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
   onNavigateToImages,
-  onNavigateToReels
+  onNavigateToReels,
 }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const isPointerDownRef = useRef(false);

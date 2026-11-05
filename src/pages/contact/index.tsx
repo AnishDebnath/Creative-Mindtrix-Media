@@ -2,12 +2,7 @@ import React from 'react';
 import { Hero } from './Hero';
 import { Faq } from '@/components/sections/Faq';
 
-interface ContactPageProps {
-  onNavigateToImages?: () => void;
-  onNavigateToReels?: () => void;
-}
-
-export const ContactPage: React.FC<ContactPageProps> = () => {
+export const ContactPage: React.FC = () => {
   return (
     <div className="w-full min-h-screen pt-0 pb-0">
       {/* 1. Hero Section (Contact Info + Form) */}

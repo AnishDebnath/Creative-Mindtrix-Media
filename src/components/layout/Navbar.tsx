@@ -11,8 +11,6 @@ interface NavbarProps {
     anchorId?: string,
     targetPath?: string
   ) => void;
-  onOpenLogin?: () => void;
-  onOpenVideoChat?: () => void;
   onScrollTo?: (id: string) => void;
 }
 

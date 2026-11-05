@@ -10,8 +10,6 @@ import { ContactPage } from '@/pages/contact';
 import { scrollToId } from '@/utils/scroll';
 import { updatePageSEO } from '@/utils/seo';
 
-const noop = () => { };
-
 // Helper to parse current URL route (handles both clean paths like /services and legacy/fallback hashes like #services)
 function parseRoute(): {
   page: 'home' | 'images' | 'reels' | 'contact';
@@ -125,8 +123,6 @@ export default function App() {
         currentPage={currentPage}
         currentPath={currentPath}
         onNavigate={navigateTo}
-        onOpenLogin={noop}
-        onOpenVideoChat={() => navigateTo('reels', undefined, '/videos')}
         onScrollTo={scrollToId}
       />
 
@@ -157,10 +153,7 @@ export default function App() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.28, ease: 'easeInOut' }}
             >
-              <ImagesPage
-                onBackToHome={() => navigateTo('home', undefined, '/')}
-                onNavigateToReels={() => navigateTo('reels', undefined, '/videos')}
-              />
+              <ImagesPage />
             </motion.div>
           )}
 
@@ -173,8 +166,6 @@ export default function App() {
               transition={{ duration: 0.28, ease: 'easeInOut' }}
             >
               <ReelsPage
-                onBackToHome={() => navigateTo('home', undefined, '/')}
-                onNavigateToImages={() => navigateTo('images', undefined, '/images')}
                 onNavigateToContact={() => navigateTo('contact', undefined, '/contact')}
               />
             </motion.div>
@@ -188,10 +179,7 @@ export default function App() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.28, ease: 'easeInOut' }}
             >
-              <ContactPage
-                onNavigateToImages={() => navigateTo('images', undefined, '/images')}
-                onNavigateToReels={() => navigateTo('reels', undefined, '/videos')}
-              />
+              <ContactPage />
             </motion.div>
           )}
         </AnimatePresence>
@@ -206,8 +194,6 @@ export default function App() {
 
       {/* Footer */}
       <Footer
-        onOpenDownload={noop}
-        onOpenLegal={noop}
         onNavigateToHome={() => navigateTo('home', undefined, '/')}
         onNavigateToImages={() => navigateTo('images', undefined, '/images')}
         onNavigateToReels={() => navigateTo('reels', undefined, '/videos')}

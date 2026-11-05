@@ -1,21 +1,3 @@
-export interface Profile {
-  id: string;
-  name: string;
-  age?: number;
-  country: string;
-  flag: string;
-  city?: string;
-  isOnline: boolean;
-  avatar: string;
-  bio: string;
-  role?: string;
-  likesCount?: string;
-  commentsCount?: string;
-  sharesCount?: string;
-  interests?: string[];
-  badges?: string[];
-}
-
 export interface CreativeService {
   id: string;
   badge: string;

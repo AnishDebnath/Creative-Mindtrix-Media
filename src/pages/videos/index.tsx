@@ -10,8 +10,6 @@ import { VideoGrid } from './VideoGrid';
 import { VideoModal } from './VideoModal';
 
 interface ReelsPageProps {
-  onBackToHome?: () => void;
-  onNavigateToImages?: () => void;
   onNavigateToContact?: () => void;
 }
 

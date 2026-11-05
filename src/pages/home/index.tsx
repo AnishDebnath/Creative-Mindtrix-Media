@@ -10,8 +10,6 @@ import { Testimonials } from './Testimonials';
 import { Pricing } from './Pricing';
 import { Faq } from '@/components/sections/Faq';
 
-const noop = () => { };
-
 interface HomePageProps {
   onNavigateToImages: () => void;
   onNavigateToReels: () => void;
@@ -23,9 +21,6 @@ export function HomePage({ onNavigateToImages, onNavigateToReels, onNavigateToCo
     <div className="w-full">
       {/* Hero (including top Marquee, Centerpiece, and Brands Showcase) */}
       <Hero
-        onSelectProfile={noop}
-        onSendReaction={noop}
-        onOpenVideoChat={onNavigateToReels}
         onNavigateToImages={onNavigateToImages}
         onNavigateToReels={onNavigateToReels}
       />

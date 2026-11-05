@@ -5,12 +5,7 @@ import { CategoryFilter } from './CategoryFilter';
 import { Gallery } from './Gallery';
 import { ImageModal } from './ImageModal';
 
-interface ImagesPageProps {
-  onBackToHome?: () => void;
-  onNavigateToReels?: () => void;
-}
-
-export const ImagesPage: React.FC<ImagesPageProps> = () => {
+export const ImagesPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [scrollY, setScrollY] = useState(0);
