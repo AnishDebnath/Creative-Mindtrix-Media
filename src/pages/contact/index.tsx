@@ -4,11 +4,10 @@ import {
   Mail,
   Phone,
   MapPin,
-  CheckCircle2,
   Star,
   Send,
   Check,
-  ChevronDown
+  ChevronDown,
 } from 'lucide-react';
 import { IMAGES } from '@/data/images';
 import { BRAND_LOGOS } from '@/pages/home/Brands';
@@ -75,10 +74,23 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !phone) {
-      setFormError('Please fill in your name and phone number.');
+    if (!name.trim()) {
+      setFormError('Please enter your name or brand.');
+      return;
+    }
+    if (!phone.trim()) {
+      setFormError('Please enter your phone number.');
+      return;
+    }
+    if (phone.length < 10) {
+      setFormError('Please enter a valid phone number (at least 10 digits).');
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    if (!email.trim() || !emailRegex.test(email.trim())) {
+      setFormError('Please enter a valid email address (e.g. name@domain.com).');
       return;
     }
     if (selectedServices.length === 0) {
@@ -88,10 +100,36 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
     setFormError('');
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          phone: phone.trim(),
+          email: email.trim(),
+          projectModel,
+          selectedServices,
+          requirements: requirements.trim(),
+        }),
+      });
+
+      const data = (await res.json().catch(() => ({}))) as Record<string, any>;
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to send message. Please try again or reach out on WhatsApp.');
+      }
+
       setIsSubmitted(true);
-    }, 800);
+    } catch (err: any) {
+      console.error('Contact submission error:', err);
+      setFormError(err.message || 'Something went wrong. Please try again or message us on WhatsApp.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const resetForm = () => {
@@ -280,43 +318,55 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
             </div>
 
             {/* RIGHT COLUMN: CARD-BEHIND-CARD ARCHITECTURE */}
-            <div className="lg:col-span-6 w-full">
+            <div className="lg:col-span-6 w-full flex flex-col">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="w-full rounded-[28px] sm:rounded-[38px] md:rounded-[44px] overflow-hidden bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] shadow-[0_25px_70px_-15px_rgba(61,32,53,0.22)] border border-[#ebdce7]"
+                className="w-full h-full flex flex-col rounded-[28px] sm:rounded-[38px] md:rounded-[44px] overflow-hidden bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] shadow-[0_25px_70px_-15px_rgba(61,32,53,0.22)] border border-[#ebdce7]"
               >
                 {/* Behind Card Header matching reference image layout & clean font */}
-                <div className="px-4.5 sm:px-7 pt-4 sm:pt-5 pb-3.5 sm:pb-4.5 text-white select-none">
+                <div className="px-4.5 sm:px-7 pt-4 sm:pt-5 pb-3.5 sm:pb-4.5 text-white select-none shrink-0">
                   <h2 className="text-lg sm:text-[22px] font-bold tracking-tight text-white leading-tight">
                     Share your details with us.
                   </h2>
                 </div>
 
-                {/* Front White Form Card (Overlays on top with its own rounded-t border radius) */}
-                <div className="w-full rounded-t-[24px] sm:rounded-t-[34px] bg-white p-4 sm:p-7 shadow-sm relative z-10">
+                {/* Front White Form Card (Maintains same height and width, no reduction) */}
+                <div className="w-full flex-1 rounded-t-[24px] sm:rounded-t-[34px] bg-white p-4 sm:p-7 shadow-sm relative z-10 flex flex-col justify-center min-h-[580px] sm:min-h-[620px]">
                   <AnimatePresence mode="wait">
                     {isSubmitted ? (
                       <motion.div
                         key="success"
-                        initial={{ opacity: 0, scale: 0.95 }}
+                        initial={{ opacity: 0, scale: 0.96 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        className="py-12 px-4 flex flex-col items-center justify-center text-center"
+                        exit={{ opacity: 0, scale: 0.96 }}
+                        className="w-full flex-1 flex flex-col items-center justify-center text-center py-8 px-4 my-auto"
                       >
-                        <div className="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center text-emerald-600 mb-4 shadow-sm">
-                          <CheckCircle2 className="w-9 h-9" />
+                        {/* Clean Theme Badge */}
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-[#eda970] flex items-center justify-center mb-5 shadow-sm border border-[#ebdce7]">
+                          <Check className="w-7 h-7 sm:w-8 sm:h-8 stroke-[2.5]" />
                         </div>
-                        <h3 className="text-2xl font-display font-black text-neutral-900 tracking-tight mb-2">
+
+                        {/* Title */}
+                        <h3 className="text-xl sm:text-2xl font-display font-black text-neutral-900 tracking-tight mb-2.5">
                           Message Sent Successfully!
                         </h3>
-                        <p className="text-neutral-600 text-sm max-w-sm mb-6 leading-relaxed">
-                          Thank you, <strong className="text-neutral-900">{name}</strong>. We've received your project requirements for <span className="font-semibold text-[#3d2035]">{projectModel}</span> and our production lead will reach out to <strong className="text-neutral-900">{email || phone}</strong> shortly.
+
+                        {/* Description */}
+                        <p className="text-xs sm:text-sm text-neutral-600 max-w-sm mb-6 leading-relaxed">
+                          Thank you, <strong className="text-neutral-900">{name}</strong>. We've received your inquiry for <span className="font-semibold text-[#3d2035]">{projectModel}</span>. Our team will reach out to <strong className="text-neutral-900">{phone}</strong> shortly.
+                          {email && (
+                            <span className="block mt-2 text-xs text-neutral-500">
+                              A confirmation copy has been sent to <strong className="text-neutral-700">{email}</strong>.
+                            </span>
+                          )}
                         </p>
+
+                        {/* Action Button */}
                         <button
                           onClick={resetForm}
-                          className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                          className="px-6 py-3 rounded-full bg-gradient-to-r from-[#dcc6d5] via-[#cfc1ee] to-[#eda970] hover:opacity-95 text-neutral-900 font-display text-xs sm:text-sm font-black tracking-wider uppercase transition-all cursor-pointer shadow-sm active:scale-[0.98]"
                         >
                           Send Another Inquiry
                         </button>
@@ -339,31 +389,42 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                           />
                         </div>
 
-                        {/* 2. Phone / WhatsApp (matching home bottom form) */}
+                        {/* 2. Phone / WhatsApp (Only numbers allowed) */}
                         <div>
                           <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-1.5">
                             Phone / WhatsApp<span className="text-rose-500">*</span>
                           </label>
                           <input
                             type="tel"
+                            inputMode="numeric"
+                            pattern="[0-9]*"
                             required
                             value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                            placeholder="+91 98765 43210 or with country code"
+                            onChange={(e) => {
+                              const onlyDigits = e.target.value.replace(/[^0-9]/g, '');
+                              setPhone(onlyDigits);
+                              if (formError.includes('phone') || formError.includes('number')) setFormError('');
+                            }}
+                            placeholder="e.g. 9876543210"
+                            maxLength={15}
                             className="w-full px-4 py-3 sm:py-3.5 rounded-xl bg-neutral-100/80 border border-neutral-200/80 text-sm text-neutral-900 placeholder-neutral-400 focus:bg-white focus:border-[#3d2035] focus:ring-2 focus:ring-[#3d2035]/10 outline-none transition-all font-medium"
                           />
                         </div>
 
-                        {/* 3. Business Email (optional) */}
+                        {/* 3. Email Address (Compulsory & Validated) */}
                         <div>
                           <label className="block text-xs sm:text-[13px] font-bold text-neutral-900 mb-1.5">
-                            Email Address <span className="text-neutral-400 font-normal">(optional)</span>
+                            Email Address<span className="text-rose-500">*</span>
                           </label>
                           <input
                             type="email"
+                            required
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="hello@yourbrand.com"
+                            onChange={(e) => {
+                              setEmail(e.target.value);
+                              if (formError.includes('email') || formError.includes('mail')) setFormError('');
+                            }}
+                            placeholder="yourname@yourbrand.com"
                             className="w-full px-4 py-3 sm:py-3.5 rounded-xl bg-neutral-100/80 border border-neutral-200/80 text-sm text-neutral-900 placeholder-neutral-400 focus:bg-white focus:border-[#3d2035] focus:ring-2 focus:ring-[#3d2035]/10 outline-none transition-all font-medium"
                           />
                         </div>
