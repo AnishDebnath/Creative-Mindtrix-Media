@@ -160,25 +160,30 @@ export const TermsAndConditionsContent: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-30px' }}
           transition={{ duration: 0.4, delay: idx * 0.03 }}
-          className="relative overflow-hidden rounded-[24px] sm:rounded-[30px] bg-gradient-to-br from-white via-[#fefaf8] to-[#faf4f9] p-6 sm:p-8 md:p-10 border border-[#ebdce7] shadow-[0_10px_35px_-10px_rgba(61,32,53,0.07)] hover:shadow-[0_16px_40px_-10px_rgba(61,32,53,0.12)] hover:border-[#dcc6d5] transition-all duration-300 group"
+          className="relative overflow-hidden rounded-[24px] sm:rounded-[30px] bg-gradient-to-br from-white via-[#fefaf8] to-[#faf4f9] p-5 sm:p-8 md:p-10 border border-[#ebdce7] shadow-[0_10px_35px_-10px_rgba(61,32,53,0.07)] hover:shadow-[0_16px_40px_-10px_rgba(61,32,53,0.12)] hover:border-[#dcc6d5] transition-all duration-300 group"
         >
           {/* Subtle Ambient Corner Lighting */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#faede5]/30 via-[#f7edf5]/20 to-transparent rounded-full blur-2xl pointer-events-none -z-0" />
 
-          {/* Header Row */}
-          <div className="relative z-10 flex items-start sm:items-center justify-between gap-4 mb-5 sm:mb-6 pb-4 sm:pb-5 border-b border-[#ebdce7]/70">
-            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-[#faede5] via-[#f7edf5] to-[#eae3fb] border border-[#ebdce7] flex items-center justify-center shrink-0 shadow-xs text-[#3d2035] group-hover:scale-105 transition-transform">
-                {section.icon}
-              </div>
-              <h2 className="font-display text-lg sm:text-xl md:text-2xl font-black text-neutral-900 uppercase tracking-tight">
-                {section.title}
-              </h2>
+          {/* Header Row: Perfectly aligned on mobile (top emblem + badge, full title) and desktop (single flex row) */}
+          <div className="relative z-10 grid grid-cols-[auto_1fr] sm:flex sm:items-center sm:justify-between gap-x-3.5 gap-y-3 sm:gap-4 mb-5 sm:mb-6 pb-4 sm:pb-5 border-b border-[#ebdce7]/70">
+            {/* Icon: Row 1 Col 1 on mobile, 1st item on desktop */}
+            <div className="col-start-1 row-start-1 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#faede5] via-[#f7edf5] to-[#eae3fb] border border-[#ebdce7] flex items-center justify-center shrink-0 shadow-xs text-[#3d2035] group-hover:scale-105 transition-transform sm:order-1">
+              {section.icon}
             </div>
-            <span className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-[#eda970] font-mono text-xs sm:text-[13px] font-bold border border-white/15 shadow-xs shrink-0 tracking-wider">
-              <span>ARTICLE</span>
-              <span>{section.number}</span>
-            </span>
+
+            {/* Badge: Row 1 Col 2 on mobile (aligned right), 3rd item on desktop */}
+            <div className="col-start-2 row-start-1 flex justify-end items-center sm:order-3">
+              <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 rounded-full bg-gradient-to-r from-[#2f182a] via-[#3d2035] to-[#542947] text-[#eda970] font-mono text-xs sm:text-[13px] font-bold border border-white/15 shadow-xs shrink-0 tracking-wider">
+                <span>ARTICLE</span>
+                <span>{section.number}</span>
+              </span>
+            </div>
+
+            {/* Title: Row 2 Col 1-2 (full-width) on mobile, 2nd item (flex-1) on desktop */}
+            <h2 className="col-span-2 sm:col-auto font-display text-base sm:text-xl md:text-2xl font-black text-neutral-900 uppercase tracking-tight leading-snug sm:order-2 sm:flex-1 sm:min-w-0">
+              {section.title}
+            </h2>
           </div>
 
           {/* Paragraphs with structured highlight cards */}
@@ -244,7 +249,7 @@ export const TermsAndConditionsContent: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.45 }}
-        className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] bg-gradient-to-br from-[#fbf5f1] via-[#f7edf5] to-[#f0e9f8] p-6 sm:p-9 md:p-12 border border-[#ebdce7] shadow-[0_20px_50px_-20px_rgba(220,198,213,0.5)] flex flex-col justify-between"
+        className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] bg-gradient-to-br from-[#fbf5f1] via-[#f7edf5] to-[#f0e9f8] p-5 sm:p-9 md:p-12 border border-[#ebdce7] shadow-[0_20px_50px_-20px_rgba(220,198,213,0.5)] flex flex-col justify-between"
       >
         {/* Subtle Ambient Radial Lighting */}
         <div className="absolute -top-24 -right-24 w-80 h-80 bg-gradient-to-br from-[#dcc6d5]/40 via-[#cfc1ee]/30 to-[#eda970]/30 rounded-full blur-3xl pointer-events-none -z-0" />
