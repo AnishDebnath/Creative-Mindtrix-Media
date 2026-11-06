@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Star } from 'lucide-react';
 import { IMAGES } from '@/data/images';
-import { BRAND_LOGOS } from '@/components/sections/Brands';
+import { Brands } from '@/components/sections/Brands';
 
 export const ContactInfo: React.FC = () => {
   // Creator avatars for top-left social proof
@@ -11,9 +11,6 @@ export const ContactInfo: React.FC = () => {
     IMAGES['jewelry-elegant-necklace-portrait']?.src,
     IMAGES['fashion-deep-red-studio']?.src,
   ].filter(Boolean);
-
-  // Seamless continuous loop marquee
-  const displayBrands = [...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS, ...BRAND_LOGOS];
 
   return (
     <div className="lg:col-span-6 flex flex-col justify-between py-2 sm:py-4">
@@ -130,33 +127,7 @@ export const ContactInfo: React.FC = () => {
           </h3>
         </div>
 
-        <div
-          className="relative w-full overflow-hidden flex items-center py-2 sm:py-2.5"
-          style={{
-            maskImage:
-              'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
-            WebkitMaskImage:
-              'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
-          }}
-        >
-          <div className="animate-marquee flex gap-8 sm:gap-14 md:gap-16 items-center shrink-0">
-            {displayBrands.map((brand, idx) => (
-              <div
-                key={`${brand.id}-${idx}`}
-                className="shrink-0 flex items-center justify-center cursor-pointer select-none"
-                title={brand.name}
-              >
-                <img
-                  src={brand.logoUrl}
-                  alt={`${brand.name} partner logo`}
-                  className="h-6 sm:h-8 md:h-10 w-auto max-w-[115px] sm:max-w-[155px] md:max-w-[175px] object-contain opacity-85 hover:opacity-100 transition-opacity duration-200 select-none pointer-events-none"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <Brands hideHeading />
       </div>
     </div>
   );

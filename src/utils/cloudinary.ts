@@ -75,21 +75,33 @@ export const VIDEO_TO_SUBFOLDER: Record<string, string> = {
  * Cloudinary image asset public paths and transforms (e.g. brand logos)
  */
 export const CLOUDINARY_IMAGE_PATHS: Record<string, string> = {
-  "tph.png": "f_auto,q_auto,e_trim/tph_gfjmyo.png",
-  "brand-logo/tph.png": "f_auto,q_auto,e_trim/tph_gfjmyo.png",
-  "tph_gfjmyo.png": "f_auto,q_auto,e_trim/tph_gfjmyo.png",
-  "charu.png": "f_auto,q_auto,e_trim/charu_ypwood.png",
-  "brand-logo/charu.png": "f_auto,q_auto,e_trim/charu_ypwood.png",
-  "charu_ypwood.png": "f_auto,q_auto,e_trim/charu_ypwood.png",
-  "gconnect.png": "f_auto,q_auto,e_trim/gconnect_gpyufu.png",
-  "brand-logo/gconnect.png": "f_auto,q_auto,e_trim/gconnect_gpyufu.png",
-  "gconnect_gpyufu.png": "f_auto,q_auto,e_trim/gconnect_gpyufu.png",
-  "crh.png": "f_auto,q_auto,e_trim/crh_ctephp.png",
-  "brand-logo/crh.png": "f_auto,q_auto,e_trim/crh_ctephp.png",
-  "crh_ctephp.png": "f_auto,q_auto,e_trim/crh_ctephp.png",
-  "gold.png": "f_auto,q_auto,e_trim/gold_zfz6i0.png",
-  "brand-logo/gold.png": "f_auto,q_auto,e_trim/gold_zfz6i0.png",
-  "gold_zfz6i0.png": "f_auto,q_auto,e_trim/gold_zfz6i0.png",
+  // ponytail: 8 brand partner logos from Cloudinary
+  "biswabangla-nordic-association.png": "f_auto,q_auto,e_trim/v1793925903/biswabangla-nordic-association_goqgpa.png",
+  "biswabangla-durga-puja.png": "f_auto,q_auto,e_trim/v1793925903/biswabangla-nordic-association_goqgpa.png",
+  "biswabangla-nordic-association_goqgpa.png": "f_auto,q_auto,e_trim/v1793925903/biswabangla-nordic-association_goqgpa.png",
+
+  "tph.png": "f_auto,q_auto,e_trim/v1793925862/tph_uxgme0.png",
+  "tph_uxgme0.png": "f_auto,q_auto,e_trim/v1793925862/tph_uxgme0.png",
+
+  "rentalone.png": "f_auto,q_auto,e_trim/v1793925861/rentalone_boql4h.png",
+  "rentalone_boql4h.png": "f_auto,q_auto,e_trim/v1793925861/rentalone_boql4h.png",
+
+  "gold.png": "f_auto,q_auto,e_trim/v1793925860/gold_k93jg3.png",
+  "gold_k93jg3.png": "f_auto,q_auto,e_trim/v1793925860/gold_k93jg3.png",
+
+  "gconnect.png": "f_auto,q_auto,e_trim/v1793925859/gconnect_u7j8ik.png",
+  "gconnect_u7j8ik.png": "f_auto,q_auto,e_trim/v1793925859/gconnect_u7j8ik.png",
+
+  "garulink.png": "f_auto,q_auto,e_trim/v1793925858/garulink_q46ens.png",
+  "garulink_q46ens.png": "f_auto,q_auto,e_trim/v1793925858/garulink_q46ens.png",
+
+  "charu.png": "f_auto,q_auto,e_trim/v1793925857/charu-enterpirse_au6dwo.png",
+  "charu-enterprise.png": "f_auto,q_auto,e_trim/v1793925857/charu-enterpirse_au6dwo.png",
+  "charu-enterpirse_au6dwo.png": "f_auto,q_auto,e_trim/v1793925857/charu-enterpirse_au6dwo.png",
+
+  "crh.png": "f_auto,q_auto,e_trim/v1793925856/camera-rental-house_fwd1t7.png",
+  "camera-rental-house.png": "f_auto,q_auto,e_trim/v1793925856/camera-rental-house_fwd1t7.png",
+  "camera-rental-house_fwd1t7.png": "f_auto,q_auto,e_trim/v1793925856/camera-rental-house_fwd1t7.png",
   "confident-red-tee-streetwear-portrait.jpg": "confident-red-tee-streetwear-portrait_ld8eoq.jpg",
   "deep-red-studio-fashion-portrait.jpg": "deep-red-studio-fashion-portrait_apckdw.jpg",
   "editorial-fashion-model-studio-pose.jpg": "editorial-fashion-model-studio-pose_x186w8.jpg",

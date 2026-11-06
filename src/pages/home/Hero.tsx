@@ -25,6 +25,7 @@ export const Hero: React.FC<HeroProps> = ({
   onNavigateToReels,
 }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
+  const scrollPosRef = useRef<number>(0);
   const isPointerDownRef = useRef(false);
   const startXRef = useRef(0);
   const startScrollLeftRef = useRef(0);
@@ -43,6 +44,7 @@ export const Hero: React.FC<HeroProps> = ({
       const oneSetWidth = container.scrollWidth / 3;
       if (oneSetWidth > 0) {
         container.scrollLeft = oneSetWidth;
+        scrollPosRef.current = oneSetWidth;
       }
     }
   }, []);
@@ -59,14 +61,20 @@ export const Hero: React.FC<HeroProps> = ({
 
       const container = sliderRef.current;
       if (container && !isPointerDownRef.current && !isHoveredRef.current) {
-        container.scrollLeft += speed * delta;
         const oneSetWidth = container.scrollWidth / 3;
         if (oneSetWidth > 0) {
-          if (container.scrollLeft >= oneSetWidth * 2) {
-            container.scrollLeft -= oneSetWidth;
-          } else if (container.scrollLeft <= 0) {
-            container.scrollLeft += oneSetWidth;
+          if (scrollPosRef.current === 0) {
+            scrollPosRef.current = container.scrollLeft || oneSetWidth;
           }
+          scrollPosRef.current += speed * delta;
+
+          if (scrollPosRef.current >= oneSetWidth * 2) {
+            scrollPosRef.current -= oneSetWidth;
+          } else if (scrollPosRef.current <= 0) {
+            scrollPosRef.current += oneSetWidth;
+          }
+
+          container.scrollLeft = scrollPosRef.current;
         }
       }
 
@@ -83,6 +91,7 @@ export const Hero: React.FC<HeroProps> = ({
     startXRef.current = e.clientX;
     if (sliderRef.current) {
       startScrollLeftRef.current = sliderRef.current.scrollLeft;
+      scrollPosRef.current = sliderRef.current.scrollLeft;
     }
   };
 
@@ -92,23 +101,28 @@ export const Hero: React.FC<HeroProps> = ({
     if (Math.abs(dx) > 6) {
       hasDraggedRef.current = true;
     }
-    sliderRef.current.scrollLeft = startScrollLeftRef.current - dx;
-
-    // Wrap seamlessly while dragging in either direction
+    const nextScroll = startScrollLeftRef.current - dx;
     const oneSetWidth = sliderRef.current.scrollWidth / 3;
+
     if (oneSetWidth > 0) {
-      if (sliderRef.current.scrollLeft >= oneSetWidth * 2) {
-        sliderRef.current.scrollLeft -= oneSetWidth;
+      if (nextScroll >= oneSetWidth * 2) {
         startScrollLeftRef.current -= oneSetWidth;
-      } else if (sliderRef.current.scrollLeft <= 0) {
-        sliderRef.current.scrollLeft += oneSetWidth;
+        scrollPosRef.current = nextScroll - oneSetWidth;
+      } else if (nextScroll <= 0) {
         startScrollLeftRef.current += oneSetWidth;
+        scrollPosRef.current = nextScroll + oneSetWidth;
+      } else {
+        scrollPosRef.current = nextScroll;
       }
+      sliderRef.current.scrollLeft = scrollPosRef.current;
     }
   };
 
   const handlePointerUp = () => {
     isPointerDownRef.current = false;
+    if (sliderRef.current) {
+      scrollPosRef.current = sliderRef.current.scrollLeft;
+    }
   };
 
   return (
