@@ -1,8 +1,8 @@
 import React from 'react';
 import { Hero } from './Hero';
-import { TermsContent } from './TermsContent';
+import { TermsAndConditionsContent } from './TermsAndConditionsContent';
 
-export const TermsPage: React.FC = () => {
+export const TermsAndConditionsPage: React.FC = () => {
   return (
     <div
       className="relative w-full overflow-hidden"
@@ -36,9 +36,11 @@ export const TermsPage: React.FC = () => {
 
       <div className="relative w-full pt-4 pb-4 sm:pb-6 md:pb-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <Hero />
-        <TermsContent />
+        <TermsAndConditionsContent />
       </div>
     </div>
   );
 };
+
+export const TermsPage = TermsAndConditionsPage;
 

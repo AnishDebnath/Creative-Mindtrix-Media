@@ -10,12 +10,79 @@ import { VideoGrid } from './VideoGrid';
 import { VideoModal } from './VideoModal';
 
 interface ReelsPageProps {
+  currentPath?: string;
   onNavigateToContact?: () => void;
 }
 
-export const ReelsPage: React.FC<ReelsPageProps> = ({ onNavigateToContact }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+// ponytail: Helper to resolve active video category directly from URL path (/videos/luxury -> 'Luxury')
+const getVideoCategoryFromPath = (pathString?: string): string => {
+  const current = pathString || (typeof window !== 'undefined' ? window.location.pathname : '');
+  const clean = current.toLowerCase().replace(/\/+$/, '');
+  const match = clean.match(/^\/(?:videos|reels)\/(.+)$/);
+  if (match) {
+    const slug = match[1].replace(/[^a-z0-9]/g, '');
+    const found = CATEGORIES.find(
+      (c) =>
+        c !== 'All' &&
+        (c.toLowerCase().replace(/[^a-z0-9]/g, '') === slug ||
+          c.toLowerCase().replace(/[^a-z0-9]/g, '').startsWith(slug) ||
+          slug.startsWith(c.toLowerCase().replace(/[^a-z0-9]/g, '')))
+    );
+    if (found) return found;
+  }
+  return 'All';
+};
+
+export const ReelsPage: React.FC<ReelsPageProps> = ({ currentPath, onNavigateToContact }) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>(() => getVideoCategoryFromPath(currentPath));
   const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
+
+  // Sync category when URL changes (e.g. navigation or browser back/forward)
+  useEffect(() => {
+    setSelectedCategory(getVideoCategoryFromPath(currentPath));
+  }, [currentPath]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setSelectedCategory(getVideoCategoryFromPath());
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // When shared category URL is loaded directly, scroll down directly to that position
+  useEffect(() => {
+    const initialCat = getVideoCategoryFromPath();
+    if (initialCat !== 'All') {
+      const timer = setTimeout(() => {
+        const el = document.getElementById('video-category-filter');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 180);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleSelectCategory = (category: string) => {
+    setSelectedCategory(category);
+
+    const targetUrl =
+      category === 'All'
+        ? '/videos'
+        : `/videos/${category.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+
+    if (window.location.pathname !== targetUrl) {
+      window.history.pushState(null, '', targetUrl);
+    }
+
+    if (category !== 'All') {
+      const el = document.getElementById('video-category-filter');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   // Lock background scroll when video modal is open
   useEffect(() => {
@@ -80,7 +147,7 @@ export const ReelsPage: React.FC<ReelsPageProps> = ({ onNavigateToContact }) => 
         <CategoryFilter
           categories={CATEGORIES}
           selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
+          onSelectCategory={handleSelectCategory}
         />
 
         {/* All Videos Grid */}

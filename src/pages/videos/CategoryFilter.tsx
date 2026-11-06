@@ -14,10 +14,11 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
 }) => {
   return (
     <motion.div
+      id="video-category-filter"
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, delay: 0.15 }}
-      className="relative z-20 flex justify-center mb-12 px-2"
+      className="relative z-20 flex justify-center mb-12 px-2 scroll-mt-24"
     >
       <div className="inline-flex items-center p-1 sm:p-1.5 bg-[#f5ecf2]/80 backdrop-blur-md rounded-full border border-[#e8d5df] shadow-[0_4px_20px_-4px_rgba(220,198,213,0.5)] max-w-full overflow-x-auto scrollbar-none">
         {categories.map((cat) => {

@@ -41,12 +41,12 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   terms: {
     title: 'Terms and Conditions — Mindtrix Media',
     description: 'Read the terms of service, commercial usage rights, and project guidelines for Mindtrix Media AI creative and commercial video advertising services.',
-    canonical: 'https://creative.mindtrixmedia.com/terms',
+    canonical: 'https://creative.mindtrixmedia.com/terms-and-conditions',
   },
   privacy: {
     title: 'Privacy Policy — Mindtrix Media',
     description: 'Learn how Mindtrix Media collects, protects, and handles brand information, media assets, and client data.',
-    canonical: 'https://creative.mindtrixmedia.com/privacy',
+    canonical: 'https://creative.mindtrixmedia.com/privacy-policy',
   },
 };
 

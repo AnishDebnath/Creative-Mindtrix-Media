@@ -270,11 +270,11 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="/terms"
+                href="/terms-and-conditions"
                 onClick={(e) => {
                   e.preventDefault();
                   if (onNavigateToTerms) onNavigateToTerms();
-                  else window.location.href = '/terms';
+                  else window.location.href = '/terms-and-conditions';
                 }}
                 className="hover:text-white transition-colors cursor-pointer text-white/70"
               >
@@ -282,11 +282,11 @@ export const Footer: React.FC<FooterProps> = ({
               </a>
               <span className="text-white/40">·</span>
               <a
-                href="/privacy"
+                href="/privacy-policy"
                 onClick={(e) => {
                   e.preventDefault();
                   if (onNavigateToPrivacy) onNavigateToPrivacy();
-                  else window.location.href = '/privacy';
+                  else window.location.href = '/privacy-policy';
                 }}
                 className="hover:text-white transition-colors cursor-pointer text-white/70"
               >

@@ -5,10 +5,76 @@ import { CategoryFilter } from './CategoryFilter';
 import { Gallery } from './Gallery';
 import { ImageModal } from './ImageModal';
 
-export const ImagesPage: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+interface ImagesPageProps {
+  currentPath?: string;
+}
+
+// ponytail: Helper to resolve active category directly from URL path (/images/fashion -> 'Fashion')
+const getCategoryFromPath = (pathString?: string): string => {
+  const current = pathString || (typeof window !== 'undefined' ? window.location.pathname : '');
+  const clean = current.toLowerCase().replace(/\/+$/, '');
+  const match = clean.match(/^\/images\/(.+)$/);
+  if (match) {
+    const slug = match[1].replace(/[^a-z0-9]/g, '');
+    const found = IMAGE_CATEGORIES.find(
+      (c) => c !== 'All' && c.toLowerCase().replace(/[^a-z0-9]/g, '') === slug
+    );
+    if (found) return found;
+  }
+  return 'All';
+};
+
+export const ImagesPage: React.FC<ImagesPageProps> = ({ currentPath }) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>(() => getCategoryFromPath(currentPath));
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [scrollY, setScrollY] = useState(0);
+
+  // Sync category when URL changes (e.g. via navigation or browser back/forward)
+  useEffect(() => {
+    setSelectedCategory(getCategoryFromPath(currentPath));
+  }, [currentPath]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setSelectedCategory(getCategoryFromPath());
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // When shared category URL is loaded directly, scroll down directly to that showcase position
+  useEffect(() => {
+    const initialCat = getCategoryFromPath();
+    if (initialCat !== 'All') {
+      const timer = setTimeout(() => {
+        const el = document.getElementById('image-showcase-gallery');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 180);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleSelectCategory = (category: string) => {
+    setSelectedCategory(category);
+
+    const targetUrl =
+      category === 'All'
+        ? '/images'
+        : `/images/${category.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+
+    if (window.location.pathname !== targetUrl) {
+      window.history.pushState(null, '', targetUrl);
+    }
+
+    if (category !== 'All') {
+      const el = document.getElementById('image-showcase-gallery');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   const activeCategories = useMemo(() => {
     if (selectedCategory === 'All') {
@@ -100,7 +166,7 @@ export const ImagesPage: React.FC = () => {
         <CategoryFilter
           categories={IMAGE_CATEGORIES}
           selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
+          onSelectCategory={handleSelectCategory}
           categoryTextOpacity={categoryTextOpacity}
         />
 

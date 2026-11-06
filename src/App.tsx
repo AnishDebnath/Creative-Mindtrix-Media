@@ -7,8 +7,8 @@ import { HomePage } from '@/pages/home';
 import { ImagesPage } from '@/pages/images';
 import { ReelsPage } from '@/pages/videos';
 import { ContactPage } from '@/pages/contact';
-import { TermsPage } from '@/pages/terms';
-import { PrivacyPage } from '@/pages/privacy';
+import { TermsAndConditionsPage } from '@/pages/terms-and-conditions';
+import { PrivacyPolicyPage } from '@/pages/privacy-policy';
 import { scrollToId } from '@/utils/scroll';
 import { updatePageSEO } from '@/utils/seo';
 
@@ -23,20 +23,63 @@ function parseRoute(): {
   const rawPath = window.location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
   const rawHash = window.location.hash.toLowerCase().replace(/^#\/?/, '');
 
-  if (rawPath === '/terms' || rawPath === '/terms-and-conditions' || rawHash === 'terms' || rawHash === 'terms-and-conditions') {
-    return { page: 'terms', cleanPath: '/terms' };
+  if (
+    rawPath === '/terms-and-conditions' ||
+    rawPath === '/terms-conditions' ||
+    rawPath === '/terms-and-condition' ||
+    rawPath === '/terms' ||
+    rawHash === 'terms-and-conditions' ||
+    rawHash === 'terms-conditions' ||
+    rawHash === 'terms'
+  ) {
+    return { page: 'terms', cleanPath: '/terms-and-conditions' };
   }
-  if (rawPath === '/privacy' || rawPath === '/privacy-policy' || rawHash === 'privacy' || rawHash === 'privacy-policy') {
-    return { page: 'privacy', cleanPath: '/privacy' };
+  if (
+    rawPath === '/privacy-policy' ||
+    rawPath === '/privacy' ||
+    rawHash === 'privacy-policy' ||
+    rawHash === 'privacy'
+  ) {
+    return { page: 'privacy', cleanPath: '/privacy-policy' };
   }
   if (rawPath === '/contact' || rawHash === 'contact') {
     return { page: 'contact', cleanPath: '/contact' };
   }
-  if (rawPath === '/images' || rawHash === 'images') {
-    return { page: 'images', cleanPath: '/images' };
+  if (
+    rawPath === '/images' ||
+    rawPath.startsWith('/images/') ||
+    rawHash === 'images' ||
+    rawHash.startsWith('images/')
+  ) {
+    const sub = rawPath.startsWith('/images/')
+      ? rawPath.slice(8)
+      : rawHash.startsWith('images/')
+      ? rawHash.slice(7)
+      : '';
+    const cleanPath = sub ? `/images/${sub}` : '/images';
+    return { page: 'images', cleanPath };
   }
-  if (rawPath === '/videos' || rawPath === '/reels' || rawHash === 'videos' || rawHash === 'reels') {
-    return { page: 'reels', cleanPath: '/videos' };
+  if (
+    rawPath === '/videos' ||
+    rawPath.startsWith('/videos/') ||
+    rawPath === '/reels' ||
+    rawPath.startsWith('/reels/') ||
+    rawHash === 'videos' ||
+    rawHash.startsWith('videos/') ||
+    rawHash === 'reels' ||
+    rawHash.startsWith('reels/')
+  ) {
+    const sub = rawPath.startsWith('/videos/')
+      ? rawPath.slice(8)
+      : rawPath.startsWith('/reels/')
+      ? rawPath.slice(7)
+      : rawHash.startsWith('videos/')
+      ? rawHash.slice(7)
+      : rawHash.startsWith('reels/')
+      ? rawHash.slice(6)
+      : '';
+    const cleanPath = sub ? `/videos/${sub}` : '/videos';
+    return { page: 'reels', cleanPath };
   }
   if (rawPath === '/services' || rawHash === 'services') {
     return { page: 'home', sectionId: 'services', cleanPath: '/services' };
@@ -61,8 +104,8 @@ export default function App() {
       if (page === 'images') resolvedPath = '/images';
       else if (page === 'reels') resolvedPath = '/videos';
       else if (page === 'contact') resolvedPath = '/contact';
-      else if (page === 'terms') resolvedPath = '/terms';
-      else if (page === 'privacy') resolvedPath = '/privacy';
+      else if (page === 'terms') resolvedPath = '/terms-and-conditions';
+      else if (page === 'privacy') resolvedPath = '/privacy-policy';
       else if (sectionId === 'services') resolvedPath = '/services';
       else if (sectionId === 'pricing' || sectionId === 'price') resolvedPath = '/price';
       else resolvedPath = '/';
@@ -165,7 +208,7 @@ export default function App() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.28, ease: 'easeInOut' }}
             >
-              <ImagesPage />
+              <ImagesPage currentPath={currentPath} />
             </motion.div>
           )}
 
@@ -178,6 +221,7 @@ export default function App() {
               transition={{ duration: 0.28, ease: 'easeInOut' }}
             >
               <ReelsPage
+                currentPath={currentPath}
                 onNavigateToContact={() => navigateTo('contact', undefined, '/contact')}
               />
             </motion.div>
@@ -203,7 +247,7 @@ export default function App() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.28, ease: 'easeInOut' }}
             >
-              <TermsPage />
+              <TermsAndConditionsPage />
             </motion.div>
           )}
 
@@ -215,7 +259,7 @@ export default function App() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.28, ease: 'easeInOut' }}
             >
-              <PrivacyPage />
+              <PrivacyPolicyPage />
             </motion.div>
           )}
         </AnimatePresence>
@@ -235,8 +279,8 @@ export default function App() {
         onNavigateToReels={() => navigateTo('reels', undefined, '/videos')}
         onNavigateToContact={() => navigateTo('contact', undefined, '/contact')}
         onNavigateToServices={() => navigateTo('home', 'services', '/services')}
-        onNavigateToTerms={() => navigateTo('terms', undefined, '/terms')}
-        onNavigateToPrivacy={() => navigateTo('privacy', undefined, '/privacy')}
+        onNavigateToTerms={() => navigateTo('terms', undefined, '/terms-and-conditions')}
+        onNavigateToPrivacy={() => navigateTo('privacy', undefined, '/privacy-policy')}
       />
     </div>
   );

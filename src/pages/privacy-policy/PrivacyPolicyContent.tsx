@@ -153,7 +153,7 @@ const PRIVACY_SECTIONS: PrivacySection[] = [
   },
 ];
 
-export const PrivacyContent: React.FC = () => {
+export const PrivacyPolicyContent: React.FC = () => {
   return (
     <div className="relative z-10 space-y-6 sm:space-y-8 pb-16 sm:pb-20">
       {PRIVACY_SECTIONS.map((section, idx) => (
@@ -330,3 +330,6 @@ export const PrivacyContent: React.FC = () => {
     </div>
   );
 };
+
+export const PrivacyContent = PrivacyPolicyContent;
+

@@ -149,7 +149,7 @@ const TERMS_SECTIONS: TermSection[] = [
   },
 ];
 
-export const TermsContent: React.FC = () => {
+export const TermsAndConditionsContent: React.FC = () => {
   return (
     <div className="relative z-10 space-y-6 sm:space-y-8 pb-16 sm:pb-20">
       {TERMS_SECTIONS.map((section, idx) => (
@@ -326,3 +326,6 @@ export const TermsContent: React.FC = () => {
     </div>
   );
 };
+
+export const TermsContent = TermsAndConditionsContent;
+
